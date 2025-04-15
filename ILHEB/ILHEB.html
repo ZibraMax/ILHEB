@@ -756,13 +756,15 @@ global force vector and optionally to the global stiffness matrix.</p></li>
 </ol>
 </dd>
 </dl>
-<p class="rubric">Notes</p>
+<div class="admonition-notes admonition">
+<p class="admonition-title">Notes</p>
 <ul class="simple">
 <li><p>The stiffness matrix is stored in a sparse format for computational
 efficiency.</p></li>
 <li><p>The method assumes that each element and load object provides the
 necessary attributes (e.g., <cite>dof</cite>, <cite>T</cite>, <cite>ke</cite>, <cite>fe</cite>, <cite>Fn</cite>, <cite>Kn</cite>).</p></li>
 </ul>
+</div>
 </dd></dl>
 
 <dl class="py method">
@@ -774,12 +776,6 @@ The method adjusts the stiffness matrix and force vector to account for
 constraints specified in the <cite>ebc</cite> attribute of the geometry object.
 The <cite>ebc</cite> is expected to be an array where each row specifies a degree
 of freedom (DOF) and its corresponding constrained value.</p>
-<figure class="align-center" id="id65">
-<img alt="https://raw.githubusercontent.com/ZibraMax/FEM/master/Examples/examples_results/example1_1.png" src="https://raw.githubusercontent.com/ZibraMax/FEM/master/Examples/examples_results/example1_1.png" />
-<figcaption>
-<p><span class="caption-text">Serendipity (8 nodes 2D) element coordinate transformation and shape functions.</span><a class="headerlink" href="#id65" title="Link to this image">#</a></p>
-</figcaption>
-</figure>
 <dl class="field-list simple">
 <dt class="field-odd">Raises<span class="colon">:</span></dt>
 <dd class="field-odd"><p><strong>AttributeError</strong> – If <cite>self.geometry</cite> or <cite>self.geometry.ebc</cite> is not defined.</p>
@@ -808,13 +804,15 @@ diagram for each element.</p>
     and printed to the console.</p>
 </dd>
 </dl>
-<p class="rubric">Notes</p>
+<div class="admonition-notes admonition">
+<p class="admonition-title">Notes</p>
 <ul class="simple">
 <li><p>This method uses <cite>matplotlib.backends.backend_pdf.PdfPages</cite> to create a multi-page
 PDF document.</p></li>
 <li><p>All figures currently open in matplotlib (retrieved using <cite>plt.get_fignums()</cite>)
 will be included in the PDF.</p></li>
 </ul>
+</div>
 </dd></dl>
 
 <dl class="py method">
@@ -1164,9 +1162,11 @@ initialized to [0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11].</p>
 </dl>
 </dd></dl>
 
-<p class="rubric">Notes</p>
+<div class="admonition-notes admonition">
+<p class="admonition-title">Notes</p>
 <p>The <cite>pre_init</cite> method is called during initialization to perform any
 additional setup required for the element.</p>
+</div>
 <dl class="py method">
 <dt class="sig sig-object py" id="id4">
 <span class="sig-name descname"><span class="pre">add_load</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">load</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#id4" title="Link to this definition">#</a></dt>
@@ -1250,7 +1250,8 @@ The calculation is performed using the formula:</p>
 </p>
 </dd>
 </dl>
-<p class="rubric">Notes</p>
+<div class="admonition-notes admonition">
+<p class="admonition-title">Notes</p>
 <ul class="simple">
 <li><p><cite>h</cite> is the length of the beam element.</p></li>
 <li><p>The shape functions are defined in terms of the local coordinate <cite>z</cite> and are scaled</p></li>
@@ -1258,6 +1259,7 @@ The calculation is performed using the formula:</p>
 <p>by the element length <cite>h</cite>.
 - This function assumes that the Hermitian shape functions are used for beam elements
 in finite element analysis. (Euler bernoulli)</p>
+</div>
 </dd></dl>
 
 <dl class="py method">
@@ -1281,10 +1283,12 @@ Hermite shape functions at the given local coordinate(s).</p>
 </p>
 </dd>
 </dl>
-<p class="rubric">Notes</p>
+<div class="admonition-notes admonition">
+<p class="admonition-title">Notes</p>
 <p>The shape functions are defined in terms of the element length <cite>L</cite>
 (stored as <cite>self.L</cite>). The local coordinate <cite>z</cite> is mapped to the global
 coordinate <cite>x</cite> using the transformation: x = (L/2) * z + (L/2).</p>
+</div>
 </dd></dl>
 
 <dl class="py method">
@@ -1376,10 +1380,12 @@ self.L: The length of the element, calculated as the Euclidean</p>
 </div></blockquote>
 </dd>
 </dl>
-<p class="rubric">Notes</p>
+<div class="admonition-notes admonition">
+<p class="admonition-title">Notes</p>
 <p>This method also calls <cite>transformation_matrix</cite> and
 <cite>stiffness_matrix</cite>, which are element-dependent methods
 that must be implemented in the derived class.</p>
+</div>
 </dd></dl>
 
 <dl class="py method">
@@ -1761,12 +1767,14 @@ self.section.Iy (float): Moment of inertia about the y-axis.
 self.section.J (float): Polar moment of inertia.</p>
 </dd>
 </dl>
-<p class="rubric">Notes</p>
+<div class="admonition-notes admonition">
+<p class="admonition-title">Notes</p>
 <ul class="simple">
 <li><p>The stiffness matrix is symmetric and accounts for axial, bending,
 and torsional stiffness of the element. It does not account for shear deformation.</p></li>
 <li><p>The matrix is stored in the <cite>self.ke</cite> attribute for further use.</p></li>
 </ul>
+</div>
 </dd></dl>
 
 <dl class="py method">
@@ -2141,7 +2149,8 @@ If True, the function will display the generated force diagram using matplotlib.
 Defaults to True.</p>
 </dd>
 </dl>
-<p class="rubric">Notes</p>
+<div class="admonition-notes admonition">
+<p class="admonition-title">Notes</p>
 <ul class="simple">
 <li><p>The function calculates the internal forces (bending moment and shear force)</p></li>
 </ul>
@@ -2156,6 +2165,7 @@ determine internal forces.
 <li><p>The displacement profile of the element.</p></li>
 </ul>
 </div></blockquote>
+</div>
 <dl class="simple">
 <dt>Visualization:</dt><dd><ul class="simple">
 <li><p>The top-left subplot shows the schematic of the element with applied loads and reactions.</p></li>
@@ -2165,9 +2175,11 @@ determine internal forces.
 </ul>
 </dd>
 </dl>
-<p class="rubric">Example</p>
+<div class="admonition-example admonition">
+<p class="admonition-title">Example</p>
 <p>To generate and display the force diagram for element with ID 0:
 &gt;&gt;&gt; structure.force_diagram(element_id=0, plot=True)</p>
+</div>
 </dd></dl>
 
 <dl class="py method">
@@ -2184,13 +2196,15 @@ determine internal forces.
 Defaults to None.</p>
 </dd>
 </dl>
-<p class="rubric">Notes</p>
+<div class="admonition-notes admonition">
+<p class="admonition-title">Notes</p>
 <ul class="simple">
 <li><p>Nodes with boundary conditions are marked in red, while other nodes are marked in black.</p></li>
 <li><p>Elements are color-coded based on their section properties.</p></li>
 <li><p>The plot is displayed with equal axis scaling.</p></li>
 <li><p>If <cite>filename</cite> is specified, the plot is saved to the file instead of being displayed.</p></li>
 </ul>
+</div>
 </dd></dl>
 
 <dl class="py method">
@@ -2203,13 +2217,15 @@ Defaults to None.</p>
 :type n_points: int, optional
 :param filename: If provided, saves the plot to the specified file path. Default is None.
 :type filename: str, optional</p>
-<p class="rubric">Notes</p>
+<div class="admonition-notes admonition">
+<p class="admonition-title">Notes</p>
 <ul class="simple">
 <li><p>The method plots the original geometry of the structure in gray dashed lines and the deformed shape in black solid lines.</p></li>
 <li><p>Nodes are represented as black circles.</p></li>
 <li><p>Clicking on an element triggers the <cite>force_diagram</cite> method for the corresponding element.</p></li>
 <li><p>The plot is displayed with equal aspect ratio and axes turned off.</p></li>
 </ul>
+</div>
 </dd></dl>
 
 <dl class="py method">
@@ -2283,13 +2299,15 @@ It annotates the plot with the reaction force values for each constrained DOF.
 </ul>
 </dd>
 </dl>
-<p class="rubric">Notes</p>
+<div class="admonition-notes admonition">
+<p class="admonition-title">Notes</p>
 <ul class="simple">
 <li><p>The method assumes that <cite>self.constrained</cite> contains the indices of constrained DOFs.</p></li>
 <li><p><cite>self.node_dofs</cite> is a dictionary mapping nodes to their respective DOFs.</p></li>
 <li><p><cite>self.coords</cite> contains the coordinates of each node.</p></li>
 <li><p><cite>self.name_dofs_reactions</cite> provides the names of the DOFs for labeling purposes.</p></li>
 </ul>
+</div>
 <dl class="simple">
 <dt>Visualization:</dt><dd><ul class="simple">
 <li><p>Reaction forces are displayed as annotations near the corresponding nodes.</p></li>
@@ -2628,7 +2646,8 @@ are plotted as filled diagrams.
 <blockquote>
 <div><p>The ID of the structural element for which the force diagram is to be generated.</p>
 </div></blockquote>
-<p class="rubric">Notes</p>
+<div class="admonition-notes admonition">
+<p class="admonition-title">Notes</p>
 <ul class="simple">
 <li><p>The method uses the element’s material properties, section properties, and applied loads</p></li>
 </ul>
@@ -2636,6 +2655,7 @@ are plotted as filled diagrams.
 - The finite element mesh is divided into <cite>n</cite> segments for numerical integration.
 - Boundary conditions are applied to the stiffness matrix and force vector to account
 for constraints.</p>
+</div>
 <dl class="simple">
 <dt>Plots:</dt><dd><ul class="simple">
 <li><p>Subplot (1, 1): Bending moment diagram (My) for the element.</p></li>
@@ -2645,11 +2665,13 @@ for constraints.</p>
 </ul>
 </dd>
 </dl>
-<p class="rubric">Example</p>
+<div class="admonition-example admonition">
+<p class="admonition-title">Example</p>
 <dl class="simple">
 <dt>To generate the force diagram for element with ID 0:</dt><dd><p>geometry.force_diagram(0)</p>
 </dd>
 </dl>
+</div>
 </dd></dl>
 
 <dl class="py method">
@@ -2741,7 +2763,8 @@ This method performs the following steps:
 </dl>
 </dd></dl>
 
-<p class="rubric">Notes</p>
+<div class="admonition-notes admonition">
+<p class="admonition-title">Notes</p>
 <ul class="simple">
 <li><p>The <cite>self.ebc</cite> attribute should contain the essential boundary conditions
 as a list of tuples, where each tuple specifies a DOF and its value.</p></li>
@@ -2749,6 +2772,7 @@ as a list of tuples, where each tuple specifies a DOF and its value.</p></li>
 <li><p>The <cite>self.elements</cite> attribute is expected to be a list of element objects,
 each having <cite>nodes</cite>, <cite>releases</cite>, and methods <cite>set_coords</cite> and <cite>set_dof</cite>.</p></li>
 </ul>
+</div>
 <dl class="field-list simple">
 <dt class="field-odd">Raises<span class="colon">:</span></dt>
 <dd class="field-odd"><p><strong>AttributeError</strong> – If required attributes such as <cite>self.ebc</cite>, <cite>self.node_dofs</cite>,
@@ -2775,12 +2799,14 @@ The name of the file to save the plot. If not provided, the plot will not be sav
 </ul>
 </dd>
 </dl>
-<p class="rubric">Notes</p>
+<div class="admonition-notes admonition">
+<p class="admonition-title">Notes</p>
 <ul class="simple">
 <li><p>The method uses matplotlib for plotting.</p></li>
 <li><p>The plot is displayed with equal axis scaling.</p></li>
 <li><p>The color of each element is determined by its section, using a colormap.</p></li>
 </ul>
+</div>
 </dd></dl>
 
 <dl class="py method">
@@ -2876,13 +2902,15 @@ It annotates the plot with the reaction force values for each constrained DOF.
 </ul>
 </dd>
 </dl>
-<p class="rubric">Notes</p>
+<div class="admonition-notes admonition">
+<p class="admonition-title">Notes</p>
 <ul class="simple">
 <li><p>The method assumes that <cite>self.constrained</cite> contains the indices of constrained DOFs.</p></li>
 <li><p><cite>self.node_dofs</cite> is a dictionary mapping nodes to their respective DOFs.</p></li>
 <li><p><cite>self.coords</cite> contains the coordinates of each node.</p></li>
 <li><p><cite>self.name_dofs_reactions</cite> provides the names of the DOFs for labeling purposes.</p></li>
 </ul>
+</div>
 <dl class="simple">
 <dt>Visualization:</dt><dd><ul class="simple">
 <li><p>Reaction forces are displayed as annotations near the corresponding nodes.</p></li>
@@ -2982,9 +3010,11 @@ parent <cite>ElementLoad</cite> class with these values.
 </ul>
 </dd>
 </dl>
-<p class="rubric">Example</p>
+<div class="admonition-example admonition">
+<p class="admonition-title">Example</p>
 <p>element = SomeElementClass()
 load = DistributedLoad(element, WX=10, WY=5, WZ=0, axis=’global’)</p>
+</div>
 <p>Initializes a load object applied to a structural element.
 :param element: The structural element to which the load is applied.</p>
 <blockquote>
@@ -3046,7 +3076,8 @@ or ‘global’ coordinate system. Defaults to ‘local’.</p></li>
 </dl>
 </dd></dl>
 
-<p class="rubric">Notes</p>
+<div class="admonition-notes admonition">
+<p class="admonition-title">Notes</p>
 <ul class="simple">
 <li><p>If the load is defined in the global coordinate system, it is transformed
 to the local coordinate system using the element’s rotation matrix.</p></li>
@@ -3054,6 +3085,7 @@ to the local coordinate system using the element’s rotation matrix.</p></li>
 <cite>distributed_load</cite> method to compute equivalent nodal forces and moments.</p></li>
 <li><p>The computed forces and moments are passed to the <cite>ElementLoad</cite> initializer.</p></li>
 </ul>
+</div>
 <dl class="py method">
 <dt class="sig sig-object py" id="id50">
 <span class="sig-name descname"><span class="pre">distributed_load</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">w</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">L</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#id50" title="Link to this definition">#</a></dt>
@@ -3268,13 +3300,15 @@ Currently returns 0 for all inputs.</p>
 <dd class="field-odd"><p><strong>ValueError</strong> – If the position <cite>x</cite> is not within the range [0, L].</p>
 </dd>
 </dl>
-<p class="rubric">Notes</p>
+<div class="admonition-notes admonition">
+<p class="admonition-title">Notes</p>
 <ul class="simple">
 <li><p>The <cite>point_load</cite> method calculates the effects of the load on the element,
 including forces and moments at the ends of the element.</p></li>
 <li><p>The <cite>__call__</cite> method allows the object to be called as a function to retrieve
 the load components.</p></li>
 </ul>
+</div>
 <p>Initializes a load applied to a structural element.
 :param element: The structural element to which the load is applied.</p>
 <blockquote>
@@ -3294,13 +3328,15 @@ Must be between 0 and the element’s length <cite>L</cite>.</p></li>
 <dd class="field-even"><p><strong>ValueError</strong> – If <cite>x</cite> is not within the range [0, L].</p>
 </dd>
 </dl>
-<p class="rubric">Notes</p>
+<div class="admonition-notes admonition">
+<p class="admonition-title">Notes</p>
 <ul class="simple">
 <li><p>The method calculates the equivalent nodal forces and moments induced by the
 applied point loads in the Y and Z directions using the <cite>point_load</cite> method.</p></li>
 <li><p>Initializes the <cite>ElementLoad</cite> superclass with the calculated forces and moments.</p></li>
 <li><p>Sets the <cite>function</cite> attribute to False.</p></li>
 </ul>
+</div>
 <dl class="py method">
 <dt class="sig sig-object py" id="id53">
 <span class="sig-name descname"><span class="pre">point_load</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">f</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">L</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">x</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#id53" title="Link to this definition">#</a></dt>
@@ -3433,13 +3469,15 @@ Must be between 0 and the element’s length <cite>L</cite>.</p></li>
 <dd class="field-even"><p><strong>ValueError</strong> – If <cite>x</cite> is not within the range [0, L].</p>
 </dd>
 </dl>
-<p class="rubric">Notes</p>
+<div class="admonition-notes admonition">
+<p class="admonition-title">Notes</p>
 <ul class="simple">
 <li><p>The method calculates the equivalent point loads and moments at the ends of the element
 based on the applied moments and position <cite>x</cite>.</p></li>
 <li><p>The axial load calculation (MX) might need verification as indicated in the comment.</p></li>
 <li><p>Initializes the parent <cite>ElementLoad</cite> class with the calculated load dictionary.</p></li>
 </ul>
+</div>
 <dl class="py method">
 <dt class="sig sig-object py" id="id54">
 <span class="sig-name descname"><span class="pre">point_load</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">M</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">L</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">x</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#id54" title="Link to this definition">#</a></dt>
@@ -3775,7 +3813,8 @@ If not provided, it defaults to the material’s alpha value.</p>
 <dd><p>Returns a zero vector for the load distribution at a given position <cite>x</cite>.</p>
 </dd></dl>
 
-<p class="rubric">Notes</p>
+<div class="admonition-notes admonition">
+<p class="admonition-title">Notes</p>
 <ul class="simple">
 <li><p>The temperature load is calculated based on the material properties
 (modulus of elasticity <cite>E</cite>, coefficient of thermal expansion <cite>alpha</cite>)
@@ -3783,6 +3822,7 @@ and the section properties (area <cite>A</cite>, moments of inertia <cite>Iy</ci
 <li><p>The resulting load dictionary (<cite>dicy</cite>) includes axial forces (PXj, PXk),
 shear forces (PYj, PYk, PZj, PZk), and moments (MYj, MYk, MZj, MZk).</p></li>
 </ul>
+</div>
 <p>Initializes a thermal load object for a structural element.
 :param element: The structural element to which the thermal load is applied.
 :type element: Element
@@ -4338,7 +4378,8 @@ Inherits from:</p>
 </ul>
 </dd>
 </dl>
-<p class="rubric">Notes</p>
+<div class="admonition-notes admonition">
+<p class="admonition-title">Notes</p>
 <ul class="simple">
 <li><dl class="simple">
 <dt>The calculation of the polar moment of inertia (J) as the sum of Iz and Iy is an approximation</dt><dd><p>and may not be accurate for all cases.</p>
@@ -4346,6 +4387,7 @@ Inherits from:</p>
 </dl>
 </li>
 </ul>
+</div>
 <p>Initializes the section properties for a rectangular cross-section.
 :param Ly: The length of the section in the y-direction.
 :type Ly: float
