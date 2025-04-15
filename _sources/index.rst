@@ -11,7 +11,6 @@ Created by Arturo Rodriguez: da.rodriguezh@uniandes.edu.co, da.rodriguezh@rice.e
 .. automodule:: ILHEB
    :members:
    :autosummary:
-   :show-inheritance:
 
 
 .. .. autoclass:: ILHEB.Core
@@ -24,7 +23,13 @@ Created by Arturo Rodriguez: da.rodriguezh@uniandes.edu.co, da.rodriguezh@rice.e
    :maxdepth: 3
    :caption: Contents:
 
-   ILHEB/modules
+   ILHEB.Core
+   ILHEB.Geometry
+   ILHEB.Elements
+   ILHEB.Materials
+   ILHEB.Loads
+   ILHEB.Sections
+   ILHEB.Solver
    Examples/modules
    
    
