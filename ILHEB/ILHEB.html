@@ -256,14 +256,1643 @@
 <section id="ilheb-core-module">
 <h2>ILHEB.Core module<a class="headerlink" href="#ilheb-core-module" title="Link to this heading">¶</a></h2>
 </section>
-<section id="ilheb-elements-module">
-<h2>ILHEB.Elements module<a class="headerlink" href="#ilheb-elements-module" title="Link to this heading">¶</a></h2>
+<section id="module-ILHEB.Elements">
+<span id="ilheb-elements-module"></span><h2>ILHEB.Elements module<a class="headerlink" href="#module-ILHEB.Elements" title="Link to this heading">¶</a></h2>
+<dl class="py class">
+<dt class="sig sig-object py" id="ILHEB.Elements.Element">
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">ILHEB.Elements.</span></span><span class="sig-name descname"><span class="pre">Element</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">nodes</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">section</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">material</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#ILHEB.Elements.Element" title="Link to this definition">¶</a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">object</span></code></p>
+<p>Element Class
+This class represents a structural element in a finite element analysis. It provides methods for
+defining the element’s properties, calculating shape functions, stiffness matrices, and handling
+loads and displacements.
+.. attribute:: nodes</p>
+<blockquote>
+<div><p>List of node IDs associated with the element.</p>
+<dl class="field-list simple">
+<dt class="field-odd">type<span class="colon">:</span></dt>
+<dd class="field-odd"><p>list</p>
+</dd>
+</dl>
+</div></blockquote>
+<dl class="py attribute">
+<dt class="sig sig-object py" id="ILHEB.Elements.Element.section">
+<span class="sig-name descname"><span class="pre">section</span></span><a class="headerlink" href="#ILHEB.Elements.Element.section" title="Link to this definition">¶</a></dt>
+<dd><p>Cross-sectional properties of the element.</p>
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="ILHEB.Elements.Element.material">
+<span class="sig-name descname"><span class="pre">material</span></span><a class="headerlink" href="#ILHEB.Elements.Element.material" title="Link to this definition">¶</a></dt>
+<dd><p>Material properties of the element.</p>
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="ILHEB.Elements.Element.coords">
+<span class="sig-name descname"><span class="pre">coords</span></span><a class="headerlink" href="#ILHEB.Elements.Element.coords" title="Link to this definition">¶</a></dt>
+<dd><p>Coordinates of the element’s nodes.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Type<span class="colon">:</span></dt>
+<dd class="field-odd"><p>array</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="ILHEB.Elements.Element.true_dofs">
+<span class="sig-name descname"><span class="pre">true_dofs</span></span><a class="headerlink" href="#ILHEB.Elements.Element.true_dofs" title="Link to this definition">¶</a></dt>
+<dd><p>List of indices representing the active degrees of freedom.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Type<span class="colon">:</span></dt>
+<dd class="field-odd"><p>list</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="ILHEB.Elements.Element.loads">
+<span class="sig-name descname"><span class="pre">loads</span></span><a class="headerlink" href="#ILHEB.Elements.Element.loads" title="Link to this definition">¶</a></dt>
+<dd><p>List of loads applied to the element.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Type<span class="colon">:</span></dt>
+<dd class="field-odd"><p>list</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="ILHEB.Elements.Element.dof">
+<span class="sig-name descname"><span class="pre">dof</span></span><a class="headerlink" href="#ILHEB.Elements.Element.dof" title="Link to this definition">¶</a></dt>
+<dd><p>Degrees of freedom for the element.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Type<span class="colon">:</span></dt>
+<dd class="field-odd"><p>list</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="ILHEB.Elements.Element.releases">
+<span class="sig-name descname"><span class="pre">releases</span></span><a class="headerlink" href="#ILHEB.Elements.Element.releases" title="Link to this definition">¶</a></dt>
+<dd><p>Release conditions for the element.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Type<span class="colon">:</span></dt>
+<dd class="field-odd"><p>list</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="ILHEB.Elements.Element.fe">
+<span class="sig-name descname"><span class="pre">fe</span></span><a class="headerlink" href="#ILHEB.Elements.Element.fe" title="Link to this definition">¶</a></dt>
+<dd><p>Element force vector.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Type<span class="colon">:</span></dt>
+<dd class="field-odd"><p>array</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="ILHEB.Elements.Element.ke">
+<span class="sig-name descname"><span class="pre">ke</span></span><a class="headerlink" href="#ILHEB.Elements.Element.ke" title="Link to this definition">¶</a></dt>
+<dd><p>Element stiffness matrix.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Type<span class="colon">:</span></dt>
+<dd class="field-odd"><p>array</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="ILHEB.Elements.Element.U">
+<span class="sig-name descname"><span class="pre">U</span></span><a class="headerlink" href="#ILHEB.Elements.Element.U" title="Link to this definition">¶</a></dt>
+<dd><p>Displacement vector for the element.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Type<span class="colon">:</span></dt>
+<dd class="field-odd"><p>array</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="ILHEB.Elements.Element.pe">
+<span class="sig-name descname"><span class="pre">pe</span></span><a class="headerlink" href="#ILHEB.Elements.Element.pe" title="Link to this definition">¶</a></dt>
+<dd><p>Element internal force vector.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Type<span class="colon">:</span></dt>
+<dd class="field-odd"><p>array</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="ILHEB.Elements.Element.T">
+<span class="sig-name descname"><span class="pre">T</span></span><a class="headerlink" href="#ILHEB.Elements.Element.T" title="Link to this definition">¶</a></dt>
+<dd><p>Transformation matrix for the element.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Type<span class="colon">:</span></dt>
+<dd class="field-odd"><p>array</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="ILHEB.Elements.Element.__init__">
+<span class="sig-name descname"><span class="pre">__init__</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">nodes</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">section</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">material</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#ILHEB.Elements.Element.__init__" title="Link to this definition">¶</a></dt>
+<dd><p>Initializes the element with nodes, section, and material properties.</p>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="ILHEB.Elements.Element.lagrange_shape_functions">
+<span class="sig-name descname"><span class="pre">lagrange_shape_functions</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">z</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#ILHEB.Elements.Element.lagrange_shape_functions" title="Link to this definition">¶</a></dt>
+<dd><p>Computes the Lagrange shape functions for the element.</p>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="ILHEB.Elements.Element.hermit_shape_functions">
+<span class="sig-name descname"><span class="pre">hermit_shape_functions</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">z</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#ILHEB.Elements.Element.hermit_shape_functions" title="Link to this definition">¶</a></dt>
+<dd><p>Computes the Hermite shape functions for the element.</p>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="ILHEB.Elements.Element.dhermit_shape_functions">
+<span class="sig-name descname"><span class="pre">dhermit_shape_functions</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">z</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#ILHEB.Elements.Element.dhermit_shape_functions" title="Link to this definition">¶</a></dt>
+<dd><p>Computes the derivatives of the Hermite shape functions for the element.</p>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="ILHEB.Elements.Element.pre_init">
+<span class="sig-name descname"><span class="pre">pre_init</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#ILHEB.Elements.Element.pre_init" title="Link to this definition">¶</a></dt>
+<dd><p>Pre-initializes element attributes such as loads, degrees of freedom, and matrices.</p>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="ILHEB.Elements.Element.set_coords">
+<span class="sig-name descname"><span class="pre">set_coords</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">coords</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#ILHEB.Elements.Element.set_coords" title="Link to this definition">¶</a></dt>
+<dd><p>Sets the coordinates of the element’s nodes and calculates its length, transformation matrix,
+and stiffness matrix.</p>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="ILHEB.Elements.Element.set_releases">
+<span class="sig-name descname"><span class="pre">set_releases</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">releases</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#ILHEB.Elements.Element.set_releases" title="Link to this definition">¶</a></dt>
+<dd><p>Sets the release conditions for the element.</p>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="ILHEB.Elements.Element.set_dof">
+<span class="sig-name descname"><span class="pre">set_dof</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">dof</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#ILHEB.Elements.Element.set_dof" title="Link to this definition">¶</a></dt>
+<dd><p>Sets the degrees of freedom for the element.</p>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="ILHEB.Elements.Element.add_load">
+<span class="sig-name descname"><span class="pre">add_load</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">load</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#ILHEB.Elements.Element.add_load" title="Link to this definition">¶</a></dt>
+<dd><p>Adds a load to the element and updates the force vector.</p>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="ILHEB.Elements.Element.calculate_fe">
+<span class="sig-name descname"><span class="pre">calculate_fe</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#ILHEB.Elements.Element.calculate_fe" title="Link to this definition">¶</a></dt>
+<dd><p>Calculates the element’s force vector based on applied loads.</p>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="ILHEB.Elements.Element.set_displacements">
+<span class="sig-name descname"><span class="pre">set_displacements</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">U</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#ILHEB.Elements.Element.set_displacements" title="Link to this definition">¶</a></dt>
+<dd><p>Sets the displacement vector for the element.</p>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="ILHEB.Elements.Element.calculate_pe">
+<span class="sig-name descname"><span class="pre">calculate_pe</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#ILHEB.Elements.Element.calculate_pe" title="Link to this definition">¶</a></dt>
+<dd><p>Calculates the internal force vector for the element.</p>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="ILHEB.Elements.Element.save_results">
+<span class="sig-name descname"><span class="pre">save_results</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">base</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#ILHEB.Elements.Element.save_results" title="Link to this definition">¶</a></dt>
+<dd><p>Saves the element’s results (displacements, forces, stiffness matrix, etc.) to text files.</p>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="id0">
+<span class="sig-name descname"><span class="pre">add_load</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">load</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#id0" title="Link to this definition">¶</a></dt>
+<dd><p>Adds a load to the element and updates the element’s force vector.
+:param load: The load to be added. It must be an instance of the Load class or its subclasses.
+:type load: ElementLoad</p>
+<dl class="field-list simple">
+<dt class="field-odd">Raises<span class="colon">:</span></dt>
+<dd class="field-odd"><p><strong>TypeError</strong> – If the provided load is not an instance of the ElementLoad class or its subclasses.</p>
+</dd>
+</dl>
+<dl class="simple">
+<dt>Side Effects:</dt><dd><ul class="simple">
+<li><p>Appends the given load to the element’s list of loads.</p></li>
+<li><p>Recalculates the element’s force vector by calling the <cite>calculate_fe</cite> method.</p></li>
+</ul>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="id1">
+<span class="sig-name descname"><span class="pre">calculate_fe</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#id1" title="Link to this definition">¶</a></dt>
+<dd><p>Calculates and updates the element’s force vector (<cite>fe</cite>) based on the applied loads.
+This method iterates through all the loads applied to the element and accumulates
+their contributions to the force vector (<cite>fe</cite>) at the degrees of freedom (DOFs)
+specified by <cite>true_dofs</cite>.
+.. attribute:: fe</p>
+<blockquote>
+<div><p>The force vector of the element, updated in-place.</p>
+<dl class="field-list simple">
+<dt class="field-odd">type<span class="colon">:</span></dt>
+<dd class="field-odd"><p>numpy.ndarray</p>
+</dd>
+</dl>
+</div></blockquote>
+<dl class="field-list simple">
+<dt class="field-odd">Raises<span class="colon">:</span></dt>
+<dd class="field-odd"><p><strong>AttributeError</strong> – If <cite>loads</cite> or <cite>true_dofs</cite> are not properly defined or if the
+    load objects do not have the required <cite>p</cite> attribute.</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="id2">
+<span class="sig-name descname"><span class="pre">calculate_pe</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#id2" title="Link to this definition">¶</a></dt>
+<dd><p>Calculates the internal force vector <cite>pe</cite> for the element.
+The calculation is performed using the formula:</p>
+<blockquote>
+<div><p>pe = ke &#64; U + fe</p>
+</div></blockquote>
+<dl class="simple">
+<dt>where:</dt><dd><ul class="simple">
+<li><p><cite>ke</cite> is the element stiffness matrix.</p></li>
+<li><p><cite>U</cite> is the displacement vector.</p></li>
+<li><p><cite>fe</cite> is the external force vector.</p></li>
+</ul>
+</dd>
+</dl>
+<p>This method updates the <cite>pe</cite> attribute of the element instance.</p>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="id3">
+<span class="sig-name descname"><span class="pre">dhermit_shape_functions</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">z</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#id3" title="Link to this definition">¶</a></dt>
+<dd><p>Computes the derivatives of Hermitian shape functions for a beam element.
+:param z: float</p>
+<blockquote>
+<div><p>The local coordinate (ranging from -1 to 1) along the length of the beam element.</p>
+</div></blockquote>
+<dl class="field-list simple">
+<dt class="field-odd">Returns<span class="colon">:</span></dt>
+<dd class="field-odd"><p><dl class="simple">
+<dt>numpy.ndarray</dt><dd><p>A 3x4 array containing the derivatives of the Hermitian shape functions:
+- The first row corresponds to the first derivative of the shape functions.
+- The second row corresponds to the second derivative of the shape functions.
+- The third row corresponds to the third derivative of the shape functions.</p>
+</dd>
+</dl>
+</p>
+</dd>
+</dl>
+<p class="rubric">Notes</p>
+<ul class="simple">
+<li><p><cite>h</cite> is the length of the beam element.</p></li>
+<li><p>The shape functions are defined in terms of the local coordinate <cite>z</cite> and are scaled</p></li>
+</ul>
+<p>by the element length <cite>h</cite>.
+- This function assumes that the Hermitian shape functions are used for beam elements
+in finite element analysis. (Euler bernoulli)</p>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="id4">
+<span class="sig-name descname"><span class="pre">hermit_shape_functions</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">z</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#id4" title="Link to this definition">¶</a></dt>
+<dd><p>Computes the Hermite shape functions for a given local coordinate <cite>z</cite>.
+Hermite shape functions are used in finite element analysis for beam and
+frame elements to interpolate displacements and rotations.
+:param z: float or array-like</p>
+<blockquote>
+<div><p>Local coordinate(s) in the range [-1, 1] where the shape functions
+are evaluated.</p>
+</div></blockquote>
+<dl class="field-list simple">
+<dt class="field-odd">Returns<span class="colon">:</span></dt>
+<dd class="field-odd"><p><dl class="simple">
+<dt>numpy.ndarray</dt><dd><p>A 2D array where each row corresponds to the values of the four
+Hermite shape functions at the given local coordinate(s).</p>
+</dd>
+</dl>
+</p>
+</dd>
+</dl>
+<p class="rubric">Notes</p>
+<p>The shape functions are defined in terms of the element length <cite>L</cite>
+(stored as <cite>self.L</cite>). The local coordinate <cite>z</cite> is mapped to the global
+coordinate <cite>x</cite> using the transformation: x = (L/2) * z + (L/2).</p>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="id5">
+<span class="sig-name descname"><span class="pre">lagrange_shape_functions</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">z</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#id5" title="Link to this definition">¶</a></dt>
+<dd><p>Computes the Lagrange shape functions for a given local coordinate.
+:param z: The local coordinate (typically ranging from -1 to 1).
+:type z: float or np.ndarray</p>
+<dl class="field-list simple">
+<dt class="field-odd">Returns<span class="colon">:</span></dt>
+<dd class="field-odd"><p><dl class="simple">
+<dt>A 1D array containing the values of the Lagrange shape functions</dt><dd><p>evaluated at the given local coordinate <cite>z</cite>.</p>
+</dd>
+</dl>
+</p>
+</dd>
+<dt class="field-even">Return type<span class="colon">:</span></dt>
+<dd class="field-even"><p>numpy.ndarray</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="id6">
+<span class="sig-name descname"><span class="pre">pre_init</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#id6" title="Link to this definition">¶</a></dt>
+<dd><p>Initializes the element’s properties and attributes to their default values.
+This method sets up the initial state of the element by initializing various
+attributes such as loads, degrees of freedom (DOF), releases, and matrices
+used in structural analysis.
+Attributes initialized:</p>
+<blockquote>
+<div><ul class="simple">
+<li><p>loads: A list to store the loads applied to the element.</p></li>
+<li><p>dof: A list of size <cite>ndfnode</cite> initialized with None, representing the
+degrees of freedom for each node.</p></li>
+<li><p>releases: A 2D list of size [2 x ndfnode] initialized with False,
+representing the release conditions for the element.</p></li>
+<li><p>fe: A numpy array of size <cite>2 * ndfnode</cite> initialized with zeros,
+representing the element’s force vector.</p></li>
+<li><p>ke: A numpy array of size <cite>[2 * ndfnode, 2 * ndfnode]</cite> initialized
+with zeros, representing the element’s stiffness matrix.</p></li>
+<li><p>U: A numpy array of size <cite>2 * ndfnode</cite> initialized with zeros,
+representing the element’s displacement vector.</p></li>
+<li><p>pe: A numpy array of size <cite>2 * ndfnode</cite> initialized with zeros,
+representing the element’s equivalent nodal load vector.</p></li>
+<li><p>T: A numpy array of size <cite>[12, 12]</cite> initialized with zeros,
+representing the transformation matrix for the element.</p></li>
+</ul>
+</div></blockquote>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="id7">
+<span class="sig-name descname"><span class="pre">save_results</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">base</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#id7" title="Link to this definition">¶</a></dt>
+<dd><p>Saves the results of the analysis to text files.
+Parameters:
+base (str): The base file path and name to which the results will be saved.</p>
+<blockquote>
+<div><p>The method appends specific suffixes to this base name for each result type.</p>
+</div></blockquote>
+<p>Saves:
+- Displacement vector (U) to a file named “&lt;base&gt;_U.txt”.
+- Element forces (pe) to a file named “&lt;base&gt;_pe.txt”.
+- Element nodal forces (fe) to a file named “&lt;base&gt;_fe.txt”.
+- Element stiffness matrices (ke) to a file named “&lt;base&gt;_ke.txt”.
+- Transformation matrices (T) to a file named “&lt;base&gt;_T.txt”.
+Each file is saved in text format with elements formatted as strings.</p>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="id8">
+<span class="sig-name descname"><span class="pre">set_coords</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">coords</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#id8" title="Link to this definition">¶</a></dt>
+<dd><p>Sets the coordinates of the element and calculates its length,
+transformation matrix, and stiffness matrix.
+:param coords: A list or array containing the coordinates</p>
+<blockquote>
+<div><p>of the element’s nodes. It should be a
+2D array where the first index corresponds
+to the node and the second index corresponds
+to the spatial dimension.</p>
+</div></blockquote>
+<dl class="field-list simple">
+</dl>
+<dl>
+<dt>Attributes Set:</dt><dd><p>self.coords: Stores the input coordinates.
+self.L: The length of the element, calculated as the Euclidean</p>
+<blockquote>
+<div><p>distance between the two nodes.</p>
+</div></blockquote>
+</dd>
+</dl>
+<p class="rubric">Notes</p>
+<p>This method also calls <cite>transformation_matrix</cite> and
+<cite>stiffness_matrix</cite>, which are element-dependent methods
+that must be implemented in the derived class.</p>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="id9">
+<span class="sig-name descname"><span class="pre">set_displacements</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">U</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#id9" title="Link to this definition">¶</a></dt>
+<dd><p>Sets the displacement vector for the element in the local coordinate system.
+:param U: The global displacement vector.
+:type U: numpy.ndarray</p>
+<dl class="simple">
+<dt>Updates:</dt><dd><dl class="simple">
+<dt>self.U (numpy.ndarray): The displacement vector transformed to the local coordinate system</dt><dd><p>using the transformation matrix <cite>self.T</cite>.</p>
+</dd>
+</dl>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="id10">
+<span class="sig-name descname"><span class="pre">set_dof</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">dof</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#id10" title="Link to this definition">¶</a></dt>
+<dd><p>Sets the degrees of freedom (DOF) for the element.
+:param dof: A list or array containing the degrees of freedom</p>
+<blockquote>
+<div><p>to be assigned to the element.</p>
+</div></blockquote>
+<dl class="field-list simple">
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="id11">
+<span class="sig-name descname"><span class="pre">set_releases</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">releases</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#id11" title="Link to this definition">¶</a></dt>
+<dd><p>Sets the release conditions for the element.
+:param releases: A 2D list where each sublist corresponds to a node,</p>
+<blockquote>
+<div><p>and each element in the sublist indicates whether
+the corresponding degree of freedom is released (True)
+or not (False).</p>
+</div></blockquote>
+<dl class="field-list simple">
+</dl>
+</dd></dl>
+
+</dd></dl>
+
+<dl class="py class">
+<dt class="sig sig-object py" id="ILHEB.Elements.FrameElement2D">
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">ILHEB.Elements.</span></span><span class="sig-name descname"><span class="pre">FrameElement2D</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">nodes</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">section</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">material</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#ILHEB.Elements.FrameElement2D" title="Link to this definition">¶</a></dt>
+<dd><p>Bases: <a class="reference internal" href="#ILHEB.Elements.FrameElement3D" title="ILHEB.Elements.FrameElement3D"><code class="xref py py-class docutils literal notranslate"><span class="pre">FrameElement3D</span></code></a></p>
+<p>A class representing a 2D frame element, inheriting from FrameElement3D.
+This class models a 2D frame element with specific properties and methods
+for transformation matrices, stiffness matrices, and displacement interpolation.
+.. attribute:: ndfnode</p>
+<blockquote>
+<div><p>Number of degrees of freedom per node (default is 3 for 2D).</p>
+<dl class="field-list simple">
+<dt class="field-odd">type<span class="colon">:</span></dt>
+<dd class="field-odd"><p>int</p>
+</dd>
+</dl>
+</div></blockquote>
+<dl class="py attribute">
+<dt class="sig sig-object py" id="ILHEB.Elements.FrameElement2D.true_dofs">
+<span class="sig-name descname"><span class="pre">true_dofs</span></span><a class="headerlink" href="#ILHEB.Elements.FrameElement2D.true_dofs" title="Link to this definition">¶</a></dt>
+<dd><p>List of indices representing the active degrees of freedom.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Type<span class="colon">:</span></dt>
+<dd class="field-odd"><p>list</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="ILHEB.Elements.FrameElement2D.T">
+<span class="sig-name descname"><span class="pre">T</span></span><a class="headerlink" href="#ILHEB.Elements.FrameElement2D.T" title="Link to this definition">¶</a></dt>
+<dd><p>Transformation matrix for the element.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Type<span class="colon">:</span></dt>
+<dd class="field-odd"><p>numpy.ndarray</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="ILHEB.Elements.FrameElement2D.ke">
+<span class="sig-name descname"><span class="pre">ke</span></span><a class="headerlink" href="#ILHEB.Elements.FrameElement2D.ke" title="Link to this definition">¶</a></dt>
+<dd><p>Stiffness matrix for the element.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Type<span class="colon">:</span></dt>
+<dd class="field-odd"><p>numpy.ndarray</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="ILHEB.Elements.FrameElement2D.transformation_matrix">
+<span class="sig-name descname"><span class="pre">transformation_matrix</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#ILHEB.Elements.FrameElement2D.transformation_matrix" title="Link to this definition">¶</a></dt>
+<dd><p>Computes the transformation matrix for the element based on its orientation.</p>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="ILHEB.Elements.FrameElement2D.stiffness_matrix">
+<span class="sig-name descname"><span class="pre">stiffness_matrix</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#ILHEB.Elements.FrameElement2D.stiffness_matrix" title="Link to this definition">¶</a></dt>
+<dd><p>Computes the stiffness matrix for the element, reducing it to the active degrees of freedom.</p>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="ILHEB.Elements.FrameElement2D.interpolate_displacements">
+<span class="sig-name descname"><span class="pre">interpolate_displacements</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">n_points</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#ILHEB.Elements.FrameElement2D.interpolate_displacements" title="Link to this definition">¶</a></dt>
+<dd><p>Interpolates the displacements along the element at a specified number of points.
+Returns the interpolated coordinates, displacements, and derivatives.</p>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="id12">
+<span class="sig-name descname"><span class="pre">interpolate_displacements</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">n_points</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#id12" title="Link to this definition">¶</a></dt>
+<dd><p>Interpolates the displacements of an element at specified points along its length.
+:param n_points: The number of points at which to interpolate the displacements.
+:type n_points: int</p>
+<dl class="field-list simple">
+<dt class="field-odd">Returns<span class="colon">:</span></dt>
+<dd class="field-odd"><p><ul class="simple">
+<li><p>_x (numpy.ndarray): The interpolated coordinates along the element in the local coordinate system.</p></li>
+<li><p>U1 (numpy.ndarray): The interpolated displacements in local coordinates, where each row corresponds to a point.</p></li>
+<li><p>U3 (numpy.ndarray): The second derivative of the displacements with respect to the local coordinate system.</p></li>
+<li><p>U4 (numpy.ndarray): The third derivative of the displacements with respect to the local coordinate system.</p></li>
+</ul>
+</p>
+</dd>
+<dt class="field-even">Return type<span class="colon">:</span></dt>
+<dd class="field-even"><p>tuple</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="id13">
+<span class="sig-name descname"><span class="pre">stiffness_matrix</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#id13" title="Link to this definition">¶</a></dt>
+<dd><p>Computes and updates the stiffness matrix for the element.
+This method first calls the parent class’s <cite>stiffness_matrix</cite> method to
+perform any necessary base computations. It then extracts the submatrix
+of the stiffness matrix (<cite>ke</cite>) corresponding to the degrees of freedom
+specified in <cite>true_dofs</cite>.
+.. attribute:: ke</p>
+<blockquote>
+<div><p>The stiffness matrix of the element.</p>
+<dl class="field-list simple">
+<dt class="field-odd">type<span class="colon">:</span></dt>
+<dd class="field-odd"><p>numpy.ndarray</p>
+</dd>
+</dl>
+</div></blockquote>
+<dl class="py attribute">
+<dt class="sig sig-object py" id="id14">
+<span class="sig-name descname"><span class="pre">true_dofs</span></span><a class="headerlink" href="#id14" title="Link to this definition">¶</a></dt>
+<dd><p>Indices of the degrees of freedom
+to be retained in the stiffness matrix.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Type<span class="colon">:</span></dt>
+<dd class="field-odd"><p>list or array-like</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="simple">
+<dt>Updates:</dt><dd><p>self.ke: The reduced stiffness matrix containing only the rows and
+columns corresponding to <cite>true_dofs</cite>.</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="id15">
+<span class="sig-name descname"><span class="pre">transformation_matrix</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#id15" title="Link to this definition">¶</a></dt>
+<dd><p>Computes the transformation matrix for the element based on its orientation.
+This method calculates the transformation matrix <cite>T</cite> and the rotation matrix <cite>r</cite>
+for the element using the coordinates of its two endpoints. The transformation
+matrix is used to transform local element forces and displacements to the global
+coordinate system.
+Computed Attributes:</p>
+<blockquote>
+<div><dl class="simple">
+<dt>self.r (numpy.ndarray): A 3x3 rotation matrix for transforming local to global</dt><dd><p>coordinates.</p>
+</dd>
+</dl>
+<p>self.T (numpy.ndarray): A 6x6 transformation matrix for the element.</p>
+</div></blockquote>
+<dl class="simple">
+<dt>Steps:</dt><dd><ol class="arabic simple">
+<li><p>Calculate the angle <cite>theta</cite> of the element with respect to the global x-axis
+using the arctangent of the slope.</p></li>
+<li><p>Compute the cosine (<cite>c</cite>) and sine (<cite>s</cite>) of the angle <cite>theta</cite>.</p></li>
+<li><p>Construct the rotation matrix <cite>r</cite> and the transformation matrix <cite>T</cite> using
+the computed values of <cite>c</cite> and <cite>s</cite>.</p></li>
+</ol>
+</dd>
+</dl>
+</dd></dl>
+
+</dd></dl>
+
+<dl class="py class">
+<dt class="sig sig-object py" id="ILHEB.Elements.FrameElement3D">
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">ILHEB.Elements.</span></span><span class="sig-name descname"><span class="pre">FrameElement3D</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">nodes</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">section</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">material</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#ILHEB.Elements.FrameElement3D" title="Link to this definition">¶</a></dt>
+<dd><p>Bases: <a class="reference internal" href="#ILHEB.Elements.Element" title="ILHEB.Elements.Element"><code class="xref py py-class docutils literal notranslate"><span class="pre">Element</span></code></a></p>
+<p>A class representing a 3D frame element for structural analysis.
+Inherits from:</p>
+<blockquote>
+<div><p>Element: The base class for structural elements.</p>
+</div></blockquote>
+<dl class="py attribute">
+<dt class="sig sig-object py" id="ILHEB.Elements.FrameElement3D.ndfnode">
+<span class="sig-name descname"><span class="pre">ndfnode</span></span><a class="headerlink" href="#ILHEB.Elements.FrameElement3D.ndfnode" title="Link to this definition">¶</a></dt>
+<dd><p>Number of degrees of freedom per node (default is 6).</p>
+<dl class="field-list simple">
+<dt class="field-odd">Type<span class="colon">:</span></dt>
+<dd class="field-odd"><p>int</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="ILHEB.Elements.FrameElement3D.r">
+<span class="sig-name descname"><span class="pre">r</span></span><a class="headerlink" href="#ILHEB.Elements.FrameElement3D.r" title="Link to this definition">¶</a></dt>
+<dd><p>Transformation matrix for local to global coordinates.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Type<span class="colon">:</span></dt>
+<dd class="field-odd"><p>numpy.ndarray</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="ILHEB.Elements.FrameElement3D.T">
+<span class="sig-name descname"><span class="pre">T</span></span><a class="headerlink" href="#ILHEB.Elements.FrameElement3D.T" title="Link to this definition">¶</a></dt>
+<dd><p>Full transformation matrix for the element.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Type<span class="colon">:</span></dt>
+<dd class="field-odd"><p>numpy.ndarray</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="ILHEB.Elements.FrameElement3D.ke">
+<span class="sig-name descname"><span class="pre">ke</span></span><a class="headerlink" href="#ILHEB.Elements.FrameElement3D.ke" title="Link to this definition">¶</a></dt>
+<dd><p>Element stiffness matrix.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Type<span class="colon">:</span></dt>
+<dd class="field-odd"><p>numpy.ndarray</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="ILHEB.Elements.FrameElement3D.__init__">
+<span class="sig-name descname"><span class="pre">__init__</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">nodes</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">section</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">material</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#ILHEB.Elements.FrameElement3D.__init__" title="Link to this definition">¶</a></dt>
+<dd><p>Initializes the FrameElement3D object with nodes, section, and material properties.</p>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="ILHEB.Elements.FrameElement3D.transformation_matrix">
+<span class="sig-name descname"><span class="pre">transformation_matrix</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#ILHEB.Elements.FrameElement3D.transformation_matrix" title="Link to this definition">¶</a></dt>
+<dd><p>Computes the transformation matrix for the element based on its geometry and orientation.</p>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="ILHEB.Elements.FrameElement3D.stiffness_matrix">
+<span class="sig-name descname"><span class="pre">stiffness_matrix</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#ILHEB.Elements.FrameElement3D.stiffness_matrix" title="Link to this definition">¶</a></dt>
+<dd><p>Computes the local stiffness matrix for the element based on its material and section properties.</p>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="ILHEB.Elements.FrameElement3D.interpolate_displacements">
+<span class="sig-name descname"><span class="pre">interpolate_displacements</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">n_points</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#ILHEB.Elements.FrameElement3D.interpolate_displacements" title="Link to this definition">¶</a></dt>
+<dd><p>Interpolates displacements along the element at specified points using shape functions.</p>
+</dd></dl>
+
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>nodes</strong> (<em>list</em>) – List of nodes defining the element.</p></li>
+<li><p><strong>section</strong> (<em>object</em>) – Section properties of the element (e.g., area, moments of inertia).</p></li>
+<li><p><strong>material</strong> (<em>object</em>) – Material properties of the element (e.g., Young’s modulus, shear modulus).</p></li>
+</ul>
+</dd>
+</dl>
+<dl class="py method">
+<dt class="sig sig-object py" id="id16">
+<span class="sig-name descname"><span class="pre">interpolate_displacements</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">n_points</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#id16" title="Link to this definition">¶</a></dt>
+<dd><p>Interpolates the displacements and their derivatives for a structural element
+at specified points along its length using Hermite and Lagrange shape functions.
+:param n_points: The number of points along the element length where</p>
+<blockquote>
+<div><p>displacements and their derivatives are to be interpolated.</p>
+</div></blockquote>
+<dl class="field-list simple">
+<dt class="field-odd">Returns<span class="colon">:</span></dt>
+<dd class="field-odd"><p><ul class="simple">
+<li><dl class="simple">
+<dt>_x (numpy.ndarray): The interpolated coordinates along the element</dt><dd><p>in the local coordinate system.</p>
+</dd>
+</dl>
+</li>
+<li><dl class="simple">
+<dt>U1 (numpy.ndarray): A 2D array of shape (n_points, 6) containing the</dt><dd><p>interpolated displacements and their derivatives
+at each point. The columns represent:
+[axial displacement, Uy, Uz, torsional displacement, U2y, U2z],
+where:
+- Uy: Transverse displacement in the y-direction.
+- Uz: Transverse displacement in the z-direction.
+- U2y: Derivative of Uy with respect to the local coordinate.
+- U2z: Derivative of Uz with respect to the local coordinate.</p>
+</dd>
+</dl>
+</li>
+</ul>
+</p>
+</dd>
+<dt class="field-even">Return type<span class="colon">:</span></dt>
+<dd class="field-even"><p>tuple</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="id17">
+<span class="sig-name descname"><span class="pre">stiffness_matrix</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#id17" title="Link to this definition">¶</a></dt>
+<dd><p>Computes the stiffness matrix for a structural element.
+The stiffness matrix is a 12x12 matrix that represents the relationship
+between nodal displacements and forces for a 3D beam element. It is
+calculated based on the material properties, cross-sectional properties,
+and length of the element.
+:returns: The computed stiffness matrix is stored in the <cite>self.ke</cite> attribute.
+:rtype: None</p>
+<dl class="simple">
+<dt>Attributes Used:</dt><dd><p>self.L (float): Length of the element.
+self.material.E (float): Young’s modulus of the material.
+self.material.G (float): Shear modulus of the material.
+self.section.A (float): Cross-sectional area of the element.
+self.section.Iz (float): Moment of inertia about the z-axis.
+self.section.Iy (float): Moment of inertia about the y-axis.
+self.section.J (float): Polar moment of inertia.</p>
+</dd>
+</dl>
+<p class="rubric">Notes</p>
+<ul class="simple">
+<li><p>The stiffness matrix is symmetric and accounts for axial, bending,
+and torsional stiffness of the element. It does not account for shear deformation.</p></li>
+<li><p>The matrix is stored in the <cite>self.ke</cite> attribute for further use.</p></li>
+</ul>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="id18">
+<span class="sig-name descname"><span class="pre">transformation_matrix</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#id18" title="Link to this definition">¶</a></dt>
+<dd><p>Computes the transformation matrix for the element based on its geometry and orientation.
+This method calculates the local-to-global transformation matrix for a structural element.
+It uses the element’s length, coordinates, and section orientation to determine the
+transformation matrix that maps local coordinate system displacements to the global
+coordinate system.
+Steps:</p>
+<blockquote>
+<div><ol class="arabic simple">
+<li><p>Compute the local x-axis unit vector (xl) based on the element’s coordinates.</p></li>
+<li><p>Compute the local z-axis unit vector (zl) as the cross product of xl and the
+section orientation vector.</p></li>
+<li><p>Normalize zl to ensure it is a unit vector.</p></li>
+<li><p>Compute the local y-axis unit vector (yl) as the cross product of zl and xl.</p></li>
+<li><p>Normalize yl to ensure it is a unit vector.</p></li>
+<li><p>Construct the rotation matrix (r) using xl, yl, and zl.</p></li>
+<li><p>Build the 12x12 transformation matrix (T) by embedding r into the appropriate
+submatrices.</p></li>
+</ol>
+</div></blockquote>
+<dl class="field-list simple">
+<dt class="field-odd">Returns<span class="colon">:</span></dt>
+<dd class="field-odd"><p><dl class="simple">
+<dt>The method sets the following attributes:</dt><dd><ul class="simple">
+<li><p>self.r (ndarray): The 3x3 rotation matrix.</p></li>
+<li><p>self.T (ndarray): The 12x12 transformation matrix.</p></li>
+</ul>
+</dd>
+</dl>
+</p>
+</dd>
+<dt class="field-even">Return type<span class="colon">:</span></dt>
+<dd class="field-even"><p>None</p>
+</dd>
+</dl>
+</dd></dl>
+
+</dd></dl>
+
+<dl class="py class">
+<dt class="sig sig-object py" id="ILHEB.Elements.TrussElement2D">
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">ILHEB.Elements.</span></span><span class="sig-name descname"><span class="pre">TrussElement2D</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">nodes</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">section</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">material</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#ILHEB.Elements.TrussElement2D" title="Link to this definition">¶</a></dt>
+<dd><p>Bases: <a class="reference internal" href="#ILHEB.Elements.FrameElement2D" title="ILHEB.Elements.FrameElement2D"><code class="xref py py-class docutils literal notranslate"><span class="pre">FrameElement2D</span></code></a></p>
+<p>Represents a 2D truss element, which is a structural element that can only carry axial forces.
+Inherits from:</p>
+<blockquote>
+<div><p>FrameElement2D: A base class for 2D frame elements.</p>
+</div></blockquote>
+<dl class="py attribute">
+<dt class="sig sig-object py" id="ILHEB.Elements.TrussElement2D.releases">
+<span class="sig-name descname"><span class="pre">releases</span></span><a class="headerlink" href="#ILHEB.Elements.TrussElement2D.releases" title="Link to this definition">¶</a></dt>
+<dd><p>A 2D list defining the release conditions at the start and end nodes of the element.
+Each sublist contains three boolean values:
+- The first value indicates whether the axial force is released.
+- The second value indicates whether the shear force is released.
+- The third value indicates whether the moment is released.
+For a truss element, moments are always released (True), while axial and shear forces are not released (False).</p>
+<dl class="field-list simple">
+<dt class="field-odd">Type<span class="colon">:</span></dt>
+<dd class="field-odd"><p>list</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="ILHEB.Elements.TrussElement2D.__init__">
+<span class="sig-name descname"><span class="pre">__init__</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">nodes</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">section</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">material</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#ILHEB.Elements.TrussElement2D.__init__" title="Link to this definition">¶</a></dt>
+<dd><p>Initializes the TrussElement2D instance with the given nodes, section, and material properties.
+Sets the default release conditions for a truss element.</p>
+</dd></dl>
+
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>nodes</strong> (<em>list</em>) – A list of nodes defining the geometry of the element.</p></li>
+<li><p><strong>section</strong> (<em>object</em>) – The cross-sectional properties of the element.</p></li>
+<li><p><strong>material</strong> (<em>object</em>) – The material properties of the element.</p></li>
+</ul>
+</dd>
+</dl>
+<dl class="py method">
+<dt class="sig sig-object py" id="ILHEB.Elements.TrussElement2D.interpolate_displacements">
+<span class="sig-name descname"><span class="pre">interpolate_displacements</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">n_points</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#ILHEB.Elements.TrussElement2D.interpolate_displacements" title="Link to this definition">¶</a></dt>
+<dd><p>Interpolates the displacements of an element at specified points along its length.
+:param n_points: The number of points at which to interpolate the displacements.
+:type n_points: int</p>
+<dl class="field-list simple">
+<dt class="field-odd">Returns<span class="colon">:</span></dt>
+<dd class="field-odd"><p><ul class="simple">
+<li><p>_x (numpy.ndarray): The interpolated coordinates along the element in the local coordinate system.</p></li>
+<li><p>U1 (numpy.ndarray): The interpolated displacements in local coordinates, where each row corresponds to a point.</p></li>
+<li><p>U3 (numpy.ndarray): The second derivative of the displacements with respect to the local coordinate system.</p></li>
+<li><p>U4 (numpy.ndarray): The third derivative of the displacements with respect to the local coordinate system.</p></li>
+</ul>
+</p>
+</dd>
+<dt class="field-even">Return type<span class="colon">:</span></dt>
+<dd class="field-even"><p>tuple</p>
+</dd>
+</dl>
+</dd></dl>
+
+</dd></dl>
+
+<dl class="py class">
+<dt class="sig sig-object py" id="ILHEB.Elements.TrussElement3D">
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">ILHEB.Elements.</span></span><span class="sig-name descname"><span class="pre">TrussElement3D</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">nodes</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">section</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">material</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#ILHEB.Elements.TrussElement3D" title="Link to this definition">¶</a></dt>
+<dd><p>Bases: <a class="reference internal" href="#ILHEB.Elements.FrameElement3D" title="ILHEB.Elements.FrameElement3D"><code class="xref py py-class docutils literal notranslate"><span class="pre">FrameElement3D</span></code></a></p>
+<p>Represents a 3D truss element, which is a type of structural element
+that can only carry axial forces (tension or compression) and does not
+resist bending moments.
+Inherits from:</p>
+<blockquote>
+<div><p>FrameElement3D: A base class for 3D frame elements.</p>
+</div></blockquote>
+<dl class="py attribute">
+<dt class="sig sig-object py" id="ILHEB.Elements.TrussElement3D.releases">
+<span class="sig-name descname"><span class="pre">releases</span></span><a class="headerlink" href="#ILHEB.Elements.TrussElement3D.releases" title="Link to this definition">¶</a></dt>
+<dd><p>A 2D list defining the degrees of freedom (DOF)
+that are released at each end of the element. For truss elements,
+rotational DOFs are typically released, allowing free rotation
+at the ends. The format is:
+[</p>
+<blockquote>
+<div><p>[False, False, False, True, True, True],  # End 1 DOF releases
+[False, False, False, True, True, True]   # End 2 DOF releases</p>
+</div></blockquote>
+<p>]</p>
+<dl class="field-list simple">
+<dt class="field-odd">Type<span class="colon">:</span></dt>
+<dd class="field-odd"><p>list</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="ILHEB.Elements.TrussElement3D.__init__">
+<span class="sig-name descname"><span class="pre">__init__</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">nodes</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">section</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">material</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#ILHEB.Elements.TrussElement3D.__init__" title="Link to this definition">¶</a></dt>
+<dd><p>Initializes the TrussElement3D instance with the given nodes,
+cross-sectional properties, and material properties.</p>
+</dd></dl>
+
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>nodes</strong> (<em>list</em>) – A list of nodes defining the element’s geometry.</p></li>
+<li><p><strong>section</strong> – The cross-sectional properties of the element.</p></li>
+<li><p><strong>material</strong> – The material properties of the element.</p></li>
+</ul>
+</dd>
+</dl>
+<dl class="py method">
+<dt class="sig sig-object py" id="ILHEB.Elements.TrussElement3D.interpolate_displacements">
+<span class="sig-name descname"><span class="pre">interpolate_displacements</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">n_points</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#ILHEB.Elements.TrussElement3D.interpolate_displacements" title="Link to this definition">¶</a></dt>
+<dd><p>Interpolates the displacements and their derivatives for a structural element
+at specified points along its length using Hermite and Lagrange shape functions.
+:param n_points: The number of points along the element length where</p>
+<blockquote>
+<div><p>displacements and their derivatives are to be interpolated.</p>
+</div></blockquote>
+<dl class="field-list simple">
+<dt class="field-odd">Returns<span class="colon">:</span></dt>
+<dd class="field-odd"><p><ul class="simple">
+<li><dl class="simple">
+<dt>_x (numpy.ndarray): The interpolated coordinates along the element</dt><dd><p>in the local coordinate system.</p>
+</dd>
+</dl>
+</li>
+<li><dl class="simple">
+<dt>U1 (numpy.ndarray): A 2D array of shape (n_points, 6) containing the</dt><dd><p>interpolated displacements and their derivatives
+at each point. The columns represent:
+[axial displacement, Uy, Uz, torsional displacement, U2y, U2z],
+where:
+- Uy: Transverse displacement in the y-direction.
+- Uz: Transverse displacement in the z-direction.
+- U2y: Derivative of Uy with respect to the local coordinate.
+- U2z: Derivative of Uz with respect to the local coordinate.</p>
+</dd>
+</dl>
+</li>
+</ul>
+</p>
+</dd>
+<dt class="field-even">Return type<span class="colon">:</span></dt>
+<dd class="field-even"><p>tuple</p>
+</dd>
+</dl>
+</dd></dl>
+
+</dd></dl>
+
 </section>
 <section id="ilheb-geometry-module">
 <h2>ILHEB.Geometry module<a class="headerlink" href="#ilheb-geometry-module" title="Link to this heading">¶</a></h2>
 </section>
-<section id="ilheb-loads-module">
-<h2>ILHEB.Loads module<a class="headerlink" href="#ilheb-loads-module" title="Link to this heading">¶</a></h2>
+<section id="module-ILHEB.Loads">
+<span id="ilheb-loads-module"></span><h2>ILHEB.Loads module<a class="headerlink" href="#module-ILHEB.Loads" title="Link to this heading">¶</a></h2>
+<dl class="py class">
+<dt class="sig sig-object py" id="ILHEB.Loads.DistributedLoad">
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">ILHEB.Loads.</span></span><span class="sig-name descname"><span class="pre">DistributedLoad</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">element</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">WX</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">0.0</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">WY</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">0.0</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">WZ</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">0.0</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">axis</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">'local'</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#ILHEB.Loads.DistributedLoad" title="Link to this definition">¶</a></dt>
+<dd><p>Bases: <a class="reference internal" href="#ILHEB.Loads.ElementLoad" title="ILHEB.Loads.ElementLoad"><code class="xref py py-class docutils literal notranslate"><span class="pre">ElementLoad</span></code></a></p>
+<p>Represents a distributed load applied to a structural element.
+This class models a distributed load acting on an element in either the
+local or global coordinate system. It calculates the equivalent nodal
+forces and moments induced by the distributed load and initializes the
+parent <cite>ElementLoad</cite> class with these values.
+.. attribute:: element</p>
+<blockquote>
+<div><p>The structural element to which the load is applied.</p>
+<dl class="field-list simple">
+<dt class="field-odd">type<span class="colon">:</span></dt>
+<dd class="field-odd"><p>Element</p>
+</dd>
+</dl>
+</div></blockquote>
+<dl class="py attribute">
+<dt class="sig sig-object py" id="ILHEB.Loads.DistributedLoad.WX">
+<span class="sig-name descname"><span class="pre">WX</span></span><a class="headerlink" href="#ILHEB.Loads.DistributedLoad.WX" title="Link to this definition">¶</a></dt>
+<dd><p>The distributed load magnitude in the X direction. Default is 0.0.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Type<span class="colon">:</span></dt>
+<dd class="field-odd"><p>float</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="ILHEB.Loads.DistributedLoad.WY">
+<span class="sig-name descname"><span class="pre">WY</span></span><a class="headerlink" href="#ILHEB.Loads.DistributedLoad.WY" title="Link to this definition">¶</a></dt>
+<dd><p>The distributed load magnitude in the Y direction. Default is 0.0.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Type<span class="colon">:</span></dt>
+<dd class="field-odd"><p>float</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="ILHEB.Loads.DistributedLoad.WZ">
+<span class="sig-name descname"><span class="pre">WZ</span></span><a class="headerlink" href="#ILHEB.Loads.DistributedLoad.WZ" title="Link to this definition">¶</a></dt>
+<dd><p>The distributed load magnitude in the Z direction. Default is 0.0.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Type<span class="colon">:</span></dt>
+<dd class="field-odd"><p>float</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="ILHEB.Loads.DistributedLoad.axis">
+<span class="sig-name descname"><span class="pre">axis</span></span><a class="headerlink" href="#ILHEB.Loads.DistributedLoad.axis" title="Link to this definition">¶</a></dt>
+<dd><p>The coordinate system in which the load is defined (‘local’ or ‘global’). Default is ‘local’.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Type<span class="colon">:</span></dt>
+<dd class="field-odd"><p>str</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="ILHEB.Loads.DistributedLoad.__call__">
+<span class="sig-name descname"><span class="pre">__call__</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">x</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#ILHEB.Loads.DistributedLoad.__call__" title="Link to this definition">¶</a></dt>
+<dd><p>Returns the distributed load components as a numpy array.</p>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="ILHEB.Loads.DistributedLoad.distributed_load">
+<span class="sig-name descname"><span class="pre">distributed_load</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">w</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">L</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#ILHEB.Loads.DistributedLoad.distributed_load" title="Link to this definition">¶</a></dt>
+<dd><p>Computes the equivalent nodal forces and moments for a distributed load.</p>
+</dd></dl>
+
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>element</strong> (<a class="reference internal" href="#ILHEB.Elements.Element" title="ILHEB.Elements.Element"><em>Element</em></a>) – The structural element to which the load is applied.</p></li>
+<li><p><strong>WX</strong> (<em>float</em><em>, </em><em>optional</em>) – Distributed load in the X direction. Default is 0.0.</p></li>
+<li><p><strong>WY</strong> (<em>float</em><em>, </em><em>optional</em>) – Distributed load in the Y direction. Default is 0.0.</p></li>
+<li><p><strong>WZ</strong> (<em>float</em><em>, </em><em>optional</em>) – Distributed load in the Z direction. Default is 0.0.</p></li>
+<li><p><strong>axis</strong> (<em>str</em><em>, </em><em>optional</em>) – Coordinate system for the load (‘local’ or ‘global’). Default is ‘local’.</p></li>
+</ul>
+</dd>
+</dl>
+<p class="rubric">Example</p>
+<p>element = SomeElementClass()
+load = DistributedLoad(element, WX=10, WY=5, WZ=0, axis=’global’)</p>
+<dl class="py method">
+<dt class="sig sig-object py" id="id19">
+<span class="sig-name descname"><span class="pre">distributed_load</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">w</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">L</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#id19" title="Link to this definition">¶</a></dt>
+<dd></dd></dl>
+
+</dd></dl>
+
+<dl class="py class">
+<dt class="sig sig-object py" id="ILHEB.Loads.ElementLoad">
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">ILHEB.Loads.</span></span><span class="sig-name descname"><span class="pre">ElementLoad</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">element</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">PXj</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">0.0</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">PYj</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">0.0</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">PZj</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">0.0</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">MXj</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">0.0</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">MYj</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">0.0</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">MZj</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">0.0</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">PXk</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">0.0</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">PYk</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">0.0</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">PZk</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">0.0</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">MXk</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">0.0</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">MYk</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">0.0</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">MZk</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">0.0</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#ILHEB.Loads.ElementLoad" title="Link to this definition">¶</a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">object</span></code></p>
+<p>Represents a load applied to an element in a structural analysis model.
+.. attribute:: p</p>
+<blockquote>
+<div><p>A 1D array containing the load components at the
+start (j) and end (k) of the element. The components are ordered as:
+[PXj, PYj, PZj, MXj, MYj, MZj, PXk, PYk, PZk, MXk, MYk, MZk].</p>
+<dl class="field-list simple">
+<dt class="field-odd">type<span class="colon">:</span></dt>
+<dd class="field-odd"><p>numpy.ndarray</p>
+</dd>
+</dl>
+</div></blockquote>
+<dl class="py attribute">
+<dt class="sig sig-object py" id="ILHEB.Loads.ElementLoad.element">
+<span class="sig-name descname"><span class="pre">element</span></span><a class="headerlink" href="#ILHEB.Loads.ElementLoad.element" title="Link to this definition">¶</a></dt>
+<dd><p>The structural element to which the load is applied.</p>
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="ILHEB.Loads.ElementLoad.function">
+<span class="sig-name descname"><span class="pre">function</span></span><a class="headerlink" href="#ILHEB.Loads.ElementLoad.function" title="Link to this definition">¶</a></dt>
+<dd><p>A flag indicating whether the load is functional.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Type<span class="colon">:</span></dt>
+<dd class="field-odd"><p>bool</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="ILHEB.Loads.ElementLoad.__call__">
+<span class="sig-name descname"><span class="pre">__call__</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">x</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#ILHEB.Loads.ElementLoad.__call__" title="Link to this definition">¶</a></dt>
+<dd><p>Evaluates the load at a given position along the element.
+Currently returns 0 for all inputs.</p>
+</dd></dl>
+
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>element</strong> – The structural element to which the load is applied.</p></li>
+<li><p><strong>PXj</strong> (<em>float</em><em>, </em><em>optional</em>) – Axial force at the start of the element. Default is 0.0.</p></li>
+<li><p><strong>PYj</strong> (<em>float</em><em>, </em><em>optional</em>) – Shear force in the Y direction at the start of the element. Default is 0.0.</p></li>
+<li><p><strong>PZj</strong> (<em>float</em><em>, </em><em>optional</em>) – Shear force in the Z direction at the start of the element. Default is 0.0.</p></li>
+<li><p><strong>MXj</strong> (<em>float</em><em>, </em><em>optional</em>) – Moment about the X axis at the start of the element. Default is 0.0.</p></li>
+<li><p><strong>MYj</strong> (<em>float</em><em>, </em><em>optional</em>) – Moment about the Y axis at the start of the element. Default is 0.0.</p></li>
+<li><p><strong>MZj</strong> (<em>float</em><em>, </em><em>optional</em>) – Moment about the Z axis at the start of the element. Default is 0.0.</p></li>
+<li><p><strong>PXk</strong> (<em>float</em><em>, </em><em>optional</em>) – Axial force at the end of the element. Default is 0.0.</p></li>
+<li><p><strong>PYk</strong> (<em>float</em><em>, </em><em>optional</em>) – Shear force in the Y direction at the end of the element. Default is 0.0.</p></li>
+<li><p><strong>PZk</strong> (<em>float</em><em>, </em><em>optional</em>) – Shear force in the Z direction at the end of the element. Default is 0.0.</p></li>
+<li><p><strong>MXk</strong> (<em>float</em><em>, </em><em>optional</em>) – Moment about the X axis at the end of the element. Default is 0.0.</p></li>
+<li><p><strong>MYk</strong> (<em>float</em><em>, </em><em>optional</em>) – Moment about the Y axis at the end of the element. Default is 0.0.</p></li>
+<li><p><strong>MZk</strong> (<em>float</em><em>, </em><em>optional</em>) – Moment about the Z axis at the end of the element. Default is 0.0.</p></li>
+</ul>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py class">
+<dt class="sig sig-object py" id="ILHEB.Loads.ForcePointLoad">
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">ILHEB.Loads.</span></span><span class="sig-name descname"><span class="pre">ForcePointLoad</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">element</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">x</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">PX</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">0.0</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">PY</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">0.0</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">PZ</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">0.0</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#ILHEB.Loads.ForcePointLoad" title="Link to this definition">¶</a></dt>
+<dd><p>Bases: <a class="reference internal" href="#ILHEB.Loads.ElementLoad" title="ILHEB.Loads.ElementLoad"><code class="xref py py-class docutils literal notranslate"><span class="pre">ElementLoad</span></code></a></p>
+<p>Represents a point load applied to a structural element.
+.. attribute:: element</p>
+<blockquote>
+<div><p>The structural element to which the load is applied.</p>
+<dl class="field-list simple">
+<dt class="field-odd">type<span class="colon">:</span></dt>
+<dd class="field-odd"><p>Element</p>
+</dd>
+</dl>
+</div></blockquote>
+<dl class="py attribute">
+<dt class="sig sig-object py" id="ILHEB.Loads.ForcePointLoad.x">
+<span class="sig-name descname"><span class="pre">x</span></span><a class="headerlink" href="#ILHEB.Loads.ForcePointLoad.x" title="Link to this definition">¶</a></dt>
+<dd><p>The position along the element’s length where the load is applied. Must be between 0 and L.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Type<span class="colon">:</span></dt>
+<dd class="field-odd"><p>float</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="ILHEB.Loads.ForcePointLoad.PX">
+<span class="sig-name descname"><span class="pre">PX</span></span><a class="headerlink" href="#ILHEB.Loads.ForcePointLoad.PX" title="Link to this definition">¶</a></dt>
+<dd><p>The magnitude of the load in the global X direction. Default is 0.0.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Type<span class="colon">:</span></dt>
+<dd class="field-odd"><p>float</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="ILHEB.Loads.ForcePointLoad.PY">
+<span class="sig-name descname"><span class="pre">PY</span></span><a class="headerlink" href="#ILHEB.Loads.ForcePointLoad.PY" title="Link to this definition">¶</a></dt>
+<dd><p>The magnitude of the load in the global Y direction. Default is 0.0.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Type<span class="colon">:</span></dt>
+<dd class="field-odd"><p>float</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="ILHEB.Loads.ForcePointLoad.PZ">
+<span class="sig-name descname"><span class="pre">PZ</span></span><a class="headerlink" href="#ILHEB.Loads.ForcePointLoad.PZ" title="Link to this definition">¶</a></dt>
+<dd><p>The magnitude of the load in the global Z direction. Default is 0.0.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Type<span class="colon">:</span></dt>
+<dd class="field-odd"><p>float</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="ILHEB.Loads.ForcePointLoad.function">
+<span class="sig-name descname"><span class="pre">function</span></span><a class="headerlink" href="#ILHEB.Loads.ForcePointLoad.function" title="Link to this definition">¶</a></dt>
+<dd><p>Indicates whether the load is a function. Default is False.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Type<span class="colon">:</span></dt>
+<dd class="field-odd"><p>bool</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="ILHEB.Loads.ForcePointLoad.__init__">
+<span class="sig-name descname"><span class="pre">__init__</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">element</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">x</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">PX</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">0.0</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">PY</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">0.0</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">PZ</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">0.0</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#ILHEB.Loads.ForcePointLoad.__init__" title="Link to this definition">¶</a></dt>
+<dd><p>Initializes the PointLoad object with the given parameters.</p>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="ILHEB.Loads.ForcePointLoad.point_load">
+<span class="sig-name descname"><span class="pre">point_load</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">f</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">L</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">x</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#ILHEB.Loads.ForcePointLoad.point_load" title="Link to this definition">¶</a></dt>
+<dd><p>Computes the internal forces and moments generated by the point load.</p>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="ILHEB.Loads.ForcePointLoad.__call__">
+<span class="sig-name descname"><span class="pre">__call__</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">x</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#ILHEB.Loads.ForcePointLoad.__call__" title="Link to this definition">¶</a></dt>
+<dd><p>Returns the load components (PX, PY, PZ) as a NumPy array.</p>
+</dd></dl>
+
+<dl class="field-list simple">
+<dt class="field-odd">Raises<span class="colon">:</span></dt>
+<dd class="field-odd"><p><strong>ValueError</strong> – If the position <cite>x</cite> is not within the range [0, L].</p>
+</dd>
+</dl>
+<p class="rubric">Notes</p>
+<ul class="simple">
+<li><p>The <cite>point_load</cite> method calculates the effects of the load on the element,
+including forces and moments at the ends of the element.</p></li>
+<li><p>The <cite>__call__</cite> method allows the object to be called as a function to retrieve
+the load components.</p></li>
+</ul>
+<dl class="py method">
+<dt class="sig sig-object py" id="id20">
+<span class="sig-name descname"><span class="pre">point_load</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">f</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">L</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">x</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#id20" title="Link to this definition">¶</a></dt>
+<dd><p>Calculate the moment and shear forces at the ends of a beam subjected to a point load.
+:param f: The magnitude of the point load applied to the beam.
+:type f: float
+:param L: The total length of the beam.
+:type L: float
+:param x: The distance from the left end of the beam to the point where the load is applied.
+:type x: float</p>
+<p>Returns:
+numpy.ndarray</p>
+<blockquote>
+<div><p>A 1D array containing the calculated moment and shear forces at the ends of the beam:
+[V1, M1, M2, V2, M3, M4], where:
+- V1, V2 are the vertical reactions at the ends of the beam.
+- M1, M2, M3, M4 are the moments at the ends and at the load application point.</p>
+</div></blockquote>
+</dd></dl>
+
+</dd></dl>
+
+<dl class="py class">
+<dt class="sig sig-object py" id="ILHEB.Loads.MomentPointLoad">
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">ILHEB.Loads.</span></span><span class="sig-name descname"><span class="pre">MomentPointLoad</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">element</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">x</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">MX</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">0.0</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">MY</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">0.0</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">MZ</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">0.0</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#ILHEB.Loads.MomentPointLoad" title="Link to this definition">¶</a></dt>
+<dd><p>Bases: <a class="reference internal" href="#ILHEB.Loads.ElementLoad" title="ILHEB.Loads.ElementLoad"><code class="xref py py-class docutils literal notranslate"><span class="pre">ElementLoad</span></code></a></p>
+<p>Represents a moment point load applied to a structural element.
+This class models a moment point load applied at a specific location along
+the length of an element. It calculates the equivalent nodal forces and
+moments induced by the applied moment.
+.. attribute:: element</p>
+<blockquote>
+<div><p>The structural element to which the load is applied.</p>
+<dl class="field-list simple">
+<dt class="field-odd">type<span class="colon">:</span></dt>
+<dd class="field-odd"><p>Element</p>
+</dd>
+</dl>
+</div></blockquote>
+<dl class="py attribute">
+<dt class="sig sig-object py" id="ILHEB.Loads.MomentPointLoad.x">
+<span class="sig-name descname"><span class="pre">x</span></span><a class="headerlink" href="#ILHEB.Loads.MomentPointLoad.x" title="Link to this definition">¶</a></dt>
+<dd><p>The position along the element’s length where the load is applied.
+Must be between 0 and the element’s length (L).</p>
+<dl class="field-list simple">
+<dt class="field-odd">Type<span class="colon">:</span></dt>
+<dd class="field-odd"><p>float</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="ILHEB.Loads.MomentPointLoad.MX">
+<span class="sig-name descname"><span class="pre">MX</span></span><a class="headerlink" href="#ILHEB.Loads.MomentPointLoad.MX" title="Link to this definition">¶</a></dt>
+<dd><p>The moment about the local X-axis (default is 0.0).</p>
+<dl class="field-list simple">
+<dt class="field-odd">Type<span class="colon">:</span></dt>
+<dd class="field-odd"><p>float</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="ILHEB.Loads.MomentPointLoad.MY">
+<span class="sig-name descname"><span class="pre">MY</span></span><a class="headerlink" href="#ILHEB.Loads.MomentPointLoad.MY" title="Link to this definition">¶</a></dt>
+<dd><p>The moment about the local Y-axis (default is 0.0).</p>
+<dl class="field-list simple">
+<dt class="field-odd">Type<span class="colon">:</span></dt>
+<dd class="field-odd"><p>float</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="ILHEB.Loads.MomentPointLoad.MZ">
+<span class="sig-name descname"><span class="pre">MZ</span></span><a class="headerlink" href="#ILHEB.Loads.MomentPointLoad.MZ" title="Link to this definition">¶</a></dt>
+<dd><p>The moment about the local Z-axis (default is 0.0).</p>
+<dl class="field-list simple">
+<dt class="field-odd">Type<span class="colon">:</span></dt>
+<dd class="field-odd"><p>float</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="ILHEB.Loads.MomentPointLoad.function">
+<span class="sig-name descname"><span class="pre">function</span></span><a class="headerlink" href="#ILHEB.Loads.MomentPointLoad.function" title="Link to this definition">¶</a></dt>
+<dd><p>Indicates whether the load is a function (default is False).</p>
+<dl class="field-list simple">
+<dt class="field-odd">Type<span class="colon">:</span></dt>
+<dd class="field-odd"><p>bool</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="ILHEB.Loads.MomentPointLoad.point_load">
+<span class="sig-name descname"><span class="pre">point_load</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">M</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">L</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">x</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#ILHEB.Loads.MomentPointLoad.point_load" title="Link to this definition">¶</a></dt>
+<dd><p>Calculates the equivalent nodal forces and moments for a given moment
+applied at a specific position along the element.</p>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="ILHEB.Loads.MomentPointLoad.__call__">
+<span class="sig-name descname"><span class="pre">__call__</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">x</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#ILHEB.Loads.MomentPointLoad.__call__" title="Link to this definition">¶</a></dt>
+<dd><p>Returns the moments (MX, MY, MZ) as a NumPy array.</p>
+</dd></dl>
+
+<dl class="field-list simple">
+<dt class="field-odd">Raises<span class="colon">:</span></dt>
+<dd class="field-odd"><p><strong>ValueError</strong> – If the position <cite>x</cite> is not within the range [0, L].</p>
+</dd>
+</dl>
+<dl class="py method">
+<dt class="sig sig-object py" id="id21">
+<span class="sig-name descname"><span class="pre">point_load</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">M</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">L</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">x</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#id21" title="Link to this definition">¶</a></dt>
+<dd></dd></dl>
+
+</dd></dl>
+
+<dl class="py class">
+<dt class="sig sig-object py" id="ILHEB.Loads.NodeLoad">
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">ILHEB.Loads.</span></span><span class="sig-name descname"><span class="pre">NodeLoad</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">node</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">PX</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">0.0</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">PY</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">0.0</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">PZ</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">0.0</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">MX</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">0.0</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">MY</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">0.0</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">MZ</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">0.0</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#ILHEB.Loads.NodeLoad" title="Link to this definition">¶</a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">object</span></code></p>
+<p>Represents a load applied to a structural node.
+.. attribute:: node</p>
+<blockquote>
+<div><p>The node to which the load is applied.</p>
+<dl class="field-list simple">
+<dt class="field-odd">type<span class="colon">:</span></dt>
+<dd class="field-odd"><p>object</p>
+</dd>
+</dl>
+</div></blockquote>
+<dl class="py attribute">
+<dt class="sig sig-object py" id="ILHEB.Loads.NodeLoad.Fn">
+<span class="sig-name descname"><span class="pre">Fn</span></span><a class="headerlink" href="#ILHEB.Loads.NodeLoad.Fn" title="Link to this definition">¶</a></dt>
+<dd><p>A 1D array representing the force and moment components
+applied to the node. The components are ordered as [PX, PY, PZ, MX, MY, MZ],
+where:</p>
+<blockquote>
+<div><p>PX (float): Force in the X direction (default is 0.0).
+PY (float): Force in the Y direction (default is 0.0).
+PZ (float): Force in the Z direction (default is 0.0).
+MX (float): Moment about the X axis (default is 0.0).
+MY (float): Moment about the Y axis (default is 0.0).
+MZ (float): Moment about the Z axis (default is 0.0).</p>
+</div></blockquote>
+<dl class="field-list simple">
+<dt class="field-odd">Type<span class="colon">:</span></dt>
+<dd class="field-odd"><p>numpy.ndarray</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="ILHEB.Loads.NodeLoad.Kn">
+<span class="sig-name descname"><span class="pre">Kn</span></span><a class="headerlink" href="#ILHEB.Loads.NodeLoad.Kn" title="Link to this definition">¶</a></dt>
+<dd><p>Placeholder for stiffness or other related properties
+associated with the node load. Default is None.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Type<span class="colon">:</span></dt>
+<dd class="field-odd"><p>None or object</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>node</strong> (<em>object</em>) – The node to which the load is applied.</p></li>
+<li><p><strong>PX</strong> (<em>float</em><em>, </em><em>optional</em>) – Force in the X direction. Default is 0.0.</p></li>
+<li><p><strong>PY</strong> (<em>float</em><em>, </em><em>optional</em>) – Force in the Y direction. Default is 0.0.</p></li>
+<li><p><strong>PZ</strong> (<em>float</em><em>, </em><em>optional</em>) – Force in the Z direction. Default is 0.0.</p></li>
+<li><p><strong>MX</strong> (<em>float</em><em>, </em><em>optional</em>) – Moment about the X axis. Default is 0.0.</p></li>
+<li><p><strong>MY</strong> (<em>float</em><em>, </em><em>optional</em>) – Moment about the Y axis. Default is 0.0.</p></li>
+<li><p><strong>MZ</strong> (<em>float</em><em>, </em><em>optional</em>) – Moment about the Z axis. Default is 0.0.</p></li>
+</ul>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py class">
+<dt class="sig sig-object py" id="ILHEB.Loads.NodeLoad2D">
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">ILHEB.Loads.</span></span><span class="sig-name descname"><span class="pre">NodeLoad2D</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">node</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">PX</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">0.0</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">PY</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">0.0</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">MZ</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">0.0</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#ILHEB.Loads.NodeLoad2D" title="Link to this definition">¶</a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">object</span></code></p>
+<p>Represents a 2D nodal load applied to a structural node.
+.. attribute:: node</p>
+<blockquote>
+<div><p>The node to which the load is applied.</p>
+<dl class="field-list simple">
+<dt class="field-odd">type<span class="colon">:</span></dt>
+<dd class="field-odd"><p>object</p>
+</dd>
+</dl>
+</div></blockquote>
+<dl class="py attribute">
+<dt class="sig sig-object py" id="ILHEB.Loads.NodeLoad2D.Fn">
+<span class="sig-name descname"><span class="pre">Fn</span></span><a class="headerlink" href="#ILHEB.Loads.NodeLoad2D.Fn" title="Link to this definition">¶</a></dt>
+<dd><p>A 1D array containing the load components:
+- PX (float): Force in the X direction (default is 0.0).
+- PY (float): Force in the Y direction (default is 0.0).
+- MZ (float): Moment about the Z axis (default is 0.0).</p>
+<dl class="field-list simple">
+<dt class="field-odd">Type<span class="colon">:</span></dt>
+<dd class="field-odd"><p>numpy.ndarray</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="ILHEB.Loads.NodeLoad2D.Kn">
+<span class="sig-name descname"><span class="pre">Kn</span></span><a class="headerlink" href="#ILHEB.Loads.NodeLoad2D.Kn" title="Link to this definition">¶</a></dt>
+<dd><p>Placeholder for additional data related to the node load
+(default is None).</p>
+<dl class="field-list simple">
+<dt class="field-odd">Type<span class="colon">:</span></dt>
+<dd class="field-odd"><p>None or object</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>node</strong> (<em>object</em>) – The node to which the load is applied.</p></li>
+<li><p><strong>PX</strong> (<em>float</em><em>, </em><em>optional</em>) – Force in the X direction. Defaults to 0.0.</p></li>
+<li><p><strong>PY</strong> (<em>float</em><em>, </em><em>optional</em>) – Force in the Y direction. Defaults to 0.0.</p></li>
+<li><p><strong>MZ</strong> (<em>float</em><em>, </em><em>optional</em>) – Moment about the Z axis. Defaults to 0.0.</p></li>
+</ul>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py class">
+<dt class="sig sig-object py" id="ILHEB.Loads.Spring">
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">ILHEB.Loads.</span></span><span class="sig-name descname"><span class="pre">Spring</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">node</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">KX</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">0.0</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">KY</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">0.0</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">KZ</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">0.0</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">KMX</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">0.0</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">KMY</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">0.0</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">KMZ</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">0.0</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#ILHEB.Loads.Spring" title="Link to this definition">¶</a></dt>
+<dd><p>Bases: <a class="reference internal" href="#ILHEB.Loads.NodeLoad" title="ILHEB.Loads.NodeLoad"><code class="xref py py-class docutils literal notranslate"><span class="pre">NodeLoad</span></code></a></p>
+<p>Represents a spring element applied as a node load in a structural analysis model.
+.. attribute:: Kn</p>
+<blockquote>
+<div><p>A 6x6 stiffness matrix representing the spring constants
+in translational (KX, KY, KZ) and rotational (KMX, KMY, KMZ) directions.</p>
+<dl class="field-list simple">
+<dt class="field-odd">type<span class="colon">:</span></dt>
+<dd class="field-odd"><p>numpy.ndarray</p>
+</dd>
+</dl>
+</div></blockquote>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>node</strong> (<em>Node</em>) – The node to which the spring is applied.</p></li>
+<li><p><strong>KX</strong> (<em>float</em><em>, </em><em>optional</em>) – Stiffness in the X translational direction. Defaults to 0.0.</p></li>
+<li><p><strong>KY</strong> (<em>float</em><em>, </em><em>optional</em>) – Stiffness in the Y translational direction. Defaults to 0.0.</p></li>
+<li><p><strong>KZ</strong> (<em>float</em><em>, </em><em>optional</em>) – Stiffness in the Z translational direction. Defaults to 0.0.</p></li>
+<li><p><strong>KMX</strong> (<em>float</em><em>, </em><em>optional</em>) – Stiffness in the X rotational direction. Defaults to 0.0.</p></li>
+<li><p><strong>KMY</strong> (<em>float</em><em>, </em><em>optional</em>) – Stiffness in the Y rotational direction. Defaults to 0.0.</p></li>
+<li><p><strong>KMZ</strong> (<em>float</em><em>, </em><em>optional</em>) – Stiffness in the Z rotational direction. Defaults to 0.0.</p></li>
+</ul>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py class">
+<dt class="sig sig-object py" id="ILHEB.Loads.Spring2D">
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">ILHEB.Loads.</span></span><span class="sig-name descname"><span class="pre">Spring2D</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">node</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">KX</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">0.0</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">KY</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">0.0</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">KMZ</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">0.0</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#ILHEB.Loads.Spring2D" title="Link to this definition">¶</a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">object</span></code></p>
+<p>Represents a 2D spring element with stiffness properties in the X, Y, and rotational Z directions.
+.. attribute:: Kn</p>
+<blockquote>
+<div><p>A 3x3 stiffness matrix representing the spring’s stiffness in the X, Y,
+and rotational Z directions.</p>
+<dl class="field-list simple">
+<dt class="field-odd">type<span class="colon">:</span></dt>
+<dd class="field-odd"><p>numpy.ndarray</p>
+</dd>
+</dl>
+</div></blockquote>
+<dl class="py method">
+<dt class="sig sig-object py" id="ILHEB.Loads.Spring2D.__init__">
+<span class="sig-name descname"><span class="pre">__init__</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">node</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">KX</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">0.0</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">KY</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">0.0</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">KMZ</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">0.0</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#ILHEB.Loads.Spring2D.__init__" title="Link to this definition">¶</a></dt>
+<dd><p>Initializes the Spring2D object with a node and stiffness values for X, Y, and Z directions.</p>
+</dd></dl>
+
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>node</strong> (<a class="reference internal" href="#ILHEB.Loads.NodeLoad2D" title="ILHEB.Loads.NodeLoad2D"><em>NodeLoad2D</em></a>) – The node to which the spring is attached.</p></li>
+<li><p><strong>KX</strong> (<em>float</em><em>, </em><em>optional</em>) – Stiffness in the X direction. Default is 0.0.</p></li>
+<li><p><strong>KY</strong> (<em>float</em><em>, </em><em>optional</em>) – Stiffness in the Y direction. Default is 0.0.</p></li>
+<li><p><strong>KMZ</strong> (<em>float</em><em>, </em><em>optional</em>) – Rotational stiffness about the Z axis. Default is 0.0.</p></li>
+</ul>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py class">
+<dt class="sig sig-object py" id="ILHEB.Loads.TemperatureLoad">
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">ILHEB.Loads.</span></span><span class="sig-name descname"><span class="pre">TemperatureLoad</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">element</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">delta_Tx</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">delta_Ty</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">delta_Tz</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">hy</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">hz</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">alpha</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#ILHEB.Loads.TemperatureLoad" title="Link to this definition">¶</a></dt>
+<dd><p>Bases: <a class="reference internal" href="#ILHEB.Loads.ElementLoad" title="ILHEB.Loads.ElementLoad"><code class="xref py py-class docutils literal notranslate"><span class="pre">ElementLoad</span></code></a></p>
+<p>Represents a temperature-induced load on a structural element.
+This class models the effects of temperature changes on a structural
+element, including axial and bending loads caused by thermal expansion
+or contraction.
+.. attribute:: element</p>
+<blockquote>
+<div><p>The structural element subjected to the temperature load.</p>
+<dl class="field-list simple">
+<dt class="field-odd">type<span class="colon">:</span></dt>
+<dd class="field-odd"><p>Element</p>
+</dd>
+</dl>
+</div></blockquote>
+<dl class="py attribute">
+<dt class="sig sig-object py" id="ILHEB.Loads.TemperatureLoad.delta_Tx">
+<span class="sig-name descname"><span class="pre">delta_Tx</span></span><a class="headerlink" href="#ILHEB.Loads.TemperatureLoad.delta_Tx" title="Link to this definition">¶</a></dt>
+<dd><p>Temperature change in the axial direction.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Type<span class="colon">:</span></dt>
+<dd class="field-odd"><p>float</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="ILHEB.Loads.TemperatureLoad.delta_Ty">
+<span class="sig-name descname"><span class="pre">delta_Ty</span></span><a class="headerlink" href="#ILHEB.Loads.TemperatureLoad.delta_Ty" title="Link to this definition">¶</a></dt>
+<dd><p>Temperature change in the y-direction (causing bending about the z-axis).</p>
+<dl class="field-list simple">
+<dt class="field-odd">Type<span class="colon">:</span></dt>
+<dd class="field-odd"><p>float</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="ILHEB.Loads.TemperatureLoad.delta_Tz">
+<span class="sig-name descname"><span class="pre">delta_Tz</span></span><a class="headerlink" href="#ILHEB.Loads.TemperatureLoad.delta_Tz" title="Link to this definition">¶</a></dt>
+<dd><p>Temperature change in the z-direction (causing bending about the y-axis).</p>
+<dl class="field-list simple">
+<dt class="field-odd">Type<span class="colon">:</span></dt>
+<dd class="field-odd"><p>float</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="ILHEB.Loads.TemperatureLoad.hy">
+<span class="sig-name descname"><span class="pre">hy</span></span><a class="headerlink" href="#ILHEB.Loads.TemperatureLoad.hy" title="Link to this definition">¶</a></dt>
+<dd><p>Distance between the neutral axis and the extreme fiber in the y-direction.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Type<span class="colon">:</span></dt>
+<dd class="field-odd"><p>float</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="ILHEB.Loads.TemperatureLoad.hz">
+<span class="sig-name descname"><span class="pre">hz</span></span><a class="headerlink" href="#ILHEB.Loads.TemperatureLoad.hz" title="Link to this definition">¶</a></dt>
+<dd><p>Distance between the neutral axis and the extreme fiber in the z-direction.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Type<span class="colon">:</span></dt>
+<dd class="field-odd"><p>float</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="ILHEB.Loads.TemperatureLoad.alpha">
+<span class="sig-name descname"><span class="pre">alpha</span></span><a class="headerlink" href="#ILHEB.Loads.TemperatureLoad.alpha" title="Link to this definition">¶</a></dt>
+<dd><p>Coefficient of thermal expansion of the material.
+If not provided, it defaults to the material’s alpha value.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Type<span class="colon">:</span></dt>
+<dd class="field-odd"><p>float, optional</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="ILHEB.Loads.TemperatureLoad.__call__">
+<span class="sig-name descname"><span class="pre">__call__</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">x</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#ILHEB.Loads.TemperatureLoad.__call__" title="Link to this definition">¶</a></dt>
+<dd><p>Returns a zero vector for the load distribution at a given position <cite>x</cite>.</p>
+</dd></dl>
+
+<p class="rubric">Notes</p>
+<ul class="simple">
+<li><p>The temperature load is calculated based on the material properties
+(modulus of elasticity <cite>E</cite>, coefficient of thermal expansion <cite>alpha</cite>)
+and the section properties (area <cite>A</cite>, moments of inertia <cite>Iy</cite> and <cite>Iz</cite>).</p></li>
+<li><p>The resulting load dictionary (<cite>dicy</cite>) includes axial forces (PXj, PXk),
+shear forces (PYj, PYk, PZj, PZk), and moments (MYj, MYk, MZj, MZk).</p></li>
+</ul>
+</dd></dl>
+
 </section>
 <section id="ilheb-materials-module">
 <h2>ILHEB.Materials module<a class="headerlink" href="#ilheb-materials-module" title="Link to this heading">¶</a></h2>
@@ -271,8 +1900,52 @@
 <section id="ilheb-sections-module">
 <h2>ILHEB.Sections module<a class="headerlink" href="#ilheb-sections-module" title="Link to this heading">¶</a></h2>
 </section>
-<section id="ilheb-solver-module">
-<h2>ILHEB.Solver module<a class="headerlink" href="#ilheb-solver-module" title="Link to this heading">¶</a></h2>
+<section id="module-ILHEB.Solver">
+<span id="ilheb-solver-module"></span><h2>ILHEB.Solver module<a class="headerlink" href="#module-ILHEB.Solver" title="Link to this heading">¶</a></h2>
+<dl class="py class">
+<dt class="sig sig-object py" id="ILHEB.Solver.LinearSolver">
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">ILHEB.Solver.</span></span><span class="sig-name descname"><span class="pre">LinearSolver</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">parent</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#ILHEB.Solver.LinearSolver" title="Link to this definition">¶</a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">object</span></code></p>
+<p>A class to perform linear system solving for structural analysis problems.
+.. attribute:: parent</p>
+<blockquote>
+<div><p>The parent object containing the global stiffness matrix (K),
+the global force vector (S), and the total number of degrees of freedom (ndof).</p>
+<dl class="field-list simple">
+<dt class="field-odd">type<span class="colon">:</span></dt>
+<dd class="field-odd"><p>object</p>
+</dd>
+</dl>
+</div></blockquote>
+<dl class="py method">
+<dt class="sig sig-object py" id="ILHEB.Solver.LinearSolver.solve">
+<span class="sig-name descname"><span class="pre">solve</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#ILHEB.Solver.LinearSolver.solve" title="Link to this definition">¶</a></dt>
+<dd><p>Solves the linear system of equations for the structural analysis problem.
+Removes invalid degrees of freedom (DOF) corresponding to free nodes without elements or stiffness,
+solves the reduced system, and reconstructs the solution vector for all DOFs.</p>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="id22">
+<span class="sig-name descname"><span class="pre">solve</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#id22" title="Link to this definition">¶</a></dt>
+<dd><p>Solves the system of linear equations to compute the displacements of the structure.
+This method processes the global stiffness matrix and force vector to remove degrees of
+freedom associated with free nodes that do not have any connected elements. It then solves
+the reduced system of equations to find the displacements at the valid degrees of freedom
+and reconstructs the full displacement vector.
+:returns: A 1D array containing the displacements of all degrees of freedom in the</p>
+<blockquote>
+<div><p>structure. Degrees of freedom without associated stiffness or force will have a value of zero.</p>
+</div></blockquote>
+<dl class="field-list simple">
+<dt class="field-odd">Return type<span class="colon">:</span></dt>
+<dd class="field-odd"><p>numpy.ndarray</p>
+</dd>
+</dl>
+</dd></dl>
+
+</dd></dl>
+
 </section>
 </section>
 
@@ -334,12 +2007,166 @@
 <li><a class="reference internal" href="#">ILHEB package</a><ul>
 <li><a class="reference internal" href="#submodules">Submodules</a></li>
 <li><a class="reference internal" href="#ilheb-core-module">ILHEB.Core module</a></li>
-<li><a class="reference internal" href="#ilheb-elements-module">ILHEB.Elements module</a></li>
+<li><a class="reference internal" href="#module-ILHEB.Elements">ILHEB.Elements module</a><ul>
+<li><a class="reference internal" href="#ILHEB.Elements.Element"><code class="docutils literal notranslate"><span class="pre">Element</span></code></a><ul>
+<li><a class="reference internal" href="#ILHEB.Elements.Element.section"><code class="docutils literal notranslate"><span class="pre">Element.section</span></code></a></li>
+<li><a class="reference internal" href="#ILHEB.Elements.Element.material"><code class="docutils literal notranslate"><span class="pre">Element.material</span></code></a></li>
+<li><a class="reference internal" href="#ILHEB.Elements.Element.coords"><code class="docutils literal notranslate"><span class="pre">Element.coords</span></code></a></li>
+<li><a class="reference internal" href="#ILHEB.Elements.Element.true_dofs"><code class="docutils literal notranslate"><span class="pre">Element.true_dofs</span></code></a></li>
+<li><a class="reference internal" href="#ILHEB.Elements.Element.loads"><code class="docutils literal notranslate"><span class="pre">Element.loads</span></code></a></li>
+<li><a class="reference internal" href="#ILHEB.Elements.Element.dof"><code class="docutils literal notranslate"><span class="pre">Element.dof</span></code></a></li>
+<li><a class="reference internal" href="#ILHEB.Elements.Element.releases"><code class="docutils literal notranslate"><span class="pre">Element.releases</span></code></a></li>
+<li><a class="reference internal" href="#ILHEB.Elements.Element.fe"><code class="docutils literal notranslate"><span class="pre">Element.fe</span></code></a></li>
+<li><a class="reference internal" href="#ILHEB.Elements.Element.ke"><code class="docutils literal notranslate"><span class="pre">Element.ke</span></code></a></li>
+<li><a class="reference internal" href="#ILHEB.Elements.Element.U"><code class="docutils literal notranslate"><span class="pre">Element.U</span></code></a></li>
+<li><a class="reference internal" href="#ILHEB.Elements.Element.pe"><code class="docutils literal notranslate"><span class="pre">Element.pe</span></code></a></li>
+<li><a class="reference internal" href="#ILHEB.Elements.Element.T"><code class="docutils literal notranslate"><span class="pre">Element.T</span></code></a></li>
+<li><a class="reference internal" href="#ILHEB.Elements.Element.__init__"><code class="docutils literal notranslate"><span class="pre">Element.__init__()</span></code></a></li>
+<li><a class="reference internal" href="#ILHEB.Elements.Element.lagrange_shape_functions"><code class="docutils literal notranslate"><span class="pre">Element.lagrange_shape_functions()</span></code></a></li>
+<li><a class="reference internal" href="#ILHEB.Elements.Element.hermit_shape_functions"><code class="docutils literal notranslate"><span class="pre">Element.hermit_shape_functions()</span></code></a></li>
+<li><a class="reference internal" href="#ILHEB.Elements.Element.dhermit_shape_functions"><code class="docutils literal notranslate"><span class="pre">Element.dhermit_shape_functions()</span></code></a></li>
+<li><a class="reference internal" href="#ILHEB.Elements.Element.pre_init"><code class="docutils literal notranslate"><span class="pre">Element.pre_init()</span></code></a></li>
+<li><a class="reference internal" href="#ILHEB.Elements.Element.set_coords"><code class="docutils literal notranslate"><span class="pre">Element.set_coords()</span></code></a></li>
+<li><a class="reference internal" href="#ILHEB.Elements.Element.set_releases"><code class="docutils literal notranslate"><span class="pre">Element.set_releases()</span></code></a></li>
+<li><a class="reference internal" href="#ILHEB.Elements.Element.set_dof"><code class="docutils literal notranslate"><span class="pre">Element.set_dof()</span></code></a></li>
+<li><a class="reference internal" href="#ILHEB.Elements.Element.add_load"><code class="docutils literal notranslate"><span class="pre">Element.add_load()</span></code></a></li>
+<li><a class="reference internal" href="#ILHEB.Elements.Element.calculate_fe"><code class="docutils literal notranslate"><span class="pre">Element.calculate_fe()</span></code></a></li>
+<li><a class="reference internal" href="#ILHEB.Elements.Element.set_displacements"><code class="docutils literal notranslate"><span class="pre">Element.set_displacements()</span></code></a></li>
+<li><a class="reference internal" href="#ILHEB.Elements.Element.calculate_pe"><code class="docutils literal notranslate"><span class="pre">Element.calculate_pe()</span></code></a></li>
+<li><a class="reference internal" href="#ILHEB.Elements.Element.save_results"><code class="docutils literal notranslate"><span class="pre">Element.save_results()</span></code></a></li>
+<li><a class="reference internal" href="#id0"><code class="docutils literal notranslate"><span class="pre">Element.add_load()</span></code></a></li>
+<li><a class="reference internal" href="#id1"><code class="docutils literal notranslate"><span class="pre">Element.calculate_fe()</span></code></a></li>
+<li><a class="reference internal" href="#id2"><code class="docutils literal notranslate"><span class="pre">Element.calculate_pe()</span></code></a></li>
+<li><a class="reference internal" href="#id3"><code class="docutils literal notranslate"><span class="pre">Element.dhermit_shape_functions()</span></code></a></li>
+<li><a class="reference internal" href="#id4"><code class="docutils literal notranslate"><span class="pre">Element.hermit_shape_functions()</span></code></a></li>
+<li><a class="reference internal" href="#id5"><code class="docutils literal notranslate"><span class="pre">Element.lagrange_shape_functions()</span></code></a></li>
+<li><a class="reference internal" href="#id6"><code class="docutils literal notranslate"><span class="pre">Element.pre_init()</span></code></a></li>
+<li><a class="reference internal" href="#id7"><code class="docutils literal notranslate"><span class="pre">Element.save_results()</span></code></a></li>
+<li><a class="reference internal" href="#id8"><code class="docutils literal notranslate"><span class="pre">Element.set_coords()</span></code></a></li>
+<li><a class="reference internal" href="#id9"><code class="docutils literal notranslate"><span class="pre">Element.set_displacements()</span></code></a></li>
+<li><a class="reference internal" href="#id10"><code class="docutils literal notranslate"><span class="pre">Element.set_dof()</span></code></a></li>
+<li><a class="reference internal" href="#id11"><code class="docutils literal notranslate"><span class="pre">Element.set_releases()</span></code></a></li>
+</ul>
+</li>
+<li><a class="reference internal" href="#ILHEB.Elements.FrameElement2D"><code class="docutils literal notranslate"><span class="pre">FrameElement2D</span></code></a><ul>
+<li><a class="reference internal" href="#ILHEB.Elements.FrameElement2D.true_dofs"><code class="docutils literal notranslate"><span class="pre">FrameElement2D.true_dofs</span></code></a></li>
+<li><a class="reference internal" href="#ILHEB.Elements.FrameElement2D.T"><code class="docutils literal notranslate"><span class="pre">FrameElement2D.T</span></code></a></li>
+<li><a class="reference internal" href="#ILHEB.Elements.FrameElement2D.ke"><code class="docutils literal notranslate"><span class="pre">FrameElement2D.ke</span></code></a></li>
+<li><a class="reference internal" href="#ILHEB.Elements.FrameElement2D.transformation_matrix"><code class="docutils literal notranslate"><span class="pre">FrameElement2D.transformation_matrix()</span></code></a></li>
+<li><a class="reference internal" href="#ILHEB.Elements.FrameElement2D.stiffness_matrix"><code class="docutils literal notranslate"><span class="pre">FrameElement2D.stiffness_matrix()</span></code></a></li>
+<li><a class="reference internal" href="#ILHEB.Elements.FrameElement2D.interpolate_displacements"><code class="docutils literal notranslate"><span class="pre">FrameElement2D.interpolate_displacements()</span></code></a></li>
+<li><a class="reference internal" href="#id12"><code class="docutils literal notranslate"><span class="pre">FrameElement2D.interpolate_displacements()</span></code></a></li>
+<li><a class="reference internal" href="#id13"><code class="docutils literal notranslate"><span class="pre">FrameElement2D.stiffness_matrix()</span></code></a></li>
+<li><a class="reference internal" href="#id14"><code class="docutils literal notranslate"><span class="pre">FrameElement2D.true_dofs</span></code></a></li>
+<li><a class="reference internal" href="#id15"><code class="docutils literal notranslate"><span class="pre">FrameElement2D.transformation_matrix()</span></code></a></li>
+</ul>
+</li>
+<li><a class="reference internal" href="#ILHEB.Elements.FrameElement3D"><code class="docutils literal notranslate"><span class="pre">FrameElement3D</span></code></a><ul>
+<li><a class="reference internal" href="#ILHEB.Elements.FrameElement3D.ndfnode"><code class="docutils literal notranslate"><span class="pre">FrameElement3D.ndfnode</span></code></a></li>
+<li><a class="reference internal" href="#ILHEB.Elements.FrameElement3D.r"><code class="docutils literal notranslate"><span class="pre">FrameElement3D.r</span></code></a></li>
+<li><a class="reference internal" href="#ILHEB.Elements.FrameElement3D.T"><code class="docutils literal notranslate"><span class="pre">FrameElement3D.T</span></code></a></li>
+<li><a class="reference internal" href="#ILHEB.Elements.FrameElement3D.ke"><code class="docutils literal notranslate"><span class="pre">FrameElement3D.ke</span></code></a></li>
+<li><a class="reference internal" href="#ILHEB.Elements.FrameElement3D.__init__"><code class="docutils literal notranslate"><span class="pre">FrameElement3D.__init__()</span></code></a></li>
+<li><a class="reference internal" href="#ILHEB.Elements.FrameElement3D.transformation_matrix"><code class="docutils literal notranslate"><span class="pre">FrameElement3D.transformation_matrix()</span></code></a></li>
+<li><a class="reference internal" href="#ILHEB.Elements.FrameElement3D.stiffness_matrix"><code class="docutils literal notranslate"><span class="pre">FrameElement3D.stiffness_matrix()</span></code></a></li>
+<li><a class="reference internal" href="#ILHEB.Elements.FrameElement3D.interpolate_displacements"><code class="docutils literal notranslate"><span class="pre">FrameElement3D.interpolate_displacements()</span></code></a></li>
+<li><a class="reference internal" href="#id16"><code class="docutils literal notranslate"><span class="pre">FrameElement3D.interpolate_displacements()</span></code></a></li>
+<li><a class="reference internal" href="#id17"><code class="docutils literal notranslate"><span class="pre">FrameElement3D.stiffness_matrix()</span></code></a></li>
+<li><a class="reference internal" href="#id18"><code class="docutils literal notranslate"><span class="pre">FrameElement3D.transformation_matrix()</span></code></a></li>
+</ul>
+</li>
+<li><a class="reference internal" href="#ILHEB.Elements.TrussElement2D"><code class="docutils literal notranslate"><span class="pre">TrussElement2D</span></code></a><ul>
+<li><a class="reference internal" href="#ILHEB.Elements.TrussElement2D.releases"><code class="docutils literal notranslate"><span class="pre">TrussElement2D.releases</span></code></a></li>
+<li><a class="reference internal" href="#ILHEB.Elements.TrussElement2D.__init__"><code class="docutils literal notranslate"><span class="pre">TrussElement2D.__init__()</span></code></a></li>
+<li><a class="reference internal" href="#ILHEB.Elements.TrussElement2D.interpolate_displacements"><code class="docutils literal notranslate"><span class="pre">TrussElement2D.interpolate_displacements()</span></code></a></li>
+</ul>
+</li>
+<li><a class="reference internal" href="#ILHEB.Elements.TrussElement3D"><code class="docutils literal notranslate"><span class="pre">TrussElement3D</span></code></a><ul>
+<li><a class="reference internal" href="#ILHEB.Elements.TrussElement3D.releases"><code class="docutils literal notranslate"><span class="pre">TrussElement3D.releases</span></code></a></li>
+<li><a class="reference internal" href="#ILHEB.Elements.TrussElement3D.__init__"><code class="docutils literal notranslate"><span class="pre">TrussElement3D.__init__()</span></code></a></li>
+<li><a class="reference internal" href="#ILHEB.Elements.TrussElement3D.interpolate_displacements"><code class="docutils literal notranslate"><span class="pre">TrussElement3D.interpolate_displacements()</span></code></a></li>
+</ul>
+</li>
+</ul>
+</li>
 <li><a class="reference internal" href="#ilheb-geometry-module">ILHEB.Geometry module</a></li>
-<li><a class="reference internal" href="#ilheb-loads-module">ILHEB.Loads module</a></li>
+<li><a class="reference internal" href="#module-ILHEB.Loads">ILHEB.Loads module</a><ul>
+<li><a class="reference internal" href="#ILHEB.Loads.DistributedLoad"><code class="docutils literal notranslate"><span class="pre">DistributedLoad</span></code></a><ul>
+<li><a class="reference internal" href="#ILHEB.Loads.DistributedLoad.WX"><code class="docutils literal notranslate"><span class="pre">DistributedLoad.WX</span></code></a></li>
+<li><a class="reference internal" href="#ILHEB.Loads.DistributedLoad.WY"><code class="docutils literal notranslate"><span class="pre">DistributedLoad.WY</span></code></a></li>
+<li><a class="reference internal" href="#ILHEB.Loads.DistributedLoad.WZ"><code class="docutils literal notranslate"><span class="pre">DistributedLoad.WZ</span></code></a></li>
+<li><a class="reference internal" href="#ILHEB.Loads.DistributedLoad.axis"><code class="docutils literal notranslate"><span class="pre">DistributedLoad.axis</span></code></a></li>
+<li><a class="reference internal" href="#ILHEB.Loads.DistributedLoad.__call__"><code class="docutils literal notranslate"><span class="pre">DistributedLoad.__call__()</span></code></a></li>
+<li><a class="reference internal" href="#ILHEB.Loads.DistributedLoad.distributed_load"><code class="docutils literal notranslate"><span class="pre">DistributedLoad.distributed_load()</span></code></a></li>
+<li><a class="reference internal" href="#id19"><code class="docutils literal notranslate"><span class="pre">DistributedLoad.distributed_load()</span></code></a></li>
+</ul>
+</li>
+<li><a class="reference internal" href="#ILHEB.Loads.ElementLoad"><code class="docutils literal notranslate"><span class="pre">ElementLoad</span></code></a><ul>
+<li><a class="reference internal" href="#ILHEB.Loads.ElementLoad.element"><code class="docutils literal notranslate"><span class="pre">ElementLoad.element</span></code></a></li>
+<li><a class="reference internal" href="#ILHEB.Loads.ElementLoad.function"><code class="docutils literal notranslate"><span class="pre">ElementLoad.function</span></code></a></li>
+<li><a class="reference internal" href="#ILHEB.Loads.ElementLoad.__call__"><code class="docutils literal notranslate"><span class="pre">ElementLoad.__call__()</span></code></a></li>
+</ul>
+</li>
+<li><a class="reference internal" href="#ILHEB.Loads.ForcePointLoad"><code class="docutils literal notranslate"><span class="pre">ForcePointLoad</span></code></a><ul>
+<li><a class="reference internal" href="#ILHEB.Loads.ForcePointLoad.x"><code class="docutils literal notranslate"><span class="pre">ForcePointLoad.x</span></code></a></li>
+<li><a class="reference internal" href="#ILHEB.Loads.ForcePointLoad.PX"><code class="docutils literal notranslate"><span class="pre">ForcePointLoad.PX</span></code></a></li>
+<li><a class="reference internal" href="#ILHEB.Loads.ForcePointLoad.PY"><code class="docutils literal notranslate"><span class="pre">ForcePointLoad.PY</span></code></a></li>
+<li><a class="reference internal" href="#ILHEB.Loads.ForcePointLoad.PZ"><code class="docutils literal notranslate"><span class="pre">ForcePointLoad.PZ</span></code></a></li>
+<li><a class="reference internal" href="#ILHEB.Loads.ForcePointLoad.function"><code class="docutils literal notranslate"><span class="pre">ForcePointLoad.function</span></code></a></li>
+<li><a class="reference internal" href="#ILHEB.Loads.ForcePointLoad.__init__"><code class="docutils literal notranslate"><span class="pre">ForcePointLoad.__init__()</span></code></a></li>
+<li><a class="reference internal" href="#ILHEB.Loads.ForcePointLoad.point_load"><code class="docutils literal notranslate"><span class="pre">ForcePointLoad.point_load()</span></code></a></li>
+<li><a class="reference internal" href="#ILHEB.Loads.ForcePointLoad.__call__"><code class="docutils literal notranslate"><span class="pre">ForcePointLoad.__call__()</span></code></a></li>
+<li><a class="reference internal" href="#id20"><code class="docutils literal notranslate"><span class="pre">ForcePointLoad.point_load()</span></code></a></li>
+</ul>
+</li>
+<li><a class="reference internal" href="#ILHEB.Loads.MomentPointLoad"><code class="docutils literal notranslate"><span class="pre">MomentPointLoad</span></code></a><ul>
+<li><a class="reference internal" href="#ILHEB.Loads.MomentPointLoad.x"><code class="docutils literal notranslate"><span class="pre">MomentPointLoad.x</span></code></a></li>
+<li><a class="reference internal" href="#ILHEB.Loads.MomentPointLoad.MX"><code class="docutils literal notranslate"><span class="pre">MomentPointLoad.MX</span></code></a></li>
+<li><a class="reference internal" href="#ILHEB.Loads.MomentPointLoad.MY"><code class="docutils literal notranslate"><span class="pre">MomentPointLoad.MY</span></code></a></li>
+<li><a class="reference internal" href="#ILHEB.Loads.MomentPointLoad.MZ"><code class="docutils literal notranslate"><span class="pre">MomentPointLoad.MZ</span></code></a></li>
+<li><a class="reference internal" href="#ILHEB.Loads.MomentPointLoad.function"><code class="docutils literal notranslate"><span class="pre">MomentPointLoad.function</span></code></a></li>
+<li><a class="reference internal" href="#ILHEB.Loads.MomentPointLoad.point_load"><code class="docutils literal notranslate"><span class="pre">MomentPointLoad.point_load()</span></code></a></li>
+<li><a class="reference internal" href="#ILHEB.Loads.MomentPointLoad.__call__"><code class="docutils literal notranslate"><span class="pre">MomentPointLoad.__call__()</span></code></a></li>
+<li><a class="reference internal" href="#id21"><code class="docutils literal notranslate"><span class="pre">MomentPointLoad.point_load()</span></code></a></li>
+</ul>
+</li>
+<li><a class="reference internal" href="#ILHEB.Loads.NodeLoad"><code class="docutils literal notranslate"><span class="pre">NodeLoad</span></code></a><ul>
+<li><a class="reference internal" href="#ILHEB.Loads.NodeLoad.Fn"><code class="docutils literal notranslate"><span class="pre">NodeLoad.Fn</span></code></a></li>
+<li><a class="reference internal" href="#ILHEB.Loads.NodeLoad.Kn"><code class="docutils literal notranslate"><span class="pre">NodeLoad.Kn</span></code></a></li>
+</ul>
+</li>
+<li><a class="reference internal" href="#ILHEB.Loads.NodeLoad2D"><code class="docutils literal notranslate"><span class="pre">NodeLoad2D</span></code></a><ul>
+<li><a class="reference internal" href="#ILHEB.Loads.NodeLoad2D.Fn"><code class="docutils literal notranslate"><span class="pre">NodeLoad2D.Fn</span></code></a></li>
+<li><a class="reference internal" href="#ILHEB.Loads.NodeLoad2D.Kn"><code class="docutils literal notranslate"><span class="pre">NodeLoad2D.Kn</span></code></a></li>
+</ul>
+</li>
+<li><a class="reference internal" href="#ILHEB.Loads.Spring"><code class="docutils literal notranslate"><span class="pre">Spring</span></code></a></li>
+<li><a class="reference internal" href="#ILHEB.Loads.Spring2D"><code class="docutils literal notranslate"><span class="pre">Spring2D</span></code></a><ul>
+<li><a class="reference internal" href="#ILHEB.Loads.Spring2D.__init__"><code class="docutils literal notranslate"><span class="pre">Spring2D.__init__()</span></code></a></li>
+</ul>
+</li>
+<li><a class="reference internal" href="#ILHEB.Loads.TemperatureLoad"><code class="docutils literal notranslate"><span class="pre">TemperatureLoad</span></code></a><ul>
+<li><a class="reference internal" href="#ILHEB.Loads.TemperatureLoad.delta_Tx"><code class="docutils literal notranslate"><span class="pre">TemperatureLoad.delta_Tx</span></code></a></li>
+<li><a class="reference internal" href="#ILHEB.Loads.TemperatureLoad.delta_Ty"><code class="docutils literal notranslate"><span class="pre">TemperatureLoad.delta_Ty</span></code></a></li>
+<li><a class="reference internal" href="#ILHEB.Loads.TemperatureLoad.delta_Tz"><code class="docutils literal notranslate"><span class="pre">TemperatureLoad.delta_Tz</span></code></a></li>
+<li><a class="reference internal" href="#ILHEB.Loads.TemperatureLoad.hy"><code class="docutils literal notranslate"><span class="pre">TemperatureLoad.hy</span></code></a></li>
+<li><a class="reference internal" href="#ILHEB.Loads.TemperatureLoad.hz"><code class="docutils literal notranslate"><span class="pre">TemperatureLoad.hz</span></code></a></li>
+<li><a class="reference internal" href="#ILHEB.Loads.TemperatureLoad.alpha"><code class="docutils literal notranslate"><span class="pre">TemperatureLoad.alpha</span></code></a></li>
+<li><a class="reference internal" href="#ILHEB.Loads.TemperatureLoad.__call__"><code class="docutils literal notranslate"><span class="pre">TemperatureLoad.__call__()</span></code></a></li>
+</ul>
+</li>
+</ul>
+</li>
 <li><a class="reference internal" href="#ilheb-materials-module">ILHEB.Materials module</a></li>
 <li><a class="reference internal" href="#ilheb-sections-module">ILHEB.Sections module</a></li>
-<li><a class="reference internal" href="#ilheb-solver-module">ILHEB.Solver module</a></li>
+<li><a class="reference internal" href="#module-ILHEB.Solver">ILHEB.Solver module</a><ul>
+<li><a class="reference internal" href="#ILHEB.Solver.LinearSolver"><code class="docutils literal notranslate"><span class="pre">LinearSolver</span></code></a><ul>
+<li><a class="reference internal" href="#ILHEB.Solver.LinearSolver.solve"><code class="docutils literal notranslate"><span class="pre">LinearSolver.solve()</span></code></a></li>
+<li><a class="reference internal" href="#id22"><code class="docutils literal notranslate"><span class="pre">LinearSolver.solve()</span></code></a></li>
+</ul>
+</li>
+</ul>
+</li>
 </ul>
 </li>
 </ul>
