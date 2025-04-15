@@ -84,8 +84,10 @@ class Element():
     def lagrange_shape_functions(self, z):
         """
         Computes the Lagrange shape functions for a given local coordinate.
-        Parameters:
+
+        Args:
             z (float or np.ndarray): The local coordinate (typically ranging from -1 to 1).
+
         Returns:
             numpy.ndarray: A 1D array containing the values of the Lagrange shape functions 
                            evaluated at the given local coordinate `z`.
@@ -98,7 +100,8 @@ class Element():
         Computes the Hermite shape functions for a given local coordinate `z`.
         Hermite shape functions are used in finite element analysis for beam and 
         frame elements to interpolate displacements and rotations.
-        Parameters:
+
+        Args:
             z : float or array-like
                 Local coordinate(s) in the range [-1, 1] where the shape functions 
                 are evaluated.
@@ -106,6 +109,7 @@ class Element():
             numpy.ndarray
                 A 2D array where each row corresponds to the values of the four 
                 Hermite shape functions at the given local coordinate(s).
+
         Notes:
             The shape functions are defined in terms of the element length `L` 
             (stored as `self.L`). The local coordinate `z` is mapped to the global 
@@ -122,15 +126,18 @@ class Element():
     def dhermit_shape_functions(self, z):
         """
         Computes the derivatives of Hermitian shape functions for a beam element.
+
         Parameters:
             z : float
                 The local coordinate (ranging from -1 to 1) along the length of the beam element.
+
         Returns:
             numpy.ndarray
                 A 3x4 array containing the derivatives of the Hermitian shape functions:
                 - The first row corresponds to the first derivative of the shape functions.
                 - The second row corresponds to the second derivative of the shape functions.
                 - The third row corresponds to the third derivative of the shape functions.
+
         Notes:
             - `h` is the length of the beam element.
             - The shape functions are defined in terms of the local coordinate `z` and are scaled
@@ -154,7 +161,8 @@ class Element():
         This method sets up the initial state of the element by initializing various
         attributes such as loads, degrees of freedom (DOF), releases, and matrices
         used in structural analysis.
-        Attributes initialized:
+
+        Attributes Initialized:
             - loads: A list to store the loads applied to the element.
             - dof: A list of size `ndfnode` initialized with None, representing the 
               degrees of freedom for each node.
@@ -185,16 +193,19 @@ class Element():
         """
         Sets the coordinates of the element and calculates its length, 
         transformation matrix, and stiffness matrix.
+
         Args:
             coords (array-like): A list or array containing the coordinates 
                                  of the element's nodes. It should be a 
                                  2D array where the first index corresponds 
                                  to the node and the second index corresponds 
                                  to the spatial dimension.
+
         Attributes Set:
             self.coords: Stores the input coordinates.
             self.L: The length of the element, calculated as the Euclidean 
                     distance between the two nodes.
+
         Notes:
             This method also calls `transformation_matrix` and 
             `stiffness_matrix`, which are element-dependent methods 
@@ -209,6 +220,7 @@ class Element():
     def set_releases(self, releases):
         """
         Sets the release conditions for the element.
+
         Args:
             releases (list of list of bool): A 2D list where each sublist corresponds to a node,
                              and each element in the sublist indicates whether
@@ -221,6 +233,7 @@ class Element():
     def set_dof(self, dof):
         """
         Sets the degrees of freedom (DOF) for the element.
+
         Parameters:
             dof (list or array-like): A list or array containing the degrees of freedom
                                       to be assigned to the element.
@@ -231,10 +244,13 @@ class Element():
     def add_load(self, load):
         """
         Adds a load to the element and updates the element's force vector.
+
         Args:
             load (ElementLoad): The load to be added. It must be an instance of the Load class or its subclasses.
+
         Raises:
             TypeError: If the provided load is not an instance of the ElementLoad class or its subclasses.
+
         Side Effects:
             - Appends the given load to the element's list of loads.
             - Recalculates the element's force vector by calling the `calculate_fe` method.
@@ -251,8 +267,10 @@ class Element():
         This method iterates through all the loads applied to the element and accumulates
         their contributions to the force vector (`fe`) at the degrees of freedom (DOFs)
         specified by `true_dofs`.
+
         Attributes:
             fe (numpy.ndarray): The force vector of the element, updated in-place.
+
         Raises:
             AttributeError: If `loads` or `true_dofs` are not properly defined or if the
                             load objects do not have the required `p` attribute.
@@ -265,8 +283,10 @@ class Element():
     def set_displacements(self, U):
         """
         Sets the displacement vector for the element in the local coordinate system.
+
         Parameters:
             U (numpy.ndarray): The global displacement vector.
+
         Updates:
             self.U (numpy.ndarray): The displacement vector transformed to the local coordinate system
                                     using the transformation matrix `self.T`.
@@ -278,11 +298,11 @@ class Element():
         """
         Calculates the internal force vector `pe` for the element.
         The calculation is performed using the formula:
-            pe = ke @ U + fe
+            :math:`pe = ke @ U + fe`
         where:
-            - `ke` is the element stiffness matrix.
-            - `U` is the displacement vector.
-            - `fe` is the external force vector.
+            - :math:`ke` is the element stiffness matrix.
+            - :math:`U` is the displacement vector.
+            - :math:`fe` is the external force vector.
         This method updates the `pe` attribute of the element instance.
         """
 
@@ -291,15 +311,18 @@ class Element():
     def save_results(self, base):
         """
         Saves the results of the analysis to text files.
+
         Parameters:
-        base (str): The base file path and name to which the results will be saved. 
-                    The method appends specific suffixes to this base name for each result type.
+            base (str): The base file path and name to which the results will be saved. 
+                        The method appends specific suffixes to this base name for each result type.
+
         Saves:
-        - Displacement vector (U) to a file named "<base>_U.txt".
-        - Element forces (pe) to a file named "<base>_pe.txt".
-        - Element nodal forces (fe) to a file named "<base>_fe.txt".
-        - Element stiffness matrices (ke) to a file named "<base>_ke.txt".
-        - Transformation matrices (T) to a file named "<base>_T.txt".
+            - Displacement vector (U) to a file named "<base>_U.txt".
+            - Element forces (pe) to a file named "<base>_pe.txt".
+            - Element nodal forces (fe) to a file named "<base>_fe.txt".
+            - Element stiffness matrices (ke) to a file named "<base>_ke.txt".
+            - Transformation matrices (T) to a file named "<base>_T.txt".
+
         Each file is saved in text format with elements formatted as strings.
         """
 
@@ -314,13 +337,16 @@ class Element():
 class FrameElement3D(Element):
     """
     A class representing a 3D frame element for structural analysis.
+
     Inherits from:
         Element: The base class for structural elements.
+
     Attributes:
         ndfnode (int): Number of degrees of freedom per node (default is 6).
         r (numpy.ndarray): Transformation matrix for local to global coordinates.
         T (numpy.ndarray): Full transformation matrix for the element.
         ke (numpy.ndarray): Element stiffness matrix.
+
     Methods:
         __init__(nodes, section, material):
             Initializes the FrameElement3D object with nodes, section, and material properties.
@@ -330,15 +356,13 @@ class FrameElement3D(Element):
             Computes the local stiffness matrix for the element based on its material and section properties.
         interpolate_displacements(n_points):
             Interpolates displacements along the element at specified points using shape functions.
-    Parameters:
-        nodes (list): List of nodes defining the element.
-        section (object): Section properties of the element (e.g., area, moments of inertia).
-        material (object): Material properties of the element (e.g., Young's modulus, shear modulus).
+
     """
 
     def __init__(self, nodes, section, material):
         """
         Initializes an instance of the Element class with specified nodes, section, and material.
+
         Args:
             nodes (list): A list of nodes defining the element.
             section (object): The section properties of the element.
@@ -355,7 +379,8 @@ class FrameElement3D(Element):
         It uses the element's length, coordinates, and section orientation to determine the 
         transformation matrix that maps local coordinate system displacements to the global 
         coordinate system.
-        Steps:
+
+        Process:
             1. Compute the local x-axis unit vector (xl) based on the element's coordinates.
             2. Compute the local z-axis unit vector (zl) as the cross product of xl and the 
                section orientation vector.
@@ -365,6 +390,7 @@ class FrameElement3D(Element):
             6. Construct the rotation matrix (r) using xl, yl, and zl.
             7. Build the 12x12 transformation matrix (T) by embedding r into the appropriate 
                submatrices.
+
         Returns:
             None: The method sets the following attributes:
                 - self.r (ndarray): The 3x3 rotation matrix.
@@ -395,16 +421,10 @@ class FrameElement3D(Element):
         between nodal displacements and forces for a 3D beam element. It is 
         calculated based on the material properties, cross-sectional properties, 
         and length of the element.
+
         Returns:
             None: The computed stiffness matrix is stored in the `self.ke` attribute.
-        Attributes Used:
-            self.L (float): Length of the element.
-            self.material.E (float): Young's modulus of the material.
-            self.material.G (float): Shear modulus of the material.
-            self.section.A (float): Cross-sectional area of the element.
-            self.section.Iz (float): Moment of inertia about the z-axis.
-            self.section.Iy (float): Moment of inertia about the y-axis.
-            self.section.J (float): Polar moment of inertia.
+
         Notes:
             - The stiffness matrix is symmetric and accounts for axial, bending, 
               and torsional stiffness of the element. It does not account for shear deformation.
@@ -451,9 +471,11 @@ class FrameElement3D(Element):
         """
         Interpolates the displacements and their derivatives for a structural element 
         at specified points along its length using Hermite and Lagrange shape functions.
+
         Parameters:
             n_points (int): The number of points along the element length where 
                             displacements and their derivatives are to be interpolated.
+
         Returns:
             tuple:
                 - _x (numpy.ndarray): The interpolated coordinates along the element 
@@ -506,11 +528,13 @@ class FrameElement2D(FrameElement3D):
     A class representing a 2D frame element, inheriting from FrameElement3D.
     This class models a 2D frame element with specific properties and methods 
     for transformation matrices, stiffness matrices, and displacement interpolation.
+
     Attributes:
         ndfnode (int): Number of degrees of freedom per node (default is 3 for 2D).
         true_dofs (list): List of indices representing the active degrees of freedom.
         T (numpy.ndarray): Transformation matrix for the element.
         ke (numpy.ndarray): Stiffness matrix for the element.
+
     Methods:
         transformation_matrix():
             Computes the transformation matrix for the element based on its orientation.
@@ -524,13 +548,11 @@ class FrameElement2D(FrameElement3D):
     def __init__(self, nodes, section, material):
         """
         Initializes a 3D frame element with specified nodes, section, and material properties.
+
         Args:
             nodes (list): A list of node objects defining the element's geometry.
             section (object): The section properties of the element (e.g., cross-sectional area, moment of inertia).
             material (object): The material properties of the element (e.g., Young's modulus, density).
-        Attributes:
-            ndfnode (int): Number of degrees of freedom per node (set to 3).
-            true_dofs (list): A list of indices representing the active degrees of freedom for the element.
         """
 
         FrameElement3D.__init__(self, nodes, section, material)
@@ -545,11 +567,13 @@ class FrameElement2D(FrameElement3D):
         for the element using the coordinates of its two endpoints. The transformation
         matrix is used to transform local element forces and displacements to the global
         coordinate system.
+
         Computed Attributes:
             self.r (numpy.ndarray): A 3x3 rotation matrix for transforming local to global
                 coordinates.
             self.T (numpy.ndarray): A 6x6 transformation matrix for the element.
-        Steps:
+
+        Process:
             1. Calculate the angle `theta` of the element with respect to the global x-axis
                using the arctangent of the slope.
             2. Compute the cosine (`c`) and sine (`s`) of the angle `theta`.
@@ -595,13 +619,12 @@ class FrameElement2D(FrameElement3D):
         perform any necessary base computations. It then extracts the submatrix 
         of the stiffness matrix (`ke`) corresponding to the degrees of freedom 
         specified in `true_dofs`.
+
         Attributes:
             ke (numpy.ndarray): The stiffness matrix of the element.
             true_dofs (list or array-like): Indices of the degrees of freedom 
                 to be retained in the stiffness matrix.
-        Updates:
-            self.ke: The reduced stiffness matrix containing only the rows and 
-            columns corresponding to `true_dofs`.
+
         """
 
         super().stiffness_matrix()
@@ -611,8 +634,10 @@ class FrameElement2D(FrameElement3D):
     def interpolate_displacements(self, n_points):
         """
         Interpolates the displacements of an element at specified points along its length.
+
         Parameters:
             n_points (int): The number of points at which to interpolate the displacements.
+
         Returns:
             tuple:
                 - _x (numpy.ndarray): The interpolated coordinates along the element in the local coordinate system.
@@ -645,8 +670,10 @@ class FrameElement2D(FrameElement3D):
 class TrussElement2D(FrameElement2D):
     """
     Represents a 2D truss element, which is a structural element that can only carry axial forces.
+
     Inherits from:
         FrameElement2D: A base class for 2D frame elements.
+
     Attributes:
         releases (list): A 2D list defining the release conditions at the start and end nodes of the element.
                          Each sublist contains three boolean values:
@@ -654,30 +681,23 @@ class TrussElement2D(FrameElement2D):
                          - The second value indicates whether the shear force is released.
                          - The third value indicates whether the moment is released.
                          For a truss element, moments are always released (True), while axial and shear forces are not released (False).
+
     Methods:
         __init__(nodes, section, material):
             Initializes the TrussElement2D instance with the given nodes, section, and material properties.
             Sets the default release conditions for a truss element.
-    Parameters:
-        nodes (list): A list of nodes defining the geometry of the element.
-        section (object): The cross-sectional properties of the element.
-        material (object): The material properties of the element.
+
     """
 
     def __init__(self, nodes, section, material):
         """
         Initializes a 2D frame element with specified nodes, section, and material properties.
+
         Args:
             nodes (list): A list of nodes defining the element's geometry.
             section (object): The cross-sectional properties of the element.
             material (object): The material properties of the element.
-        Attributes:
-            releases (list): A list of two sublists, each containing three boolean values 
-                             indicating the release conditions at the start and end of the element.
-                             Format: [[Fx, Fy, Mz], [Fx, Fy, Mz]], where:
-                             - Fx: Axial force release (False = fixed, True = released)
-                             - Fy: Shear force release (False = fixed, True = released)
-                             - Mz: Moment release (False = fixed, True = released)
+
         """
 
         FrameElement2D.__init__(self, nodes, section, material)
@@ -686,8 +706,10 @@ class TrussElement2D(FrameElement2D):
     def interpolate_displacements(self, n_points):
         """
         Interpolates the displacements of an element at specified points along its length.
+
         Parameters:
             n_points (int): The number of points at which to interpolate the displacements.
+
         Returns:
             tuple:
                 - _x (numpy.ndarray): The interpolated coordinates along the element in the local coordinate system.
@@ -713,8 +735,10 @@ class TrussElement3D(FrameElement3D):
     Represents a 3D truss element, which is a type of structural element 
     that can only carry axial forces (tension or compression) and does not 
     resist bending moments.
+
     Inherits from:
         FrameElement3D: A base class for 3D frame elements.
+
     Attributes:
         releases (list): A 2D list defining the degrees of freedom (DOF) 
             that are released at each end of the element. For truss elements, 
@@ -724,28 +748,23 @@ class TrussElement3D(FrameElement3D):
                 [False, False, False, True, True, True],  # End 1 DOF releases
                 [False, False, False, True, True, True]   # End 2 DOF releases
             ]
+
     Methods:
         __init__(nodes, section, material):
             Initializes the TrussElement3D instance with the given nodes, 
             cross-sectional properties, and material properties.
-    Parameters:
-        nodes (list): A list of nodes defining the element's geometry.
-        section: The cross-sectional properties of the element.
-        material: The material properties of the element.
+
     """
 
     def __init__(self, nodes, section, material):
         """
         Initializes a 3D frame element with specified nodes, section, and material properties.
+
         Args:
             nodes (list): A list of nodes defining the element.
             section (object): The cross-sectional properties of the element.
             material (object): The material properties of the element.
-        Attributes:
-            releases (list): A 2D list defining the release conditions at both ends of the element.
-                             Each sublist contains six boolean values corresponding to the degrees
-                             of freedom (translations and rotations) at the respective end.
-                             True indicates a released degree of freedom, while False indicates fixed.
+
         """
 
         FrameElement3D.__init__(self, nodes, section, material)
@@ -756,9 +775,11 @@ class TrussElement3D(FrameElement3D):
         """
         Interpolates the displacements and their derivatives for a structural element 
         at specified points along its length using Hermite and Lagrange shape functions.
+
         Parameters:
             n_points (int): The number of points along the element length where 
                             displacements and their derivatives are to be interpolated.
+
         Returns:
             tuple:
                 - _x (numpy.ndarray): The interpolated coordinates along the element 
