@@ -31,7 +31,7 @@ class LinearSolver():
 
         Returns:
             numpy.ndarray: A 1D array containing the displacements of all degrees of freedom in the 
-            structure. Degrees of freedom without associated stiffness or force will have a value of zero.
+                structure. Degrees of freedom without associated stiffness or force will have a value of zero.
         """
 
         # This code removes the degrees of freedom that don't exist (free nodes without elements/stiffness)

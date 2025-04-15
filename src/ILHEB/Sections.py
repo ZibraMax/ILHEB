@@ -2,19 +2,18 @@ import numpy as np
 
 
 class General():
-    class General:
-        """
-        A class to represent a general section with various properties.
+    """
+    A class to represent a general section with various properties.
 
-        Attributes:
-            Iz (float): Moment of inertia about the z-axis. Default is 0.0.
-            Iy (float): Moment of inertia about the y-axis. Default is 0.0.
-            J (float): Torsional constant. Default is 0.0.
-            A (float): Cross-sectional area. Default is 0.0.
-            Ax (float): Shear area in the x-direction. Default is 0.0.
-            Ay (float): Shear area in the y-direction. Default is 0.0.
-            v (numpy.ndarray): A vector representing the orientation of the section. Default is np.array([0, 1.0, 0.0]).
-        """
+    Attributes:
+        Iz (float): Moment of inertia about the z-axis. Default is 0.0.
+        Iy (float): Moment of inertia about the y-axis. Default is 0.0.
+        J (float): Torsional constant. Default is 0.0.
+        A (float): Cross-sectional area. Default is 0.0.
+        Ax (float): Shear area in the x-direction. Default is 0.0.
+        Ay (float): Shear area in the y-direction. Default is 0.0.
+        v (numpy.ndarray): A vector representing the orientation of the section. Default is np.array([0, 1.0, 0.0]).
+    """
 
     def __init__(self, Iz=0.0, Iy=0.0, J=0.0, A=0.0, Ax=0.0, Ay=0.0, v=np.array([0, 1.0, 0.0])):
         """
@@ -28,7 +27,7 @@ class General():
             Ax (float, optional): Shear area in the x-direction. Default is 0.0.
             Ay (float, optional): Shear area in the y-direction. Default is 0.0.
             v (numpy.ndarray, optional): Unit vector representing the orientation of the section. 
-                                          Default is np.array([0, 1.0, 0.0]).
+                Default is np.array([0, 1.0, 0.0]).
         """
 
         self.Iz = Iz
