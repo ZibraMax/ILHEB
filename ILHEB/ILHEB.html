@@ -1164,21 +1164,16 @@ section orientation vector.</p></li>
 <li><p>Build the 12x12 transformation matrix (T) by embedding r into the appropriate
 submatrices.</p></li>
 </ol>
-<dl class="field-list simple">
-<dt class="field-odd">Returns<span class="colon">:</span></dt>
-<dd class="field-odd"><p><dl class="simple">
-<dt>The method sets the following attributes:</dt><dd><ul class="simple">
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>The method sets the following attributes:</p>
+<blockquote>
+<div><ul class="simple">
 <li><p>self.r (ndarray): The 3x3 rotation matrix.</p></li>
 <li><p>self.T (ndarray): The 12x12 transformation matrix.</p></li>
 </ul>
-</dd>
-</dl>
-</p>
-</dd>
-<dt class="field-even">Return type<span class="colon">:</span></dt>
-<dd class="field-even"><p>None</p>
-</dd>
-</dl>
+</div></blockquote>
+</div>
 </dd></dl>
 
 </dd></dl>
@@ -1260,13 +1255,7 @@ resist bending moments.</p>
 <dd><p>A 2D list defining the degrees of freedom (DOF)
 that are released at each end of the element. For truss elements,
 rotational DOFs are typically released, allowing free rotation
-at the ends. The format is:
-[</p>
-<blockquote>
-<div><p>[False, False, False, True, True, True],  # End 1 DOF releases
-[False, False, False, True, True, True]   # End 2 DOF releases</p>
-</div></blockquote>
-<p>]</p>
+at the ends.</p>
 <dl class="field-list simple">
 <dt class="field-odd">Type<span class="colon">:</span></dt>
 <dd class="field-odd"><p>list</p>
@@ -1331,16 +1320,18 @@ where:
 <dt class="sig sig-object py" id="ILHEB.Geometry.Geometry2D">
 <em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">ILHEB.Geometry.</span></span><span class="sig-name descname"><span class="pre">Geometry2D</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">coords</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#ILHEB.Geometry.Geometry2D" title="Link to this definition">¶</a></dt>
 <dd><p>Bases: <a class="reference internal" href="#ILHEB.Geometry.Geometry3D" title="ILHEB.Geometry.Geometry3D"><code class="xref py py-class docutils literal notranslate"><span class="pre">Geometry3D</span></code></a></p>
-<p>A class representing a 2D geometry for structural analysis, inheriting from Geometry3D.
-.. attribute:: _ndofs_per_node</p>
-<blockquote>
-<div><p>Number of degrees of freedom per node (default is 3 for 2D).</p>
+<p>A class representing a 2D geometry for structural analysis, inheriting from Geometry3D.</p>
+<dl class="py attribute">
+<dt class="sig sig-object py" id="ILHEB.Geometry.Geometry2D._ndofs_per_node">
+<span class="sig-name descname"><span class="pre">_ndofs_per_node</span></span><a class="headerlink" href="#ILHEB.Geometry.Geometry2D._ndofs_per_node" title="Link to this definition">¶</a></dt>
+<dd><p>Number of degrees of freedom per node (default is 3 for 2D).</p>
 <dl class="field-list simple">
-<dt class="field-odd">type<span class="colon">:</span></dt>
+<dt class="field-odd">Type<span class="colon">:</span></dt>
 <dd class="field-odd"><p>int</p>
 </dd>
 </dl>
-</div></blockquote>
+</dd></dl>
+
 <dl class="py attribute">
 <dt class="sig sig-object py" id="ILHEB.Geometry.Geometry2D.name_dofs_reactions">
 <span class="sig-name descname"><span class="pre">name_dofs_reactions</span></span><a class="headerlink" href="#ILHEB.Geometry.Geometry2D.name_dofs_reactions" title="Link to this definition">¶</a></dt>
@@ -1363,49 +1354,16 @@ where:
 </dl>
 </dd></dl>
 
-<dl class="py method">
-<dt class="sig sig-object py" id="ILHEB.Geometry.Geometry2D.__init__">
-<span class="sig-name descname"><span class="pre">__init__</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">coords</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#ILHEB.Geometry.Geometry2D.__init__" title="Link to this definition">¶</a></dt>
-<dd><p>Initializes the Geometry2D object with optional coordinates.</p>
-</dd></dl>
-
-<dl class="py method">
-<dt class="sig sig-object py" id="ILHEB.Geometry.Geometry2D.plot">
-<span class="sig-name descname"><span class="pre">plot</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">plot_labels</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">True</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">filename</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#ILHEB.Geometry.Geometry2D.plot" title="Link to this definition">¶</a></dt>
-<dd><p>Plots the geometry, including nodes, elements, and boundary conditions.</p>
-</dd></dl>
-
-<dl class="py method">
-<dt class="sig sig-object py" id="ILHEB.Geometry.Geometry2D.plot_defo">
-<span class="sig-name descname"><span class="pre">plot_defo</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">mult</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">1</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">n_points</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">10</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">filename</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#ILHEB.Geometry.Geometry2D.plot_defo" title="Link to this definition">¶</a></dt>
-<dd><p>Plots the deformed shape of the geometry based on displacements.</p>
-</dd></dl>
-
-<dl class="py method">
-<dt class="sig sig-object py" id="ILHEB.Geometry.Geometry2D.force_diagram">
-<span class="sig-name descname"><span class="pre">force_diagram</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">element_id</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">plot</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">True</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#ILHEB.Geometry.Geometry2D.force_diagram" title="Link to this definition">¶</a></dt>
-<dd><p>Generates and optionally plots the force diagram for a specific element.</p>
-</dd></dl>
-
-<dl class="py method">
-<dt class="sig sig-object py" id="ILHEB.Geometry.Geometry2D.plot_reactions">
-<span class="sig-name descname"><span class="pre">plot_reactions</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">Rn</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">valid_dofs</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#ILHEB.Geometry.Geometry2D.plot_reactions" title="Link to this definition">¶</a></dt>
-<dd><p>Plots the reactions at constrained nodes.</p>
-</dd></dl>
-
-<dl class="py method">
-<dt class="sig sig-object py" id="ILHEB.Geometry.Geometry2D.plot_displacements">
-<span class="sig-name descname"><span class="pre">plot_displacements</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">U</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">valid_dofs</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#ILHEB.Geometry.Geometry2D.plot_displacements" title="Link to this definition">¶</a></dt>
-<dd><p>Plots the displacements at free nodes.</p>
-</dd></dl>
-
 <p>Initializes a Geometry3D object with optional coordinates and sets up
-degrees of freedom (DOFs) for the object.
-:param coords: Coordinates to initialize the geometry. Defaults to None.
-:type coords: optional</p>
+degrees of freedom (DOFs) for the object.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><p><strong>coords</strong> (<em>optional</em>) – Coordinates to initialize the geometry. Defaults to None.</p>
+</dd>
+</dl>
 <dl class="py attribute">
-<dt class="sig sig-object py" id="ILHEB.Geometry.Geometry2D._ndofs_per_node">
-<span class="sig-name descname"><span class="pre">_ndofs_per_node</span></span><a class="headerlink" href="#ILHEB.Geometry.Geometry2D._ndofs_per_node" title="Link to this definition">¶</a></dt>
+<dt class="sig sig-object py" id="id0">
+<span class="sig-name descname"><span class="pre">_ndofs_per_node</span></span><a class="headerlink" href="#id0" title="Link to this definition">¶</a></dt>
 <dd><p>Number of degrees of freedom per node, set to 3.</p>
 <dl class="field-list simple">
 <dt class="field-odd">Type<span class="colon">:</span></dt>
@@ -1415,8 +1373,8 @@ degrees of freedom (DOFs) for the object.
 </dd></dl>
 
 <dl class="py attribute">
-<dt class="sig sig-object py" id="id0">
-<span class="sig-name descname"><span class="pre">name_dofs_reactions</span></span><a class="headerlink" href="#id0" title="Link to this definition">¶</a></dt>
+<dt class="sig sig-object py" id="id1">
+<span class="sig-name descname"><span class="pre">name_dofs_reactions</span></span><a class="headerlink" href="#id1" title="Link to this definition">¶</a></dt>
 <dd><p>Mapping of DOF indices to reaction names:
 {0: ‘Rx’, 1: ‘Ry’, 2: ‘Mz’}.</p>
 <dl class="field-list simple">
@@ -1427,8 +1385,8 @@ degrees of freedom (DOFs) for the object.
 </dd></dl>
 
 <dl class="py attribute">
-<dt class="sig sig-object py" id="id1">
-<span class="sig-name descname"><span class="pre">name_dofs_displacements</span></span><a class="headerlink" href="#id1" title="Link to this definition">¶</a></dt>
+<dt class="sig sig-object py" id="id2">
+<span class="sig-name descname"><span class="pre">name_dofs_displacements</span></span><a class="headerlink" href="#id2" title="Link to this definition">¶</a></dt>
 <dd><p>Mapping of DOF indices to displacement names:
 {0: ‘Ux’, 1: ‘Uy’, 2: ‘Rz’}.</p>
 <dl class="field-list simple">
@@ -1439,24 +1397,18 @@ degrees of freedom (DOFs) for the object.
 </dd></dl>
 
 <dl class="py method">
-<dt class="sig sig-object py" id="ILHEB.Geometry.Geometry2D.generate_dofs">
-<span class="sig-name descname"><span class="pre">generate_dofs</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#ILHEB.Geometry.Geometry2D.generate_dofs" title="Link to this definition">¶</a></dt>
-<dd><p>Generates the degrees of freedom for the object.</p>
-</dd></dl>
-
-<dl class="py method">
-<dt class="sig sig-object py" id="id2">
-<span class="sig-name descname"><span class="pre">force_diagram</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">element_id</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">plot</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">True</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#id2" title="Link to this definition">¶</a></dt>
-<dd><p>Generates and optionally plots the force diagram for a specified structural element.
-:param element_id: int</p>
-<blockquote>
-<div><p>The ID of the structural element for which the force diagram is to be generated.</p>
-</div></blockquote>
+<dt class="sig sig-object py" id="ILHEB.Geometry.Geometry2D.force_diagram">
+<span class="sig-name descname"><span class="pre">force_diagram</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">element_id</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">plot</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">True</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#ILHEB.Geometry.Geometry2D.force_diagram" title="Link to this definition">¶</a></dt>
+<dd><p>Generates and optionally plots the force diagram for a specified structural element.</p>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters<span class="colon">:</span></dt>
-<dd class="field-odd"><p><strong>plot</strong> – bool, optional
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>element_id</strong> – int
+The ID of the structural element for which the force diagram is to be generated.</p></li>
+<li><p><strong>plot</strong> – bool, optional
 If True, the function will display the generated force diagram using matplotlib.
-Defaults to True.</p>
+Defaults to True.</p></li>
+</ul>
 </dd>
 </dl>
 <div class="admonition-notes admonition">
@@ -1476,15 +1428,13 @@ determine internal forces.
 </ul>
 </div></blockquote>
 </div>
-<dl class="simple">
-<dt>Visualization:</dt><dd><ul class="simple">
+<p class="rubric">Plots</p>
+<ul class="simple">
 <li><p>The top-left subplot shows the schematic of the element with applied loads and reactions.</p></li>
 <li><p>The bottom-left subplot shows the displacement profile along the element.</p></li>
 <li><p>The top-right subplot shows the bending moment (My) distribution.</p></li>
 <li><p>The bottom-right subplot shows the shear force (Vz) distribution.</p></li>
 </ul>
-</dd>
-</dl>
 <div class="admonition-example admonition">
 <p class="admonition-title">Example</p>
 <p>To generate and display the force diagram for element with ID 0:
@@ -1493,17 +1443,17 @@ determine internal forces.
 </dd></dl>
 
 <dl class="py method">
-<dt class="sig sig-object py" id="id3">
-<span class="sig-name descname"><span class="pre">plot</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">plot_labels</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">True</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">filename</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#id3" title="Link to this definition">¶</a></dt>
-<dd><p>Plots the geometry of the structure, including nodes, elements, and boundary conditions.
-:param plot_labels: If True, labels for nodes and elements will be displayed.</p>
-<blockquote>
-<div><p>Defaults to True.</p>
-</div></blockquote>
+<dt class="sig sig-object py" id="ILHEB.Geometry.Geometry2D.plot">
+<span class="sig-name descname"><span class="pre">plot</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">plot_labels</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">True</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">filename</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#ILHEB.Geometry.Geometry2D.plot" title="Link to this definition">¶</a></dt>
+<dd><p>Plots the geometry of the structure, including nodes, elements, and boundary conditions.</p>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters<span class="colon">:</span></dt>
-<dd class="field-odd"><p><strong>filename</strong> (<em>str</em><em>, </em><em>optional</em>) – If provided, the plot will be saved to the specified file path.
-Defaults to None.</p>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>plot_labels</strong> (<em>bool</em><em>, </em><em>optional</em>) – If True, labels for nodes and elements will be displayed.
+Defaults to True.</p></li>
+<li><p><strong>filename</strong> (<em>str</em><em>, </em><em>optional</em>) – If provided, the plot will be saved to the specified file path.
+Defaults to None.</p></li>
+</ul>
 </dd>
 </dl>
 <div class="admonition-notes admonition">
@@ -1518,15 +1468,18 @@ Defaults to None.</p>
 </dd></dl>
 
 <dl class="py method">
-<dt class="sig sig-object py" id="id4">
-<span class="sig-name descname"><span class="pre">plot_defo</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">mult</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">1</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">n_points</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">10</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">filename</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#id4" title="Link to this definition">¶</a></dt>
-<dd><p>Plots the deformed shape of a structure along with its original geometry.
-:param mult: A multiplier for the displacements to scale the deformation. Default is 1.
-:type mult: float, optional
-:param n_points: Number of interpolation points along each element for plotting the deformed shape. Default is 10.
-:type n_points: int, optional
-:param filename: If provided, saves the plot to the specified file path. Default is None.
-:type filename: str, optional</p>
+<dt class="sig sig-object py" id="ILHEB.Geometry.Geometry2D.plot_defo">
+<span class="sig-name descname"><span class="pre">plot_defo</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">mult</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">1</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">n_points</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">10</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">filename</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#ILHEB.Geometry.Geometry2D.plot_defo" title="Link to this definition">¶</a></dt>
+<dd><p>Plots the deformed shape of a structure along with its original geometry.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>mult</strong> (<em>float</em><em>, </em><em>optional</em>) – A multiplier for the displacements to scale the deformation. Default is 1.</p></li>
+<li><p><strong>n_points</strong> (<em>int</em><em>, </em><em>optional</em>) – Number of interpolation points along each element for plotting the deformed shape. Default is 10.</p></li>
+<li><p><strong>filename</strong> (<em>str</em><em>, </em><em>optional</em>) – If provided, saves the plot to the specified file path. Default is None.</p></li>
+</ul>
+</dd>
+</dl>
 <div class="admonition-notes admonition">
 <p class="admonition-title">Notes</p>
 <ul class="simple">
@@ -1539,24 +1492,24 @@ Defaults to None.</p>
 </dd></dl>
 
 <dl class="py method">
-<dt class="sig sig-object py" id="id5">
-<span class="sig-name descname"><span class="pre">plot_displacements</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">U</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">valid_dofs</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#id5" title="Link to this definition">¶</a></dt>
+<dt class="sig sig-object py" id="ILHEB.Geometry.Geometry2D.plot_displacements">
+<span class="sig-name descname"><span class="pre">plot_displacements</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">U</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">valid_dofs</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#ILHEB.Geometry.Geometry2D.plot_displacements" title="Link to this definition">¶</a></dt>
 <dd><p>Plots the displacements of nodes in a structural model.
 This method visualizes the displacements of nodes based on the provided
 displacement vector <cite>U</cite> and the valid degrees of freedom <cite>valid_dofs</cite>.
-It overlays the displacement values on the plot of the structure.
-:param U: A vector containing the displacement values for</p>
-<blockquote>
-<div><p>all degrees of freedom in the model.</p>
-</div></blockquote>
+It overlays the displacement values on the plot of the structure.</p>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters<span class="colon">:</span></dt>
-<dd class="field-odd"><p><strong>valid_dofs</strong> (<em>list</em><em> or </em><em>ndarray</em>) – A boolean array indicating which degrees
-of freedom are valid (True) or constrained (False).</p>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>U</strong> (<em>list</em><em> or </em><em>ndarray</em>) – A vector containing the displacement values for
+all degrees of freedom in the model.</p></li>
+<li><p><strong>valid_dofs</strong> (<em>list</em><em> or </em><em>ndarray</em>) – A boolean array indicating which degrees
+of freedom are valid (True) or constrained (False).</p></li>
+</ul>
 </dd>
 </dl>
-<dl class="simple">
-<dt>Behavior:</dt><dd><ul class="simple">
+<p class="rubric">Process</p>
+<ul class="simple">
 <li><p>The method first plots the structure without labels.</p></li>
 <li><p>It calculates the displacements for each node based on the valid
 degrees of freedom and the displacement vector.</p></li>
@@ -1566,8 +1519,6 @@ node positions.</p></li>
 two decimal places.</p></li>
 <li><p>The plot is adjusted to remove axes and ensure a tight layout.</p></li>
 </ul>
-</dd>
-</dl>
 <div class="admonition note">
 <p class="admonition-title">Note</p>
 <p>This method assumes that the following attributes are defined in the
@@ -1586,29 +1537,28 @@ freedom (e.g., “Ux”, “Uy”, etc.).</p></li>
 </dd></dl>
 
 <dl class="py method">
-<dt class="sig sig-object py" id="id6">
-<span class="sig-name descname"><span class="pre">plot_reactions</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">Rn</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">valid_dofs</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#id6" title="Link to this definition">¶</a></dt>
+<dt class="sig sig-object py" id="ILHEB.Geometry.Geometry2D.plot_reactions">
+<span class="sig-name descname"><span class="pre">plot_reactions</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">Rn</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">valid_dofs</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#ILHEB.Geometry.Geometry2D.plot_reactions" title="Link to this definition">¶</a></dt>
 <dd><p>Plots the reaction forces at constrained degrees of freedom (DOFs) on the structure.
 This method visualizes the reaction forces at nodes where constraints are applied.
-It annotates the plot with the reaction force values for each constrained DOF.
-:param Rn: A list or array containing the reaction forces for all DOFs.
-:type Rn: list or array
-:param valid_dofs: A boolean list or array indicating whether each DOF is valid</p>
-<blockquote>
-<div><p>(True for valid, False for invalid).</p>
-</div></blockquote>
+It annotates the plot with the reaction force values for each constrained DOF.</p>
 <dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>Rn</strong> (<em>list</em><em> or </em><em>array</em>) – A list or array containing the reaction forces for all DOFs.</p></li>
+<li><p><strong>valid_dofs</strong> (<em>list</em><em> or </em><em>array</em>) – A boolean list or array indicating whether each DOF is valid
+(True for valid, False for invalid).</p></li>
+</ul>
+</dd>
 </dl>
-<dl class="simple">
-<dt>Behavior:</dt><dd><ul class="simple">
+<p class="rubric">Process</p>
+<ul class="simple">
 <li><p>Iterates through the constrained DOFs to determine the corresponding node and DOF index.</p></li>
 <li><p>Maps the reaction forces to their respective nodes and DOFs.</p></li>
 <li><p>Annotates the plot with the reaction force values at the appropriate node coordinates.</p></li>
 <li><p>Uses <cite>self.name_dofs_reactions</cite> to label the reaction forces.</p></li>
 <li><p>Calls <cite>self.plot()</cite> to generate the base plot of the structure.</p></li>
 </ul>
-</dd>
-</dl>
 <div class="admonition-notes admonition">
 <p class="admonition-title">Notes</p>
 <ul class="simple">
@@ -1618,13 +1568,11 @@ It annotates the plot with the reaction force values for each constrained DOF.
 <li><p><cite>self.name_dofs_reactions</cite> provides the names of the DOFs for labeling purposes.</p></li>
 </ul>
 </div>
-<dl class="simple">
-<dt>Visualization:</dt><dd><ul class="simple">
+<p class="rubric">Plots</p>
+<ul class="simple">
 <li><p>Reaction forces are displayed as annotations near the corresponding nodes.</p></li>
 <li><p>The plot is adjusted to remove axes and ensure a tight layout.</p></li>
 </ul>
-</dd>
-</dl>
 </dd></dl>
 
 </dd></dl>
@@ -1633,16 +1581,18 @@ It annotates the plot with the reaction force values for each constrained DOF.
 <dt class="sig sig-object py" id="ILHEB.Geometry.Geometry3D">
 <em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">ILHEB.Geometry.</span></span><span class="sig-name descname"><span class="pre">Geometry3D</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">coords</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#ILHEB.Geometry.Geometry3D" title="Link to this definition">¶</a></dt>
 <dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">object</span></code></p>
-<p>Geometry3D is a class for managing and analyzing 3D structural geometries. It provides methods for defining nodes, elements, boundary conditions, loads, and visualization of the structure and its deformations.
-.. attribute:: coords</p>
-<blockquote>
-<div><p>List of node coordinates in the 3D space.</p>
+<p>Geometry3D is a class for managing and analyzing 3D structural geometries. It provides methods for defining nodes, elements, boundary conditions, loads, and visualization of the structure and its deformations.</p>
+<dl class="py attribute">
+<dt class="sig sig-object py" id="ILHEB.Geometry.Geometry3D.coords">
+<span class="sig-name descname"><span class="pre">coords</span></span><a class="headerlink" href="#ILHEB.Geometry.Geometry3D.coords" title="Link to this definition">¶</a></dt>
+<dd><p>List of node coordinates in the 3D space.</p>
 <dl class="field-list simple">
-<dt class="field-odd">type<span class="colon">:</span></dt>
+<dt class="field-odd">Type<span class="colon">:</span></dt>
 <dd class="field-odd"><p>list</p>
 </dd>
 </dl>
-</div></blockquote>
+</dd></dl>
+
 <dl class="py attribute">
 <dt class="sig sig-object py" id="ILHEB.Geometry.Geometry3D._ndofs_per_node">
 <span class="sig-name descname"><span class="pre">_ndofs_per_node</span></span><a class="headerlink" href="#ILHEB.Geometry.Geometry3D._ndofs_per_node" title="Link to this definition">¶</a></dt>
@@ -1742,220 +1692,87 @@ It annotates the plot with the reaction force values for each constrained DOF.
 </dl>
 </dd></dl>
 
+<p>Initializes the Geometry object.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><p><strong>coords</strong> (<em>list</em><em>, </em><em>optional</em>) – A list of coordinates representing the nodes of the geometry.
+Defaults to an empty list.</p>
+</dd>
+</dl>
 <dl class="py method">
-<dt class="sig sig-object py" id="ILHEB.Geometry.Geometry3D.__init__">
-<span class="sig-name descname"><span class="pre">__init__</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">coords</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#ILHEB.Geometry.Geometry3D.__init__" title="Link to this definition">¶</a></dt>
-<dd><p>Initializes the Geometry3D object with optional node coordinates.</p>
-</dd></dl>
-
-<dl class="py method">
-<dt class="sig sig-object py" id="ILHEB.Geometry.Geometry3D.generate_dofs">
-<span class="sig-name descname"><span class="pre">generate_dofs</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#ILHEB.Geometry.Geometry3D.generate_dofs" title="Link to this definition">¶</a></dt>
-<dd><p>Generates the degrees of freedom for all nodes based on their coordinates.</p>
+<dt class="sig sig-object py" id="ILHEB.Geometry.Geometry3D.add_element">
+<span class="sig-name descname"><span class="pre">add_element</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">element</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#ILHEB.Geometry.Geometry3D.add_element" title="Link to this definition">¶</a></dt>
+<dd><p>Adds an element to the list of elements in the current object.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><p><strong>element</strong> – The element to be added. This can be any object that
+represents an element in the context of the application.</p>
+</dd>
+</dl>
 </dd></dl>
 
 <dl class="py method">
 <dt class="sig sig-object py" id="ILHEB.Geometry.Geometry3D.add_node">
 <span class="sig-name descname"><span class="pre">add_node</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">node_coords</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#ILHEB.Geometry.Geometry3D.add_node" title="Link to this definition">¶</a></dt>
-<dd><p>Adds a new node to the structure and updates the degrees of freedom.</p>
-</dd></dl>
-
-<dl class="py method">
-<dt class="sig sig-object py" id="ILHEB.Geometry.Geometry3D.add_support">
-<span class="sig-name descname"><span class="pre">add_support</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">node</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">restrains</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">values</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#ILHEB.Geometry.Geometry3D.add_support" title="Link to this definition">¶</a></dt>
-<dd><p>Adds boundary conditions (supports) to a specific node.</p>
-</dd></dl>
-
-<dl class="py method">
-<dt class="sig sig-object py" id="ILHEB.Geometry.Geometry3D._set_ebc">
-<span class="sig-name descname"><span class="pre">_set_ebc</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#ILHEB.Geometry.Geometry3D._set_ebc" title="Link to this definition">¶</a></dt>
-<dd><p>Removes duplicate entries from the essential boundary conditions (ebc) list.</p>
+<dd><p>Adds a new node to the structure with the specified coordinates.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><p><strong>node_coords</strong> (<em>tuple</em><em> or </em><em>list</em>) – The coordinates of the node to be added,
+typically in the form (x, y, z) or (x, y).</p>
+</dd>
+</dl>
 </dd></dl>
 
 <dl class="py method">
 <dt class="sig sig-object py" id="ILHEB.Geometry.Geometry3D.add_node_load">
 <span class="sig-name descname"><span class="pre">add_node_load</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">load</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#ILHEB.Geometry.Geometry3D.add_node_load" title="Link to this definition">¶</a></dt>
-<dd><p>Adds a load to a specific node.</p>
-</dd></dl>
-
-<dl class="py method">
-<dt class="sig sig-object py" id="ILHEB.Geometry.Geometry3D.add_element">
-<span class="sig-name descname"><span class="pre">add_element</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">element</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#ILHEB.Geometry.Geometry3D.add_element" title="Link to this definition">¶</a></dt>
-<dd><p>Adds an element to the structure.</p>
-</dd></dl>
-
-<dl class="py method">
-<dt class="sig sig-object py" id="ILHEB.Geometry.Geometry3D.numbering">
-<span class="sig-name descname"><span class="pre">numbering</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#ILHEB.Geometry.Geometry3D.numbering" title="Link to this definition">¶</a></dt>
-<dd><p>Assigns degrees of freedom to elements, updates free and constrained DOFs, and processes boundary conditions.</p>
-</dd></dl>
-
-<dl class="py method">
-<dt class="sig sig-object py" id="ILHEB.Geometry.Geometry3D.plot">
-<span class="sig-name descname"><span class="pre">plot</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">filename</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#ILHEB.Geometry.Geometry3D.plot" title="Link to this definition">¶</a></dt>
-<dd><p>Plots the 3D structure, including nodes, elements, and boundary conditions.</p>
-</dd></dl>
-
-<dl class="py method">
-<dt class="sig sig-object py" id="ILHEB.Geometry.Geometry3D.plot_defo">
-<span class="sig-name descname"><span class="pre">plot_defo</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">mult</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">1</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">n_points</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">10</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">filename</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#ILHEB.Geometry.Geometry3D.plot_defo" title="Link to this definition">¶</a></dt>
-<dd><p>Plots the deformed shape of the structure based on displacements.</p>
-</dd></dl>
-
-<dl class="py method">
-<dt class="sig sig-object py" id="ILHEB.Geometry.Geometry3D.force_diagram">
-<span class="sig-name descname"><span class="pre">force_diagram</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">element_id</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#ILHEB.Geometry.Geometry3D.force_diagram" title="Link to this definition">¶</a></dt>
-<dd><p>Generates and displays the force diagram for a specific element, including bending moments and shear forces.</p>
-</dd></dl>
-
-<p>Initializes the Geometry object.
-:param coords: A list of coordinates representing the nodes of the geometry.</p>
-<blockquote>
-<div><p>Defaults to an empty list.</p>
-</div></blockquote>
-<dl class="field-list simple">
-</dl>
-<dl class="py attribute">
-<dt class="sig sig-object py" id="ILHEB.Geometry.Geometry3D.coords">
-<span class="sig-name descname"><span class="pre">coords</span></span><a class="headerlink" href="#ILHEB.Geometry.Geometry3D.coords" title="Link to this definition">¶</a></dt>
-<dd><p>Stores the coordinates of the nodes.</p>
-<dl class="field-list simple">
-<dt class="field-odd">Type<span class="colon">:</span></dt>
-<dd class="field-odd"><p>list</p>
-</dd>
-</dl>
-</dd></dl>
-
-<dl class="py attribute">
-<dt class="sig sig-object py" id="id7">
-<span class="sig-name descname"><span class="pre">_ndofs_per_node</span></span><a class="headerlink" href="#id7" title="Link to this definition">¶</a></dt>
-<dd><p>Number of degrees of freedom per node, set to 6 by default.</p>
-<dl class="field-list simple">
-<dt class="field-odd">Type<span class="colon">:</span></dt>
-<dd class="field-odd"><p>int</p>
-</dd>
-</dl>
-</dd></dl>
-
-<dl class="py attribute">
-<dt class="sig sig-object py" id="id8">
-<span class="sig-name descname"><span class="pre">node_loads</span></span><a class="headerlink" href="#id8" title="Link to this definition">¶</a></dt>
-<dd><p>A list to store loads applied to nodes.</p>
-<dl class="field-list simple">
-<dt class="field-odd">Type<span class="colon">:</span></dt>
-<dd class="field-odd"><p>list</p>
-</dd>
-</dl>
-</dd></dl>
-
-<dl class="py attribute">
-<dt class="sig sig-object py" id="id9">
-<span class="sig-name descname"><span class="pre">elements</span></span><a class="headerlink" href="#id9" title="Link to this definition">¶</a></dt>
-<dd><p>A list to store elements in the geometry.</p>
-<dl class="field-list simple">
-<dt class="field-odd">Type<span class="colon">:</span></dt>
-<dd class="field-odd"><p>list</p>
-</dd>
-</dl>
-</dd></dl>
-
-<dl class="py attribute">
-<dt class="sig sig-object py" id="id10">
-<span class="sig-name descname"><span class="pre">ebc</span></span><a class="headerlink" href="#id10" title="Link to this definition">¶</a></dt>
-<dd><p>A list to store essential boundary conditions.</p>
-<dl class="field-list simple">
-<dt class="field-odd">Type<span class="colon">:</span></dt>
-<dd class="field-odd"><p>list</p>
-</dd>
-</dl>
-</dd></dl>
-
-<dl class="py attribute">
-<dt class="sig sig-object py" id="id11">
-<span class="sig-name descname"><span class="pre">nodes_with_bc</span></span><a class="headerlink" href="#id11" title="Link to this definition">¶</a></dt>
-<dd><p>A list to store nodes with boundary conditions.</p>
-<dl class="field-list simple">
-<dt class="field-odd">Type<span class="colon">:</span></dt>
-<dd class="field-odd"><p>list</p>
-</dd>
-</dl>
-</dd></dl>
-
-<p>Calls:
-generate_dofs(): Generates the degrees of freedom for the geometry.</p>
-<dl class="py method">
-<dt class="sig sig-object py" id="id12">
-<span class="sig-name descname"><span class="pre">add_element</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">element</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#id12" title="Link to this definition">¶</a></dt>
-<dd><p>Adds an element to the list of elements in the current object.
-:param element: The element to be added. This can be any object that</p>
-<blockquote>
-<div><p>represents an element in the context of the application.</p>
-</div></blockquote>
-</dd></dl>
-
-<dl class="py method">
-<dt class="sig sig-object py" id="id13">
-<span class="sig-name descname"><span class="pre">add_node</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">node_coords</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#id13" title="Link to this definition">¶</a></dt>
-<dd><p>Adds a new node to the structure with the specified coordinates.
-:param node_coords: The coordinates of the node to be added,</p>
-<blockquote>
-<div><p>typically in the form (x, y, z) or (x, y).</p>
-</div></blockquote>
-<dl class="field-list simple">
-</dl>
-</dd></dl>
-
-<dl class="py method">
-<dt class="sig sig-object py" id="id14">
-<span class="sig-name descname"><span class="pre">add_node_load</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">load</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#id14" title="Link to this definition">¶</a></dt>
-<dd><p>Adds a load to the list of node loads.
-:param load: The load to be added to the node. This could be an instance</p>
-<blockquote>
-<div><p>of a load class or any object representing a load.</p>
-</div></blockquote>
-<dl class="field-list simple">
-</dl>
-</dd></dl>
-
-<dl class="py method">
-<dt class="sig sig-object py" id="id15">
-<span class="sig-name descname"><span class="pre">add_support</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">node</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">restrains</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">values</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#id15" title="Link to this definition">¶</a></dt>
-<dd><p>Adds support boundary conditions to a specified node in the structure.
-:param node: The node index where the support is to be applied.
-:type node: int
-:param restrains: A list indicating which degrees of freedom (DOFs)</p>
-<blockquote>
-<div><p>are restrained at the node. Each element corresponds to a DOF, where
-<cite>True</cite> means the DOF is restrained and <cite>False</cite> means it is free.</p>
-</div></blockquote>
+<dd><p>Adds a load to the list of node loads.</p>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters<span class="colon">:</span></dt>
-<dd class="field-odd"><p><strong>values</strong> (<em>list</em><em> of </em><em>float</em><em>, </em><em>optional</em>) – A list of values specifying the prescribed
-displacements or rotations for the restrained DOFs. If not provided,
-defaults to zero for all restrained DOFs.</p>
+<dd class="field-odd"><p><strong>load</strong> (<em>object</em>) – The load to be added to the node. This could be an instance
+of a load class or any object representing a load.</p>
 </dd>
 </dl>
-<dl class="simple">
-<dt>Updates:</dt><dd><ul class="simple">
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="ILHEB.Geometry.Geometry3D.add_support">
+<span class="sig-name descname"><span class="pre">add_support</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">node</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">restrains</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">values</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#ILHEB.Geometry.Geometry3D.add_support" title="Link to this definition">¶</a></dt>
+<dd><p>Adds support boundary conditions to a specified node in the structure.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>node</strong> (<em>int</em>) – The node index where the support is to be applied.</p></li>
+<li><p><strong>restrains</strong> (<em>list</em><em> of </em><em>bool</em>) – A list indicating which degrees of freedom (DOFs)
+are restrained at the node. Each element corresponds to a DOF, where
+<cite>True</cite> means the DOF is restrained and <cite>False</cite> means it is free.</p></li>
+<li><p><strong>values</strong> (<em>list</em><em> of </em><em>float</em><em>, </em><em>optional</em>) – A list of values specifying the prescribed
+displacements or rotations for the restrained DOFs. If not provided,
+defaults to zero for all restrained DOFs.</p></li>
+</ul>
+</dd>
+</dl>
+<p class="rubric">Updates</p>
+<ul class="simple">
 <li><p>Appends the node index to <cite>self.nodes_with_bc</cite> to track nodes with boundary conditions.</p></li>
 <li><p>Adds the restrained DOFs and their corresponding values to <cite>self.ebc</cite>
 (essential boundary conditions).</p></li>
 </ul>
-</dd>
-</dl>
 </dd></dl>
 
 <dl class="py method">
-<dt class="sig sig-object py" id="id16">
-<span class="sig-name descname"><span class="pre">force_diagram</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">element_id</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">plot</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">True</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#id16" title="Link to this definition">¶</a></dt>
+<dt class="sig sig-object py" id="ILHEB.Geometry.Geometry3D.force_diagram">
+<span class="sig-name descname"><span class="pre">force_diagram</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">element_id</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">plot</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">True</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#ILHEB.Geometry.Geometry3D.force_diagram" title="Link to this definition">¶</a></dt>
 <dd><p>Generates and plots the force diagram for a specified structural element.
 This method calculates the bending moment (My) and shear force (Vz) diagrams
 for a given structural element using finite element analysis. The results
-are plotted as filled diagrams.
-:param element_id: int</p>
-<blockquote>
-<div><p>The ID of the structural element for which the force diagram is to be generated.</p>
-</div></blockquote>
+are plotted as filled diagrams.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><p><strong>element_id</strong> – int
+The ID of the structural element for which the force diagram is to be generated.</p>
+</dd>
+</dl>
 <div class="admonition-notes admonition">
 <p class="admonition-title">Notes</p>
 <ul class="simple">
@@ -1966,15 +1783,13 @@ are plotted as filled diagrams.
 - Boundary conditions are applied to the stiffness matrix and force vector to account
 for constraints.</p>
 </div>
-<dl class="simple">
-<dt>Plots:</dt><dd><ul class="simple">
+<p class="rubric">Plots</p>
+<ul class="simple">
 <li><p>Subplot (1, 1): Bending moment diagram (My) for the element.</p></li>
 <li><p>Subplot (1, 2): Shear force diagram (Vz) for the element.</p></li>
 <li><p>Subplot (2, 1): Bending moment diagram (My) for the element with secondary conditions.</p></li>
 <li><p>Subplot (2, 2): Shear force diagram (Vz) for the element with secondary conditions.</p></li>
 </ul>
-</dd>
-</dl>
 <div class="admonition-example admonition">
 <p class="admonition-title">Example</p>
 <dl class="simple">
@@ -1985,21 +1800,23 @@ for constraints.</p>
 </dd></dl>
 
 <dl class="py method">
-<dt class="sig sig-object py" id="id17">
-<span class="sig-name descname"><span class="pre">generate_dofs</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#id17" title="Link to this definition">¶</a></dt>
+<dt class="sig sig-object py" id="ILHEB.Geometry.Geometry3D.generate_dofs">
+<span class="sig-name descname"><span class="pre">generate_dofs</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#ILHEB.Geometry.Geometry3D.generate_dofs" title="Link to this definition">¶</a></dt>
 <dd><p>Generates the degrees of freedom (DOFs) for the nodes in the geometry.
 This method calculates the total number of DOFs based on the number of
 coordinates and the number of DOFs per node. It also assigns a list of
-DOFs to each node, storing the mapping in the <cite>node_dofs</cite> dictionary.
-.. attribute:: self.ndofs</p>
-<blockquote>
-<div><p>Total number of degrees of freedom in the geometry.</p>
+DOFs to each node, storing the mapping in the <cite>node_dofs</cite> dictionary.</p>
+<dl class="py attribute">
+<dt class="sig sig-object py" id="ILHEB.Geometry.Geometry3D.self.ndofs">
+<span class="sig-prename descclassname"><span class="pre">self.</span></span><span class="sig-name descname"><span class="pre">ndofs</span></span><a class="headerlink" href="#ILHEB.Geometry.Geometry3D.self.ndofs" title="Link to this definition">¶</a></dt>
+<dd><p>Total number of degrees of freedom in the geometry.</p>
 <dl class="field-list simple">
-<dt class="field-odd">type<span class="colon">:</span></dt>
+<dt class="field-odd">Type<span class="colon">:</span></dt>
 <dd class="field-odd"><p>int</p>
 </dd>
 </dl>
-</div></blockquote>
+</dd></dl>
+
 <dl class="py attribute">
 <dt class="sig sig-object py" id="ILHEB.Geometry.Geometry3D.self.node_dofs">
 <span class="sig-prename descclassname"><span class="pre">self.</span></span><span class="sig-name descname"><span class="pre">node_dofs</span></span><a class="headerlink" href="#ILHEB.Geometry.Geometry3D.self.node_dofs" title="Link to this definition">¶</a></dt>
@@ -2022,27 +1839,24 @@ of its corresponding DOFs.</p>
 </dd></dl>
 
 <dl class="py method">
-<dt class="sig sig-object py" id="id18">
-<span class="sig-name descname"><span class="pre">numbering</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#id18" title="Link to this definition">¶</a></dt>
+<dt class="sig sig-object py" id="ILHEB.Geometry.Geometry3D.numbering">
+<span class="sig-name descname"><span class="pre">numbering</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#ILHEB.Geometry.Geometry3D.numbering" title="Link to this definition">¶</a></dt>
 <dd><p>Assigns degrees of freedom (DOFs) to the nodes and elements of the structure,
-and categorizes them into free and constrained DOFs based on boundary conditions.
-This method performs the following steps:
-1. Sets the essential boundary conditions (EBC) using <cite>_set_ebc</cite>.
-2. Updates the coordinates of the elements based on the node coordinates.
-3. Assigns DOFs to each element, considering any release conditions.
-4. Categorizes DOFs into free and constrained based on the specified boundary conditions.
-.. attribute:: self.coords</p>
-<blockquote>
-<div><p>Array of node coordinates.</p>
+and categorizes them into free and constrained DOFs based on boundary conditions.</p>
+<dl class="py attribute">
+<dt class="sig sig-object py" id="ILHEB.Geometry.Geometry3D.self.coords">
+<span class="sig-prename descclassname"><span class="pre">self.</span></span><span class="sig-name descname"><span class="pre">coords</span></span><a class="headerlink" href="#ILHEB.Geometry.Geometry3D.self.coords" title="Link to this definition">¶</a></dt>
+<dd><p>Array of node coordinates.</p>
 <dl class="field-list simple">
-<dt class="field-odd">type<span class="colon">:</span></dt>
+<dt class="field-odd">Type<span class="colon">:</span></dt>
 <dd class="field-odd"><p>np.ndarray</p>
 </dd>
 </dl>
-</div></blockquote>
+</dd></dl>
+
 <dl class="py attribute">
-<dt class="sig sig-object py" id="ILHEB.Geometry.Geometry3D.self.ndofs">
-<span class="sig-prename descclassname"><span class="pre">self.</span></span><span class="sig-name descname"><span class="pre">ndofs</span></span><a class="headerlink" href="#ILHEB.Geometry.Geometry3D.self.ndofs" title="Link to this definition">¶</a></dt>
+<dt class="sig sig-object py" id="id3">
+<span class="sig-prename descclassname"><span class="pre">self.</span></span><span class="sig-name descname"><span class="pre">ndofs</span></span><a class="headerlink" href="#id3" title="Link to this definition">¶</a></dt>
 <dd><p>Counter for the total number of DOFs.</p>
 <dl class="field-list simple">
 <dt class="field-odd">Type<span class="colon">:</span></dt>
@@ -2073,6 +1887,13 @@ This method performs the following steps:
 </dl>
 </dd></dl>
 
+<p class="rubric">Process</p>
+<ol class="arabic simple">
+<li><p>Sets the essential boundary conditions (EBC) using <cite>_set_ebc</cite>.</p></li>
+<li><p>Updates the coordinates of the elements based on the node coordinates.</p></li>
+<li><p>Assigns DOFs to each element, considering any release conditions.</p></li>
+<li><p>Categorizes DOFs into free and constrained based on the specified boundary conditions.</p></li>
+</ol>
 <div class="admonition-notes admonition">
 <p class="admonition-title">Notes</p>
 <ul class="simple">
@@ -2092,8 +1913,8 @@ each having <cite>nodes</cite>, <cite>releases</cite>, and methods <cite>set_coo
 </dd></dl>
 
 <dl class="py method">
-<dt class="sig sig-object py" id="id19">
-<span class="sig-name descname"><span class="pre">plot</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">plot_labels</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">True</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">filename</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#id19" title="Link to this definition">¶</a></dt>
+<dt class="sig sig-object py" id="ILHEB.Geometry.Geometry3D.plot">
+<span class="sig-name descname"><span class="pre">plot</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">plot_labels</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">True</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">filename</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#ILHEB.Geometry.Geometry3D.plot" title="Link to this definition">¶</a></dt>
 <dd><p>Plots the 3D geometry of the structure, including nodes, elements, and boundary conditions.
 Nodes are represented as points, with boundary condition nodes highlighted in red.
 Elements are represented as lines connecting nodes, with colors corresponding to their sections.</p>
@@ -2120,25 +1941,26 @@ The name of the file to save the plot. If not provided, the plot will not be sav
 </dd></dl>
 
 <dl class="py method">
-<dt class="sig sig-object py" id="id20">
-<span class="sig-name descname"><span class="pre">plot_defo</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">mult</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">1</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">n_points</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">10</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">filename</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#id20" title="Link to this definition">¶</a></dt>
-<dd><p>Plots the deformed shape of a structure in 3D.
-:param mult: A multiplier for scaling the deformation. Default is 1.
-:type mult: float, optional
-:param n_points: Number of points to use for interpolating displacements along each element. Default is 10.
-:type n_points: int, optional
-:param filename: If provided, saves the plot to the specified file path. Default is None.
-:type filename: str, optional</p>
-<dl class="simple">
-<dt>Behavior:</dt><dd><ul class="simple">
+<dt class="sig sig-object py" id="ILHEB.Geometry.Geometry3D.plot_defo">
+<span class="sig-name descname"><span class="pre">plot_defo</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">mult</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">1</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">n_points</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">10</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">filename</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#ILHEB.Geometry.Geometry3D.plot_defo" title="Link to this definition">¶</a></dt>
+<dd><p>Plots the deformed shape of a structure in 3D.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>mult</strong> (<em>float</em><em>, </em><em>optional</em>) – A multiplier for scaling the deformation. Default is 1.</p></li>
+<li><p><strong>n_points</strong> (<em>int</em><em>, </em><em>optional</em>) – Number of points to use for interpolating displacements along each element. Default is 10.</p></li>
+<li><p><strong>filename</strong> (<em>str</em><em>, </em><em>optional</em>) – If provided, saves the plot to the specified file path. Default is None.</p></li>
+</ul>
+</dd>
+</dl>
+<p class="rubric">Process</p>
+<ul class="simple">
 <li><p>Plots the undeformed structure using black points for nodes and gray dashed lines for elements.</p></li>
 <li><p>Computes and plots the deformed shape of the structure based on the displacements of each element.</p></li>
 <li><p>Allows interactive picking of elements to display their force diagrams via a callback function.</p></li>
 <li><p>Configures the plot with equal axis scaling and hides the axis for better visualization.</p></li>
 <li><p>Saves the plot to a file if a filename is provided.</p></li>
 </ul>
-</dd>
-</dl>
 </dd></dl>
 
 <dl class="py method">
@@ -2147,19 +1969,19 @@ The name of the file to save the plot. If not provided, the plot will not be sav
 <dd><p>Plots the displacements of nodes in a structural model.
 This method visualizes the displacements of nodes based on the provided
 displacement vector <cite>U</cite> and the valid degrees of freedom <cite>valid_dofs</cite>.
-It overlays the displacement values on the plot of the structure.
-:param U: A vector containing the displacement values for</p>
-<blockquote>
-<div><p>all degrees of freedom in the model.</p>
-</div></blockquote>
+It overlays the displacement values on the plot of the structure.</p>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters<span class="colon">:</span></dt>
-<dd class="field-odd"><p><strong>valid_dofs</strong> (<em>list</em><em> or </em><em>ndarray</em>) – A boolean array indicating which degrees
-of freedom are valid (True) or constrained (False).</p>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>U</strong> (<em>list</em><em> or </em><em>ndarray</em>) – A vector containing the displacement values for
+all degrees of freedom in the model.</p></li>
+<li><p><strong>valid_dofs</strong> (<em>list</em><em> or </em><em>ndarray</em>) – A boolean array indicating which degrees
+of freedom are valid (True) or constrained (False).</p></li>
+</ul>
 </dd>
 </dl>
-<dl class="simple">
-<dt>Behavior:</dt><dd><ul class="simple">
+<p class="rubric">Process</p>
+<ul class="simple">
 <li><p>The method first plots the structure without labels.</p></li>
 <li><p>It calculates the displacements for each node based on the valid
 degrees of freedom and the displacement vector.</p></li>
@@ -2169,8 +1991,6 @@ node positions.</p></li>
 two decimal places.</p></li>
 <li><p>The plot is adjusted to remove axes and ensure a tight layout.</p></li>
 </ul>
-</dd>
-</dl>
 <div class="admonition note">
 <p class="admonition-title">Note</p>
 <p>This method assumes that the following attributes are defined in the
@@ -2193,25 +2013,24 @@ freedom (e.g., “Ux”, “Uy”, etc.).</p></li>
 <span class="sig-name descname"><span class="pre">plot_reactions</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">Rn</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">valid_dofs</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#ILHEB.Geometry.Geometry3D.plot_reactions" title="Link to this definition">¶</a></dt>
 <dd><p>Plots the reaction forces at constrained degrees of freedom (DOFs) on the structure.
 This method visualizes the reaction forces at nodes where constraints are applied.
-It annotates the plot with the reaction force values for each constrained DOF.
-:param Rn: A list or array containing the reaction forces for all DOFs.
-:type Rn: list or array
-:param valid_dofs: A boolean list or array indicating whether each DOF is valid</p>
-<blockquote>
-<div><p>(True for valid, False for invalid).</p>
-</div></blockquote>
+It annotates the plot with the reaction force values for each constrained DOF.</p>
 <dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>Rn</strong> (<em>list</em><em> or </em><em>array</em>) – A list or array containing the reaction forces for all DOFs.</p></li>
+<li><p><strong>valid_dofs</strong> (<em>list</em><em> or </em><em>array</em>) – A boolean list or array indicating whether each DOF is valid
+(True for valid, False for invalid).</p></li>
+</ul>
+</dd>
 </dl>
-<dl class="simple">
-<dt>Behavior:</dt><dd><ul class="simple">
+<p class="rubric">Process</p>
+<ul class="simple">
 <li><p>Iterates through the constrained DOFs to determine the corresponding node and DOF index.</p></li>
 <li><p>Maps the reaction forces to their respective nodes and DOFs.</p></li>
 <li><p>Annotates the plot with the reaction force values at the appropriate node coordinates.</p></li>
 <li><p>Uses <cite>self.name_dofs_reactions</cite> to label the reaction forces.</p></li>
 <li><p>Calls <cite>self.plot()</cite> to generate the base plot of the structure.</p></li>
 </ul>
-</dd>
-</dl>
 <div class="admonition-notes admonition">
 <p class="admonition-title">Notes</p>
 <ul class="simple">
@@ -2221,13 +2040,11 @@ It annotates the plot with the reaction force values for each constrained DOF.
 <li><p><cite>self.name_dofs_reactions</cite> provides the names of the DOFs for labeling purposes.</p></li>
 </ul>
 </div>
-<dl class="simple">
-<dt>Visualization:</dt><dd><ul class="simple">
+<p class="rubric">Plots</p>
+<ul class="simple">
 <li><p>Reaction forces are displayed as annotations near the corresponding nodes.</p></li>
 <li><p>The plot is adjusted to remove axes and ensure a tight layout.</p></li>
 </ul>
-</dd>
-</dl>
 </dd></dl>
 
 </dd></dl>
@@ -2354,8 +2171,8 @@ or ‘global’ coordinate system. Defaults to ‘local’.</p></li>
 </dd></dl>
 
 <dl class="py attribute">
-<dt class="sig sig-object py" id="id21">
-<span class="sig-name descname"><span class="pre">WX</span></span><a class="headerlink" href="#id21" title="Link to this definition">¶</a></dt>
+<dt class="sig sig-object py" id="id4">
+<span class="sig-name descname"><span class="pre">WX</span></span><a class="headerlink" href="#id4" title="Link to this definition">¶</a></dt>
 <dd><p>Distributed load in the X direction.</p>
 <dl class="field-list simple">
 <dt class="field-odd">Type<span class="colon">:</span></dt>
@@ -2365,8 +2182,8 @@ or ‘global’ coordinate system. Defaults to ‘local’.</p></li>
 </dd></dl>
 
 <dl class="py attribute">
-<dt class="sig sig-object py" id="id22">
-<span class="sig-name descname"><span class="pre">WY</span></span><a class="headerlink" href="#id22" title="Link to this definition">¶</a></dt>
+<dt class="sig sig-object py" id="id5">
+<span class="sig-name descname"><span class="pre">WY</span></span><a class="headerlink" href="#id5" title="Link to this definition">¶</a></dt>
 <dd><p>Distributed load in the Y direction.</p>
 <dl class="field-list simple">
 <dt class="field-odd">Type<span class="colon">:</span></dt>
@@ -2376,8 +2193,8 @@ or ‘global’ coordinate system. Defaults to ‘local’.</p></li>
 </dd></dl>
 
 <dl class="py attribute">
-<dt class="sig sig-object py" id="id23">
-<span class="sig-name descname"><span class="pre">WZ</span></span><a class="headerlink" href="#id23" title="Link to this definition">¶</a></dt>
+<dt class="sig sig-object py" id="id6">
+<span class="sig-name descname"><span class="pre">WZ</span></span><a class="headerlink" href="#id6" title="Link to this definition">¶</a></dt>
 <dd><p>Distributed load in the Z direction.</p>
 <dl class="field-list simple">
 <dt class="field-odd">Type<span class="colon">:</span></dt>
@@ -2397,8 +2214,8 @@ to the local coordinate system using the element’s rotation matrix.</p></li>
 </ul>
 </div>
 <dl class="py method">
-<dt class="sig sig-object py" id="id24">
-<span class="sig-name descname"><span class="pre">distributed_load</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">w</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">L</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#id24" title="Link to this definition">¶</a></dt>
+<dt class="sig sig-object py" id="id7">
+<span class="sig-name descname"><span class="pre">distributed_load</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">w</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">L</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#id7" title="Link to this definition">¶</a></dt>
 <dd></dd></dl>
 
 </dd></dl>
@@ -2500,14 +2317,14 @@ Currently returns 0 for all inputs.</p>
 </dd></dl>
 
 <dl class="py attribute">
-<dt class="sig sig-object py" id="id25">
-<span class="sig-name descname"><span class="pre">element</span></span><a class="headerlink" href="#id25" title="Link to this definition">¶</a></dt>
+<dt class="sig sig-object py" id="id8">
+<span class="sig-name descname"><span class="pre">element</span></span><a class="headerlink" href="#id8" title="Link to this definition">¶</a></dt>
 <dd><p>The structural element associated with the load.</p>
 </dd></dl>
 
 <dl class="py attribute">
-<dt class="sig sig-object py" id="id26">
-<span class="sig-name descname"><span class="pre">function</span></span><a class="headerlink" href="#id26" title="Link to this definition">¶</a></dt>
+<dt class="sig sig-object py" id="id9">
+<span class="sig-name descname"><span class="pre">function</span></span><a class="headerlink" href="#id9" title="Link to this definition">¶</a></dt>
 <dd><p>A flag indicating the load is active (default is True).</p>
 <dl class="field-list simple">
 <dt class="field-odd">Type<span class="colon">:</span></dt>
@@ -2648,8 +2465,8 @@ applied point loads in the Y and Z directions using the <cite>point_load</cite> 
 </ul>
 </div>
 <dl class="py method">
-<dt class="sig sig-object py" id="id27">
-<span class="sig-name descname"><span class="pre">point_load</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">f</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">L</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">x</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#id27" title="Link to this definition">¶</a></dt>
+<dt class="sig sig-object py" id="id10">
+<span class="sig-name descname"><span class="pre">point_load</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">f</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">L</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">x</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#id10" title="Link to this definition">¶</a></dt>
 <dd><p>Calculate the moment and shear forces at the ends of a beam subjected to a point load.
 :param f: The magnitude of the point load applied to the beam.
 :type f: float
@@ -2789,8 +2606,8 @@ based on the applied moments and position <cite>x</cite>.</p></li>
 </ul>
 </div>
 <dl class="py method">
-<dt class="sig sig-object py" id="id28">
-<span class="sig-name descname"><span class="pre">point_load</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">M</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">L</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">x</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#id28" title="Link to this definition">¶</a></dt>
+<dt class="sig sig-object py" id="id11">
+<span class="sig-name descname"><span class="pre">point_load</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">M</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">L</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">x</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#id11" title="Link to this definition">¶</a></dt>
 <dd></dd></dl>
 
 </dd></dl>
@@ -3260,8 +3077,8 @@ shear forces (PYj, PYk, PZj, PZk), and moments (MYj, MYk, MZj, MZk).</p></li>
 </dd></dl>
 
 <dl class="py attribute">
-<dt class="sig sig-object py" id="id29">
-<span class="sig-name descname"><span class="pre">v</span></span><a class="headerlink" href="#id29" title="Link to this definition">¶</a></dt>
+<dt class="sig sig-object py" id="id12">
+<span class="sig-name descname"><span class="pre">v</span></span><a class="headerlink" href="#id12" title="Link to this definition">¶</a></dt>
 <dd><p>Poisson’s ratio of the material.</p>
 <dl class="field-list simple">
 <dt class="field-odd">Type<span class="colon">:</span></dt>
@@ -3271,8 +3088,8 @@ shear forces (PYj, PYk, PZj, PZk), and moments (MYj, MYk, MZj, MZk).</p></li>
 </dd></dl>
 
 <dl class="py attribute">
-<dt class="sig sig-object py" id="id30">
-<span class="sig-name descname"><span class="pre">G</span></span><a class="headerlink" href="#id30" title="Link to this definition">¶</a></dt>
+<dt class="sig sig-object py" id="id13">
+<span class="sig-name descname"><span class="pre">G</span></span><a class="headerlink" href="#id13" title="Link to this definition">¶</a></dt>
 <dd><p>Shear modulus of the material, calculated as E / (2 * (1 + v)).</p>
 <dl class="field-list simple">
 <dt class="field-odd">Type<span class="colon">:</span></dt>
@@ -3282,8 +3099,8 @@ shear forces (PYj, PYk, PZj, PZk), and moments (MYj, MYk, MZj, MZk).</p></li>
 </dd></dl>
 
 <dl class="py attribute">
-<dt class="sig sig-object py" id="id31">
-<span class="sig-name descname"><span class="pre">alpha</span></span><a class="headerlink" href="#id31" title="Link to this definition">¶</a></dt>
+<dt class="sig sig-object py" id="id14">
+<span class="sig-name descname"><span class="pre">alpha</span></span><a class="headerlink" href="#id14" title="Link to this definition">¶</a></dt>
 <dd><p>Thermal expansion coefficient of the material.</p>
 <dl class="field-list simple">
 <dt class="field-odd">Type<span class="colon">:</span></dt>
@@ -3705,8 +3522,8 @@ Inherits from:</p>
 :type Lz: float
 :param **kargs: Additional keyword arguments to be passed to the parent class initializer.</p>
 <dl class="py attribute">
-<dt class="sig sig-object py" id="id32">
-<span class="sig-name descname"><span class="pre">Iz</span></span><a class="headerlink" href="#id32" title="Link to this definition">¶</a></dt>
+<dt class="sig sig-object py" id="id15">
+<span class="sig-name descname"><span class="pre">Iz</span></span><a class="headerlink" href="#id15" title="Link to this definition">¶</a></dt>
 <dd><p>Moment of inertia about the z-axis, calculated as (Lz * Ly^3) / 12.</p>
 <dl class="field-list simple">
 <dt class="field-odd">Type<span class="colon">:</span></dt>
@@ -3716,8 +3533,8 @@ Inherits from:</p>
 </dd></dl>
 
 <dl class="py attribute">
-<dt class="sig sig-object py" id="id33">
-<span class="sig-name descname"><span class="pre">Iy</span></span><a class="headerlink" href="#id33" title="Link to this definition">¶</a></dt>
+<dt class="sig sig-object py" id="id16">
+<span class="sig-name descname"><span class="pre">Iy</span></span><a class="headerlink" href="#id16" title="Link to this definition">¶</a></dt>
 <dd><p>Moment of inertia about the y-axis, calculated as (Ly * Lz^3) / 12.</p>
 <dl class="field-list simple">
 <dt class="field-odd">Type<span class="colon">:</span></dt>
@@ -3727,8 +3544,8 @@ Inherits from:</p>
 </dd></dl>
 
 <dl class="py attribute">
-<dt class="sig sig-object py" id="id34">
-<span class="sig-name descname"><span class="pre">J</span></span><a class="headerlink" href="#id34" title="Link to this definition">¶</a></dt>
+<dt class="sig sig-object py" id="id17">
+<span class="sig-name descname"><span class="pre">J</span></span><a class="headerlink" href="#id17" title="Link to this definition">¶</a></dt>
 <dd><p>Polar moment of inertia, calculated as the sum of Iz and Iy.</p>
 <dl class="field-list simple">
 <dt class="field-odd">Type<span class="colon">:</span></dt>
@@ -3738,8 +3555,8 @@ Inherits from:</p>
 </dd></dl>
 
 <dl class="py attribute">
-<dt class="sig sig-object py" id="id35">
-<span class="sig-name descname"><span class="pre">A</span></span><a class="headerlink" href="#id35" title="Link to this definition">¶</a></dt>
+<dt class="sig sig-object py" id="id18">
+<span class="sig-name descname"><span class="pre">A</span></span><a class="headerlink" href="#id18" title="Link to this definition">¶</a></dt>
 <dd><p>Cross-sectional area, calculated as Lz * Ly.</p>
 <dl class="field-list simple">
 <dt class="field-odd">Type<span class="colon">:</span></dt>
@@ -3749,8 +3566,8 @@ Inherits from:</p>
 </dd></dl>
 
 <dl class="py attribute">
-<dt class="sig sig-object py" id="id36">
-<span class="sig-name descname"><span class="pre">Ax</span></span><a class="headerlink" href="#id36" title="Link to this definition">¶</a></dt>
+<dt class="sig sig-object py" id="id19">
+<span class="sig-name descname"><span class="pre">Ax</span></span><a class="headerlink" href="#id19" title="Link to this definition">¶</a></dt>
 <dd><p>Effective shear area in the x-direction, calculated as (5/6) * A.</p>
 <dl class="field-list simple">
 <dt class="field-odd">Type<span class="colon">:</span></dt>
@@ -3760,8 +3577,8 @@ Inherits from:</p>
 </dd></dl>
 
 <dl class="py attribute">
-<dt class="sig sig-object py" id="id37">
-<span class="sig-name descname"><span class="pre">Ay</span></span><a class="headerlink" href="#id37" title="Link to this definition">¶</a></dt>
+<dt class="sig sig-object py" id="id20">
+<span class="sig-name descname"><span class="pre">Ay</span></span><a class="headerlink" href="#id20" title="Link to this definition">¶</a></dt>
 <dd><p>Effective shear area in the y-direction, calculated as (5/6) * A.</p>
 <dl class="field-list simple">
 <dt class="field-odd">Type<span class="colon">:</span></dt>
@@ -3801,8 +3618,8 @@ solves the reduced system, and reconstructs the solution vector for all DOFs.</p
 <p>Initializes the Solver instance.
 :param parent: The parent object or context in which this Solver instance is used.</p>
 <dl class="py method">
-<dt class="sig sig-object py" id="id38">
-<span class="sig-name descname"><span class="pre">solve</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#id38" title="Link to this definition">¶</a></dt>
+<dt class="sig sig-object py" id="id21">
+<span class="sig-name descname"><span class="pre">solve</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#id21" title="Link to this definition">¶</a></dt>
 <dd><p>Solves the system of linear equations to compute the displacements of the structure.
 This method processes the global stiffness matrix and force vector to remove degrees of
 freedom associated with free nodes that do not have any connected elements. It then solves
@@ -3965,26 +3782,21 @@ and reconstructs the full displacement vector.
 </li>
 <li><a class="reference internal" href="#module-ILHEB.Geometry">ILHEB.Geometry module</a><ul>
 <li><a class="reference internal" href="#ILHEB.Geometry.Geometry2D"><code class="docutils literal notranslate"><span class="pre">Geometry2D</span></code></a><ul>
+<li><a class="reference internal" href="#ILHEB.Geometry.Geometry2D._ndofs_per_node"><code class="docutils literal notranslate"><span class="pre">Geometry2D._ndofs_per_node</span></code></a></li>
 <li><a class="reference internal" href="#ILHEB.Geometry.Geometry2D.name_dofs_reactions"><code class="docutils literal notranslate"><span class="pre">Geometry2D.name_dofs_reactions</span></code></a></li>
 <li><a class="reference internal" href="#ILHEB.Geometry.Geometry2D.name_dofs_displacements"><code class="docutils literal notranslate"><span class="pre">Geometry2D.name_dofs_displacements</span></code></a></li>
-<li><a class="reference internal" href="#ILHEB.Geometry.Geometry2D.__init__"><code class="docutils literal notranslate"><span class="pre">Geometry2D.__init__()</span></code></a></li>
+<li><a class="reference internal" href="#id0"><code class="docutils literal notranslate"><span class="pre">Geometry2D._ndofs_per_node</span></code></a></li>
+<li><a class="reference internal" href="#id1"><code class="docutils literal notranslate"><span class="pre">Geometry2D.name_dofs_reactions</span></code></a></li>
+<li><a class="reference internal" href="#id2"><code class="docutils literal notranslate"><span class="pre">Geometry2D.name_dofs_displacements</span></code></a></li>
+<li><a class="reference internal" href="#ILHEB.Geometry.Geometry2D.force_diagram"><code class="docutils literal notranslate"><span class="pre">Geometry2D.force_diagram()</span></code></a></li>
 <li><a class="reference internal" href="#ILHEB.Geometry.Geometry2D.plot"><code class="docutils literal notranslate"><span class="pre">Geometry2D.plot()</span></code></a></li>
 <li><a class="reference internal" href="#ILHEB.Geometry.Geometry2D.plot_defo"><code class="docutils literal notranslate"><span class="pre">Geometry2D.plot_defo()</span></code></a></li>
-<li><a class="reference internal" href="#ILHEB.Geometry.Geometry2D.force_diagram"><code class="docutils literal notranslate"><span class="pre">Geometry2D.force_diagram()</span></code></a></li>
-<li><a class="reference internal" href="#ILHEB.Geometry.Geometry2D.plot_reactions"><code class="docutils literal notranslate"><span class="pre">Geometry2D.plot_reactions()</span></code></a></li>
 <li><a class="reference internal" href="#ILHEB.Geometry.Geometry2D.plot_displacements"><code class="docutils literal notranslate"><span class="pre">Geometry2D.plot_displacements()</span></code></a></li>
-<li><a class="reference internal" href="#ILHEB.Geometry.Geometry2D._ndofs_per_node"><code class="docutils literal notranslate"><span class="pre">Geometry2D._ndofs_per_node</span></code></a></li>
-<li><a class="reference internal" href="#id0"><code class="docutils literal notranslate"><span class="pre">Geometry2D.name_dofs_reactions</span></code></a></li>
-<li><a class="reference internal" href="#id1"><code class="docutils literal notranslate"><span class="pre">Geometry2D.name_dofs_displacements</span></code></a></li>
-<li><a class="reference internal" href="#ILHEB.Geometry.Geometry2D.generate_dofs"><code class="docutils literal notranslate"><span class="pre">Geometry2D.generate_dofs()</span></code></a></li>
-<li><a class="reference internal" href="#id2"><code class="docutils literal notranslate"><span class="pre">Geometry2D.force_diagram()</span></code></a></li>
-<li><a class="reference internal" href="#id3"><code class="docutils literal notranslate"><span class="pre">Geometry2D.plot()</span></code></a></li>
-<li><a class="reference internal" href="#id4"><code class="docutils literal notranslate"><span class="pre">Geometry2D.plot_defo()</span></code></a></li>
-<li><a class="reference internal" href="#id5"><code class="docutils literal notranslate"><span class="pre">Geometry2D.plot_displacements()</span></code></a></li>
-<li><a class="reference internal" href="#id6"><code class="docutils literal notranslate"><span class="pre">Geometry2D.plot_reactions()</span></code></a></li>
+<li><a class="reference internal" href="#ILHEB.Geometry.Geometry2D.plot_reactions"><code class="docutils literal notranslate"><span class="pre">Geometry2D.plot_reactions()</span></code></a></li>
 </ul>
 </li>
 <li><a class="reference internal" href="#ILHEB.Geometry.Geometry3D"><code class="docutils literal notranslate"><span class="pre">Geometry3D</span></code></a><ul>
+<li><a class="reference internal" href="#ILHEB.Geometry.Geometry3D.coords"><code class="docutils literal notranslate"><span class="pre">Geometry3D.coords</span></code></a></li>
 <li><a class="reference internal" href="#ILHEB.Geometry.Geometry3D._ndofs_per_node"><code class="docutils literal notranslate"><span class="pre">Geometry3D._ndofs_per_node</span></code></a></li>
 <li><a class="reference internal" href="#ILHEB.Geometry.Geometry3D.ndofs"><code class="docutils literal notranslate"><span class="pre">Geometry3D.ndofs</span></code></a></li>
 <li><a class="reference internal" href="#ILHEB.Geometry.Geometry3D.node_dofs"><code class="docutils literal notranslate"><span class="pre">Geometry3D.node_dofs</span></code></a></li>
@@ -3994,38 +3806,23 @@ and reconstructs the full displacement vector.
 <li><a class="reference internal" href="#ILHEB.Geometry.Geometry3D.nodes_with_bc"><code class="docutils literal notranslate"><span class="pre">Geometry3D.nodes_with_bc</span></code></a></li>
 <li><a class="reference internal" href="#ILHEB.Geometry.Geometry3D.free"><code class="docutils literal notranslate"><span class="pre">Geometry3D.free</span></code></a></li>
 <li><a class="reference internal" href="#ILHEB.Geometry.Geometry3D.constrained"><code class="docutils literal notranslate"><span class="pre">Geometry3D.constrained</span></code></a></li>
-<li><a class="reference internal" href="#ILHEB.Geometry.Geometry3D.__init__"><code class="docutils literal notranslate"><span class="pre">Geometry3D.__init__()</span></code></a></li>
-<li><a class="reference internal" href="#ILHEB.Geometry.Geometry3D.generate_dofs"><code class="docutils literal notranslate"><span class="pre">Geometry3D.generate_dofs()</span></code></a></li>
-<li><a class="reference internal" href="#ILHEB.Geometry.Geometry3D.add_node"><code class="docutils literal notranslate"><span class="pre">Geometry3D.add_node()</span></code></a></li>
-<li><a class="reference internal" href="#ILHEB.Geometry.Geometry3D.add_support"><code class="docutils literal notranslate"><span class="pre">Geometry3D.add_support()</span></code></a></li>
-<li><a class="reference internal" href="#ILHEB.Geometry.Geometry3D._set_ebc"><code class="docutils literal notranslate"><span class="pre">Geometry3D._set_ebc()</span></code></a></li>
-<li><a class="reference internal" href="#ILHEB.Geometry.Geometry3D.add_node_load"><code class="docutils literal notranslate"><span class="pre">Geometry3D.add_node_load()</span></code></a></li>
 <li><a class="reference internal" href="#ILHEB.Geometry.Geometry3D.add_element"><code class="docutils literal notranslate"><span class="pre">Geometry3D.add_element()</span></code></a></li>
+<li><a class="reference internal" href="#ILHEB.Geometry.Geometry3D.add_node"><code class="docutils literal notranslate"><span class="pre">Geometry3D.add_node()</span></code></a></li>
+<li><a class="reference internal" href="#ILHEB.Geometry.Geometry3D.add_node_load"><code class="docutils literal notranslate"><span class="pre">Geometry3D.add_node_load()</span></code></a></li>
+<li><a class="reference internal" href="#ILHEB.Geometry.Geometry3D.add_support"><code class="docutils literal notranslate"><span class="pre">Geometry3D.add_support()</span></code></a></li>
+<li><a class="reference internal" href="#ILHEB.Geometry.Geometry3D.force_diagram"><code class="docutils literal notranslate"><span class="pre">Geometry3D.force_diagram()</span></code></a></li>
+<li><a class="reference internal" href="#ILHEB.Geometry.Geometry3D.generate_dofs"><code class="docutils literal notranslate"><span class="pre">Geometry3D.generate_dofs()</span></code></a></li>
 <li><a class="reference internal" href="#ILHEB.Geometry.Geometry3D.numbering"><code class="docutils literal notranslate"><span class="pre">Geometry3D.numbering()</span></code></a></li>
 <li><a class="reference internal" href="#ILHEB.Geometry.Geometry3D.plot"><code class="docutils literal notranslate"><span class="pre">Geometry3D.plot()</span></code></a></li>
 <li><a class="reference internal" href="#ILHEB.Geometry.Geometry3D.plot_defo"><code class="docutils literal notranslate"><span class="pre">Geometry3D.plot_defo()</span></code></a></li>
-<li><a class="reference internal" href="#ILHEB.Geometry.Geometry3D.force_diagram"><code class="docutils literal notranslate"><span class="pre">Geometry3D.force_diagram()</span></code></a></li>
-<li><a class="reference internal" href="#ILHEB.Geometry.Geometry3D.coords"><code class="docutils literal notranslate"><span class="pre">Geometry3D.coords</span></code></a></li>
-<li><a class="reference internal" href="#id7"><code class="docutils literal notranslate"><span class="pre">Geometry3D._ndofs_per_node</span></code></a></li>
-<li><a class="reference internal" href="#id8"><code class="docutils literal notranslate"><span class="pre">Geometry3D.node_loads</span></code></a></li>
-<li><a class="reference internal" href="#id9"><code class="docutils literal notranslate"><span class="pre">Geometry3D.elements</span></code></a></li>
-<li><a class="reference internal" href="#id10"><code class="docutils literal notranslate"><span class="pre">Geometry3D.ebc</span></code></a></li>
-<li><a class="reference internal" href="#id11"><code class="docutils literal notranslate"><span class="pre">Geometry3D.nodes_with_bc</span></code></a></li>
-<li><a class="reference internal" href="#id12"><code class="docutils literal notranslate"><span class="pre">Geometry3D.add_element()</span></code></a></li>
-<li><a class="reference internal" href="#id13"><code class="docutils literal notranslate"><span class="pre">Geometry3D.add_node()</span></code></a></li>
-<li><a class="reference internal" href="#id14"><code class="docutils literal notranslate"><span class="pre">Geometry3D.add_node_load()</span></code></a></li>
-<li><a class="reference internal" href="#id15"><code class="docutils literal notranslate"><span class="pre">Geometry3D.add_support()</span></code></a></li>
-<li><a class="reference internal" href="#id16"><code class="docutils literal notranslate"><span class="pre">Geometry3D.force_diagram()</span></code></a></li>
-<li><a class="reference internal" href="#id17"><code class="docutils literal notranslate"><span class="pre">Geometry3D.generate_dofs()</span></code></a></li>
-<li><a class="reference internal" href="#id18"><code class="docutils literal notranslate"><span class="pre">Geometry3D.numbering()</span></code></a></li>
-<li><a class="reference internal" href="#id19"><code class="docutils literal notranslate"><span class="pre">Geometry3D.plot()</span></code></a></li>
-<li><a class="reference internal" href="#id20"><code class="docutils literal notranslate"><span class="pre">Geometry3D.plot_defo()</span></code></a></li>
 <li><a class="reference internal" href="#ILHEB.Geometry.Geometry3D.plot_displacements"><code class="docutils literal notranslate"><span class="pre">Geometry3D.plot_displacements()</span></code></a></li>
 <li><a class="reference internal" href="#ILHEB.Geometry.Geometry3D.plot_reactions"><code class="docutils literal notranslate"><span class="pre">Geometry3D.plot_reactions()</span></code></a></li>
 </ul>
 </li>
-<li><a class="reference internal" href="#ILHEB.Geometry.Geometry3D.self.node_dofs"><code class="docutils literal notranslate"><span class="pre">Geometry3D.self.node_dofs</span></code></a></li>
 <li><a class="reference internal" href="#ILHEB.Geometry.Geometry3D.self.ndofs"><code class="docutils literal notranslate"><span class="pre">Geometry3D.self.ndofs</span></code></a></li>
+<li><a class="reference internal" href="#ILHEB.Geometry.Geometry3D.self.node_dofs"><code class="docutils literal notranslate"><span class="pre">Geometry3D.self.node_dofs</span></code></a></li>
+<li><a class="reference internal" href="#ILHEB.Geometry.Geometry3D.self.coords"><code class="docutils literal notranslate"><span class="pre">Geometry3D.self.coords</span></code></a></li>
+<li><a class="reference internal" href="#id3"><code class="docutils literal notranslate"><span class="pre">Geometry3D.self.ndofs</span></code></a></li>
 <li><a class="reference internal" href="#ILHEB.Geometry.Geometry3D.self.free"><code class="docutils literal notranslate"><span class="pre">Geometry3D.self.free</span></code></a></li>
 <li><a class="reference internal" href="#ILHEB.Geometry.Geometry3D.self.constrained"><code class="docutils literal notranslate"><span class="pre">Geometry3D.self.constrained</span></code></a></li>
 </ul>
@@ -4039,10 +3836,10 @@ and reconstructs the full displacement vector.
 <li><a class="reference internal" href="#ILHEB.Loads.DistributedLoad.__call__"><code class="docutils literal notranslate"><span class="pre">DistributedLoad.__call__()</span></code></a></li>
 <li><a class="reference internal" href="#ILHEB.Loads.DistributedLoad.distributed_load"><code class="docutils literal notranslate"><span class="pre">DistributedLoad.distributed_load()</span></code></a></li>
 <li><a class="reference internal" href="#ILHEB.Loads.DistributedLoad.element"><code class="docutils literal notranslate"><span class="pre">DistributedLoad.element</span></code></a></li>
-<li><a class="reference internal" href="#id21"><code class="docutils literal notranslate"><span class="pre">DistributedLoad.WX</span></code></a></li>
-<li><a class="reference internal" href="#id22"><code class="docutils literal notranslate"><span class="pre">DistributedLoad.WY</span></code></a></li>
-<li><a class="reference internal" href="#id23"><code class="docutils literal notranslate"><span class="pre">DistributedLoad.WZ</span></code></a></li>
-<li><a class="reference internal" href="#id24"><code class="docutils literal notranslate"><span class="pre">DistributedLoad.distributed_load()</span></code></a></li>
+<li><a class="reference internal" href="#id4"><code class="docutils literal notranslate"><span class="pre">DistributedLoad.WX</span></code></a></li>
+<li><a class="reference internal" href="#id5"><code class="docutils literal notranslate"><span class="pre">DistributedLoad.WY</span></code></a></li>
+<li><a class="reference internal" href="#id6"><code class="docutils literal notranslate"><span class="pre">DistributedLoad.WZ</span></code></a></li>
+<li><a class="reference internal" href="#id7"><code class="docutils literal notranslate"><span class="pre">DistributedLoad.distributed_load()</span></code></a></li>
 </ul>
 </li>
 <li><a class="reference internal" href="#ILHEB.Loads.ElementLoad"><code class="docutils literal notranslate"><span class="pre">ElementLoad</span></code></a><ul>
@@ -4050,8 +3847,8 @@ and reconstructs the full displacement vector.
 <li><a class="reference internal" href="#ILHEB.Loads.ElementLoad.function"><code class="docutils literal notranslate"><span class="pre">ElementLoad.function</span></code></a></li>
 <li><a class="reference internal" href="#ILHEB.Loads.ElementLoad.__call__"><code class="docutils literal notranslate"><span class="pre">ElementLoad.__call__()</span></code></a></li>
 <li><a class="reference internal" href="#ILHEB.Loads.ElementLoad.p"><code class="docutils literal notranslate"><span class="pre">ElementLoad.p</span></code></a></li>
-<li><a class="reference internal" href="#id25"><code class="docutils literal notranslate"><span class="pre">ElementLoad.element</span></code></a></li>
-<li><a class="reference internal" href="#id26"><code class="docutils literal notranslate"><span class="pre">ElementLoad.function</span></code></a></li>
+<li><a class="reference internal" href="#id8"><code class="docutils literal notranslate"><span class="pre">ElementLoad.element</span></code></a></li>
+<li><a class="reference internal" href="#id9"><code class="docutils literal notranslate"><span class="pre">ElementLoad.function</span></code></a></li>
 </ul>
 </li>
 <li><a class="reference internal" href="#ILHEB.Loads.ForcePointLoad"><code class="docutils literal notranslate"><span class="pre">ForcePointLoad</span></code></a><ul>
@@ -4063,7 +3860,7 @@ and reconstructs the full displacement vector.
 <li><a class="reference internal" href="#ILHEB.Loads.ForcePointLoad.__init__"><code class="docutils literal notranslate"><span class="pre">ForcePointLoad.__init__()</span></code></a></li>
 <li><a class="reference internal" href="#ILHEB.Loads.ForcePointLoad.point_load"><code class="docutils literal notranslate"><span class="pre">ForcePointLoad.point_load()</span></code></a></li>
 <li><a class="reference internal" href="#ILHEB.Loads.ForcePointLoad.__call__"><code class="docutils literal notranslate"><span class="pre">ForcePointLoad.__call__()</span></code></a></li>
-<li><a class="reference internal" href="#id27"><code class="docutils literal notranslate"><span class="pre">ForcePointLoad.point_load()</span></code></a></li>
+<li><a class="reference internal" href="#id10"><code class="docutils literal notranslate"><span class="pre">ForcePointLoad.point_load()</span></code></a></li>
 </ul>
 </li>
 <li><a class="reference internal" href="#ILHEB.Loads.MomentPointLoad"><code class="docutils literal notranslate"><span class="pre">MomentPointLoad</span></code></a><ul>
@@ -4074,7 +3871,7 @@ and reconstructs the full displacement vector.
 <li><a class="reference internal" href="#ILHEB.Loads.MomentPointLoad.function"><code class="docutils literal notranslate"><span class="pre">MomentPointLoad.function</span></code></a></li>
 <li><a class="reference internal" href="#ILHEB.Loads.MomentPointLoad.point_load"><code class="docutils literal notranslate"><span class="pre">MomentPointLoad.point_load()</span></code></a></li>
 <li><a class="reference internal" href="#ILHEB.Loads.MomentPointLoad.__call__"><code class="docutils literal notranslate"><span class="pre">MomentPointLoad.__call__()</span></code></a></li>
-<li><a class="reference internal" href="#id28"><code class="docutils literal notranslate"><span class="pre">MomentPointLoad.point_load()</span></code></a></li>
+<li><a class="reference internal" href="#id11"><code class="docutils literal notranslate"><span class="pre">MomentPointLoad.point_load()</span></code></a></li>
 </ul>
 </li>
 <li><a class="reference internal" href="#ILHEB.Loads.NodeLoad"><code class="docutils literal notranslate"><span class="pre">NodeLoad</span></code></a><ul>
@@ -4113,9 +3910,9 @@ and reconstructs the full displacement vector.
 <li><a class="reference internal" href="#ILHEB.Materials.LinearElastic.alpha"><code class="docutils literal notranslate"><span class="pre">LinearElastic.alpha</span></code></a></li>
 <li><a class="reference internal" href="#ILHEB.Materials.LinearElastic.__init__"><code class="docutils literal notranslate"><span class="pre">LinearElastic.__init__()</span></code></a></li>
 <li><a class="reference internal" href="#ILHEB.Materials.LinearElastic.E"><code class="docutils literal notranslate"><span class="pre">LinearElastic.E</span></code></a></li>
-<li><a class="reference internal" href="#id29"><code class="docutils literal notranslate"><span class="pre">LinearElastic.v</span></code></a></li>
-<li><a class="reference internal" href="#id30"><code class="docutils literal notranslate"><span class="pre">LinearElastic.G</span></code></a></li>
-<li><a class="reference internal" href="#id31"><code class="docutils literal notranslate"><span class="pre">LinearElastic.alpha</span></code></a></li>
+<li><a class="reference internal" href="#id12"><code class="docutils literal notranslate"><span class="pre">LinearElastic.v</span></code></a></li>
+<li><a class="reference internal" href="#id13"><code class="docutils literal notranslate"><span class="pre">LinearElastic.G</span></code></a></li>
+<li><a class="reference internal" href="#id14"><code class="docutils literal notranslate"><span class="pre">LinearElastic.alpha</span></code></a></li>
 </ul>
 </li>
 <li><a class="reference internal" href="#ILHEB.Materials.LinearElasticBase"><code class="docutils literal notranslate"><span class="pre">LinearElasticBase</span></code></a><ul>
@@ -4160,12 +3957,12 @@ and reconstructs the full displacement vector.
 <li><a class="reference internal" href="#ILHEB.Sections.Rect.A"><code class="docutils literal notranslate"><span class="pre">Rect.A</span></code></a></li>
 <li><a class="reference internal" href="#ILHEB.Sections.Rect.Ax"><code class="docutils literal notranslate"><span class="pre">Rect.Ax</span></code></a></li>
 <li><a class="reference internal" href="#ILHEB.Sections.Rect.Ay"><code class="docutils literal notranslate"><span class="pre">Rect.Ay</span></code></a></li>
-<li><a class="reference internal" href="#id32"><code class="docutils literal notranslate"><span class="pre">Rect.Iz</span></code></a></li>
-<li><a class="reference internal" href="#id33"><code class="docutils literal notranslate"><span class="pre">Rect.Iy</span></code></a></li>
-<li><a class="reference internal" href="#id34"><code class="docutils literal notranslate"><span class="pre">Rect.J</span></code></a></li>
-<li><a class="reference internal" href="#id35"><code class="docutils literal notranslate"><span class="pre">Rect.A</span></code></a></li>
-<li><a class="reference internal" href="#id36"><code class="docutils literal notranslate"><span class="pre">Rect.Ax</span></code></a></li>
-<li><a class="reference internal" href="#id37"><code class="docutils literal notranslate"><span class="pre">Rect.Ay</span></code></a></li>
+<li><a class="reference internal" href="#id15"><code class="docutils literal notranslate"><span class="pre">Rect.Iz</span></code></a></li>
+<li><a class="reference internal" href="#id16"><code class="docutils literal notranslate"><span class="pre">Rect.Iy</span></code></a></li>
+<li><a class="reference internal" href="#id17"><code class="docutils literal notranslate"><span class="pre">Rect.J</span></code></a></li>
+<li><a class="reference internal" href="#id18"><code class="docutils literal notranslate"><span class="pre">Rect.A</span></code></a></li>
+<li><a class="reference internal" href="#id19"><code class="docutils literal notranslate"><span class="pre">Rect.Ax</span></code></a></li>
+<li><a class="reference internal" href="#id20"><code class="docutils literal notranslate"><span class="pre">Rect.Ay</span></code></a></li>
 </ul>
 </li>
 </ul>
@@ -4173,7 +3970,7 @@ and reconstructs the full displacement vector.
 <li><a class="reference internal" href="#module-ILHEB.Solver">ILHEB.Solver module</a><ul>
 <li><a class="reference internal" href="#ILHEB.Solver.LinearSolver"><code class="docutils literal notranslate"><span class="pre">LinearSolver</span></code></a><ul>
 <li><a class="reference internal" href="#ILHEB.Solver.LinearSolver.solve"><code class="docutils literal notranslate"><span class="pre">LinearSolver.solve()</span></code></a></li>
-<li><a class="reference internal" href="#id38"><code class="docutils literal notranslate"><span class="pre">LinearSolver.solve()</span></code></a></li>
+<li><a class="reference internal" href="#id21"><code class="docutils literal notranslate"><span class="pre">LinearSolver.solve()</span></code></a></li>
 </ul>
 </li>
 </ul>
