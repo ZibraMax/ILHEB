@@ -20,7 +20,7 @@ class LinearElastic():
             E (float): Young's modulus of the material.
             v (float): Poisson's ratio of the material.
             alpha (float, optional): Thermal expansion coefficient of the material. 
-                                  Defaults to 0 if not provided.
+                Defaults to 0 if not provided.
         """
 
         self.E = E
