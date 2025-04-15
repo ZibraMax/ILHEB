@@ -4,30 +4,13 @@ import numpy as np
 class ElementLoad():
     """
     Represents a load applied to an element in a structural analysis model.
+
     Attributes:
         p (numpy.ndarray): A 1D array containing the load components at the
             start (j) and end (k) of the element. The components are ordered as:
             [PXj, PYj, PZj, MXj, MYj, MZj, PXk, PYk, PZk, MXk, MYk, MZk].
         element: The structural element to which the load is applied.
         function (bool): A flag indicating whether the load is functional.
-    Methods:
-        __call__(x):
-            Evaluates the load at a given position along the element.
-            Currently returns 0 for all inputs.
-    Args:
-        element: The structural element to which the load is applied.
-        PXj (float, optional): Axial force at the start of the element. Default is 0.0.
-        PYj (float, optional): Shear force in the Y direction at the start of the element. Default is 0.0.
-        PZj (float, optional): Shear force in the Z direction at the start of the element. Default is 0.0.
-        MXj (float, optional): Moment about the X axis at the start of the element. Default is 0.0.
-        MYj (float, optional): Moment about the Y axis at the start of the element. Default is 0.0.
-        MZj (float, optional): Moment about the Z axis at the start of the element. Default is 0.0.
-        PXk (float, optional): Axial force at the end of the element. Default is 0.0.
-        PYk (float, optional): Shear force in the Y direction at the end of the element. Default is 0.0.
-        PZk (float, optional): Shear force in the Z direction at the end of the element. Default is 0.0.
-        MXk (float, optional): Moment about the X axis at the end of the element. Default is 0.0.
-        MYk (float, optional): Moment about the Y axis at the end of the element. Default is 0.0.
-        MZk (float, optional): Moment about the Z axis at the end of the element. Default is 0.0.
     """
 
     def __init__(self, element, PXj=0.0, PYj=0.0, PZj=0.0, MXj=0.0, MYj=0.0, MZj=0.0, PXk=0.0, PYk=0.0, PZk=0.0, MXk=0.0, MYk=0.0, MZk=0.0):
@@ -47,10 +30,6 @@ class ElementLoad():
             MXk (float, optional): Moment about the X-axis at the end node (default is 0.0).
             MYk (float, optional): Moment about the Y-axis at the end node (default is 0.0).
             MZk (float, optional): Moment about the Z-axis at the end node (default is 0.0).
-        Attributes:
-            p (numpy.ndarray): A 1D array containing the load components for both start and end nodes.
-            element: The structural element associated with the load.
-            function (bool): A flag indicating the load is active (default is True).
         """
 
         self.p = np.array([PXj, PYj, PZj, MXj, MYj, MZj,
