@@ -1,3 +1,44 @@
+"""
+This script demonstrates the implementation of a 2D frame structure using the direct stiffness method 
+with a linear elastic material model. The script defines the geometry, material properties, and loading 
+conditions for the structure, solves the system, and generates various post-processing outputs.
+Modules:
+    - ILHEB: A library for structural analysis using the direct stiffness method.
+    - numpy: For numerical operations.
+    - matplotlib.pyplot: For plotting results.
+Constants:
+    - L_V: Length of each frame element.
+    - EI_V: Flexural rigidity of the frame elements.
+    - P1_V: Magnitude of the vertical point load.
+    - J_V: Torsional rigidity of the frame elements.
+    - G_V: Shear modulus of the material.
+    - M: Moment applied at a node.
+    - A: Cross-sectional area of the frame elements.
+Classes and Functions:
+    - HEB.Materials.LinearElasticBase: Defines a linear elastic material.
+    - HEB.Sections.General: Defines the section properties of the frame elements.
+    - HEB.Geometry2D: Represents the 2D geometry of the structure.
+    - HEB.Elements.FrameElement2D: Represents a 2D frame element.
+    - HEB.Loads.NodeLoad2D: Represents a nodal load in 2D.
+    - HEB.ILHEB: Solver for the structural system.
+Workflow:
+    1. Define material and section properties.
+    2. Define the geometry of the structure using node coordinates.
+    3. Add frame elements to the geometry.
+    4. Apply boundary conditions (supports) to the nodes.
+    5. Apply nodal loads and element loads to the structure.
+    6. Solve the system using the ILHEB solver.
+    7. Post-process the results, including plotting deformations, reactions, displacements, and force diagrams.
+    8. Generate a PDF report and save the results.
+Outputs:
+    - Plots of the undeformed and deformed structure.
+    - Reaction forces and displacement plots.
+    - Force diagrams for the frame elements.
+    - A PDF report summarizing the analysis.
+    - Saved results for further use.
+Note:
+    Ensure that the ILHEB library is correctly installed and accessible for this script to run.
+"""
 if __name__ == '__main__':
 
     import ILHEB as HEB

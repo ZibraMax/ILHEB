@@ -1,3 +1,45 @@
+"""
+This script implements a 3D ladder structure using the direct stiffness method. 
+It defines the geometry, materials, sections, and loads, and performs structural 
+analysis using the ILHEB library. The results are visualized and saved.
+Modules:
+    - ILHEB: A library for structural analysis.
+    - numpy: For numerical operations.
+    - matplotlib.pyplot: For plotting.
+Classes and Functions:
+    - Materials.LinearElasticBase: Defines a linear elastic material.
+    - Sections.Rect: Defines a rectangular cross-section.
+    - Sections.Circ: Defines a circular cross-section.
+    - Geometry3D: Represents the 3D geometry of the structure.
+    - Elements.FrameElement3D: Represents a 3D frame element.
+    - Loads.NodeLoad: Represents a nodal load.
+    - ILHEB: Performs structural analysis and post-processing.
+Workflow:
+    1. Define material properties and cross-sections.
+    2. Create node coordinates for the ladder geometry.
+    3. Define frame elements and add them to the geometry.
+    4. Apply supports and nodal loads.
+    5. Solve the structure using the ILHEB solver.
+    6. Post-process results, including plotting and generating a report.
+Key Variables:
+    - wood: Material properties for the ladder.
+    - rect: Rectangular cross-section for the ladder's vertical elements.
+    - circ: Circular cross-section for the ladder's rungs.
+    - coords: List of node coordinates.
+    - g: Geometry3D object representing the ladder.
+    - O: ILHEB object for solving and post-processing.
+Outputs:
+    - Deformed shape plots.
+    - Reaction force plots.
+    - Displacement plots.
+    - Force diagrams.
+    - A PDF report ("report_ladder.pdf").
+    - Saved results in a file with the same name as the script.
+Usage:
+    Run the script directly to perform the analysis and generate outputs.
+"""
+
+
 if __name__ == '__main__':
     import ILHEB as HEB
     import numpy as np

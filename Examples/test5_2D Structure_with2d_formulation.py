@@ -1,3 +1,43 @@
+"""
+This script demonstrates the analysis of a 2D frame structure using the ILHEB library. 
+It defines the geometry, material properties, and loading conditions for the structure, 
+and performs a structural analysis to compute displacements, reactions, and internal forces.
+Modules:
+    - ILHEB: A library for structural analysis.
+    - numpy: For numerical operations.
+    - matplotlib.pyplot: For plotting results.
+Constants:
+    - L_V: Length of the frame elements.
+    - EI_V: Flexural rigidity of the elements.
+    - P1_V: Magnitude of the vertical point load.
+    - J_V: Torsional rigidity of the elements.
+    - G_V: Shear modulus of the material.
+    - M: Moment applied at a node.
+    - A: Cross-sectional area of the elements (set to a very large value).
+Classes and Functions:
+    - HEB.Materials.LinearElasticBase: Defines the material properties.
+    - HEB.Sections.General: Defines the section properties.
+    - HEB.Geometry2D: Represents the 2D geometry of the structure.
+    - HEB.Elements.FrameElement2D: Represents a 2D frame element.
+    - HEB.Loads.NodeLoad2D: Represents a nodal load in 2D.
+Workflow:
+    1. Define material and section properties.
+    2. Define the geometry of the structure using node coordinates.
+    3. Add frame elements to the geometry.
+    4. Apply boundary conditions (supports) to specific nodes.
+    5. Apply nodal loads to the structure.
+    6. Solve the structural analysis problem using the ILHEB solver.
+    7. Post-process the results, including plotting deformations, reactions, and force diagrams.
+    8. Generate a report and save the results.
+Outputs:
+    - Plots of the undeformed and deformed structure.
+    - Reaction forces and displacement plots.
+    - Force diagrams for the structure.
+    - A PDF report summarizing the analysis results.
+    - Saved results for further use.
+Usage:
+    Run this script as the main module to perform the analysis and visualize the results.
+"""
 if __name__ == '__main__':
 
     import ILHEB as HEB

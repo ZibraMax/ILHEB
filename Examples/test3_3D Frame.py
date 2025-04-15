@@ -1,3 +1,47 @@
+"""
+This script demonstrates the implementation of a 3D frame analysis using the ILHEB library. 
+It defines the geometry, material properties, and loading conditions for a 3D frame structure, 
+solves the system using the direct stiffness method, and visualizes the results.
+Modules:
+    - ILHEB: A library for structural analysis.
+    - numpy: For numerical operations.
+    - matplotlib.pyplot: For plotting results.
+Classes and Functions:
+    - HEB.Materials.LinearElasticBase: Defines a linear elastic material.
+    - HEB.Sections.General: Defines a general section with specified properties.
+    - HEB.Geometry3D: Represents the 3D geometry of the structure.
+    - HEB.Elements.FrameElement3D: Represents a 3D frame element.
+    - HEB.Loads.NodeLoad: Defines a nodal load.
+    - HEB.ILHEB: Solver for the structural system.
+Variables:
+    - L_V: Length of the frame elements.
+    - EI_V: Flexural rigidity of the frame elements.
+    - P1_V: Magnitude of the applied nodal load.
+    - J_V: Torsional constant of the frame elements.
+    - G_V: Shear modulus of the material.
+    - material: Material object for the frame elements.
+    - section: Section object defining the properties of the frame elements.
+    - coords: Coordinates of the nodes in the 3D space.
+    - nodes: Numpy array of node coordinates.
+    - g: Geometry object representing the 3D frame.
+    - e: Frame element object.
+    - load: Nodal load object.
+    - O: Solver object for the structural system.
+    - U: Displacement results reshaped for visualization.
+Key Operations:
+    1. Define material and section properties.
+    2. Create geometry and add frame elements.
+    3. Apply boundary conditions and nodal loads.
+    4. Solve the system using the ILHEB solver.
+    5. Post-process results, including plotting deformations, reactions, displacements, and force diagrams.
+    6. Save results and generate a report.
+Output:
+    - Plots of the undeformed and deformed structure.
+    - Reaction forces and displacement plots.
+    - Force diagrams for the frame elements.
+    - A PDF report summarizing the analysis.
+    - Saved results for further use.
+"""
 if __name__ == '__main__':
 
     import ILHEB as HEB

@@ -1,3 +1,40 @@
+"""
+This script demonstrates the implementation of a 3D frame analysis using the direct stiffness method.
+It utilizes the ILHEB library to define materials, sections, geometry, and loads, and performs structural
+analysis on a 3D frame with specific boundary conditions and load cases.
+Key Features:
+- Defines a 3D frame structure with nodes and elements.
+- Applies boundary conditions and nodal loads.
+- Includes support for element releases to simulate partial fixity.
+- Solves the structural system using the ILHEB solver.
+- Provides post-processing capabilities such as plotting reactions, displacements, and force diagrams.
+- Generates a PDF report summarizing the analysis results.
+Modules Used:
+- ILHEB: Custom library for structural analysis.
+- numpy: For numerical operations.
+- matplotlib: For visualization of the structure and results.
+Classes and Functions:
+- HEB.Materials.LinearElasticBase: Defines the material properties.
+- HEB.Sections.General: Defines the section properties.
+- HEB.Geometry3D: Represents the geometry of the structure.
+- HEB.Elements.FrameElement3D: Represents 3D frame elements.
+- HEB.Loads.NodeLoad: Defines nodal loads.
+- HEB.ILHEB: Solver for the structural system.
+Inputs:
+- Material properties: Elastic modulus, shear modulus.
+- Section properties: Moment of inertia, torsional constant, cross-sectional area.
+- Node coordinates and connectivity.
+- Boundary conditions and nodal loads.
+Outputs:
+- Reaction forces at supports.
+- Displacements at nodes.
+- Force diagrams for elements.
+- PDF report summarizing the analysis.
+Usage:
+- Modify the input parameters (e.g., material properties, geometry, loads) as needed.
+- Run the script to perform the analysis and generate results.
+- Visualize the structure and results using the provided plotting functions.
+"""
 if __name__ == '__main__':
 
     import ILHEB as HEB

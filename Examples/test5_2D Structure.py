@@ -1,3 +1,49 @@
+"""
+This script demonstrates the implementation of a 2D frame structure in a 3D space 
+using the ILHEB library. The script defines the geometry, material properties, 
+section properties, boundary conditions, and loads for the structure. It then 
+solves the structural problem, performs post-processing, and generates visualizations 
+and a report.
+Modules:
+    - ILHEB: A library for structural analysis.
+    - numpy: For numerical operations.
+    - matplotlib.pyplot: For plotting.
+Constants:
+    - L_V: Length of the structure.
+    - EI_V: Flexural rigidity.
+    - P1_V: Load magnitude.
+    - J_V: Torsional constant.
+    - G_V: Shear modulus.
+    - M: Moment applied to the structure.
+    - A: Cross-sectional area.
+Classes and Functions:
+    - HEB.Materials.LinearElasticBase: Defines the material properties.
+    - HEB.Sections.General: Defines the section properties.
+    - HEB.Geometry3D: Defines the geometry of the structure.
+    - HEB.Elements.FrameElement3D: Defines the frame elements.
+    - HEB.Loads.NodeLoad: Defines the nodal loads.
+    - HEB.ILHEB: Solves the structural problem and provides post-processing tools.
+Workflow:
+    1. Define material and section properties.
+    2. Define the geometry of the structure using node coordinates.
+    3. Add frame elements to the geometry.
+    4. Apply boundary conditions (supports).
+    5. Apply nodal loads to the structure.
+    6. Solve the structural problem using the ILHEB solver.
+    7. Perform post-processing:
+        - Plot the undeformed and deformed structure.
+        - Plot reactions and displacements.
+        - Generate force diagrams.
+        - Create a PDF report.
+        - Save results to a file.
+    8. Display all plots.
+Output:
+    - Plots of the undeformed and deformed structure.
+    - Reaction and displacement plots.
+    - Force diagrams.
+    - A PDF report summarizing the analysis.
+    - Saved results for further use.
+"""
 if __name__ == '__main__':
 
     import ILHEB as HEB
