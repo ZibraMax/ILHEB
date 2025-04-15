@@ -40,7 +40,7 @@ napoleon_custom_sections = ['Process', "Saves"]
 
 
 extensions = ['sphinx.ext.autodoc',
-              'sphinx.ext.napoleon', 'm2r2', 'sphinx.ext.coverage']
+              'sphinx.ext.napoleon', 'm2r2', 'sphinx.ext.coverage', "sphinx.ext.autosummary"]
 # Add any paths that contain templates here, relative to this directory.
 templates_path = ['_templates']
 

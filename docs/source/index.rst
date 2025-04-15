@@ -8,10 +8,16 @@ ILHEB's documentation
 
 Created by Arturo Rodriguez: da.rodriguezh@uniandes.edu.co, da.rodriguezh@rice.edu
 
-.. automodule:: ILHEB.Elements
+.. automodule:: ILHEB
    :members:
-   :undoc-members:
+   :autosummary:
    :show-inheritance:
+
+
+.. .. autoclass:: ILHEB.Core
+..    :members:
+..    :undoc-members:
+..    :show-inheritance:
 
 
 .. toctree::
