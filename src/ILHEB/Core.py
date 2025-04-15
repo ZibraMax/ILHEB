@@ -22,8 +22,7 @@ class ILHEB:
             elements (list): A list of elements in the structure.
             node_dofs (dict): A mapping of nodes to their corresponding degrees of freedom.
             node_loads (dict): A mapping of nodes to their applied loads.
-            solver (LinearSolver): An instance of the LinearSolver class for solving
-                the structural analysis problem.
+            solver (LinearSolver): An instance of the LinearSolver class for solving the structural analysis problem.
         """
         geometry.numbering()
         self.geometry = geometry
@@ -42,15 +41,18 @@ class ILHEB:
         stiffness/force and node-level loads.
 
         Attributes:
+
             self.K (scipy.sparse.lil_matrix): The assembled global stiffness matrix.
             self.F (numpy.ndarray): The assembled global force vector.
 
         Process:
+
             1. Iterates over all elements in the system to compute and add their
                contributions to the global stiffness matrix and force vector.
             2. Iterates over all node loads to add their contributions to the
                global force vector and optionally to the global stiffness matrix.
         Notes:
+
             - The stiffness matrix is stored in a sparse format for computational
               efficiency.
             - The method assumes that each element and load object provides the
@@ -85,11 +87,13 @@ class ILHEB:
         Steps performed:
         1. Initializes the boundary conditions vector.
         2. Modifies the stiffness matrix (K) to enforce constraints by zeroing out
-           rows and columns corresponding to constrained DOFs and setting diagonal
-           entries to 1.
+        rows and columns corresponding to constrained DOFs and setting diagonal
+        entries to 1.
         3. Adjusts the force vector (S) to account for the constraints.
         4. Updates the force vector with the constrained values for the specified DOFs.
+
         Attributes:
+
             self.S (numpy.ndarray): The force vector, modified to include boundary conditions.
             self.K (numpy.ndarray): The stiffness matrix, modified to enforce boundary conditions.
             self.ebc (numpy.ndarray): Array of essential boundary conditions, where each row
