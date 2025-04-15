@@ -9,7 +9,7 @@ ILHEB's documentation
 Created by Arturo Rodriguez: da.rodriguezh@uniandes.edu.co, da.rodriguezh@rice.edu
    
 .. toctree::
-   :maxdepth: 2
+   :maxdepth: 3
    :caption: Contents:
 
    ILHEB/modules
