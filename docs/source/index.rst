@@ -8,28 +8,12 @@ ILHEB's documentation
 
 Created by Arturo Rodriguez: da.rodriguezh@uniandes.edu.co, da.rodriguezh@rice.edu
 
-.. automodule:: ILHEB
-   :members:
-   :autosummary:
-
-
-.. .. autoclass:: ILHEB.Core
-..    :members:
-..    :undoc-members:
-..    :show-inheritance:
-
 
 .. toctree::
-   :maxdepth: 3
+   :maxdepth: 2
    :caption: Contents:
 
-   ILHEB.Core
-   ILHEB.Geometry
-   ILHEB.Elements
-   ILHEB.Materials
-   ILHEB.Loads
-   ILHEB.Sections
-   ILHEB.Solver
+   ILHEB/modules
    Examples/modules
    
    
