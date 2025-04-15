@@ -3052,6 +3052,84 @@ Ay (float): Effective shear area in the y-direction.</p>
 <dt class="sig sig-object py" id="ILHEB.Sections.General">
 <em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">ILHEB.Sections.</span></span><span class="sig-name descname"><span class="pre">General</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">Iz</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">0.0</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">Iy</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">0.0</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">J</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">0.0</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">A</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">0.0</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">Ax</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">0.0</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">Ay</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">0.0</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">v</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">array([0.,</span> <span class="pre">1.,</span> <span class="pre">0.])</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#ILHEB.Sections.General" title="Link to this definition">¶</a></dt>
 <dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">object</span></code></p>
+<p>A class to represent a general section with various properties.</p>
+<dl class="py attribute">
+<dt class="sig sig-object py" id="ILHEB.Sections.General.Iz">
+<span class="sig-name descname"><span class="pre">Iz</span></span><a class="headerlink" href="#ILHEB.Sections.General.Iz" title="Link to this definition">¶</a></dt>
+<dd><p>Moment of inertia about the z-axis. Default is 0.0.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Type<span class="colon">:</span></dt>
+<dd class="field-odd"><p>float</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="ILHEB.Sections.General.Iy">
+<span class="sig-name descname"><span class="pre">Iy</span></span><a class="headerlink" href="#ILHEB.Sections.General.Iy" title="Link to this definition">¶</a></dt>
+<dd><p>Moment of inertia about the y-axis. Default is 0.0.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Type<span class="colon">:</span></dt>
+<dd class="field-odd"><p>float</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="ILHEB.Sections.General.J">
+<span class="sig-name descname"><span class="pre">J</span></span><a class="headerlink" href="#ILHEB.Sections.General.J" title="Link to this definition">¶</a></dt>
+<dd><p>Torsional constant. Default is 0.0.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Type<span class="colon">:</span></dt>
+<dd class="field-odd"><p>float</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="ILHEB.Sections.General.A">
+<span class="sig-name descname"><span class="pre">A</span></span><a class="headerlink" href="#ILHEB.Sections.General.A" title="Link to this definition">¶</a></dt>
+<dd><p>Cross-sectional area. Default is 0.0.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Type<span class="colon">:</span></dt>
+<dd class="field-odd"><p>float</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="ILHEB.Sections.General.Ax">
+<span class="sig-name descname"><span class="pre">Ax</span></span><a class="headerlink" href="#ILHEB.Sections.General.Ax" title="Link to this definition">¶</a></dt>
+<dd><p>Shear area in the x-direction. Default is 0.0.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Type<span class="colon">:</span></dt>
+<dd class="field-odd"><p>float</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="ILHEB.Sections.General.Ay">
+<span class="sig-name descname"><span class="pre">Ay</span></span><a class="headerlink" href="#ILHEB.Sections.General.Ay" title="Link to this definition">¶</a></dt>
+<dd><p>Shear area in the y-direction. Default is 0.0.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Type<span class="colon">:</span></dt>
+<dd class="field-odd"><p>float</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="ILHEB.Sections.General.v">
+<span class="sig-name descname"><span class="pre">v</span></span><a class="headerlink" href="#ILHEB.Sections.General.v" title="Link to this definition">¶</a></dt>
+<dd><p>A vector representing the orientation of the section. Default is np.array([0, 1.0, 0.0]).</p>
+<dl class="field-list simple">
+<dt class="field-odd">Type<span class="colon">:</span></dt>
+<dd class="field-odd"><p>numpy.ndarray</p>
+</dd>
+</dl>
+</dd></dl>
+
 <p>Initializes the section properties for a structural analysis object.</p>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters<span class="colon">:</span></dt>
@@ -3067,90 +3145,6 @@ Default is np.array([0, 1.0, 0.0]).</p></li>
 </ul>
 </dd>
 </dl>
-<dl class="py class">
-<dt class="sig sig-object py" id="ILHEB.Sections.General.General">
-<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">General</span></span><a class="headerlink" href="#ILHEB.Sections.General.General" title="Link to this definition">¶</a></dt>
-<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">object</span></code></p>
-<p>A class to represent a general section with various properties.</p>
-<dl class="py attribute">
-<dt class="sig sig-object py" id="ILHEB.Sections.General.General.Iz">
-<span class="sig-name descname"><span class="pre">Iz</span></span><a class="headerlink" href="#ILHEB.Sections.General.General.Iz" title="Link to this definition">¶</a></dt>
-<dd><p>Moment of inertia about the z-axis. Default is 0.0.</p>
-<dl class="field-list simple">
-<dt class="field-odd">Type<span class="colon">:</span></dt>
-<dd class="field-odd"><p>float</p>
-</dd>
-</dl>
-</dd></dl>
-
-<dl class="py attribute">
-<dt class="sig sig-object py" id="ILHEB.Sections.General.General.Iy">
-<span class="sig-name descname"><span class="pre">Iy</span></span><a class="headerlink" href="#ILHEB.Sections.General.General.Iy" title="Link to this definition">¶</a></dt>
-<dd><p>Moment of inertia about the y-axis. Default is 0.0.</p>
-<dl class="field-list simple">
-<dt class="field-odd">Type<span class="colon">:</span></dt>
-<dd class="field-odd"><p>float</p>
-</dd>
-</dl>
-</dd></dl>
-
-<dl class="py attribute">
-<dt class="sig sig-object py" id="ILHEB.Sections.General.General.J">
-<span class="sig-name descname"><span class="pre">J</span></span><a class="headerlink" href="#ILHEB.Sections.General.General.J" title="Link to this definition">¶</a></dt>
-<dd><p>Torsional constant. Default is 0.0.</p>
-<dl class="field-list simple">
-<dt class="field-odd">Type<span class="colon">:</span></dt>
-<dd class="field-odd"><p>float</p>
-</dd>
-</dl>
-</dd></dl>
-
-<dl class="py attribute">
-<dt class="sig sig-object py" id="ILHEB.Sections.General.General.A">
-<span class="sig-name descname"><span class="pre">A</span></span><a class="headerlink" href="#ILHEB.Sections.General.General.A" title="Link to this definition">¶</a></dt>
-<dd><p>Cross-sectional area. Default is 0.0.</p>
-<dl class="field-list simple">
-<dt class="field-odd">Type<span class="colon">:</span></dt>
-<dd class="field-odd"><p>float</p>
-</dd>
-</dl>
-</dd></dl>
-
-<dl class="py attribute">
-<dt class="sig sig-object py" id="ILHEB.Sections.General.General.Ax">
-<span class="sig-name descname"><span class="pre">Ax</span></span><a class="headerlink" href="#ILHEB.Sections.General.General.Ax" title="Link to this definition">¶</a></dt>
-<dd><p>Shear area in the x-direction. Default is 0.0.</p>
-<dl class="field-list simple">
-<dt class="field-odd">Type<span class="colon">:</span></dt>
-<dd class="field-odd"><p>float</p>
-</dd>
-</dl>
-</dd></dl>
-
-<dl class="py attribute">
-<dt class="sig sig-object py" id="ILHEB.Sections.General.General.Ay">
-<span class="sig-name descname"><span class="pre">Ay</span></span><a class="headerlink" href="#ILHEB.Sections.General.General.Ay" title="Link to this definition">¶</a></dt>
-<dd><p>Shear area in the y-direction. Default is 0.0.</p>
-<dl class="field-list simple">
-<dt class="field-odd">Type<span class="colon">:</span></dt>
-<dd class="field-odd"><p>float</p>
-</dd>
-</dl>
-</dd></dl>
-
-<dl class="py attribute">
-<dt class="sig sig-object py" id="ILHEB.Sections.General.General.v">
-<span class="sig-name descname"><span class="pre">v</span></span><a class="headerlink" href="#ILHEB.Sections.General.General.v" title="Link to this definition">¶</a></dt>
-<dd><p>A vector representing the orientation of the section. Default is np.array([0, 1.0, 0.0]).</p>
-<dl class="field-list simple">
-<dt class="field-odd">Type<span class="colon">:</span></dt>
-<dd class="field-odd"><p>numpy.ndarray</p>
-</dd>
-</dl>
-</dd></dl>
-
-</dd></dl>
-
 </dd></dl>
 
 <dl class="py class">
@@ -3317,8 +3311,11 @@ the reduced system of equations to find the displacements at the valid degrees o
 and reconstructs the full displacement vector.</p>
 <dl class="field-list simple">
 <dt class="field-odd">Returns<span class="colon">:</span></dt>
-<dd class="field-odd"><p>A 1D array containing the displacements of all degrees of freedom in the
-structure. Degrees of freedom without associated stiffness or force will have a value of zero.</p>
+<dd class="field-odd"><p><dl class="simple">
+<dt>A 1D array containing the displacements of all degrees of freedom in the</dt><dd><p>structure. Degrees of freedom without associated stiffness or force will have a value of zero.</p>
+</dd>
+</dl>
+</p>
 </dd>
 <dt class="field-even">Return type<span class="colon">:</span></dt>
 <dd class="field-even"><p>numpy.ndarray</p>
@@ -3613,16 +3610,13 @@ structure. Degrees of freedom without associated stiffness or force will have a 
 </ul>
 </li>
 <li><a class="reference internal" href="#ILHEB.Sections.General"><code class="docutils literal notranslate"><span class="pre">General</span></code></a><ul>
-<li><a class="reference internal" href="#ILHEB.Sections.General.General"><code class="docutils literal notranslate"><span class="pre">General.General</span></code></a><ul>
-<li><a class="reference internal" href="#ILHEB.Sections.General.General.Iz"><code class="docutils literal notranslate"><span class="pre">General.General.Iz</span></code></a></li>
-<li><a class="reference internal" href="#ILHEB.Sections.General.General.Iy"><code class="docutils literal notranslate"><span class="pre">General.General.Iy</span></code></a></li>
-<li><a class="reference internal" href="#ILHEB.Sections.General.General.J"><code class="docutils literal notranslate"><span class="pre">General.General.J</span></code></a></li>
-<li><a class="reference internal" href="#ILHEB.Sections.General.General.A"><code class="docutils literal notranslate"><span class="pre">General.General.A</span></code></a></li>
-<li><a class="reference internal" href="#ILHEB.Sections.General.General.Ax"><code class="docutils literal notranslate"><span class="pre">General.General.Ax</span></code></a></li>
-<li><a class="reference internal" href="#ILHEB.Sections.General.General.Ay"><code class="docutils literal notranslate"><span class="pre">General.General.Ay</span></code></a></li>
-<li><a class="reference internal" href="#ILHEB.Sections.General.General.v"><code class="docutils literal notranslate"><span class="pre">General.General.v</span></code></a></li>
-</ul>
-</li>
+<li><a class="reference internal" href="#ILHEB.Sections.General.Iz"><code class="docutils literal notranslate"><span class="pre">General.Iz</span></code></a></li>
+<li><a class="reference internal" href="#ILHEB.Sections.General.Iy"><code class="docutils literal notranslate"><span class="pre">General.Iy</span></code></a></li>
+<li><a class="reference internal" href="#ILHEB.Sections.General.J"><code class="docutils literal notranslate"><span class="pre">General.J</span></code></a></li>
+<li><a class="reference internal" href="#ILHEB.Sections.General.A"><code class="docutils literal notranslate"><span class="pre">General.A</span></code></a></li>
+<li><a class="reference internal" href="#ILHEB.Sections.General.Ax"><code class="docutils literal notranslate"><span class="pre">General.Ax</span></code></a></li>
+<li><a class="reference internal" href="#ILHEB.Sections.General.Ay"><code class="docutils literal notranslate"><span class="pre">General.Ay</span></code></a></li>
+<li><a class="reference internal" href="#ILHEB.Sections.General.v"><code class="docutils literal notranslate"><span class="pre">General.v</span></code></a></li>
 </ul>
 </li>
 <li><a class="reference internal" href="#ILHEB.Sections.Rect"><code class="docutils literal notranslate"><span class="pre">Rect</span></code></a><ul>
