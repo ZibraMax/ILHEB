@@ -2506,7 +2506,7 @@ based on the applied moments and position <cite>x</cite>.</p></li>
 <dd><p>The node to which the load is applied.</p>
 <dl class="field-list simple">
 <dt class="field-odd">Type<span class="colon">:</span></dt>
-<dd class="field-odd"><p>object</p>
+<dd class="field-odd"><p>int</p>
 </dd>
 </dl>
 </dd></dl>
@@ -2548,7 +2548,7 @@ associated with the node load. Default is None.</p>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters<span class="colon">:</span></dt>
 <dd class="field-odd"><ul class="simple">
-<li><p><strong>node</strong> – object
+<li><p><strong>node</strong> – int
 The node to which the load is applied.</p></li>
 <li><p><strong>PX</strong> – float, optional
 Force in the X direction (default is 0.0).</p></li>
@@ -2578,7 +2578,7 @@ Moment about the Z axis (default is 0.0).</p></li>
 <dd><p>The node to which the load is applied.</p>
 <dl class="field-list simple">
 <dt class="field-odd">Type<span class="colon">:</span></dt>
-<dd class="field-odd"><p>object</p>
+<dd class="field-odd"><p>int</p>
 </dd>
 </dl>
 </dd></dl>
@@ -2604,7 +2604,7 @@ Moment about the Z axis (default is 0.0).</p></li>
 (default is None).</p>
 <dl class="field-list simple">
 <dt class="field-odd">Type<span class="colon">:</span></dt>
-<dd class="field-odd"><p>None or object</p>
+<dd class="field-odd"><p>object</p>
 </dd>
 </dl>
 </dd></dl>
@@ -2613,7 +2613,7 @@ Moment about the Z axis (default is 0.0).</p></li>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters<span class="colon">:</span></dt>
 <dd class="field-odd"><ul class="simple">
-<li><p><strong>node</strong> (<em>Node</em>) – The node to which the load is applied.</p></li>
+<li><p><strong>node</strong> (<em>int</em>) – The node to which the load is applied.</p></li>
 <li><p><strong>PX</strong> (<em>float</em><em>, </em><em>optional</em>) – The force component in the X direction. Default is 0.0.</p></li>
 <li><p><strong>PY</strong> (<em>float</em><em>, </em><em>optional</em>) – The force component in the Y direction. Default is 0.0.</p></li>
 <li><p><strong>MZ</strong> (<em>float</em><em>, </em><em>optional</em>) – The moment component about the Z axis. Default is 0.0.</p></li>
@@ -2643,7 +2643,7 @@ in translational (KX, KY, KZ) and rotational (KMX, KMY, KMZ) directions.</p>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters<span class="colon">:</span></dt>
 <dd class="field-odd"><ul class="simple">
-<li><p><strong>node</strong> – object
+<li><p><strong>node</strong> – int
 The node to which the load is applied.</p></li>
 <li><p><strong>KX</strong> – float, optional
 Stiffness in the X direction (default is 0.0).</p></li>
@@ -2682,7 +2682,7 @@ and rotational Z directions.</p>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters<span class="colon">:</span></dt>
 <dd class="field-odd"><ul class="simple">
-<li><p><strong>node</strong> (<a class="reference internal" href="#ILHEB.Loads.NodeLoad2D" title="ILHEB.Loads.NodeLoad2D"><em>NodeLoad2D</em></a>) – The node to which the spring is attached.</p></li>
+<li><p><strong>node</strong> (<em>int</em>) – The node to which the spring is attached.</p></li>
 <li><p><strong>KX</strong> (<em>float</em><em>, </em><em>optional</em>) – Stiffness in the X direction. Default is 0.0.</p></li>
 <li><p><strong>KY</strong> (<em>float</em><em>, </em><em>optional</em>) – Stiffness in the Y direction. Default is 0.0.</p></li>
 <li><p><strong>KMZ</strong> (<em>float</em><em>, </em><em>optional</em>) – Rotational stiffness about the Z axis. Default is 0.0.</p></li>
@@ -2693,7 +2693,7 @@ and rotational Z directions.</p>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters<span class="colon">:</span></dt>
 <dd class="field-odd"><ul class="simple">
-<li><p><strong>node</strong> (<em>object</em>) – The node to which the load is applied.</p></li>
+<li><p><strong>node</strong> (<em>int</em>) – The node to which the load is applied.</p></li>
 <li><p><strong>KX</strong> (<em>float</em><em>, </em><em>optional</em>) – Stiffness in the X direction. Defaults to 0.0.</p></li>
 <li><p><strong>KY</strong> (<em>float</em><em>, </em><em>optional</em>) – Stiffness in the Y direction. Defaults to 0.0.</p></li>
 <li><p><strong>KMZ</strong> (<em>float</em><em>, </em><em>optional</em>) – Rotational stiffness about the Z axis. Defaults to 0.0.</p></li>
