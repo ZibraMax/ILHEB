@@ -38,9 +38,11 @@ class ILHEB:
         iterating over the elements and node loads in the system. It uses sparse
         matrices for efficiency and handles contributions from both element-level
         stiffness/force and node-level loads.
+
         Attributes:
             self.K (scipy.sparse.lil_matrix): The assembled global stiffness matrix.
             self.F (numpy.ndarray): The assembled global force vector.
+
         Process:
             1. Iterates over all elements in the system to compute and add their
                contributions to the global stiffness matrix and force vector.
