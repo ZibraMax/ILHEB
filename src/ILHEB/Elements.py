@@ -9,6 +9,7 @@ class Element():
     This class represents a structural element in a finite element analysis. It provides methods for 
     defining the element's properties, calculating shape functions, stiffness matrices, and handling 
     loads and displacements.
+
     Attributes:
         nodes (list): List of node IDs associated with the element.
         section: Cross-sectional properties of the element.
@@ -23,6 +24,7 @@ class Element():
         U (array): Displacement vector for the element.
         pe (array): Element internal force vector.
         T (array): Transformation matrix for the element.
+
     Methods:
         __init__(nodes, section, material):
             Initializes the element with nodes, section, and material properties.
@@ -56,18 +58,14 @@ class Element():
     def __init__(self, nodes, section, material):
         """
         Initializes an instance of the Element class.
-        Parameters:
+
+        Args:
             nodes (list or iterable): A list or iterable containing node identifiers. 
                                       If not a list, it will be converted to a list of integers.
             section: The section properties associated with the element.
             material: The material properties associated with the element.
-        Attributes:
-            nodes (list): A list of node identifiers for the element.
-            section: The section properties of the element.
-            material: The material properties of the element.
-            coords: Coordinates of the element, initialized as None.
-            true_dofs (list): A list of standar degrees of freedom (DOFs) for the element, 
-                              initialized to [0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11]. 
+
+
         Notes:
             The `pre_init` method is called during initialization to perform any 
             additional setup required for the element.

@@ -218,11 +218,14 @@ class ILHEB:
     def generate_report(self, filename):
         """
         Generates a PDF report containing all currently open matplotlib figures.
+
         Args:
             filename (str): The path and name of the PDF file to save the report.
+
         Raises:
             Exception: If an error occurs during the report generation, it will be caught
                        and printed to the console.
+
         Notes:
             - This method uses `matplotlib.backends.backend_pdf.PdfPages` to create a multi-page
               PDF document.
