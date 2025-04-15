@@ -1521,18 +1521,11 @@ two decimal places.</p></li>
 </ul>
 <div class="admonition note">
 <p class="admonition-title">Note</p>
-<p>This method assumes that the following attributes are defined in the
-class:
+<p>This method assumes that the following attributes are defined in the class:
 - <cite>self.free</cite>: A list of free degrees of freedom.
-- <cite>self.node_dofs</cite>: A dictionary mapping nodes to their degrees of</p>
-<blockquote>
-<div><p>freedom.</p>
-</div></blockquote>
-<ul class="simple">
-<li><p><cite>self.coords</cite>: A dictionary mapping nodes to their coordinates.</p></li>
-<li><p><cite>self.name_dofs_displacements</cite>: A list of names for the degrees of
-freedom (e.g., “Ux”, “Uy”, etc.).</p></li>
-</ul>
+- <cite>self.node_dofs</cite>: A dictionary mapping nodes to their degrees of freedom.
+- <cite>self.coords</cite>: A dictionary mapping nodes to their coordinates.
+- <cite>self.name_dofs_displacements</cite>: A list of names for the degrees of freedom (e.g., “Ux”, “Uy”, etc.).</p>
 </div>
 </dd></dl>
 
@@ -1776,12 +1769,10 @@ The ID of the structural element for which the force diagram is to be generated.
 <div class="admonition-notes admonition">
 <p class="admonition-title">Notes</p>
 <ul class="simple">
-<li><p>The method uses the element’s material properties, section properties, and applied loads</p></li>
+<li><p>The method uses the element’s material properties, section properties, and applied loads to compute the force diagrams.</p></li>
+<li><p>The finite element mesh is divided into <cite>n</cite> segments for numerical integration.</p></li>
+<li><p>Boundary conditions are applied to the stiffness matrix and force vector to account for constraints.</p></li>
 </ul>
-<p>to compute the force diagrams.
-- The finite element mesh is divided into <cite>n</cite> segments for numerical integration.
-- Boundary conditions are applied to the stiffness matrix and force vector to account
-for constraints.</p>
 </div>
 <p class="rubric">Plots</p>
 <ul class="simple">
@@ -1993,17 +1984,12 @@ two decimal places.</p></li>
 </ul>
 <div class="admonition note">
 <p class="admonition-title">Note</p>
-<p>This method assumes that the following attributes are defined in the
-class:
-- <cite>self.free</cite>: A list of free degrees of freedom.
-- <cite>self.node_dofs</cite>: A dictionary mapping nodes to their degrees of</p>
-<blockquote>
-<div><p>freedom.</p>
-</div></blockquote>
+<p>This method assumes that the following attributes are defined in the class:</p>
 <ul class="simple">
+<li><p><cite>self.free</cite>: A list of free degrees of freedom.</p></li>
+<li><p><cite>self.node_dofs</cite>: A dictionary mapping nodes to their degrees of freedom.</p></li>
 <li><p><cite>self.coords</cite>: A dictionary mapping nodes to their coordinates.</p></li>
-<li><p><cite>self.name_dofs_displacements</cite>: A list of names for the degrees of
-freedom (e.g., “Ux”, “Uy”, etc.).</p></li>
+<li><p><cite>self.name_dofs_displacements</cite>: A list of names for the degrees of freedom (e.g., “Ux”, “Uy”, etc.).</p></li>
 </ul>
 </div>
 </dd></dl>
@@ -2130,16 +2116,8 @@ parent <cite>ElementLoad</cite> class with these values.</p>
 <div class="admonition-notes admonition">
 <p class="admonition-title">Notes</p>
 <ul class="simple">
-<li><dl class="simple">
-<dt>If the load is defined in the global coordinate system, it is transformed</dt><dd><p>to the local coordinate system using the element’s rotation matrix.</p>
-</dd>
-</dl>
-</li>
-<li><dl class="simple">
-<dt>The distributed loads in the Y and Z directions are processed using the</dt><dd><p><cite>distributed_load</cite> method to compute equivalent nodal forces and moments.</p>
-</dd>
-</dl>
-</li>
+<li><p>If the load is defined in the global coordinate system, it is transformed to the local coordinate system using the element’s rotation matrix.</p></li>
+<li><p>The distributed loads in the Y and Z directions are processed using the <cite>distributed_load</cite> method to compute equivalent nodal forces and moments.</p></li>
 <li><p>The computed forces and moments are passed to the <cite>ElementLoad</cite> initializer.</p></li>
 </ul>
 </div>
@@ -2148,32 +2126,26 @@ parent <cite>ElementLoad</cite> class with these values.</p>
 <p>element = SomeElementClass()
 load = DistributedLoad(element, WX=10, WY=5, WZ=0, axis=’global’)</p>
 </div>
-<p>Initializes a load object and associates it with a structural element.
-:param element: The structural element to which the load is applied.
-:param PXj: Axial force at the start node (default is 0.0).
-:type PXj: float, optional
-:param PYj: Shear force in the Y direction at the start node (default is 0.0).
-:type PYj: float, optional
-:param PZj: Shear force in the Z direction at the start node (default is 0.0).
-:type PZj: float, optional
-:param MXj: Moment about the X-axis at the start node (default is 0.0).
-:type MXj: float, optional
-:param MYj: Moment about the Y-axis at the start node (default is 0.0).
-:type MYj: float, optional
-:param MZj: Moment about the Z-axis at the start node (default is 0.0).
-:type MZj: float, optional
-:param PXk: Axial force at the end node (default is 0.0).
-:type PXk: float, optional
-:param PYk: Shear force in the Y direction at the end node (default is 0.0).
-:type PYk: float, optional
-:param PZk: Shear force in the Z direction at the end node (default is 0.0).
-:type PZk: float, optional
-:param MXk: Moment about the X-axis at the end node (default is 0.0).
-:type MXk: float, optional
-:param MYk: Moment about the Y-axis at the end node (default is 0.0).
-:type MYk: float, optional
-:param MZk: Moment about the Z-axis at the end node (default is 0.0).
-:type MZk: float, optional</p>
+<p>Initializes a load object and associates it with a structural element.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>element</strong> – The structural element to which the load is applied.</p></li>
+<li><p><strong>PXj</strong> (<em>float</em><em>, </em><em>optional</em>) – Axial force at the start node (default is 0.0).</p></li>
+<li><p><strong>PYj</strong> (<em>float</em><em>, </em><em>optional</em>) – Shear force in the Y direction at the start node (default is 0.0).</p></li>
+<li><p><strong>PZj</strong> (<em>float</em><em>, </em><em>optional</em>) – Shear force in the Z direction at the start node (default is 0.0).</p></li>
+<li><p><strong>MXj</strong> (<em>float</em><em>, </em><em>optional</em>) – Moment about the X-axis at the start node (default is 0.0).</p></li>
+<li><p><strong>MYj</strong> (<em>float</em><em>, </em><em>optional</em>) – Moment about the Y-axis at the start node (default is 0.0).</p></li>
+<li><p><strong>MZj</strong> (<em>float</em><em>, </em><em>optional</em>) – Moment about the Z-axis at the start node (default is 0.0).</p></li>
+<li><p><strong>PXk</strong> (<em>float</em><em>, </em><em>optional</em>) – Axial force at the end node (default is 0.0).</p></li>
+<li><p><strong>PYk</strong> (<em>float</em><em>, </em><em>optional</em>) – Shear force in the Y direction at the end node (default is 0.0).</p></li>
+<li><p><strong>PZk</strong> (<em>float</em><em>, </em><em>optional</em>) – Shear force in the Z direction at the end node (default is 0.0).</p></li>
+<li><p><strong>MXk</strong> (<em>float</em><em>, </em><em>optional</em>) – Moment about the X-axis at the end node (default is 0.0).</p></li>
+<li><p><strong>MYk</strong> (<em>float</em><em>, </em><em>optional</em>) – Moment about the Y-axis at the end node (default is 0.0).</p></li>
+<li><p><strong>MZk</strong> (<em>float</em><em>, </em><em>optional</em>) – Moment about the Z-axis at the end node (default is 0.0).</p></li>
+</ul>
+</dd>
+</dl>
 <dl class="py method">
 <dt class="sig sig-object py" id="ILHEB.Loads.DistributedLoad.distributed_load">
 <span class="sig-name descname"><span class="pre">distributed_load</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">w</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">L</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#ILHEB.Loads.DistributedLoad.distributed_load" title="Link to this definition">¶</a></dt>
@@ -2216,32 +2188,26 @@ start (j) and end (k) of the element. The components are ordered as:
 </dl>
 </dd></dl>
 
-<p>Initializes a load object and associates it with a structural element.
-:param element: The structural element to which the load is applied.
-:param PXj: Axial force at the start node (default is 0.0).
-:type PXj: float, optional
-:param PYj: Shear force in the Y direction at the start node (default is 0.0).
-:type PYj: float, optional
-:param PZj: Shear force in the Z direction at the start node (default is 0.0).
-:type PZj: float, optional
-:param MXj: Moment about the X-axis at the start node (default is 0.0).
-:type MXj: float, optional
-:param MYj: Moment about the Y-axis at the start node (default is 0.0).
-:type MYj: float, optional
-:param MZj: Moment about the Z-axis at the start node (default is 0.0).
-:type MZj: float, optional
-:param PXk: Axial force at the end node (default is 0.0).
-:type PXk: float, optional
-:param PYk: Shear force in the Y direction at the end node (default is 0.0).
-:type PYk: float, optional
-:param PZk: Shear force in the Z direction at the end node (default is 0.0).
-:type PZk: float, optional
-:param MXk: Moment about the X-axis at the end node (default is 0.0).
-:type MXk: float, optional
-:param MYk: Moment about the Y-axis at the end node (default is 0.0).
-:type MYk: float, optional
-:param MZk: Moment about the Z-axis at the end node (default is 0.0).
-:type MZk: float, optional</p>
+<p>Initializes a load object and associates it with a structural element.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>element</strong> – The structural element to which the load is applied.</p></li>
+<li><p><strong>PXj</strong> (<em>float</em><em>, </em><em>optional</em>) – Axial force at the start node (default is 0.0).</p></li>
+<li><p><strong>PYj</strong> (<em>float</em><em>, </em><em>optional</em>) – Shear force in the Y direction at the start node (default is 0.0).</p></li>
+<li><p><strong>PZj</strong> (<em>float</em><em>, </em><em>optional</em>) – Shear force in the Z direction at the start node (default is 0.0).</p></li>
+<li><p><strong>MXj</strong> (<em>float</em><em>, </em><em>optional</em>) – Moment about the X-axis at the start node (default is 0.0).</p></li>
+<li><p><strong>MYj</strong> (<em>float</em><em>, </em><em>optional</em>) – Moment about the Y-axis at the start node (default is 0.0).</p></li>
+<li><p><strong>MZj</strong> (<em>float</em><em>, </em><em>optional</em>) – Moment about the Z-axis at the start node (default is 0.0).</p></li>
+<li><p><strong>PXk</strong> (<em>float</em><em>, </em><em>optional</em>) – Axial force at the end node (default is 0.0).</p></li>
+<li><p><strong>PYk</strong> (<em>float</em><em>, </em><em>optional</em>) – Shear force in the Y direction at the end node (default is 0.0).</p></li>
+<li><p><strong>PZk</strong> (<em>float</em><em>, </em><em>optional</em>) – Shear force in the Z direction at the end node (default is 0.0).</p></li>
+<li><p><strong>MXk</strong> (<em>float</em><em>, </em><em>optional</em>) – Moment about the X-axis at the end node (default is 0.0).</p></li>
+<li><p><strong>MYk</strong> (<em>float</em><em>, </em><em>optional</em>) – Moment about the Y-axis at the end node (default is 0.0).</p></li>
+<li><p><strong>MZk</strong> (<em>float</em><em>, </em><em>optional</em>) – Moment about the Z-axis at the end node (default is 0.0).</p></li>
+</ul>
+</dd>
+</dl>
 </dd></dl>
 
 <dl class="py class">
@@ -2516,15 +2482,13 @@ based on the applied moments and position <cite>x</cite>.</p></li>
 <span class="sig-name descname"><span class="pre">Fn</span></span><a class="headerlink" href="#ILHEB.Loads.NodeLoad.Fn" title="Link to this definition">¶</a></dt>
 <dd><p>A 1D array representing the force and moment components
 applied to the node. The components are ordered as [PX, PY, PZ, MX, MY, MZ],
-where:</p>
-<blockquote>
-<div><p>PX (float): Force in the X direction (default is 0.0).
+where:
+PX (float): Force in the X direction (default is 0.0).
 PY (float): Force in the Y direction (default is 0.0).
 PZ (float): Force in the Z direction (default is 0.0).
 MX (float): Moment about the X axis (default is 0.0).
 MY (float): Moment about the Y axis (default is 0.0).
 MZ (float): Moment about the Z axis (default is 0.0).</p>
-</div></blockquote>
 <dl class="field-list simple">
 <dt class="field-odd">Type<span class="colon">:</span></dt>
 <dd class="field-odd"><p>numpy.ndarray</p>
