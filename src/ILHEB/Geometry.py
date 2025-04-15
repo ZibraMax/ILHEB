@@ -332,11 +332,9 @@ class Geometry3D():
                 The ID of the structural element for which the force diagram is to be generated.
 
         Notes:
-            - The method uses the element's material properties, section properties, and applied loads
-            to compute the force diagrams.
+            - The method uses the element's material properties, section properties, and applied loads to compute the force diagrams.
             - The finite element mesh is divided into `n` segments for numerical integration.
-            - Boundary conditions are applied to the stiffness matrix and force vector to account
-            for constraints.
+            - Boundary conditions are applied to the stiffness matrix and force vector to account for constraints.
 
         Plots:
             - Subplot (1, 1): Bending moment diagram (My) for the element.
@@ -801,14 +799,12 @@ class Geometry3D():
             - The plot is adjusted to remove axes and ensure a tight layout.
 
         Note:
-            This method assumes that the following attributes are defined in the
-            class:
+            This method assumes that the following attributes are defined in the class:
+
             - `self.free`: A list of free degrees of freedom.
-            - `self.node_dofs`: A dictionary mapping nodes to their degrees of
-              freedom.
+            - `self.node_dofs`: A dictionary mapping nodes to their degrees of freedom.
             - `self.coords`: A dictionary mapping nodes to their coordinates.
-            - `self.name_dofs_displacements`: A list of names for the degrees of
-              freedom (e.g., "Ux", "Uy", etc.).
+            - `self.name_dofs_displacements`: A list of names for the degrees of freedom (e.g., "Ux", "Uy", etc.).
         """
 
         self.plot(plot_labels=False)
@@ -1357,14 +1353,11 @@ class Geometry2D(Geometry3D):
             - The plot is adjusted to remove axes and ensure a tight layout.
 
         Note:
-            This method assumes that the following attributes are defined in the
-            class:
+            This method assumes that the following attributes are defined in the class:
             - `self.free`: A list of free degrees of freedom.
-            - `self.node_dofs`: A dictionary mapping nodes to their degrees of
-              freedom.
+            - `self.node_dofs`: A dictionary mapping nodes to their degrees of freedom.
             - `self.coords`: A dictionary mapping nodes to their coordinates.
-            - `self.name_dofs_displacements`: A list of names for the degrees of
-              freedom (e.g., "Ux", "Uy", etc.).
+            - `self.name_dofs_displacements`: A list of names for the degrees of freedom (e.g., "Ux", "Uy", etc.).
         """
 
         self.plot(plot_labels=False)

@@ -16,6 +16,7 @@ class ElementLoad():
     def __init__(self, element, PXj=0.0, PYj=0.0, PZj=0.0, MXj=0.0, MYj=0.0, MZj=0.0, PXk=0.0, PYk=0.0, PZk=0.0, MXk=0.0, MYk=0.0, MZk=0.0):
         """
         Initializes a load object and associates it with a structural element.
+
         Parameters:
             element: The structural element to which the load is applied.
             PXj (float, optional): Axial force at the start node (default is 0.0).
@@ -285,10 +286,8 @@ class DistributedLoad(ElementLoad):
         axis (str, optional): Coordinate system for the load ('local' or 'global'). Default is 'local'.
 
     Notes:
-        - If the load is defined in the global coordinate system, it is transformed
-            to the local coordinate system using the element's rotation matrix.
-        - The distributed loads in the Y and Z directions are processed using the
-            `distributed_load` method to compute equivalent nodal forces and moments.
+        - If the load is defined in the global coordinate system, it is transformed to the local coordinate system using the element's rotation matrix.
+        - The distributed loads in the Y and Z directions are processed using the `distributed_load` method to compute equivalent nodal forces and moments.
         - The computed forces and moments are passed to the `ElementLoad` initializer.
 
     Example:
@@ -410,12 +409,12 @@ class NodeLoad():
         Fn (numpy.ndarray): A 1D array representing the force and moment components
             applied to the node. The components are ordered as [PX, PY, PZ, MX, MY, MZ],
             where:
-                PX (float): Force in the X direction (default is 0.0).
-                PY (float): Force in the Y direction (default is 0.0).
-                PZ (float): Force in the Z direction (default is 0.0).
-                MX (float): Moment about the X axis (default is 0.0).
-                MY (float): Moment about the Y axis (default is 0.0).
-                MZ (float): Moment about the Z axis (default is 0.0).
+            PX (float): Force in the X direction (default is 0.0).
+            PY (float): Force in the Y direction (default is 0.0).
+            PZ (float): Force in the Z direction (default is 0.0).
+            MX (float): Moment about the X axis (default is 0.0).
+            MY (float): Moment about the Y axis (default is 0.0).
+            MZ (float): Moment about the Z axis (default is 0.0).
         Kn (None or object): Placeholder for stiffness or other related properties
             associated with the node load. Default is None.
     """
