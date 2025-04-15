@@ -254,7 +254,24 @@
 <ul>
 <li class="toctree-l1"><a class="reference internal" href="ILHEB.html">ILHEB package</a><ul>
 <li class="toctree-l2"><a class="reference internal" href="ILHEB.html#submodules">Submodules</a></li>
-<li class="toctree-l2"><a class="reference internal" href="ILHEB.html#ilheb-core-module">ILHEB.Core module</a></li>
+<li class="toctree-l2"><a class="reference internal" href="ILHEB.html#module-ILHEB.Core">ILHEB.Core module</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="ILHEB.html#ILHEB.Core.ILHEB"><code class="docutils literal notranslate"><span class="pre">ILHEB</span></code></a><ul>
+<li class="toctree-l4"><a class="reference internal" href="ILHEB.html#ILHEB.Core.ILHEB.assemble"><code class="docutils literal notranslate"><span class="pre">ILHEB.assemble()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="ILHEB.html#ILHEB.Core.ILHEB.boundary_conditions"><code class="docutils literal notranslate"><span class="pre">ILHEB.boundary_conditions()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="ILHEB.html#ILHEB.Core.ILHEB.force_diagrams"><code class="docutils literal notranslate"><span class="pre">ILHEB.force_diagrams()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="ILHEB.html#ILHEB.Core.ILHEB.generate_report"><code class="docutils literal notranslate"><span class="pre">ILHEB.generate_report()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="ILHEB.html#ILHEB.Core.ILHEB.plot_displacements"><code class="docutils literal notranslate"><span class="pre">ILHEB.plot_displacements()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="ILHEB.html#ILHEB.Core.ILHEB.plot_reactions"><code class="docutils literal notranslate"><span class="pre">ILHEB.plot_reactions()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="ILHEB.html#ILHEB.Core.ILHEB.post_process"><code class="docutils literal notranslate"><span class="pre">ILHEB.post_process()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="ILHEB.html#ILHEB.Core.ILHEB.save_results"><code class="docutils literal notranslate"><span class="pre">ILHEB.save_results()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="ILHEB.html#ILHEB.Core.ILHEB.solve"><code class="docutils literal notranslate"><span class="pre">ILHEB.solve()</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="ILHEB.html#ILHEB.Core.ILHEB.self.F"><code class="docutils literal notranslate"><span class="pre">ILHEB.self.F</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="ILHEB.html#ILHEB.Core.ILHEB.self.K"><code class="docutils literal notranslate"><span class="pre">ILHEB.self.K</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="ILHEB.html#ILHEB.Core.ILHEB.self.ebc"><code class="docutils literal notranslate"><span class="pre">ILHEB.self.ebc</span></code></a></li>
+</ul>
+</li>
 <li class="toctree-l2"><a class="reference internal" href="ILHEB.html#module-ILHEB.Elements">ILHEB.Elements module</a><ul>
 <li class="toctree-l3"><a class="reference internal" href="ILHEB.html#ILHEB.Elements.Element"><code class="docutils literal notranslate"><span class="pre">Element</span></code></a><ul>
 <li class="toctree-l4"><a class="reference internal" href="ILHEB.html#ILHEB.Elements.Element.section"><code class="docutils literal notranslate"><span class="pre">Element.section</span></code></a></li>
@@ -337,7 +354,63 @@
 </li>
 </ul>
 </li>
-<li class="toctree-l2"><a class="reference internal" href="ILHEB.html#ilheb-geometry-module">ILHEB.Geometry module</a></li>
+<li class="toctree-l2"><a class="reference internal" href="ILHEB.html#module-ILHEB.Geometry">ILHEB.Geometry module</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="ILHEB.html#ILHEB.Geometry.Geometry2D"><code class="docutils literal notranslate"><span class="pre">Geometry2D</span></code></a><ul>
+<li class="toctree-l4"><a class="reference internal" href="ILHEB.html#ILHEB.Geometry.Geometry2D.name_dofs_reactions"><code class="docutils literal notranslate"><span class="pre">Geometry2D.name_dofs_reactions</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="ILHEB.html#ILHEB.Geometry.Geometry2D.name_dofs_displacements"><code class="docutils literal notranslate"><span class="pre">Geometry2D.name_dofs_displacements</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="ILHEB.html#ILHEB.Geometry.Geometry2D.__init__"><code class="docutils literal notranslate"><span class="pre">Geometry2D.__init__()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="ILHEB.html#ILHEB.Geometry.Geometry2D.plot"><code class="docutils literal notranslate"><span class="pre">Geometry2D.plot()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="ILHEB.html#ILHEB.Geometry.Geometry2D.plot_defo"><code class="docutils literal notranslate"><span class="pre">Geometry2D.plot_defo()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="ILHEB.html#ILHEB.Geometry.Geometry2D.force_diagram"><code class="docutils literal notranslate"><span class="pre">Geometry2D.force_diagram()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="ILHEB.html#ILHEB.Geometry.Geometry2D.plot_reactions"><code class="docutils literal notranslate"><span class="pre">Geometry2D.plot_reactions()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="ILHEB.html#ILHEB.Geometry.Geometry2D.plot_displacements"><code class="docutils literal notranslate"><span class="pre">Geometry2D.plot_displacements()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="ILHEB.html#id19"><code class="docutils literal notranslate"><span class="pre">Geometry2D.force_diagram()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="ILHEB.html#id20"><code class="docutils literal notranslate"><span class="pre">Geometry2D.plot()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="ILHEB.html#id21"><code class="docutils literal notranslate"><span class="pre">Geometry2D.plot_defo()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="ILHEB.html#id22"><code class="docutils literal notranslate"><span class="pre">Geometry2D.plot_displacements()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="ILHEB.html#id23"><code class="docutils literal notranslate"><span class="pre">Geometry2D.plot_reactions()</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="ILHEB.html#ILHEB.Geometry.Geometry3D"><code class="docutils literal notranslate"><span class="pre">Geometry3D</span></code></a><ul>
+<li class="toctree-l4"><a class="reference internal" href="ILHEB.html#ILHEB.Geometry.Geometry3D._ndofs_per_node"><code class="docutils literal notranslate"><span class="pre">Geometry3D._ndofs_per_node</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="ILHEB.html#ILHEB.Geometry.Geometry3D.ndofs"><code class="docutils literal notranslate"><span class="pre">Geometry3D.ndofs</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="ILHEB.html#ILHEB.Geometry.Geometry3D.node_dofs"><code class="docutils literal notranslate"><span class="pre">Geometry3D.node_dofs</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="ILHEB.html#ILHEB.Geometry.Geometry3D.node_loads"><code class="docutils literal notranslate"><span class="pre">Geometry3D.node_loads</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="ILHEB.html#ILHEB.Geometry.Geometry3D.elements"><code class="docutils literal notranslate"><span class="pre">Geometry3D.elements</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="ILHEB.html#ILHEB.Geometry.Geometry3D.ebc"><code class="docutils literal notranslate"><span class="pre">Geometry3D.ebc</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="ILHEB.html#ILHEB.Geometry.Geometry3D.nodes_with_bc"><code class="docutils literal notranslate"><span class="pre">Geometry3D.nodes_with_bc</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="ILHEB.html#ILHEB.Geometry.Geometry3D.free"><code class="docutils literal notranslate"><span class="pre">Geometry3D.free</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="ILHEB.html#ILHEB.Geometry.Geometry3D.constrained"><code class="docutils literal notranslate"><span class="pre">Geometry3D.constrained</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="ILHEB.html#ILHEB.Geometry.Geometry3D.__init__"><code class="docutils literal notranslate"><span class="pre">Geometry3D.__init__()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="ILHEB.html#ILHEB.Geometry.Geometry3D.generate_dofs"><code class="docutils literal notranslate"><span class="pre">Geometry3D.generate_dofs()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="ILHEB.html#ILHEB.Geometry.Geometry3D.add_node"><code class="docutils literal notranslate"><span class="pre">Geometry3D.add_node()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="ILHEB.html#ILHEB.Geometry.Geometry3D.add_support"><code class="docutils literal notranslate"><span class="pre">Geometry3D.add_support()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="ILHEB.html#ILHEB.Geometry.Geometry3D._set_ebc"><code class="docutils literal notranslate"><span class="pre">Geometry3D._set_ebc()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="ILHEB.html#ILHEB.Geometry.Geometry3D.add_node_load"><code class="docutils literal notranslate"><span class="pre">Geometry3D.add_node_load()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="ILHEB.html#ILHEB.Geometry.Geometry3D.add_element"><code class="docutils literal notranslate"><span class="pre">Geometry3D.add_element()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="ILHEB.html#ILHEB.Geometry.Geometry3D.numbering"><code class="docutils literal notranslate"><span class="pre">Geometry3D.numbering()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="ILHEB.html#ILHEB.Geometry.Geometry3D.plot"><code class="docutils literal notranslate"><span class="pre">Geometry3D.plot()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="ILHEB.html#ILHEB.Geometry.Geometry3D.plot_defo"><code class="docutils literal notranslate"><span class="pre">Geometry3D.plot_defo()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="ILHEB.html#ILHEB.Geometry.Geometry3D.force_diagram"><code class="docutils literal notranslate"><span class="pre">Geometry3D.force_diagram()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="ILHEB.html#id24"><code class="docutils literal notranslate"><span class="pre">Geometry3D.add_element()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="ILHEB.html#id25"><code class="docutils literal notranslate"><span class="pre">Geometry3D.add_node()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="ILHEB.html#id26"><code class="docutils literal notranslate"><span class="pre">Geometry3D.add_node_load()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="ILHEB.html#id27"><code class="docutils literal notranslate"><span class="pre">Geometry3D.add_support()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="ILHEB.html#id28"><code class="docutils literal notranslate"><span class="pre">Geometry3D.force_diagram()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="ILHEB.html#id29"><code class="docutils literal notranslate"><span class="pre">Geometry3D.generate_dofs()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="ILHEB.html#id30"><code class="docutils literal notranslate"><span class="pre">Geometry3D.numbering()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="ILHEB.html#id31"><code class="docutils literal notranslate"><span class="pre">Geometry3D.plot()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="ILHEB.html#id32"><code class="docutils literal notranslate"><span class="pre">Geometry3D.plot_defo()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="ILHEB.html#ILHEB.Geometry.Geometry3D.plot_displacements"><code class="docutils literal notranslate"><span class="pre">Geometry3D.plot_displacements()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="ILHEB.html#ILHEB.Geometry.Geometry3D.plot_reactions"><code class="docutils literal notranslate"><span class="pre">Geometry3D.plot_reactions()</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="ILHEB.html#ILHEB.Geometry.Geometry3D.self.node_dofs"><code class="docutils literal notranslate"><span class="pre">Geometry3D.self.node_dofs</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="ILHEB.html#ILHEB.Geometry.Geometry3D.self.ndofs"><code class="docutils literal notranslate"><span class="pre">Geometry3D.self.ndofs</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="ILHEB.html#ILHEB.Geometry.Geometry3D.self.free"><code class="docutils literal notranslate"><span class="pre">Geometry3D.self.free</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="ILHEB.html#ILHEB.Geometry.Geometry3D.self.constrained"><code class="docutils literal notranslate"><span class="pre">Geometry3D.self.constrained</span></code></a></li>
+</ul>
+</li>
 <li class="toctree-l2"><a class="reference internal" href="ILHEB.html#module-ILHEB.Loads">ILHEB.Loads module</a><ul>
 <li class="toctree-l3"><a class="reference internal" href="ILHEB.html#ILHEB.Loads.DistributedLoad"><code class="docutils literal notranslate"><span class="pre">DistributedLoad</span></code></a><ul>
 <li class="toctree-l4"><a class="reference internal" href="ILHEB.html#ILHEB.Loads.DistributedLoad.WX"><code class="docutils literal notranslate"><span class="pre">DistributedLoad.WX</span></code></a></li>
@@ -346,7 +419,7 @@
 <li class="toctree-l4"><a class="reference internal" href="ILHEB.html#ILHEB.Loads.DistributedLoad.axis"><code class="docutils literal notranslate"><span class="pre">DistributedLoad.axis</span></code></a></li>
 <li class="toctree-l4"><a class="reference internal" href="ILHEB.html#ILHEB.Loads.DistributedLoad.__call__"><code class="docutils literal notranslate"><span class="pre">DistributedLoad.__call__()</span></code></a></li>
 <li class="toctree-l4"><a class="reference internal" href="ILHEB.html#ILHEB.Loads.DistributedLoad.distributed_load"><code class="docutils literal notranslate"><span class="pre">DistributedLoad.distributed_load()</span></code></a></li>
-<li class="toctree-l4"><a class="reference internal" href="ILHEB.html#id19"><code class="docutils literal notranslate"><span class="pre">DistributedLoad.distributed_load()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="ILHEB.html#id33"><code class="docutils literal notranslate"><span class="pre">DistributedLoad.distributed_load()</span></code></a></li>
 </ul>
 </li>
 <li class="toctree-l3"><a class="reference internal" href="ILHEB.html#ILHEB.Loads.ElementLoad"><code class="docutils literal notranslate"><span class="pre">ElementLoad</span></code></a><ul>
@@ -364,7 +437,7 @@
 <li class="toctree-l4"><a class="reference internal" href="ILHEB.html#ILHEB.Loads.ForcePointLoad.__init__"><code class="docutils literal notranslate"><span class="pre">ForcePointLoad.__init__()</span></code></a></li>
 <li class="toctree-l4"><a class="reference internal" href="ILHEB.html#ILHEB.Loads.ForcePointLoad.point_load"><code class="docutils literal notranslate"><span class="pre">ForcePointLoad.point_load()</span></code></a></li>
 <li class="toctree-l4"><a class="reference internal" href="ILHEB.html#ILHEB.Loads.ForcePointLoad.__call__"><code class="docutils literal notranslate"><span class="pre">ForcePointLoad.__call__()</span></code></a></li>
-<li class="toctree-l4"><a class="reference internal" href="ILHEB.html#id20"><code class="docutils literal notranslate"><span class="pre">ForcePointLoad.point_load()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="ILHEB.html#id34"><code class="docutils literal notranslate"><span class="pre">ForcePointLoad.point_load()</span></code></a></li>
 </ul>
 </li>
 <li class="toctree-l3"><a class="reference internal" href="ILHEB.html#ILHEB.Loads.MomentPointLoad"><code class="docutils literal notranslate"><span class="pre">MomentPointLoad</span></code></a><ul>
@@ -375,7 +448,7 @@
 <li class="toctree-l4"><a class="reference internal" href="ILHEB.html#ILHEB.Loads.MomentPointLoad.function"><code class="docutils literal notranslate"><span class="pre">MomentPointLoad.function</span></code></a></li>
 <li class="toctree-l4"><a class="reference internal" href="ILHEB.html#ILHEB.Loads.MomentPointLoad.point_load"><code class="docutils literal notranslate"><span class="pre">MomentPointLoad.point_load()</span></code></a></li>
 <li class="toctree-l4"><a class="reference internal" href="ILHEB.html#ILHEB.Loads.MomentPointLoad.__call__"><code class="docutils literal notranslate"><span class="pre">MomentPointLoad.__call__()</span></code></a></li>
-<li class="toctree-l4"><a class="reference internal" href="ILHEB.html#id21"><code class="docutils literal notranslate"><span class="pre">MomentPointLoad.point_load()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="ILHEB.html#id35"><code class="docutils literal notranslate"><span class="pre">MomentPointLoad.point_load()</span></code></a></li>
 </ul>
 </li>
 <li class="toctree-l3"><a class="reference internal" href="ILHEB.html#ILHEB.Loads.NodeLoad"><code class="docutils literal notranslate"><span class="pre">NodeLoad</span></code></a><ul>
@@ -405,12 +478,55 @@
 </li>
 </ul>
 </li>
-<li class="toctree-l2"><a class="reference internal" href="ILHEB.html#ilheb-materials-module">ILHEB.Materials module</a></li>
-<li class="toctree-l2"><a class="reference internal" href="ILHEB.html#ilheb-sections-module">ILHEB.Sections module</a></li>
+<li class="toctree-l2"><a class="reference internal" href="ILHEB.html#module-ILHEB.Materials">ILHEB.Materials module</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="ILHEB.html#ILHEB.Materials.LinearElastic"><code class="docutils literal notranslate"><span class="pre">LinearElastic</span></code></a><ul>
+<li class="toctree-l4"><a class="reference internal" href="ILHEB.html#ILHEB.Materials.LinearElastic.v"><code class="docutils literal notranslate"><span class="pre">LinearElastic.v</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="ILHEB.html#ILHEB.Materials.LinearElastic.G"><code class="docutils literal notranslate"><span class="pre">LinearElastic.G</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="ILHEB.html#ILHEB.Materials.LinearElastic.alpha"><code class="docutils literal notranslate"><span class="pre">LinearElastic.alpha</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="ILHEB.html#ILHEB.Materials.LinearElastic.__init__"><code class="docutils literal notranslate"><span class="pre">LinearElastic.__init__()</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="ILHEB.html#ILHEB.Materials.LinearElasticBase"><code class="docutils literal notranslate"><span class="pre">LinearElasticBase</span></code></a><ul>
+<li class="toctree-l4"><a class="reference internal" href="ILHEB.html#ILHEB.Materials.LinearElasticBase.G"><code class="docutils literal notranslate"><span class="pre">LinearElasticBase.G</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="ILHEB.html#ILHEB.Materials.LinearElasticBase.alpha"><code class="docutils literal notranslate"><span class="pre">LinearElasticBase.alpha</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="ILHEB.html#ILHEB.Materials.LinearElasticBase.__init__"><code class="docutils literal notranslate"><span class="pre">LinearElasticBase.__init__()</span></code></a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="ILHEB.html#module-ILHEB.Sections">ILHEB.Sections module</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="ILHEB.html#ILHEB.Sections.Circ"><code class="docutils literal notranslate"><span class="pre">Circ</span></code></a><ul>
+<li class="toctree-l4"><a class="reference internal" href="ILHEB.html#ILHEB.Sections.Circ.d"><code class="docutils literal notranslate"><span class="pre">Circ.d</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="ILHEB.html#ILHEB.Sections.Circ.Iz"><code class="docutils literal notranslate"><span class="pre">Circ.Iz</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="ILHEB.html#ILHEB.Sections.Circ.Iy"><code class="docutils literal notranslate"><span class="pre">Circ.Iy</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="ILHEB.html#ILHEB.Sections.Circ.J"><code class="docutils literal notranslate"><span class="pre">Circ.J</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="ILHEB.html#ILHEB.Sections.Circ.A"><code class="docutils literal notranslate"><span class="pre">Circ.A</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="ILHEB.html#ILHEB.Sections.Circ.Ax"><code class="docutils literal notranslate"><span class="pre">Circ.Ax</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="ILHEB.html#ILHEB.Sections.Circ.Ay"><code class="docutils literal notranslate"><span class="pre">Circ.Ay</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="ILHEB.html#ILHEB.Sections.Circ.__init__"><code class="docutils literal notranslate"><span class="pre">Circ.__init__()</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="ILHEB.html#ILHEB.Sections.General"><code class="docutils literal notranslate"><span class="pre">General</span></code></a><ul>
+<li class="toctree-l4"><a class="reference internal" href="ILHEB.html#ILHEB.Sections.General.General"><code class="docutils literal notranslate"><span class="pre">General.General</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="ILHEB.html#ILHEB.Sections.Rect"><code class="docutils literal notranslate"><span class="pre">Rect</span></code></a><ul>
+<li class="toctree-l4"><a class="reference internal" href="ILHEB.html#ILHEB.Sections.Rect.Ly"><code class="docutils literal notranslate"><span class="pre">Rect.Ly</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="ILHEB.html#ILHEB.Sections.Rect.Lz"><code class="docutils literal notranslate"><span class="pre">Rect.Lz</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="ILHEB.html#ILHEB.Sections.Rect.Iz"><code class="docutils literal notranslate"><span class="pre">Rect.Iz</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="ILHEB.html#ILHEB.Sections.Rect.Iy"><code class="docutils literal notranslate"><span class="pre">Rect.Iy</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="ILHEB.html#ILHEB.Sections.Rect.J"><code class="docutils literal notranslate"><span class="pre">Rect.J</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="ILHEB.html#ILHEB.Sections.Rect.A"><code class="docutils literal notranslate"><span class="pre">Rect.A</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="ILHEB.html#ILHEB.Sections.Rect.Ax"><code class="docutils literal notranslate"><span class="pre">Rect.Ax</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="ILHEB.html#ILHEB.Sections.Rect.Ay"><code class="docutils literal notranslate"><span class="pre">Rect.Ay</span></code></a></li>
+</ul>
+</li>
+</ul>
+</li>
 <li class="toctree-l2"><a class="reference internal" href="ILHEB.html#module-ILHEB.Solver">ILHEB.Solver module</a><ul>
 <li class="toctree-l3"><a class="reference internal" href="ILHEB.html#ILHEB.Solver.LinearSolver"><code class="docutils literal notranslate"><span class="pre">LinearSolver</span></code></a><ul>
 <li class="toctree-l4"><a class="reference internal" href="ILHEB.html#ILHEB.Solver.LinearSolver.solve"><code class="docutils literal notranslate"><span class="pre">LinearSolver.solve()</span></code></a></li>
-<li class="toctree-l4"><a class="reference internal" href="ILHEB.html#id22"><code class="docutils literal notranslate"><span class="pre">LinearSolver.solve()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="ILHEB.html#id36"><code class="docutils literal notranslate"><span class="pre">LinearSolver.solve()</span></code></a></li>
 </ul>
 </li>
 </ul>
