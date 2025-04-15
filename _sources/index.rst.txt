@@ -7,9 +7,10 @@ ILHEB's documentation
 ================================
 
 Created by Arturo Rodriguez: da.rodriguezh@uniandes.edu.co, da.rodriguezh@rice.edu
-   
+
+
 .. toctree::
-   :maxdepth: 3
+   :maxdepth: 2
    :caption: Contents:
 
    ILHEB/modules
