@@ -91,7 +91,7 @@ class ILHEB:
         The `ebc` is expected to be an array where each row specifies a degree
         of freedom (DOF) and its corresponding constrained value.
 
-        .. admonition:: Process
+        Process:
             1. Initializes the boundary conditions vector.
             2. Modifies the stiffness matrix (K) to enforce constraints by zeroing out
                 rows and columns corresponding to constrained DOFs and setting diagonal
