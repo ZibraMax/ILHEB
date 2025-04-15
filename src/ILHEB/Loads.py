@@ -406,7 +406,7 @@ class NodeLoad():
     Represents a load applied to a structural node.
 
     Attributes:
-        node (object): The node to which the load is applied.
+        node (int): The node to which the load is applied.
         Fn (numpy.ndarray): A 1D array representing the force and moment components
             applied to the node. The components are ordered as [PX, PY, PZ, MX, MY, MZ],
             where:
@@ -425,7 +425,7 @@ class NodeLoad():
         Initializes a Load object with specified forces and moments applied to a node.
 
         Parameters:
-            node : object
+            node : int
                 The node to which the load is applied.
             PX : float, optional
                 Force in the X direction (default is 0.0).
@@ -451,12 +451,12 @@ class NodeLoad2D():
     Represents a 2D nodal load applied to a structural node.
 
     Attributes:
-        node (object): The node to which the load is applied.
+        node (int): The node to which the load is applied.
         Fn (numpy.ndarray): A 1D array containing the load components:
             - PX (float): Force in the X direction (default is 0.0).
             - PY (float): Force in the Y direction (default is 0.0).
             - MZ (float): Moment about the Z axis (default is 0.0).
-        Kn (None or object): Placeholder for additional data related to the node load
+        Kn (object): Placeholder for additional data related to the node load
             (default is None).
     """
 
@@ -465,7 +465,7 @@ class NodeLoad2D():
         Initializes a Load object with the specified node and force components.
 
         Parameters:
-            node (Node): The node to which the load is applied.
+            node (int): The node to which the load is applied.
             PX (float, optional): The force component in the X direction. Default is 0.0.
             PY (float, optional): The force component in the Y direction. Default is 0.0.
             MZ (float, optional): The moment component about the Z axis. Default is 0.0.
@@ -485,7 +485,7 @@ class Spring2D():
                             and rotational Z directions.
 
     Parameters:
-        node (NodeLoad2D): The node to which the spring is attached.
+        node (int): The node to which the spring is attached.
         KX (float, optional): Stiffness in the X direction. Default is 0.0.
         KY (float, optional): Stiffness in the Y direction. Default is 0.0.
         KMZ (float, optional): Rotational stiffness about the Z axis. Default is 0.0.
@@ -496,7 +496,7 @@ class Spring2D():
         Initializes a NodeLoad2D object with specified stiffness matrix components.
 
         Args:
-            node (object): The node to which the load is applied.
+            node (int): The node to which the load is applied.
             KX (float, optional): Stiffness in the X direction. Defaults to 0.0.
             KY (float, optional): Stiffness in the Y direction. Defaults to 0.0.
             KMZ (float, optional): Rotational stiffness about the Z axis. Defaults to 0.0.
@@ -522,7 +522,7 @@ class Spring(NodeLoad):
         Initializes a NodeLoad object with stiffness properties.
 
         Parameters:
-            node : object
+            node : int
                 The node to which the load is applied.
             KX : float, optional
                 Stiffness in the X direction (default is 0.0).
