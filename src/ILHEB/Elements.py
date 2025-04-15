@@ -249,6 +249,7 @@ class Element():
         Parameters:
             U (numpy.ndarray): The global displacement vector.
 
+        Notes:darray): The displacement vector transformed to the local coordinate system using the transformation matrix `self.T`.
         """
 
         self.U = self.T @ U
@@ -307,16 +308,6 @@ class FrameElement3D(Element):
         r (numpy.ndarray): Transformation matrix for local to global coordinates.
         T (numpy.ndarray): Full transformation matrix for the element.
         ke (numpy.ndarray): Element stiffness matrix.
-
-    Methods:
-        __init__(nodes, section, material):
-            Initializes the FrameElement3D object with nodes, section, and material properties.
-        transformation_matrix():
-            Computes the transformation matrix for the element based on its geometry and orientation.
-        stiffness_matrix():
-            Computes the local stiffness matrix for the element based on its material and section properties.
-        interpolate_displacements(n_points):
-            Interpolates displacements along the element at specified points using shape functions.
 
     """
 
@@ -496,14 +487,6 @@ class FrameElement2D(FrameElement3D):
         T (numpy.ndarray): Transformation matrix for the element.
         ke (numpy.ndarray): Stiffness matrix for the element.
 
-    Methods:
-        transformation_matrix():
-            Computes the transformation matrix for the element based on its orientation.
-        stiffness_matrix():
-            Computes the stiffness matrix for the element, reducing it to the active degrees of freedom.
-        interpolate_displacements(n_points):
-            Interpolates the displacements along the element at a specified number of points.
-            Returns the interpolated coordinates, displacements, and derivatives.
     """
 
     def __init__(self, nodes, section, material):
@@ -635,10 +618,6 @@ class TrussElement2D(FrameElement2D):
                          - The third value indicates whether the moment is released.
                          For a truss element, moments are always released (True), while axial and shear forces are not released (False).
 
-    Methods:
-        __init__(nodes, section, material):
-            Initializes the TrussElement2D instance with the given nodes, section, and material properties.
-            Sets the default release conditions for a truss element.
 
     """
 
@@ -702,10 +681,6 @@ class TrussElement3D(FrameElement3D):
                 [False, False, False, True, True, True]   # End 2 DOF releases
             ]
 
-    Methods:
-        __init__(nodes, section, material):
-            Initializes the TrussElement3D instance with the given nodes, 
-            cross-sectional properties, and material properties.
 
     """
 
