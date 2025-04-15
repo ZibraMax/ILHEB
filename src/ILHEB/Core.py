@@ -91,13 +91,7 @@ class ILHEB:
         The `ebc` is expected to be an array where each row specifies a degree
         of freedom (DOF) and its corresponding constrained value.
 
-        .. figure:: https://raw.githubusercontent.com/ZibraMax/FEM/master/Examples/examples_results/example1_1.png
-            :align: center
-
-            Serendipity (8 nodes 2D) element coordinate transformation and shape functions.
-
-        .. admonition:: Process:
-            :class: process
+        .. admonition:: Process
             1. Initializes the boundary conditions vector.
             2. Modifies the stiffness matrix (K) to enforce constraints by zeroing out
                 rows and columns corresponding to constrained DOFs and setting diagonal
