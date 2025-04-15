@@ -171,11 +171,6 @@ class Element():
                                  to the node and the second index corresponds 
                                  to the spatial dimension.
 
-        Attributes Set:
-            self.coords: Stores the input coordinates.
-            self.L: The length of the element, calculated as the Euclidean 
-                    distance between the two nodes.
-
         Notes:
             This method also calls `transformation_matrix` and 
             `stiffness_matrix`, which are element-dependent methods 
@@ -254,9 +249,6 @@ class Element():
         Parameters:
             U (numpy.ndarray): The global displacement vector.
 
-        Updates:
-            self.U (numpy.ndarray): The displacement vector transformed to the local coordinate system
-                                    using the transformation matrix `self.T`.
         """
 
         self.U = self.T @ U
@@ -516,7 +508,7 @@ class FrameElement2D(FrameElement3D):
 
     def __init__(self, nodes, section, material):
         """
-        Initializes a 3D frame element with specified nodes, section, and material properties.
+        Initializes a 2D frame element with specified nodes, section, and material properties.
 
         Args:
             nodes (list): A list of node objects defining the element's geometry.
@@ -544,12 +536,6 @@ class FrameElement2D(FrameElement3D):
             2. Compute the cosine (`c`) and sine (`s`) of the angle `theta`.
             3. Construct the rotation matrix `r` and the transformation matrix `T` using
                the computed values of `c` and `s`.
-        Note:
-            Updates the following attributes:
-
-            self.r (numpy.ndarray): A 3x3 rotation matrix for transforming local to global
-                coordinates.
-            self.T (numpy.ndarray): A 6x6 transformation matrix for the element.
         """
 
         theta = np.arctan2(

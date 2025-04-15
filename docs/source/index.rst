@@ -8,7 +8,7 @@ ILHEB's documentation
 
 Created by Arturo Rodriguez: da.rodriguezh@uniandes.edu.co, da.rodriguezh@rice.edu
 
-.. automodule:: ILHEB
+.. automodule:: ILHEB.Elements
    :members:
    :undoc-members:
    :show-inheritance:
