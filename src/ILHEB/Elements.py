@@ -343,8 +343,9 @@ class FrameElement3D(Element):
             7. Build the 12x12 transformation matrix (T) by embedding r into the appropriate 
                submatrices.
 
-        Returns:
-            None: The method sets the following attributes:
+        Note: 
+            The method sets the following attributes:
+
                 - self.r (ndarray): The 3x3 rotation matrix.
                 - self.T (ndarray): The 12x12 transformation matrix.
         """
@@ -675,11 +676,7 @@ class TrussElement3D(FrameElement3D):
         releases (list): A 2D list defining the degrees of freedom (DOF) 
             that are released at each end of the element. For truss elements, 
             rotational DOFs are typically released, allowing free rotation 
-            at the ends. The format is:
-            [
-                [False, False, False, True, True, True],  # End 1 DOF releases
-                [False, False, False, True, True, True]   # End 2 DOF releases
-            ]
+            at the ends.
 
 
     """

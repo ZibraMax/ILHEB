@@ -11,6 +11,7 @@ matplotlib.use('WebAgg')
 class Geometry3D():
     """
     Geometry3D is a class for managing and analyzing 3D structural geometries. It provides methods for defining nodes, elements, boundary conditions, loads, and visualization of the structure and its deformations.
+
     Attributes:
         coords (list): List of node coordinates in the 3D space.
         _ndofs_per_node (int): Number of degrees of freedom per node (default is 6).
@@ -22,46 +23,17 @@ class Geometry3D():
         nodes_with_bc (list): List of nodes with boundary conditions.
         free (list): List of free degrees of freedom after numbering.
         constrained (list): List of constrained degrees of freedom after numbering.
-    Methods:
-        __init__(coords=None):
-            Initializes the Geometry3D object with optional node coordinates.
-        generate_dofs():
-            Generates the degrees of freedom for all nodes based on their coordinates.
-        add_node(node_coords):
-            Adds a new node to the structure and updates the degrees of freedom.
-        add_support(node, restrains, values=None):
-            Adds boundary conditions (supports) to a specific node.
-        _set_ebc():
-            Removes duplicate entries from the essential boundary conditions (ebc) list.
-        add_node_load(load):
-            Adds a load to a specific node.
-        add_element(element):
-            Adds an element to the structure.
-        numbering():
-            Assigns degrees of freedom to elements, updates free and constrained DOFs, and processes boundary conditions.
-        plot(filename=None):
-            Plots the 3D structure, including nodes, elements, and boundary conditions.
-        plot_defo(mult=1, n_points=10, filename=None):
-            Plots the deformed shape of the structure based on displacements.
-        force_diagram(element_id):
-            Generates and displays the force diagram for a specific element, including bending moments and shear forces.
+
     """
 
     def __init__(self, coords=None):
         """
         Initializes the Geometry object.
+
         Parameters:
             coords (list, optional): A list of coordinates representing the nodes of the geometry. 
                                     Defaults to an empty list.
-        Attributes:
-            coords (list): Stores the coordinates of the nodes.
-            _ndofs_per_node (int): Number of degrees of freedom per node, set to 6 by default.
-            node_loads (list): A list to store loads applied to nodes.
-            elements (list): A list to store elements in the geometry.
-            ebc (list): A list to store essential boundary conditions.
-            nodes_with_bc (list): A list to store nodes with boundary conditions.
-        Calls:
-        generate_dofs(): Generates the degrees of freedom for the geometry.
+
         """
 
         if coords is None:
@@ -84,10 +56,12 @@ class Geometry3D():
         This method calculates the total number of DOFs based on the number of 
         coordinates and the number of DOFs per node. It also assigns a list of 
         DOFs to each node, storing the mapping in the `node_dofs` dictionary.
+
         Attributes:
             self.ndofs (int): Total number of degrees of freedom in the geometry.
             self.node_dofs (dict): A dictionary mapping each node index to a list 
                 of its corresponding DOFs.
+
         Assumes:
             - `self.coords` is a list of node coordinates.
             - `self._ndofs_per_node` is the number of DOFs per node.
@@ -102,6 +76,7 @@ class Geometry3D():
     def add_node(self, node_coords):
         """
         Adds a new node to the structure with the specified coordinates.
+
         Args:
             node_coords (tuple or list): The coordinates of the node to be added, 
                                          typically in the form (x, y, z) or (x, y).
@@ -113,6 +88,7 @@ class Geometry3D():
     def add_support(self, node, restrains, values=None):
         """
         Adds support boundary conditions to a specified node in the structure.
+
         Parameters:
             node (int): The node index where the support is to be applied.
             restrains (list of bool): A list indicating which degrees of freedom (DOFs) 
@@ -121,6 +97,7 @@ class Geometry3D():
             values (list of float, optional): A list of values specifying the prescribed 
                 displacements or rotations for the restrained DOFs. If not provided, 
                 defaults to zero for all restrained DOFs.
+
         Updates:
             - Appends the node index to `self.nodes_with_bc` to track nodes with boundary conditions.
             - Adds the restrained DOFs and their corresponding values to `self.ebc` 
@@ -152,6 +129,7 @@ class Geometry3D():
     def add_node_load(self, load):
         """
         Adds a load to the list of node loads.
+
         Parameters:
             load (object): The load to be added to the node. This could be an instance
                            of a load class or any object representing a load.
@@ -162,6 +140,7 @@ class Geometry3D():
     def add_element(self, element):
         """
         Adds an element to the list of elements in the current object.
+
         Args:
             element: The element to be added. This can be any object that 
                      represents an element in the context of the application.
@@ -173,22 +152,26 @@ class Geometry3D():
         """
         Assigns degrees of freedom (DOFs) to the nodes and elements of the structure,
         and categorizes them into free and constrained DOFs based on boundary conditions.
-        This method performs the following steps:
-        1. Sets the essential boundary conditions (EBC) using `_set_ebc`.
-        2. Updates the coordinates of the elements based on the node coordinates.
-        3. Assigns DOFs to each element, considering any release conditions.
-        4. Categorizes DOFs into free and constrained based on the specified boundary conditions.
+
         Attributes:
             self.coords (np.ndarray): Array of node coordinates.
             self.ndofs (int): Counter for the total number of DOFs.
             self.free (list): List of free DOFs.
             self.constrained (list): List of constrained DOFs.
+
+        Process:
+            1. Sets the essential boundary conditions (EBC) using `_set_ebc`.
+            2. Updates the coordinates of the elements based on the node coordinates.
+            3. Assigns DOFs to each element, considering any release conditions.
+            4. Categorizes DOFs into free and constrained based on the specified boundary conditions.
+
         Notes:
             - The `self.ebc` attribute should contain the essential boundary conditions
               as a list of tuples, where each tuple specifies a DOF and its value.
             - The `self.node_dofs` attribute maps each node to its corresponding DOFs.
             - The `self.elements` attribute is expected to be a list of element objects,
               each having `nodes`, `releases`, and methods `set_coords` and `set_dof`.
+
         Raises:
             AttributeError: If required attributes such as `self.ebc`, `self.node_dofs`,
                             or `self.elements` are not properly initialized.
@@ -233,6 +216,7 @@ class Geometry3D():
                                           Defaults to True.
             filename : str, optional
                 The name of the file to save the plot. If not provided, the plot will not be saved.
+
         Notes:
             - The method uses matplotlib for plotting.
             - The plot is displayed with equal axis scaling.
@@ -290,11 +274,13 @@ class Geometry3D():
     def plot_defo(self, mult=1, n_points=10, filename=None):
         """
         Plots the deformed shape of a structure in 3D.
+
         Parameters:
             mult (float, optional): A multiplier for scaling the deformation. Default is 1.
             n_points (int, optional): Number of points to use for interpolating displacements along each element. Default is 10.
             filename (str, optional): If provided, saves the plot to the specified file path. Default is None.
-        Behavior:
+
+        Process:
             - Plots the undeformed structure using black points for nodes and gray dashed lines for elements.
             - Computes and plots the deformed shape of the structure based on the displacements of each element.
             - Allows interactive picking of elements to display their force diagrams via a callback function.
@@ -340,20 +326,24 @@ class Geometry3D():
         This method calculates the bending moment (My) and shear force (Vz) diagrams
         for a given structural element using finite element analysis. The results
         are plotted as filled diagrams.
+
         Parameters:
             element_id : int
                 The ID of the structural element for which the force diagram is to be generated.
+
         Notes:
             - The method uses the element's material properties, section properties, and applied loads
             to compute the force diagrams.
             - The finite element mesh is divided into `n` segments for numerical integration.
             - Boundary conditions are applied to the stiffness matrix and force vector to account
             for constraints.
+
         Plots:
             - Subplot (1, 1): Bending moment diagram (My) for the element.
             - Subplot (1, 2): Shear force diagram (Vz) for the element.
             - Subplot (2, 1): Bending moment diagram (My) for the element with secondary conditions.
             - Subplot (2, 2): Shear force diagram (Vz) for the element with secondary conditions.
+
         Example:
             To generate the force diagram for element with ID 0:
                 geometry.force_diagram(0)
@@ -741,22 +731,26 @@ class Geometry3D():
         Plots the reaction forces at constrained degrees of freedom (DOFs) on the structure.
         This method visualizes the reaction forces at nodes where constraints are applied.
         It annotates the plot with the reaction force values for each constrained DOF.
+
         Args:
             Rn (list or array): A list or array containing the reaction forces for all DOFs.
             valid_dofs (list or array): A boolean list or array indicating whether each DOF is valid 
                                         (True for valid, False for invalid).
-        Behavior:
+
+        Process:
             - Iterates through the constrained DOFs to determine the corresponding node and DOF index.
             - Maps the reaction forces to their respective nodes and DOFs.
             - Annotates the plot with the reaction force values at the appropriate node coordinates.
             - Uses `self.name_dofs_reactions` to label the reaction forces.
             - Calls `self.plot()` to generate the base plot of the structure.
+
         Notes:
             - The method assumes that `self.constrained` contains the indices of constrained DOFs.
             - `self.node_dofs` is a dictionary mapping nodes to their respective DOFs.
             - `self.coords` contains the coordinates of each node.
             - `self.name_dofs_reactions` provides the names of the DOFs for labeling purposes.
-        Visualization:
+
+        Plots:
             - Reaction forces are displayed as annotations near the corresponding nodes.
             - The plot is adjusted to remove axes and ensure a tight layout.
         """
@@ -789,12 +783,14 @@ class Geometry3D():
         This method visualizes the displacements of nodes based on the provided
         displacement vector `U` and the valid degrees of freedom `valid_dofs`.
         It overlays the displacement values on the plot of the structure.
+
         Args:
             U (list or ndarray): A vector containing the displacement values for
                 all degrees of freedom in the model.
             valid_dofs (list or ndarray): A boolean array indicating which degrees
                 of freedom are valid (True) or constrained (False).
-        Behavior:
+
+        Process:
             - The method first plots the structure without labels.
             - It calculates the displacements for each node based on the valid
               degrees of freedom and the displacement vector.
@@ -803,6 +799,7 @@ class Geometry3D():
             - The displacement values are displayed in scientific notation with
               two decimal places.
             - The plot is adjusted to remove axes and ensure a tight layout.
+
         Note:
             This method assumes that the following attributes are defined in the
             class:
@@ -840,39 +837,28 @@ class Geometry3D():
 class Geometry2D(Geometry3D):
     """
     A class representing a 2D geometry for structural analysis, inheriting from Geometry3D.
+
     Attributes:
         _ndofs_per_node (int): Number of degrees of freedom per node (default is 3 for 2D).
         name_dofs_reactions (dict): Mapping of reaction degrees of freedom to their names.
         name_dofs_displacements (dict): Mapping of displacement degrees of freedom to their names.
-    Methods:
-        __init__(coords=None):
-            Initializes the Geometry2D object with optional coordinates.
-        plot(plot_labels=True, filename=None):
-            Plots the geometry, including nodes, elements, and boundary conditions.
-        plot_defo(mult=1, n_points=10, filename=None):
-            Plots the deformed shape of the geometry based on displacements.
-        force_diagram(element_id, plot=True):
-            Generates and optionally plots the force diagram for a specific element.
-        plot_reactions(Rn, valid_dofs):
-            Plots the reactions at constrained nodes.
-        plot_displacements(U, valid_dofs):
-            Plots the displacements at free nodes.
+
     """
 
     def __init__(self, coords=None):
         """
         Initializes a Geometry3D object with optional coordinates and sets up 
         degrees of freedom (DOFs) for the object.
+
         Args:
             coords (optional): Coordinates to initialize the geometry. Defaults to None.
+
         Attributes:
             _ndofs_per_node (int): Number of degrees of freedom per node, set to 3.
             name_dofs_reactions (dict): Mapping of DOF indices to reaction names:
                 {0: 'Rx', 1: 'Ry', 2: 'Mz'}.
             name_dofs_displacements (dict): Mapping of DOF indices to displacement names:
                 {0: 'Ux', 1: 'Uy', 2: 'Rz'}.
-        Methods:
-            generate_dofs(): Generates the degrees of freedom for the object.
         """
 
         Geometry3D.__init__(self, coords)
@@ -885,11 +871,13 @@ class Geometry2D(Geometry3D):
     def plot(self, plot_labels=True, filename=None):
         """
         Plots the geometry of the structure, including nodes, elements, and boundary conditions.
+
         Args:
             plot_labels (bool, optional): If True, labels for nodes and elements will be displayed. 
                                           Defaults to True.
             filename (str, optional): If provided, the plot will be saved to the specified file path. 
                                       Defaults to None.
+
         Notes:
             - Nodes with boundary conditions are marked in red, while other nodes are marked in black.
             - Elements are color-coded based on their section properties.
@@ -946,10 +934,12 @@ class Geometry2D(Geometry3D):
     def plot_defo(self, mult=1, n_points=10, filename=None):
         """
         Plots the deformed shape of a structure along with its original geometry.
+
         Parameters:
             mult (float, optional): A multiplier for the displacements to scale the deformation. Default is 1.
             n_points (int, optional): Number of interpolation points along each element for plotting the deformed shape. Default is 10.
             filename (str, optional): If provided, saves the plot to the specified file path. Default is None.
+
         Notes:
             - The method plots the original geometry of the structure in gray dashed lines and the deformed shape in black solid lines.
             - Nodes are represented as black circles.
@@ -991,12 +981,14 @@ class Geometry2D(Geometry3D):
     def force_diagram(self, element_id, plot=True):
         """
         Generates and optionally plots the force diagram for a specified structural element.
+
         Parameters:
             element_id : int
                 The ID of the structural element for which the force diagram is to be generated.
             plot : bool, optional
                 If True, the function will display the generated force diagram using matplotlib. 
                 Defaults to True.
+
         Notes:
             - The function calculates the internal forces (bending moment and shear force) 
             and displacements for the specified element using finite element analysis.
@@ -1006,11 +998,13 @@ class Geometry2D(Geometry3D):
                 - A schematic representation of the element with applied loads and reactions.
                 - The bending moment (My) and shear force (Vz) distributions along the element.
                 - The displacement profile of the element.
-        Visualization:
+
+        Plots:
             - The top-left subplot shows the schematic of the element with applied loads and reactions.
             - The bottom-left subplot shows the displacement profile along the element.
             - The top-right subplot shows the bending moment (My) distribution.
             - The bottom-right subplot shows the shear force (Vz) distribution.
+
         Example:
             To generate and display the force diagram for element with ID 0:
             >>> structure.force_diagram(element_id=0, plot=True)
@@ -1292,22 +1286,26 @@ class Geometry2D(Geometry3D):
         Plots the reaction forces at constrained degrees of freedom (DOFs) on the structure.
         This method visualizes the reaction forces at nodes where constraints are applied.
         It annotates the plot with the reaction force values for each constrained DOF.
+
         Args:
             Rn (list or array): A list or array containing the reaction forces for all DOFs.
             valid_dofs (list or array): A boolean list or array indicating whether each DOF is valid 
                                         (True for valid, False for invalid).
-        Behavior:
+
+        Process:
             - Iterates through the constrained DOFs to determine the corresponding node and DOF index.
             - Maps the reaction forces to their respective nodes and DOFs.
             - Annotates the plot with the reaction force values at the appropriate node coordinates.
             - Uses `self.name_dofs_reactions` to label the reaction forces.
             - Calls `self.plot()` to generate the base plot of the structure.
+
         Notes:
             - The method assumes that `self.constrained` contains the indices of constrained DOFs.
             - `self.node_dofs` is a dictionary mapping nodes to their respective DOFs.
             - `self.coords` contains the coordinates of each node.
             - `self.name_dofs_reactions` provides the names of the DOFs for labeling purposes.
-        Visualization:
+
+        Plots:
             - Reaction forces are displayed as annotations near the corresponding nodes.
             - The plot is adjusted to remove axes and ensure a tight layout.
         """
@@ -1341,12 +1339,14 @@ class Geometry2D(Geometry3D):
         This method visualizes the displacements of nodes based on the provided
         displacement vector `U` and the valid degrees of freedom `valid_dofs`.
         It overlays the displacement values on the plot of the structure.
+
         Args:
             U (list or ndarray): A vector containing the displacement values for
                 all degrees of freedom in the model.
             valid_dofs (list or ndarray): A boolean array indicating which degrees
                 of freedom are valid (True) or constrained (False).
-        Behavior:
+
+        Process:
             - The method first plots the structure without labels.
             - It calculates the displacements for each node based on the valid
               degrees of freedom and the displacement vector.
@@ -1355,6 +1355,7 @@ class Geometry2D(Geometry3D):
             - The displacement values are displayed in scientific notation with
               two decimal places.
             - The plot is adjusted to remove axes and ensure a tight layout.
+
         Note:
             This method assumes that the following attributes are defined in the
             class:

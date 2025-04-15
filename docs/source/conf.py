@@ -36,7 +36,7 @@ napoleon_use_ivar = False
 napoleon_use_param = True
 napoleon_use_rtype = True
 napoleon_use_keyword = True
-napoleon_custom_sections = ['Process', "Saves"]
+napoleon_custom_sections = ['Process', "Saves", 'Updates', "Plots"]
 
 
 extensions = ['sphinx.ext.autodoc',
