@@ -265,7 +265,9 @@ class Element():
         """
         Calculates the internal force vector `pe` for the element.
         The calculation is performed using the formula:
-            :math:`pe = ke @ U + fe`
+
+        :math:`pe = ke @ U + fe`
+
         where:
             - :math:`ke` is the element stiffness matrix.
             - :math:`U` is the displacement vector.
