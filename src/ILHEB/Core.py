@@ -10,6 +10,7 @@ class ILHEB:
     """
     Initializes the Core object with the given geometry and sets up the
     necessary attributes for structural analysis.
+
     Args:
         geometry (Geometry): An instance of the Geometry class that defines
             the structural geometry, including nodes, elements,
