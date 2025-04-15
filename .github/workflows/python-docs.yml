@@ -1,0 +1,46 @@
+name: "Docs"
+on: push
+
+jobs:
+    build:
+        runs-on: ubuntu-latest
+
+        steps:
+            - uses: actions/checkout@v3
+            - name: Set up Python
+              uses: actions/setup-python@v2
+              with:
+                  python-version: "3.12.x"
+            - name: Install dependencies
+              run: |
+                  python -m pip install --upgrade pip
+                  pip install --editable .[docs]
+            - name: Compile docs
+              run: |
+                  cd docs
+                  make clean
+                  cd ..
+                  sphinx-apidoc -f --module-first -o ./docs/source/ILHEB ./src/ILHEB
+                  sphinx-apidoc -f --module-first -o ./docs/source/Examples ./Examples;
+                  cd docs
+                  make html
+            # ===============================
+            - name: Commit documentation changes
+              run: |
+                  git clone https://github.com/ZibraMax/a_direct_stiffness_implementation.git --branch gh-pages --single-branch gh-pages
+                  cp -r docs/build/html/* gh-pages/
+                  cd gh-pages
+                  touch .nojekyll
+                  git config --local user.email "action@github.com"
+                  git config --local user.name "GitHub Action"
+                  git add .
+                  git commit -m "Update documentation" -a || true
+                  # The above command will fail if no changes were present, so we ignore
+                  # that.
+            - name: Push changes
+              uses: ad-m/github-push-action@master
+              with:
+                  branch: gh-pages
+                  directory: gh-pages
+                  github_token: ${{ secrets.GITHUB_TOKEN }}
+        # ===============================
