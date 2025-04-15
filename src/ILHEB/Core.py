@@ -17,7 +17,6 @@ class ILHEB:
             and degrees of freedom.
 
     Attributes:
-
         geometry (Geometry): The geometry object associated with the structure.
         ndof (int): The total number of degrees of freedom in the structure.
         elements (list): A list of elements in the structure.
@@ -30,6 +29,7 @@ class ILHEB:
     def __init__(self, geometry):
         """
         Initializes the Core object with the given geometry.
+
         Args:
             geometry (Geometry): An instance of the Geometry class that defines
                 the structural geometry, including nodes, elements,
@@ -53,13 +53,12 @@ class ILHEB:
         stiffness/force and node-level loads.
 
         Process:
-
             1. Iterates over all elements in the system to compute and add their
                contributions to the global stiffness matrix and force vector.
             2. Iterates over all node loads to add their contributions to the
                global force vector and optionally to the global stiffness matrix.
-        Notes:
 
+        Notes:
             - The stiffness matrix is stored in a sparse format for computational
               efficiency.
             - The method assumes that each element and load object provides the
@@ -92,12 +91,11 @@ class ILHEB:
         The `ebc` is expected to be an array where each row specifies a degree
         of freedom (DOF) and its corresponding constrained value.
 
-        Process:
-
+        .. admonition:: Process:
             1. Initializes the boundary conditions vector.
             2. Modifies the stiffness matrix (K) to enforce constraints by zeroing out
-               rows and columns corresponding to constrained DOFs and setting diagonal
-               entries to 1.
+                rows and columns corresponding to constrained DOFs and setting diagonal
+                entries to 1.
             3. Adjusts the force vector (S) to account for the constraints.
             4. Updates the force vector with the constrained values for the specified DOFs.
 
@@ -148,9 +146,9 @@ class ILHEB:
         Process:
             1. Assemble the global stiffness matrix and force vector.
             2. Compute the reaction forces using the global stiffness matrix,
-            displacement vector, and external force vector.
+               displacement vector, and external force vector.
             3. Update the displacements for each element based on the global
-            displacement vector.
+               displacement vector.
             4. Calculate the internal forces for each element.
         """
 
