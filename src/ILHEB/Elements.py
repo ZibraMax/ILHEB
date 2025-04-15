@@ -14,45 +14,16 @@ class Element():
         nodes (list): List of node IDs associated with the element.
         section: Cross-sectional properties of the element.
         material: Material properties of the element.
-        coords (array): Coordinates of the element's nodes.
+        coords (np.ndarray): Coordinates of the element's nodes.
         true_dofs (list): List of indices representing the active degrees of freedom.
         loads (list): List of loads applied to the element.
         dof (list): Degrees of freedom for the element.
         releases (list): Release conditions for the element.
-        fe (array): Element force vector.
-        ke (array): Element stiffness matrix.
-        U (array): Displacement vector for the element.
-        pe (array): Element internal force vector.
-        T (array): Transformation matrix for the element.
-
-    Methods:
-        __init__(nodes, section, material):
-            Initializes the element with nodes, section, and material properties.
-        lagrange_shape_functions(z):
-            Computes the Lagrange shape functions for the element.
-        hermit_shape_functions(z):
-            Computes the Hermite shape functions for the element.
-        dhermit_shape_functions(z):
-            Computes the derivatives of the Hermite shape functions for the element.
-        pre_init():
-            Pre-initializes element attributes such as loads, degrees of freedom, and matrices.
-        set_coords(coords):
-            Sets the coordinates of the element's nodes and calculates its length, transformation matrix, 
-            and stiffness matrix.
-        set_releases(releases):
-            Sets the release conditions for the element.
-        set_dof(dof):
-            Sets the degrees of freedom for the element.
-        add_load(load):
-            Adds a load to the element and updates the force vector.
-        calculate_fe():
-            Calculates the element's force vector based on applied loads.
-        set_displacements(U):
-            Sets the displacement vector for the element.
-        calculate_pe():
-            Calculates the internal force vector for the element.
-        save_results(base):
-            Saves the element's results (displacements, forces, stiffness matrix, etc.) to text files.
+        fe (np.ndarray): Element force vector.
+        ke (np.ndarray): Element stiffness matrix.
+        U (np.ndarray): Displacement vector for the element.
+        pe (np.ndarray): Element internal force vector.
+        T (np.ndarray): Transformation matrix for the element.
     """
 
     def __init__(self, nodes, section, material):
@@ -157,7 +128,6 @@ class Element():
 
     def pre_init(self):
         """
-        Initializes the element's properties and attributes to their default values.
         This method sets up the initial state of the element by initializing various
         attributes such as loads, degrees of freedom (DOF), releases, and matrices
         used in structural analysis.
@@ -251,7 +221,7 @@ class Element():
         Raises:
             TypeError: If the provided load is not an instance of the ElementLoad class or its subclasses.
 
-        Side Effects:
+        Notes:
             - Appends the given load to the element's list of loads.
             - Recalculates the element's force vector by calling the `calculate_fe` method.
         """
@@ -267,9 +237,6 @@ class Element():
         This method iterates through all the loads applied to the element and accumulates
         their contributions to the force vector (`fe`) at the degrees of freedom (DOFs)
         specified by `true_dofs`.
-
-        Attributes:
-            fe (numpy.ndarray): The force vector of the element, updated in-place.
 
         Raises:
             AttributeError: If `loads` or `true_dofs` are not properly defined or if the
@@ -568,10 +535,6 @@ class FrameElement2D(FrameElement3D):
         matrix is used to transform local element forces and displacements to the global
         coordinate system.
 
-        Computed Attributes:
-            self.r (numpy.ndarray): A 3x3 rotation matrix for transforming local to global
-                coordinates.
-            self.T (numpy.ndarray): A 6x6 transformation matrix for the element.
 
         Process:
             1. Calculate the angle `theta` of the element with respect to the global x-axis
@@ -579,6 +542,12 @@ class FrameElement2D(FrameElement3D):
             2. Compute the cosine (`c`) and sine (`s`) of the angle `theta`.
             3. Construct the rotation matrix `r` and the transformation matrix `T` using
                the computed values of `c` and `s`.
+        Note:
+            Updates the following attributes:
+
+            self.r (numpy.ndarray): A 3x3 rotation matrix for transforming local to global
+                coordinates.
+            self.T (numpy.ndarray): A 6x6 transformation matrix for the element.
         """
 
         theta = np.arctan2(
@@ -620,10 +589,6 @@ class FrameElement2D(FrameElement3D):
         of the stiffness matrix (`ke`) corresponding to the degrees of freedom 
         specified in `true_dofs`.
 
-        Attributes:
-            ke (numpy.ndarray): The stiffness matrix of the element.
-            true_dofs (list or array-like): Indices of the degrees of freedom 
-                to be retained in the stiffness matrix.
 
         """
 
