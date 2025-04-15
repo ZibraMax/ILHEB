@@ -1232,14 +1232,6 @@ to the node and the second index corresponds
 to the spatial dimension.</p>
 </dd>
 </dl>
-<dl>
-<dt>Attributes Set:</dt><dd><p>self.coords: Stores the input coordinates.
-self.L: The length of the element, calculated as the Euclidean</p>
-<blockquote>
-<div><p>distance between the two nodes.</p>
-</div></blockquote>
-</dd>
-</dl>
 <div class="admonition-notes admonition">
 <p class="admonition-title">Notes</p>
 <p>This method also calls <cite>transformation_matrix</cite> and
@@ -1255,13 +1247,6 @@ that must be implemented in the derived class.</p>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters<span class="colon">:</span></dt>
 <dd class="field-odd"><p><strong>U</strong> (<em>numpy.ndarray</em>) – The global displacement vector.</p>
-</dd>
-</dl>
-<dl class="simple">
-<dt>Updates:</dt><dd><dl class="simple">
-<dt>self.U (numpy.ndarray): The displacement vector transformed to the local coordinate system</dt><dd><p>using the transformation matrix <cite>self.T</cite>.</p>
-</dd>
-</dl>
 </dd>
 </dl>
 </dd></dl>
@@ -1297,7 +1282,7 @@ or not (False).</p>
 <dl class="py class">
 <dt class="sig sig-object py" id="ILHEB.Elements.FrameElement2D">
 <em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">ILHEB.Elements.</span></span><span class="sig-name descname"><span class="pre">FrameElement2D</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">nodes</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">section</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">material</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#ILHEB.Elements.FrameElement2D" title="Link to this definition">#</a></dt>
-<dd><p>Bases: <a class="reference internal" href="#ILHEB.Elements.FrameElement3D" title="ILHEB.Elements.FrameElement3D"><code class="xref py py-class docutils literal notranslate"><span class="pre">FrameElement3D</span></code></a></p>
+<dd><p>Bases: <a class="reference internal" href="../index.html#ILHEB.Elements.FrameElement3D" title="ILHEB.Elements.FrameElement3D"><code class="xref py py-class docutils literal notranslate"><span class="pre">FrameElement3D</span></code></a></p>
 <p>A class representing a 2D frame element, inheriting from FrameElement3D.
 This class models a 2D frame element with specific properties and methods
 for transformation matrices, stiffness matrices, and displacement interpolation.</p>
@@ -1364,7 +1349,7 @@ for transformation matrices, stiffness matrices, and displacement interpolation.
 Returns the interpolated coordinates, displacements, and derivatives.</p>
 </dd></dl>
 
-<p>Initializes a 3D frame element with specified nodes, section, and material properties.</p>
+<p>Initializes a 2D frame element with specified nodes, section, and material properties.</p>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters<span class="colon">:</span></dt>
 <dd class="field-odd"><ul class="simple">
@@ -1423,15 +1408,6 @@ using the arctangent of the slope.</p></li>
 <li><p>Construct the rotation matrix <cite>r</cite> and the transformation matrix <cite>T</cite> using
 the computed values of <cite>c</cite> and <cite>s</cite>.</p></li>
 </ol>
-<div class="admonition note">
-<p class="admonition-title">Note</p>
-<p>Updates the following attributes:</p>
-<dl class="simple">
-<dt>self.r (numpy.ndarray): A 3x3 rotation matrix for transforming local to global</dt><dd><p>coordinates.</p>
-</dd>
-</dl>
-<p>self.T (numpy.ndarray): A 6x6 transformation matrix for the element.</p>
-</div>
 </dd></dl>
 
 </dd></dl>
@@ -1439,7 +1415,7 @@ the computed values of <cite>c</cite> and <cite>s</cite>.</p></li>
 <dl class="py class">
 <dt class="sig sig-object py" id="ILHEB.Elements.FrameElement3D">
 <em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">ILHEB.Elements.</span></span><span class="sig-name descname"><span class="pre">FrameElement3D</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">nodes</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">section</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">material</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#ILHEB.Elements.FrameElement3D" title="Link to this definition">#</a></dt>
-<dd><p>Bases: <a class="reference internal" href="#ILHEB.Elements.Element" title="ILHEB.Elements.Element"><code class="xref py py-class docutils literal notranslate"><span class="pre">Element</span></code></a></p>
+<dd><p>Bases: <a class="reference internal" href="../index.html#ILHEB.Elements.Element" title="ILHEB.Elements.Element"><code class="xref py py-class docutils literal notranslate"><span class="pre">Element</span></code></a></p>
 <p>A class representing a 3D frame element for structural analysis.</p>
 <dl class="simple">
 <dt>Inherits from:</dt><dd><p>Element: The base class for structural elements.</p>
@@ -1629,7 +1605,7 @@ submatrices.</p></li>
 <dl class="py class">
 <dt class="sig sig-object py" id="ILHEB.Elements.TrussElement2D">
 <em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">ILHEB.Elements.</span></span><span class="sig-name descname"><span class="pre">TrussElement2D</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">nodes</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">section</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">material</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#ILHEB.Elements.TrussElement2D" title="Link to this definition">#</a></dt>
-<dd><p>Bases: <a class="reference internal" href="#ILHEB.Elements.FrameElement2D" title="ILHEB.Elements.FrameElement2D"><code class="xref py py-class docutils literal notranslate"><span class="pre">FrameElement2D</span></code></a></p>
+<dd><p>Bases: <a class="reference internal" href="../index.html#ILHEB.Elements.FrameElement2D" title="ILHEB.Elements.FrameElement2D"><code class="xref py py-class docutils literal notranslate"><span class="pre">FrameElement2D</span></code></a></p>
 <p>Represents a 2D truss element, which is a structural element that can only carry axial forces.</p>
 <dl class="simple">
 <dt>Inherits from:</dt><dd><p>FrameElement2D: A base class for 2D frame elements.</p>
@@ -1696,7 +1672,7 @@ Sets the default release conditions for a truss element.</p>
 <dl class="py class">
 <dt class="sig sig-object py" id="ILHEB.Elements.TrussElement3D">
 <em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">ILHEB.Elements.</span></span><span class="sig-name descname"><span class="pre">TrussElement3D</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">nodes</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">section</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">material</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#ILHEB.Elements.TrussElement3D" title="Link to this definition">#</a></dt>
-<dd><p>Bases: <a class="reference internal" href="#ILHEB.Elements.FrameElement3D" title="ILHEB.Elements.FrameElement3D"><code class="xref py py-class docutils literal notranslate"><span class="pre">FrameElement3D</span></code></a></p>
+<dd><p>Bases: <a class="reference internal" href="../index.html#ILHEB.Elements.FrameElement3D" title="ILHEB.Elements.FrameElement3D"><code class="xref py py-class docutils literal notranslate"><span class="pre">FrameElement3D</span></code></a></p>
 <p>Represents a 3D truss element, which is a type of structural element
 that can only carry axial forces (tension or compression) and does not
 resist bending moments.</p>
@@ -2769,7 +2745,7 @@ parent <cite>ElementLoad</cite> class with these values.
 <dl class="field-list simple">
 <dt class="field-odd">Parameters<span class="colon">:</span></dt>
 <dd class="field-odd"><ul class="simple">
-<li><p><strong>element</strong> (<a class="reference internal" href="#ILHEB.Elements.Element" title="ILHEB.Elements.Element"><em>Element</em></a>) – The structural element to which the load is applied.</p></li>
+<li><p><strong>element</strong> (<a class="reference internal" href="../index.html#ILHEB.Elements.Element" title="ILHEB.Elements.Element"><em>Element</em></a>) – The structural element to which the load is applied.</p></li>
 <li><p><strong>WX</strong> (<em>float</em><em>, </em><em>optional</em>) – Distributed load in the X direction. Default is 0.0.</p></li>
 <li><p><strong>WY</strong> (<em>float</em><em>, </em><em>optional</em>) – Distributed load in the Y direction. Default is 0.0.</p></li>
 <li><p><strong>WZ</strong> (<em>float</em><em>, </em><em>optional</em>) – Distributed load in the Z direction. Default is 0.0.</p></li>
@@ -3615,7 +3591,7 @@ shear forces (PYj, PYk, PZj, PZk), and moments (MYj, MYk, MZj, MZk).</p></li>
 <dd><p>The structural element associated with the thermal load.</p>
 <dl class="field-list simple">
 <dt class="field-odd">Type<span class="colon">:</span></dt>
-<dd class="field-odd"><p><a class="reference internal" href="#ILHEB.Elements.Element" title="ILHEB.Elements.Element">Element</a></p>
+<dd class="field-odd"><p><a class="reference internal" href="../index.html#ILHEB.Elements.Element" title="ILHEB.Elements.Element">Element</a></p>
 </dd>
 </dl>
 </dd></dl>

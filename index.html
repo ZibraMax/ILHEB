@@ -308,7 +308,76 @@ document.write(`
             </div>
             <nav aria-label="Page">
                 <ul class="visible nav section-nav flex-column">
-<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#">ILHEB’s documentation</a></li>
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#">ILHEB’s documentation</a><ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#ILHEB.Elements.Element"><code class="docutils literal notranslate"><span class="pre">Element</span></code></a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#ILHEB.Elements.Element.nodes"><code class="docutils literal notranslate"><span class="pre">Element.nodes</span></code></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#ILHEB.Elements.Element.section"><code class="docutils literal notranslate"><span class="pre">Element.section</span></code></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#ILHEB.Elements.Element.material"><code class="docutils literal notranslate"><span class="pre">Element.material</span></code></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#ILHEB.Elements.Element.coords"><code class="docutils literal notranslate"><span class="pre">Element.coords</span></code></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#ILHEB.Elements.Element.true_dofs"><code class="docutils literal notranslate"><span class="pre">Element.true_dofs</span></code></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#ILHEB.Elements.Element.loads"><code class="docutils literal notranslate"><span class="pre">Element.loads</span></code></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#ILHEB.Elements.Element.dof"><code class="docutils literal notranslate"><span class="pre">Element.dof</span></code></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#ILHEB.Elements.Element.releases"><code class="docutils literal notranslate"><span class="pre">Element.releases</span></code></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#ILHEB.Elements.Element.fe"><code class="docutils literal notranslate"><span class="pre">Element.fe</span></code></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#ILHEB.Elements.Element.ke"><code class="docutils literal notranslate"><span class="pre">Element.ke</span></code></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#ILHEB.Elements.Element.U"><code class="docutils literal notranslate"><span class="pre">Element.U</span></code></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#ILHEB.Elements.Element.pe"><code class="docutils literal notranslate"><span class="pre">Element.pe</span></code></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#ILHEB.Elements.Element.T"><code class="docutils literal notranslate"><span class="pre">Element.T</span></code></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#ILHEB.Elements.Element.add_load"><code class="docutils literal notranslate"><span class="pre">Element.add_load()</span></code></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#ILHEB.Elements.Element.calculate_fe"><code class="docutils literal notranslate"><span class="pre">Element.calculate_fe()</span></code></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#ILHEB.Elements.Element.calculate_pe"><code class="docutils literal notranslate"><span class="pre">Element.calculate_pe()</span></code></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#ILHEB.Elements.Element.dhermit_shape_functions"><code class="docutils literal notranslate"><span class="pre">Element.dhermit_shape_functions()</span></code></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#ILHEB.Elements.Element.hermit_shape_functions"><code class="docutils literal notranslate"><span class="pre">Element.hermit_shape_functions()</span></code></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#ILHEB.Elements.Element.lagrange_shape_functions"><code class="docutils literal notranslate"><span class="pre">Element.lagrange_shape_functions()</span></code></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#ILHEB.Elements.Element.pre_init"><code class="docutils literal notranslate"><span class="pre">Element.pre_init()</span></code></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#ILHEB.Elements.Element.save_results"><code class="docutils literal notranslate"><span class="pre">Element.save_results()</span></code></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#ILHEB.Elements.Element.set_coords"><code class="docutils literal notranslate"><span class="pre">Element.set_coords()</span></code></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#ILHEB.Elements.Element.set_displacements"><code class="docutils literal notranslate"><span class="pre">Element.set_displacements()</span></code></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#ILHEB.Elements.Element.set_dof"><code class="docutils literal notranslate"><span class="pre">Element.set_dof()</span></code></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#ILHEB.Elements.Element.set_releases"><code class="docutils literal notranslate"><span class="pre">Element.set_releases()</span></code></a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#ILHEB.Elements.FrameElement2D"><code class="docutils literal notranslate"><span class="pre">FrameElement2D</span></code></a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#ILHEB.Elements.FrameElement2D.ndfnode"><code class="docutils literal notranslate"><span class="pre">FrameElement2D.ndfnode</span></code></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#ILHEB.Elements.FrameElement2D.true_dofs"><code class="docutils literal notranslate"><span class="pre">FrameElement2D.true_dofs</span></code></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#ILHEB.Elements.FrameElement2D.T"><code class="docutils literal notranslate"><span class="pre">FrameElement2D.T</span></code></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#ILHEB.Elements.FrameElement2D.ke"><code class="docutils literal notranslate"><span class="pre">FrameElement2D.ke</span></code></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#ILHEB.Elements.FrameElement2D.transformation_matrix"><code class="docutils literal notranslate"><span class="pre">FrameElement2D.transformation_matrix()</span></code></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#ILHEB.Elements.FrameElement2D.stiffness_matrix"><code class="docutils literal notranslate"><span class="pre">FrameElement2D.stiffness_matrix()</span></code></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#ILHEB.Elements.FrameElement2D.interpolate_displacements"><code class="docutils literal notranslate"><span class="pre">FrameElement2D.interpolate_displacements()</span></code></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id0"><code class="docutils literal notranslate"><span class="pre">FrameElement2D.interpolate_displacements()</span></code></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id1"><code class="docutils literal notranslate"><span class="pre">FrameElement2D.stiffness_matrix()</span></code></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id2"><code class="docutils literal notranslate"><span class="pre">FrameElement2D.transformation_matrix()</span></code></a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#ILHEB.Elements.FrameElement3D"><code class="docutils literal notranslate"><span class="pre">FrameElement3D</span></code></a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#ILHEB.Elements.FrameElement3D.ndfnode"><code class="docutils literal notranslate"><span class="pre">FrameElement3D.ndfnode</span></code></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#ILHEB.Elements.FrameElement3D.r"><code class="docutils literal notranslate"><span class="pre">FrameElement3D.r</span></code></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#ILHEB.Elements.FrameElement3D.T"><code class="docutils literal notranslate"><span class="pre">FrameElement3D.T</span></code></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#ILHEB.Elements.FrameElement3D.ke"><code class="docutils literal notranslate"><span class="pre">FrameElement3D.ke</span></code></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#ILHEB.Elements.FrameElement3D.__init__"><code class="docutils literal notranslate"><span class="pre">FrameElement3D.__init__()</span></code></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#ILHEB.Elements.FrameElement3D.transformation_matrix"><code class="docutils literal notranslate"><span class="pre">FrameElement3D.transformation_matrix()</span></code></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#ILHEB.Elements.FrameElement3D.stiffness_matrix"><code class="docutils literal notranslate"><span class="pre">FrameElement3D.stiffness_matrix()</span></code></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#ILHEB.Elements.FrameElement3D.interpolate_displacements"><code class="docutils literal notranslate"><span class="pre">FrameElement3D.interpolate_displacements()</span></code></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id3"><code class="docutils literal notranslate"><span class="pre">FrameElement3D.interpolate_displacements()</span></code></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id4"><code class="docutils literal notranslate"><span class="pre">FrameElement3D.stiffness_matrix()</span></code></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id5"><code class="docutils literal notranslate"><span class="pre">FrameElement3D.transformation_matrix()</span></code></a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#ILHEB.Elements.TrussElement2D"><code class="docutils literal notranslate"><span class="pre">TrussElement2D</span></code></a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#ILHEB.Elements.TrussElement2D.releases"><code class="docutils literal notranslate"><span class="pre">TrussElement2D.releases</span></code></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#ILHEB.Elements.TrussElement2D.__init__"><code class="docutils literal notranslate"><span class="pre">TrussElement2D.__init__()</span></code></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#ILHEB.Elements.TrussElement2D.interpolate_displacements"><code class="docutils literal notranslate"><span class="pre">TrussElement2D.interpolate_displacements()</span></code></a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#ILHEB.Elements.TrussElement3D"><code class="docutils literal notranslate"><span class="pre">TrussElement3D</span></code></a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#ILHEB.Elements.TrussElement3D.releases"><code class="docutils literal notranslate"><span class="pre">TrussElement3D.releases</span></code></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#ILHEB.Elements.TrussElement3D.__init__"><code class="docutils literal notranslate"><span class="pre">TrussElement3D.__init__()</span></code></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#ILHEB.Elements.TrussElement3D.interpolate_displacements"><code class="docutils literal notranslate"><span class="pre">TrussElement3D.interpolate_displacements()</span></code></a></li>
+</ul>
+</li>
+</ul>
+</li>
 <li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#indices-and-tables">Indices and tables</a></li>
 <li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#structural-analysis-project-version-0-0-1">Structural analysis project version 0.0.1</a><ul class="visible nav section-nav flex-column">
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#running-the-examples-of-the-extra-examples-folder">Running the examples of the Extra_examples folder:</a></li>
@@ -332,7 +401,887 @@ document.write(`
   <section id="ilheb-s-documentation">
 <h1>ILHEB’s documentation<a class="headerlink" href="#ilheb-s-documentation" title="Link to this heading">#</a></h1>
 <p>Created by Arturo Rodriguez: <a class="reference external" href="mailto:da&#46;rodriguezh&#37;&#52;&#48;uniandes&#46;edu&#46;co">da<span>&#46;</span>rodriguezh<span>&#64;</span>uniandes<span>&#46;</span>edu<span>&#46;</span>co</a>, <a class="reference external" href="mailto:da&#46;rodriguezh&#37;&#52;&#48;rice&#46;edu">da<span>&#46;</span>rodriguezh<span>&#64;</span>rice<span>&#46;</span>edu</a></p>
-<div class="toctree-wrapper compound" id="module-ILHEB">
+<dl class="py class" id="module-ILHEB.Elements">
+<dt class="sig sig-object py" id="ILHEB.Elements.Element">
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">ILHEB.Elements.</span></span><span class="sig-name descname"><span class="pre">Element</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">nodes</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">section</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">material</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#ILHEB.Elements.Element" title="Link to this definition">#</a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">object</span></code></p>
+<p>Element Class
+This class represents a structural element in a finite element analysis. It provides methods for
+defining the element’s properties, calculating shape functions, stiffness matrices, and handling
+loads and displacements.</p>
+<dl class="py attribute">
+<dt class="sig sig-object py" id="ILHEB.Elements.Element.nodes">
+<span class="sig-name descname"><span class="pre">nodes</span></span><a class="headerlink" href="#ILHEB.Elements.Element.nodes" title="Link to this definition">#</a></dt>
+<dd><p>List of node IDs associated with the element.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Type<span class="colon">:</span></dt>
+<dd class="field-odd"><p>list</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="ILHEB.Elements.Element.section">
+<span class="sig-name descname"><span class="pre">section</span></span><a class="headerlink" href="#ILHEB.Elements.Element.section" title="Link to this definition">#</a></dt>
+<dd><p>Cross-sectional properties of the element.</p>
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="ILHEB.Elements.Element.material">
+<span class="sig-name descname"><span class="pre">material</span></span><a class="headerlink" href="#ILHEB.Elements.Element.material" title="Link to this definition">#</a></dt>
+<dd><p>Material properties of the element.</p>
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="ILHEB.Elements.Element.coords">
+<span class="sig-name descname"><span class="pre">coords</span></span><a class="headerlink" href="#ILHEB.Elements.Element.coords" title="Link to this definition">#</a></dt>
+<dd><p>Coordinates of the element’s nodes.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Type<span class="colon">:</span></dt>
+<dd class="field-odd"><p>np.ndarray</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="ILHEB.Elements.Element.true_dofs">
+<span class="sig-name descname"><span class="pre">true_dofs</span></span><a class="headerlink" href="#ILHEB.Elements.Element.true_dofs" title="Link to this definition">#</a></dt>
+<dd><p>List of indices representing the active degrees of freedom.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Type<span class="colon">:</span></dt>
+<dd class="field-odd"><p>list</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="ILHEB.Elements.Element.loads">
+<span class="sig-name descname"><span class="pre">loads</span></span><a class="headerlink" href="#ILHEB.Elements.Element.loads" title="Link to this definition">#</a></dt>
+<dd><p>List of loads applied to the element.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Type<span class="colon">:</span></dt>
+<dd class="field-odd"><p>list</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="ILHEB.Elements.Element.dof">
+<span class="sig-name descname"><span class="pre">dof</span></span><a class="headerlink" href="#ILHEB.Elements.Element.dof" title="Link to this definition">#</a></dt>
+<dd><p>Degrees of freedom for the element.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Type<span class="colon">:</span></dt>
+<dd class="field-odd"><p>list</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="ILHEB.Elements.Element.releases">
+<span class="sig-name descname"><span class="pre">releases</span></span><a class="headerlink" href="#ILHEB.Elements.Element.releases" title="Link to this definition">#</a></dt>
+<dd><p>Release conditions for the element.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Type<span class="colon">:</span></dt>
+<dd class="field-odd"><p>list</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="ILHEB.Elements.Element.fe">
+<span class="sig-name descname"><span class="pre">fe</span></span><a class="headerlink" href="#ILHEB.Elements.Element.fe" title="Link to this definition">#</a></dt>
+<dd><p>Element force vector.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Type<span class="colon">:</span></dt>
+<dd class="field-odd"><p>np.ndarray</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="ILHEB.Elements.Element.ke">
+<span class="sig-name descname"><span class="pre">ke</span></span><a class="headerlink" href="#ILHEB.Elements.Element.ke" title="Link to this definition">#</a></dt>
+<dd><p>Element stiffness matrix.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Type<span class="colon">:</span></dt>
+<dd class="field-odd"><p>np.ndarray</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="ILHEB.Elements.Element.U">
+<span class="sig-name descname"><span class="pre">U</span></span><a class="headerlink" href="#ILHEB.Elements.Element.U" title="Link to this definition">#</a></dt>
+<dd><p>Displacement vector for the element.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Type<span class="colon">:</span></dt>
+<dd class="field-odd"><p>np.ndarray</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="ILHEB.Elements.Element.pe">
+<span class="sig-name descname"><span class="pre">pe</span></span><a class="headerlink" href="#ILHEB.Elements.Element.pe" title="Link to this definition">#</a></dt>
+<dd><p>Element internal force vector.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Type<span class="colon">:</span></dt>
+<dd class="field-odd"><p>np.ndarray</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="ILHEB.Elements.Element.T">
+<span class="sig-name descname"><span class="pre">T</span></span><a class="headerlink" href="#ILHEB.Elements.Element.T" title="Link to this definition">#</a></dt>
+<dd><p>Transformation matrix for the element.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Type<span class="colon">:</span></dt>
+<dd class="field-odd"><p>np.ndarray</p>
+</dd>
+</dl>
+</dd></dl>
+
+<p>Initializes an instance of the Element class.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>nodes</strong> (<em>list</em><em> or </em><em>iterable</em>) – A list or iterable containing node identifiers.
+If not a list, it will be converted to a list of integers.</p></li>
+<li><p><strong>section</strong> – The section properties associated with the element.</p></li>
+<li><p><strong>material</strong> – The material properties associated with the element.</p></li>
+</ul>
+</dd>
+</dl>
+<div class="admonition-notes admonition">
+<p class="admonition-title">Notes</p>
+<p>The <cite>pre_init</cite> method is called during initialization to perform any
+additional setup required for the element.</p>
+</div>
+<dl class="py method">
+<dt class="sig sig-object py" id="ILHEB.Elements.Element.add_load">
+<span class="sig-name descname"><span class="pre">add_load</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">load</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#ILHEB.Elements.Element.add_load" title="Link to this definition">#</a></dt>
+<dd><p>Adds a load to the element and updates the element’s force vector.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><p><strong>load</strong> (<a class="reference internal" href="ILHEB/ILHEB.html#ILHEB.Loads.ElementLoad" title="ILHEB.Loads.ElementLoad"><em>ElementLoad</em></a>) – The load to be added. It must be an instance of the Load class or its subclasses.</p>
+</dd>
+<dt class="field-even">Raises<span class="colon">:</span></dt>
+<dd class="field-even"><p><strong>TypeError</strong> – If the provided load is not an instance of the ElementLoad class or its subclasses.</p>
+</dd>
+</dl>
+<div class="admonition-notes admonition">
+<p class="admonition-title">Notes</p>
+<ul class="simple">
+<li><p>Appends the given load to the element’s list of loads.</p></li>
+<li><p>Recalculates the element’s force vector by calling the <cite>calculate_fe</cite> method.</p></li>
+</ul>
+</div>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="ILHEB.Elements.Element.calculate_fe">
+<span class="sig-name descname"><span class="pre">calculate_fe</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#ILHEB.Elements.Element.calculate_fe" title="Link to this definition">#</a></dt>
+<dd><p>Calculates and updates the element’s force vector (<cite>fe</cite>) based on the applied loads.
+This method iterates through all the loads applied to the element and accumulates
+their contributions to the force vector (<cite>fe</cite>) at the degrees of freedom (DOFs)
+specified by <cite>true_dofs</cite>.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Raises<span class="colon">:</span></dt>
+<dd class="field-odd"><p><strong>AttributeError</strong> – If <cite>loads</cite> or <cite>true_dofs</cite> are not properly defined or if the
+    load objects do not have the required <cite>p</cite> attribute.</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="ILHEB.Elements.Element.calculate_pe">
+<span class="sig-name descname"><span class="pre">calculate_pe</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#ILHEB.Elements.Element.calculate_pe" title="Link to this definition">#</a></dt>
+<dd><p>Calculates the internal force vector <cite>pe</cite> for the element.
+The calculation is performed using the formula:</p>
+<p><span class="math notranslate nohighlight">\(pe = ke &#64; U + fe\)</span></p>
+<dl class="simple">
+<dt>where:</dt><dd><ul class="simple">
+<li><p><span class="math notranslate nohighlight">\(ke\)</span> is the element stiffness matrix.</p></li>
+<li><p><span class="math notranslate nohighlight">\(U\)</span> is the displacement vector.</p></li>
+<li><p><span class="math notranslate nohighlight">\(fe\)</span> is the external force vector.</p></li>
+</ul>
+</dd>
+</dl>
+<p>This method updates the <cite>pe</cite> attribute of the element instance.</p>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="ILHEB.Elements.Element.dhermit_shape_functions">
+<span class="sig-name descname"><span class="pre">dhermit_shape_functions</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">z</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#ILHEB.Elements.Element.dhermit_shape_functions" title="Link to this definition">#</a></dt>
+<dd><p>Computes the derivatives of Hermitian shape functions for a beam element.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><p><strong>z</strong> – float
+The local coordinate (ranging from -1 to 1) along the length of the beam element.</p>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p><dl class="simple">
+<dt>numpy.ndarray</dt><dd><p>A 3x4 array containing the derivatives of the Hermitian shape functions:
+- The first row corresponds to the first derivative of the shape functions.
+- The second row corresponds to the second derivative of the shape functions.
+- The third row corresponds to the third derivative of the shape functions.</p>
+</dd>
+</dl>
+</p>
+</dd>
+</dl>
+<div class="admonition-notes admonition">
+<p class="admonition-title">Notes</p>
+<ul class="simple">
+<li><p><cite>h</cite> is the length of the beam element.</p></li>
+<li><p>The shape functions are defined in terms of the local coordinate <cite>z</cite> and are scaled</p></li>
+</ul>
+<p>by the element length <cite>h</cite>.
+- This function assumes that the Hermitian shape functions are used for beam elements
+in finite element analysis. (Euler bernoulli)</p>
+</div>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="ILHEB.Elements.Element.hermit_shape_functions">
+<span class="sig-name descname"><span class="pre">hermit_shape_functions</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">z</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#ILHEB.Elements.Element.hermit_shape_functions" title="Link to this definition">#</a></dt>
+<dd><p>Computes the Hermite shape functions for a given local coordinate <cite>z</cite>.
+Hermite shape functions are used in finite element analysis for beam and
+frame elements to interpolate displacements and rotations.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><p><strong>z</strong> – float or array-like
+Local coordinate(s) in the range [-1, 1] where the shape functions
+are evaluated.</p>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p><dl class="simple">
+<dt>numpy.ndarray</dt><dd><p>A 2D array where each row corresponds to the values of the four
+Hermite shape functions at the given local coordinate(s).</p>
+</dd>
+</dl>
+</p>
+</dd>
+</dl>
+<div class="admonition-notes admonition">
+<p class="admonition-title">Notes</p>
+<p>The shape functions are defined in terms of the element length <cite>L</cite>
+(stored as <cite>self.L</cite>). The local coordinate <cite>z</cite> is mapped to the global
+coordinate <cite>x</cite> using the transformation: x = (L/2) * z + (L/2).</p>
+</div>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="ILHEB.Elements.Element.lagrange_shape_functions">
+<span class="sig-name descname"><span class="pre">lagrange_shape_functions</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">z</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#ILHEB.Elements.Element.lagrange_shape_functions" title="Link to this definition">#</a></dt>
+<dd><p>Computes the Lagrange shape functions for a given local coordinate.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><p><strong>z</strong> (<em>float</em><em> or </em><em>np.ndarray</em>) – The local coordinate (typically ranging from -1 to 1).</p>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p><dl class="simple">
+<dt>A 1D array containing the values of the Lagrange shape functions</dt><dd><p>evaluated at the given local coordinate <cite>z</cite>.</p>
+</dd>
+</dl>
+</p>
+</dd>
+<dt class="field-odd">Return type<span class="colon">:</span></dt>
+<dd class="field-odd"><p>numpy.ndarray</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="ILHEB.Elements.Element.pre_init">
+<span class="sig-name descname"><span class="pre">pre_init</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#ILHEB.Elements.Element.pre_init" title="Link to this definition">#</a></dt>
+<dd><p>This method sets up the initial state of the element by initializing various
+attributes such as loads, degrees of freedom (DOF), releases, and matrices
+used in structural analysis.</p>
+<dl class="simple">
+<dt>Attributes Initialized:</dt><dd><ul class="simple">
+<li><p>loads: A list to store the loads applied to the element.</p></li>
+<li><p>dof: A list of size <cite>ndfnode</cite> initialized with None, representing the
+degrees of freedom for each node.</p></li>
+<li><p>releases: A 2D list of size [2 x ndfnode] initialized with False,
+representing the release conditions for the element.</p></li>
+<li><p>fe: A numpy array of size <cite>2 * ndfnode</cite> initialized with zeros,
+representing the element’s force vector.</p></li>
+<li><p>ke: A numpy array of size <cite>[2 * ndfnode, 2 * ndfnode]</cite> initialized
+with zeros, representing the element’s stiffness matrix.</p></li>
+<li><p>U: A numpy array of size <cite>2 * ndfnode</cite> initialized with zeros,
+representing the element’s displacement vector.</p></li>
+<li><p>pe: A numpy array of size <cite>2 * ndfnode</cite> initialized with zeros,
+representing the element’s equivalent nodal load vector.</p></li>
+<li><p>T: A numpy array of size <cite>[12, 12]</cite> initialized with zeros,
+representing the transformation matrix for the element.</p></li>
+</ul>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="ILHEB.Elements.Element.save_results">
+<span class="sig-name descname"><span class="pre">save_results</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">base</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#ILHEB.Elements.Element.save_results" title="Link to this definition">#</a></dt>
+<dd><p>Saves the results of the analysis to text files.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><p><strong>base</strong> (<em>str</em>) – The base file path and name to which the results will be saved.
+The method appends specific suffixes to this base name for each result type.</p>
+</dd>
+</dl>
+<p class="rubric">Saves</p>
+<ul class="simple">
+<li><p>Displacement vector (U) to a file named “&lt;base&gt;_U.txt”.</p></li>
+<li><p>Element forces (pe) to a file named “&lt;base&gt;_pe.txt”.</p></li>
+<li><p>Element nodal forces (fe) to a file named “&lt;base&gt;_fe.txt”.</p></li>
+<li><p>Element stiffness matrices (ke) to a file named “&lt;base&gt;_ke.txt”.</p></li>
+<li><p>Transformation matrices (T) to a file named “&lt;base&gt;_T.txt”.</p></li>
+</ul>
+<p>Each file is saved in text format with elements formatted as strings.</p>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="ILHEB.Elements.Element.set_coords">
+<span class="sig-name descname"><span class="pre">set_coords</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">coords</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#ILHEB.Elements.Element.set_coords" title="Link to this definition">#</a></dt>
+<dd><p>Sets the coordinates of the element and calculates its length,
+transformation matrix, and stiffness matrix.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><p><strong>coords</strong> (<em>array-like</em>) – A list or array containing the coordinates
+of the element’s nodes. It should be a
+2D array where the first index corresponds
+to the node and the second index corresponds
+to the spatial dimension.</p>
+</dd>
+</dl>
+<div class="admonition-notes admonition">
+<p class="admonition-title">Notes</p>
+<p>This method also calls <cite>transformation_matrix</cite> and
+<cite>stiffness_matrix</cite>, which are element-dependent methods
+that must be implemented in the derived class.</p>
+</div>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="ILHEB.Elements.Element.set_displacements">
+<span class="sig-name descname"><span class="pre">set_displacements</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">U</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#ILHEB.Elements.Element.set_displacements" title="Link to this definition">#</a></dt>
+<dd><p>Sets the displacement vector for the element in the local coordinate system.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><p><strong>U</strong> (<em>numpy.ndarray</em>) – The global displacement vector.</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="ILHEB.Elements.Element.set_dof">
+<span class="sig-name descname"><span class="pre">set_dof</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">dof</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#ILHEB.Elements.Element.set_dof" title="Link to this definition">#</a></dt>
+<dd><p>Sets the degrees of freedom (DOF) for the element.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><p><strong>dof</strong> (<em>list</em><em> or </em><em>array-like</em>) – A list or array containing the degrees of freedom
+to be assigned to the element.</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="ILHEB.Elements.Element.set_releases">
+<span class="sig-name descname"><span class="pre">set_releases</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">releases</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#ILHEB.Elements.Element.set_releases" title="Link to this definition">#</a></dt>
+<dd><p>Sets the release conditions for the element.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><p><strong>releases</strong> (<em>list</em><em> of </em><em>list</em><em> of </em><em>bool</em>) – A 2D list where each sublist corresponds to a node,
+and each element in the sublist indicates whether
+the corresponding degree of freedom is released (True)
+or not (False).</p>
+</dd>
+</dl>
+</dd></dl>
+
+</dd></dl>
+
+<dl class="py class">
+<dt class="sig sig-object py" id="ILHEB.Elements.FrameElement2D">
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">ILHEB.Elements.</span></span><span class="sig-name descname"><span class="pre">FrameElement2D</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">nodes</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">section</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">material</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#ILHEB.Elements.FrameElement2D" title="Link to this definition">#</a></dt>
+<dd><p>Bases: <a class="reference internal" href="#ILHEB.Elements.FrameElement3D" title="ILHEB.Elements.FrameElement3D"><code class="xref py py-class docutils literal notranslate"><span class="pre">FrameElement3D</span></code></a></p>
+<p>A class representing a 2D frame element, inheriting from FrameElement3D.
+This class models a 2D frame element with specific properties and methods
+for transformation matrices, stiffness matrices, and displacement interpolation.</p>
+<dl class="py attribute">
+<dt class="sig sig-object py" id="ILHEB.Elements.FrameElement2D.ndfnode">
+<span class="sig-name descname"><span class="pre">ndfnode</span></span><a class="headerlink" href="#ILHEB.Elements.FrameElement2D.ndfnode" title="Link to this definition">#</a></dt>
+<dd><p>Number of degrees of freedom per node (default is 3 for 2D).</p>
+<dl class="field-list simple">
+<dt class="field-odd">Type<span class="colon">:</span></dt>
+<dd class="field-odd"><p>int</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="ILHEB.Elements.FrameElement2D.true_dofs">
+<span class="sig-name descname"><span class="pre">true_dofs</span></span><a class="headerlink" href="#ILHEB.Elements.FrameElement2D.true_dofs" title="Link to this definition">#</a></dt>
+<dd><p>List of indices representing the active degrees of freedom.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Type<span class="colon">:</span></dt>
+<dd class="field-odd"><p>list</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="ILHEB.Elements.FrameElement2D.T">
+<span class="sig-name descname"><span class="pre">T</span></span><a class="headerlink" href="#ILHEB.Elements.FrameElement2D.T" title="Link to this definition">#</a></dt>
+<dd><p>Transformation matrix for the element.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Type<span class="colon">:</span></dt>
+<dd class="field-odd"><p>numpy.ndarray</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="ILHEB.Elements.FrameElement2D.ke">
+<span class="sig-name descname"><span class="pre">ke</span></span><a class="headerlink" href="#ILHEB.Elements.FrameElement2D.ke" title="Link to this definition">#</a></dt>
+<dd><p>Stiffness matrix for the element.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Type<span class="colon">:</span></dt>
+<dd class="field-odd"><p>numpy.ndarray</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="ILHEB.Elements.FrameElement2D.transformation_matrix">
+<span class="sig-name descname"><span class="pre">transformation_matrix</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#ILHEB.Elements.FrameElement2D.transformation_matrix" title="Link to this definition">#</a></dt>
+<dd><p>Computes the transformation matrix for the element based on its orientation.</p>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="ILHEB.Elements.FrameElement2D.stiffness_matrix">
+<span class="sig-name descname"><span class="pre">stiffness_matrix</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#ILHEB.Elements.FrameElement2D.stiffness_matrix" title="Link to this definition">#</a></dt>
+<dd><p>Computes the stiffness matrix for the element, reducing it to the active degrees of freedom.</p>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="ILHEB.Elements.FrameElement2D.interpolate_displacements">
+<span class="sig-name descname"><span class="pre">interpolate_displacements</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">n_points</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#ILHEB.Elements.FrameElement2D.interpolate_displacements" title="Link to this definition">#</a></dt>
+<dd><p>Interpolates the displacements along the element at a specified number of points.
+Returns the interpolated coordinates, displacements, and derivatives.</p>
+</dd></dl>
+
+<p>Initializes a 2D frame element with specified nodes, section, and material properties.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>nodes</strong> (<em>list</em>) – A list of node objects defining the element’s geometry.</p></li>
+<li><p><strong>section</strong> (<em>object</em>) – The section properties of the element (e.g., cross-sectional area, moment of inertia).</p></li>
+<li><p><strong>material</strong> (<em>object</em>) – The material properties of the element (e.g., Young’s modulus, density).</p></li>
+</ul>
+</dd>
+</dl>
+<dl class="py method">
+<dt class="sig sig-object py" id="id0">
+<span class="sig-name descname"><span class="pre">interpolate_displacements</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">n_points</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#id0" title="Link to this definition">#</a></dt>
+<dd><p>Interpolates the displacements of an element at specified points along its length.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><p><strong>n_points</strong> (<em>int</em>) – The number of points at which to interpolate the displacements.</p>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p><ul class="simple">
+<li><p>_x (numpy.ndarray): The interpolated coordinates along the element in the local coordinate system.</p></li>
+<li><p>U1 (numpy.ndarray): The interpolated displacements in local coordinates, where each row corresponds to a point.</p></li>
+<li><p>U3 (numpy.ndarray): The second derivative of the displacements with respect to the local coordinate system.</p></li>
+<li><p>U4 (numpy.ndarray): The third derivative of the displacements with respect to the local coordinate system.</p></li>
+</ul>
+</p>
+</dd>
+<dt class="field-odd">Return type<span class="colon">:</span></dt>
+<dd class="field-odd"><p>tuple</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="id1">
+<span class="sig-name descname"><span class="pre">stiffness_matrix</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#id1" title="Link to this definition">#</a></dt>
+<dd><p>Computes and updates the stiffness matrix for the element.
+This method first calls the parent class’s <cite>stiffness_matrix</cite> method to
+perform any necessary base computations. It then extracts the submatrix
+of the stiffness matrix (<cite>ke</cite>) corresponding to the degrees of freedom
+specified in <cite>true_dofs</cite>.</p>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="id2">
+<span class="sig-name descname"><span class="pre">transformation_matrix</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#id2" title="Link to this definition">#</a></dt>
+<dd><p>Computes the transformation matrix for the element based on its orientation.
+This method calculates the transformation matrix <cite>T</cite> and the rotation matrix <cite>r</cite>
+for the element using the coordinates of its two endpoints. The transformation
+matrix is used to transform local element forces and displacements to the global
+coordinate system.</p>
+<p class="rubric">Process</p>
+<ol class="arabic simple">
+<li><p>Calculate the angle <cite>theta</cite> of the element with respect to the global x-axis
+using the arctangent of the slope.</p></li>
+<li><p>Compute the cosine (<cite>c</cite>) and sine (<cite>s</cite>) of the angle <cite>theta</cite>.</p></li>
+<li><p>Construct the rotation matrix <cite>r</cite> and the transformation matrix <cite>T</cite> using
+the computed values of <cite>c</cite> and <cite>s</cite>.</p></li>
+</ol>
+</dd></dl>
+
+</dd></dl>
+
+<dl class="py class">
+<dt class="sig sig-object py" id="ILHEB.Elements.FrameElement3D">
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">ILHEB.Elements.</span></span><span class="sig-name descname"><span class="pre">FrameElement3D</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">nodes</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">section</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">material</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#ILHEB.Elements.FrameElement3D" title="Link to this definition">#</a></dt>
+<dd><p>Bases: <a class="reference internal" href="#ILHEB.Elements.Element" title="ILHEB.Elements.Element"><code class="xref py py-class docutils literal notranslate"><span class="pre">Element</span></code></a></p>
+<p>A class representing a 3D frame element for structural analysis.</p>
+<dl class="simple">
+<dt>Inherits from:</dt><dd><p>Element: The base class for structural elements.</p>
+</dd>
+</dl>
+<dl class="py attribute">
+<dt class="sig sig-object py" id="ILHEB.Elements.FrameElement3D.ndfnode">
+<span class="sig-name descname"><span class="pre">ndfnode</span></span><a class="headerlink" href="#ILHEB.Elements.FrameElement3D.ndfnode" title="Link to this definition">#</a></dt>
+<dd><p>Number of degrees of freedom per node (default is 6).</p>
+<dl class="field-list simple">
+<dt class="field-odd">Type<span class="colon">:</span></dt>
+<dd class="field-odd"><p>int</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="ILHEB.Elements.FrameElement3D.r">
+<span class="sig-name descname"><span class="pre">r</span></span><a class="headerlink" href="#ILHEB.Elements.FrameElement3D.r" title="Link to this definition">#</a></dt>
+<dd><p>Transformation matrix for local to global coordinates.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Type<span class="colon">:</span></dt>
+<dd class="field-odd"><p>numpy.ndarray</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="ILHEB.Elements.FrameElement3D.T">
+<span class="sig-name descname"><span class="pre">T</span></span><a class="headerlink" href="#ILHEB.Elements.FrameElement3D.T" title="Link to this definition">#</a></dt>
+<dd><p>Full transformation matrix for the element.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Type<span class="colon">:</span></dt>
+<dd class="field-odd"><p>numpy.ndarray</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="ILHEB.Elements.FrameElement3D.ke">
+<span class="sig-name descname"><span class="pre">ke</span></span><a class="headerlink" href="#ILHEB.Elements.FrameElement3D.ke" title="Link to this definition">#</a></dt>
+<dd><p>Element stiffness matrix.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Type<span class="colon">:</span></dt>
+<dd class="field-odd"><p>numpy.ndarray</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="ILHEB.Elements.FrameElement3D.__init__">
+<span class="sig-name descname"><span class="pre">__init__</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">nodes</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">section</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">material</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#ILHEB.Elements.FrameElement3D.__init__" title="Link to this definition">#</a></dt>
+<dd><p>Initializes the FrameElement3D object with nodes, section, and material properties.</p>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="ILHEB.Elements.FrameElement3D.transformation_matrix">
+<span class="sig-name descname"><span class="pre">transformation_matrix</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#ILHEB.Elements.FrameElement3D.transformation_matrix" title="Link to this definition">#</a></dt>
+<dd><p>Computes the transformation matrix for the element based on its geometry and orientation.</p>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="ILHEB.Elements.FrameElement3D.stiffness_matrix">
+<span class="sig-name descname"><span class="pre">stiffness_matrix</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#ILHEB.Elements.FrameElement3D.stiffness_matrix" title="Link to this definition">#</a></dt>
+<dd><p>Computes the local stiffness matrix for the element based on its material and section properties.</p>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="ILHEB.Elements.FrameElement3D.interpolate_displacements">
+<span class="sig-name descname"><span class="pre">interpolate_displacements</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">n_points</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#ILHEB.Elements.FrameElement3D.interpolate_displacements" title="Link to this definition">#</a></dt>
+<dd><p>Interpolates displacements along the element at specified points using shape functions.</p>
+</dd></dl>
+
+<p>Initializes an instance of the Element class with specified nodes, section, and material.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>nodes</strong> (<em>list</em>) – A list of nodes defining the element.</p></li>
+<li><p><strong>section</strong> (<em>object</em>) – The section properties of the element.</p></li>
+<li><p><strong>material</strong> (<em>object</em>) – The material properties of the element.</p></li>
+</ul>
+</dd>
+</dl>
+<dl class="py method">
+<dt class="sig sig-object py" id="id3">
+<span class="sig-name descname"><span class="pre">interpolate_displacements</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">n_points</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#id3" title="Link to this definition">#</a></dt>
+<dd><p>Interpolates the displacements and their derivatives for a structural element
+at specified points along its length using Hermite and Lagrange shape functions.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><p><strong>n_points</strong> (<em>int</em>) – The number of points along the element length where
+displacements and their derivatives are to be interpolated.</p>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p><ul class="simple">
+<li><dl class="simple">
+<dt>_x (numpy.ndarray): The interpolated coordinates along the element</dt><dd><p>in the local coordinate system.</p>
+</dd>
+</dl>
+</li>
+<li><dl class="simple">
+<dt>U1 (numpy.ndarray): A 2D array of shape (n_points, 6) containing the</dt><dd><p>interpolated displacements and their derivatives
+at each point. The columns represent:
+[axial displacement, Uy, Uz, torsional displacement, U2y, U2z],
+where:
+- Uy: Transverse displacement in the y-direction.
+- Uz: Transverse displacement in the z-direction.
+- U2y: Derivative of Uy with respect to the local coordinate.
+- U2z: Derivative of Uz with respect to the local coordinate.</p>
+</dd>
+</dl>
+</li>
+</ul>
+</p>
+</dd>
+<dt class="field-odd">Return type<span class="colon">:</span></dt>
+<dd class="field-odd"><p>tuple</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="id4">
+<span class="sig-name descname"><span class="pre">stiffness_matrix</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#id4" title="Link to this definition">#</a></dt>
+<dd><p>Computes the stiffness matrix for a structural element.
+The stiffness matrix is a 12x12 matrix that represents the relationship
+between nodal displacements and forces for a 3D beam element. It is
+calculated based on the material properties, cross-sectional properties,
+and length of the element.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Returns<span class="colon">:</span></dt>
+<dd class="field-odd"><p>The computed stiffness matrix is stored in the <cite>self.ke</cite> attribute.</p>
+</dd>
+<dt class="field-even">Return type<span class="colon">:</span></dt>
+<dd class="field-even"><p>None</p>
+</dd>
+</dl>
+<div class="admonition-notes admonition">
+<p class="admonition-title">Notes</p>
+<ul class="simple">
+<li><p>The stiffness matrix is symmetric and accounts for axial, bending,
+and torsional stiffness of the element. It does not account for shear deformation.</p></li>
+<li><p>The matrix is stored in the <cite>self.ke</cite> attribute for further use.</p></li>
+</ul>
+</div>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="id5">
+<span class="sig-name descname"><span class="pre">transformation_matrix</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#id5" title="Link to this definition">#</a></dt>
+<dd><p>Computes the transformation matrix for the element based on its geometry and orientation.
+This method calculates the local-to-global transformation matrix for a structural element.
+It uses the element’s length, coordinates, and section orientation to determine the
+transformation matrix that maps local coordinate system displacements to the global
+coordinate system.</p>
+<p class="rubric">Process</p>
+<ol class="arabic simple">
+<li><p>Compute the local x-axis unit vector (xl) based on the element’s coordinates.</p></li>
+<li><p>Compute the local z-axis unit vector (zl) as the cross product of xl and the
+section orientation vector.</p></li>
+<li><p>Normalize zl to ensure it is a unit vector.</p></li>
+<li><p>Compute the local y-axis unit vector (yl) as the cross product of zl and xl.</p></li>
+<li><p>Normalize yl to ensure it is a unit vector.</p></li>
+<li><p>Construct the rotation matrix (r) using xl, yl, and zl.</p></li>
+<li><p>Build the 12x12 transformation matrix (T) by embedding r into the appropriate
+submatrices.</p></li>
+</ol>
+<dl class="field-list simple">
+<dt class="field-odd">Returns<span class="colon">:</span></dt>
+<dd class="field-odd"><p><dl class="simple">
+<dt>The method sets the following attributes:</dt><dd><ul class="simple">
+<li><p>self.r (ndarray): The 3x3 rotation matrix.</p></li>
+<li><p>self.T (ndarray): The 12x12 transformation matrix.</p></li>
+</ul>
+</dd>
+</dl>
+</p>
+</dd>
+<dt class="field-even">Return type<span class="colon">:</span></dt>
+<dd class="field-even"><p>None</p>
+</dd>
+</dl>
+</dd></dl>
+
+</dd></dl>
+
+<dl class="py class">
+<dt class="sig sig-object py" id="ILHEB.Elements.TrussElement2D">
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">ILHEB.Elements.</span></span><span class="sig-name descname"><span class="pre">TrussElement2D</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">nodes</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">section</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">material</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#ILHEB.Elements.TrussElement2D" title="Link to this definition">#</a></dt>
+<dd><p>Bases: <a class="reference internal" href="#ILHEB.Elements.FrameElement2D" title="ILHEB.Elements.FrameElement2D"><code class="xref py py-class docutils literal notranslate"><span class="pre">FrameElement2D</span></code></a></p>
+<p>Represents a 2D truss element, which is a structural element that can only carry axial forces.</p>
+<dl class="simple">
+<dt>Inherits from:</dt><dd><p>FrameElement2D: A base class for 2D frame elements.</p>
+</dd>
+</dl>
+<dl class="py attribute">
+<dt class="sig sig-object py" id="ILHEB.Elements.TrussElement2D.releases">
+<span class="sig-name descname"><span class="pre">releases</span></span><a class="headerlink" href="#ILHEB.Elements.TrussElement2D.releases" title="Link to this definition">#</a></dt>
+<dd><p>A 2D list defining the release conditions at the start and end nodes of the element.
+Each sublist contains three boolean values:
+- The first value indicates whether the axial force is released.
+- The second value indicates whether the shear force is released.
+- The third value indicates whether the moment is released.
+For a truss element, moments are always released (True), while axial and shear forces are not released (False).</p>
+<dl class="field-list simple">
+<dt class="field-odd">Type<span class="colon">:</span></dt>
+<dd class="field-odd"><p>list</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="ILHEB.Elements.TrussElement2D.__init__">
+<span class="sig-name descname"><span class="pre">__init__</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">nodes</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">section</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">material</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#ILHEB.Elements.TrussElement2D.__init__" title="Link to this definition">#</a></dt>
+<dd><p>Initializes the TrussElement2D instance with the given nodes, section, and material properties.
+Sets the default release conditions for a truss element.</p>
+</dd></dl>
+
+<p>Initializes a 2D frame element with specified nodes, section, and material properties.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>nodes</strong> (<em>list</em>) – A list of nodes defining the element’s geometry.</p></li>
+<li><p><strong>section</strong> (<em>object</em>) – The cross-sectional properties of the element.</p></li>
+<li><p><strong>material</strong> (<em>object</em>) – The material properties of the element.</p></li>
+</ul>
+</dd>
+</dl>
+<dl class="py method">
+<dt class="sig sig-object py" id="ILHEB.Elements.TrussElement2D.interpolate_displacements">
+<span class="sig-name descname"><span class="pre">interpolate_displacements</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">n_points</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#ILHEB.Elements.TrussElement2D.interpolate_displacements" title="Link to this definition">#</a></dt>
+<dd><p>Interpolates the displacements of an element at specified points along its length.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><p><strong>n_points</strong> (<em>int</em>) – The number of points at which to interpolate the displacements.</p>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p><ul class="simple">
+<li><p>_x (numpy.ndarray): The interpolated coordinates along the element in the local coordinate system.</p></li>
+<li><p>U1 (numpy.ndarray): The interpolated displacements in local coordinates, where each row corresponds to a point.</p></li>
+<li><p>U3 (numpy.ndarray): The second derivative of the displacements with respect to the local coordinate system.</p></li>
+<li><p>U4 (numpy.ndarray): The third derivative of the displacements with respect to the local coordinate system.</p></li>
+</ul>
+</p>
+</dd>
+<dt class="field-odd">Return type<span class="colon">:</span></dt>
+<dd class="field-odd"><p>tuple</p>
+</dd>
+</dl>
+</dd></dl>
+
+</dd></dl>
+
+<dl class="py class">
+<dt class="sig sig-object py" id="ILHEB.Elements.TrussElement3D">
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">ILHEB.Elements.</span></span><span class="sig-name descname"><span class="pre">TrussElement3D</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">nodes</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">section</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">material</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#ILHEB.Elements.TrussElement3D" title="Link to this definition">#</a></dt>
+<dd><p>Bases: <a class="reference internal" href="#ILHEB.Elements.FrameElement3D" title="ILHEB.Elements.FrameElement3D"><code class="xref py py-class docutils literal notranslate"><span class="pre">FrameElement3D</span></code></a></p>
+<p>Represents a 3D truss element, which is a type of structural element
+that can only carry axial forces (tension or compression) and does not
+resist bending moments.</p>
+<dl class="simple">
+<dt>Inherits from:</dt><dd><p>FrameElement3D: A base class for 3D frame elements.</p>
+</dd>
+</dl>
+<dl class="py attribute">
+<dt class="sig sig-object py" id="ILHEB.Elements.TrussElement3D.releases">
+<span class="sig-name descname"><span class="pre">releases</span></span><a class="headerlink" href="#ILHEB.Elements.TrussElement3D.releases" title="Link to this definition">#</a></dt>
+<dd><p>A 2D list defining the degrees of freedom (DOF)
+that are released at each end of the element. For truss elements,
+rotational DOFs are typically released, allowing free rotation
+at the ends. The format is:
+[</p>
+<blockquote>
+<div><p>[False, False, False, True, True, True],  # End 1 DOF releases
+[False, False, False, True, True, True]   # End 2 DOF releases</p>
+</div></blockquote>
+<p>]</p>
+<dl class="field-list simple">
+<dt class="field-odd">Type<span class="colon">:</span></dt>
+<dd class="field-odd"><p>list</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="ILHEB.Elements.TrussElement3D.__init__">
+<span class="sig-name descname"><span class="pre">__init__</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">nodes</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">section</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">material</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#ILHEB.Elements.TrussElement3D.__init__" title="Link to this definition">#</a></dt>
+<dd><p>Initializes the TrussElement3D instance with the given nodes,
+cross-sectional properties, and material properties.</p>
+</dd></dl>
+
+<p>Initializes a 3D frame element with specified nodes, section, and material properties.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>nodes</strong> (<em>list</em>) – A list of nodes defining the element.</p></li>
+<li><p><strong>section</strong> (<em>object</em>) – The cross-sectional properties of the element.</p></li>
+<li><p><strong>material</strong> (<em>object</em>) – The material properties of the element.</p></li>
+</ul>
+</dd>
+</dl>
+<dl class="py method">
+<dt class="sig sig-object py" id="ILHEB.Elements.TrussElement3D.interpolate_displacements">
+<span class="sig-name descname"><span class="pre">interpolate_displacements</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">n_points</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#ILHEB.Elements.TrussElement3D.interpolate_displacements" title="Link to this definition">#</a></dt>
+<dd><p>Interpolates the displacements and their derivatives for a structural element
+at specified points along its length using Hermite and Lagrange shape functions.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><p><strong>n_points</strong> (<em>int</em>) – The number of points along the element length where
+displacements and their derivatives are to be interpolated.</p>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p><ul class="simple">
+<li><dl class="simple">
+<dt>_x (numpy.ndarray): The interpolated coordinates along the element</dt><dd><p>in the local coordinate system.</p>
+</dd>
+</dl>
+</li>
+<li><dl class="simple">
+<dt>U1 (numpy.ndarray): A 2D array of shape (n_points, 6) containing the</dt><dd><p>interpolated displacements and their derivatives
+at each point. The columns represent:
+[axial displacement, Uy, Uz, torsional displacement, U2y, U2z],
+where:
+- Uy: Transverse displacement in the y-direction.
+- Uz: Transverse displacement in the z-direction.
+- U2y: Derivative of Uy with respect to the local coordinate.
+- U2z: Derivative of Uz with respect to the local coordinate.</p>
+</dd>
+</dl>
+</li>
+</ul>
+</p>
+</dd>
+<dt class="field-odd">Return type<span class="colon">:</span></dt>
+<dd class="field-odd"><p>tuple</p>
+</dd>
+</dl>
+</dd></dl>
+
+</dd></dl>
+
+<div class="toctree-wrapper compound">
 <p aria-level="2" class="caption" role="heading"><span class="caption-text">Contents:</span></p>
 <ul>
 <li class="toctree-l1"><a class="reference internal" href="ILHEB/modules.html">ILHEB</a><ul>
@@ -434,7 +1383,76 @@ document.write(`
   </div>
   <nav class="bd-toc-nav page-toc">
     <ul class="visible nav section-nav flex-column">
-<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#">ILHEB’s documentation</a></li>
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#">ILHEB’s documentation</a><ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#ILHEB.Elements.Element"><code class="docutils literal notranslate"><span class="pre">Element</span></code></a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#ILHEB.Elements.Element.nodes"><code class="docutils literal notranslate"><span class="pre">Element.nodes</span></code></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#ILHEB.Elements.Element.section"><code class="docutils literal notranslate"><span class="pre">Element.section</span></code></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#ILHEB.Elements.Element.material"><code class="docutils literal notranslate"><span class="pre">Element.material</span></code></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#ILHEB.Elements.Element.coords"><code class="docutils literal notranslate"><span class="pre">Element.coords</span></code></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#ILHEB.Elements.Element.true_dofs"><code class="docutils literal notranslate"><span class="pre">Element.true_dofs</span></code></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#ILHEB.Elements.Element.loads"><code class="docutils literal notranslate"><span class="pre">Element.loads</span></code></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#ILHEB.Elements.Element.dof"><code class="docutils literal notranslate"><span class="pre">Element.dof</span></code></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#ILHEB.Elements.Element.releases"><code class="docutils literal notranslate"><span class="pre">Element.releases</span></code></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#ILHEB.Elements.Element.fe"><code class="docutils literal notranslate"><span class="pre">Element.fe</span></code></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#ILHEB.Elements.Element.ke"><code class="docutils literal notranslate"><span class="pre">Element.ke</span></code></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#ILHEB.Elements.Element.U"><code class="docutils literal notranslate"><span class="pre">Element.U</span></code></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#ILHEB.Elements.Element.pe"><code class="docutils literal notranslate"><span class="pre">Element.pe</span></code></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#ILHEB.Elements.Element.T"><code class="docutils literal notranslate"><span class="pre">Element.T</span></code></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#ILHEB.Elements.Element.add_load"><code class="docutils literal notranslate"><span class="pre">Element.add_load()</span></code></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#ILHEB.Elements.Element.calculate_fe"><code class="docutils literal notranslate"><span class="pre">Element.calculate_fe()</span></code></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#ILHEB.Elements.Element.calculate_pe"><code class="docutils literal notranslate"><span class="pre">Element.calculate_pe()</span></code></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#ILHEB.Elements.Element.dhermit_shape_functions"><code class="docutils literal notranslate"><span class="pre">Element.dhermit_shape_functions()</span></code></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#ILHEB.Elements.Element.hermit_shape_functions"><code class="docutils literal notranslate"><span class="pre">Element.hermit_shape_functions()</span></code></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#ILHEB.Elements.Element.lagrange_shape_functions"><code class="docutils literal notranslate"><span class="pre">Element.lagrange_shape_functions()</span></code></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#ILHEB.Elements.Element.pre_init"><code class="docutils literal notranslate"><span class="pre">Element.pre_init()</span></code></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#ILHEB.Elements.Element.save_results"><code class="docutils literal notranslate"><span class="pre">Element.save_results()</span></code></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#ILHEB.Elements.Element.set_coords"><code class="docutils literal notranslate"><span class="pre">Element.set_coords()</span></code></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#ILHEB.Elements.Element.set_displacements"><code class="docutils literal notranslate"><span class="pre">Element.set_displacements()</span></code></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#ILHEB.Elements.Element.set_dof"><code class="docutils literal notranslate"><span class="pre">Element.set_dof()</span></code></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#ILHEB.Elements.Element.set_releases"><code class="docutils literal notranslate"><span class="pre">Element.set_releases()</span></code></a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#ILHEB.Elements.FrameElement2D"><code class="docutils literal notranslate"><span class="pre">FrameElement2D</span></code></a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#ILHEB.Elements.FrameElement2D.ndfnode"><code class="docutils literal notranslate"><span class="pre">FrameElement2D.ndfnode</span></code></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#ILHEB.Elements.FrameElement2D.true_dofs"><code class="docutils literal notranslate"><span class="pre">FrameElement2D.true_dofs</span></code></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#ILHEB.Elements.FrameElement2D.T"><code class="docutils literal notranslate"><span class="pre">FrameElement2D.T</span></code></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#ILHEB.Elements.FrameElement2D.ke"><code class="docutils literal notranslate"><span class="pre">FrameElement2D.ke</span></code></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#ILHEB.Elements.FrameElement2D.transformation_matrix"><code class="docutils literal notranslate"><span class="pre">FrameElement2D.transformation_matrix()</span></code></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#ILHEB.Elements.FrameElement2D.stiffness_matrix"><code class="docutils literal notranslate"><span class="pre">FrameElement2D.stiffness_matrix()</span></code></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#ILHEB.Elements.FrameElement2D.interpolate_displacements"><code class="docutils literal notranslate"><span class="pre">FrameElement2D.interpolate_displacements()</span></code></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id0"><code class="docutils literal notranslate"><span class="pre">FrameElement2D.interpolate_displacements()</span></code></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id1"><code class="docutils literal notranslate"><span class="pre">FrameElement2D.stiffness_matrix()</span></code></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id2"><code class="docutils literal notranslate"><span class="pre">FrameElement2D.transformation_matrix()</span></code></a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#ILHEB.Elements.FrameElement3D"><code class="docutils literal notranslate"><span class="pre">FrameElement3D</span></code></a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#ILHEB.Elements.FrameElement3D.ndfnode"><code class="docutils literal notranslate"><span class="pre">FrameElement3D.ndfnode</span></code></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#ILHEB.Elements.FrameElement3D.r"><code class="docutils literal notranslate"><span class="pre">FrameElement3D.r</span></code></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#ILHEB.Elements.FrameElement3D.T"><code class="docutils literal notranslate"><span class="pre">FrameElement3D.T</span></code></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#ILHEB.Elements.FrameElement3D.ke"><code class="docutils literal notranslate"><span class="pre">FrameElement3D.ke</span></code></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#ILHEB.Elements.FrameElement3D.__init__"><code class="docutils literal notranslate"><span class="pre">FrameElement3D.__init__()</span></code></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#ILHEB.Elements.FrameElement3D.transformation_matrix"><code class="docutils literal notranslate"><span class="pre">FrameElement3D.transformation_matrix()</span></code></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#ILHEB.Elements.FrameElement3D.stiffness_matrix"><code class="docutils literal notranslate"><span class="pre">FrameElement3D.stiffness_matrix()</span></code></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#ILHEB.Elements.FrameElement3D.interpolate_displacements"><code class="docutils literal notranslate"><span class="pre">FrameElement3D.interpolate_displacements()</span></code></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id3"><code class="docutils literal notranslate"><span class="pre">FrameElement3D.interpolate_displacements()</span></code></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id4"><code class="docutils literal notranslate"><span class="pre">FrameElement3D.stiffness_matrix()</span></code></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id5"><code class="docutils literal notranslate"><span class="pre">FrameElement3D.transformation_matrix()</span></code></a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#ILHEB.Elements.TrussElement2D"><code class="docutils literal notranslate"><span class="pre">TrussElement2D</span></code></a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#ILHEB.Elements.TrussElement2D.releases"><code class="docutils literal notranslate"><span class="pre">TrussElement2D.releases</span></code></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#ILHEB.Elements.TrussElement2D.__init__"><code class="docutils literal notranslate"><span class="pre">TrussElement2D.__init__()</span></code></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#ILHEB.Elements.TrussElement2D.interpolate_displacements"><code class="docutils literal notranslate"><span class="pre">TrussElement2D.interpolate_displacements()</span></code></a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#ILHEB.Elements.TrussElement3D"><code class="docutils literal notranslate"><span class="pre">TrussElement3D</span></code></a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#ILHEB.Elements.TrussElement3D.releases"><code class="docutils literal notranslate"><span class="pre">TrussElement3D.releases</span></code></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#ILHEB.Elements.TrussElement3D.__init__"><code class="docutils literal notranslate"><span class="pre">TrussElement3D.__init__()</span></code></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#ILHEB.Elements.TrussElement3D.interpolate_displacements"><code class="docutils literal notranslate"><span class="pre">TrussElement3D.interpolate_displacements()</span></code></a></li>
+</ul>
+</li>
+</ul>
+</li>
 <li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#indices-and-tables">Indices and tables</a></li>
 <li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#structural-analysis-project-version-0-0-1">Structural analysis project version 0.0.1</a><ul class="visible nav section-nav flex-column">
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#running-the-examples-of-the-extra-examples-folder">Running the examples of the Extra_examples folder:</a></li>
