@@ -259,6 +259,80 @@
 <dt class="sig sig-object py" id="ILHEB.Core.ILHEB">
 <em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">ILHEB.Core.</span></span><span class="sig-name descname"><span class="pre">ILHEB</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">geometry</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#ILHEB.Core.ILHEB" title="Link to this definition">¶</a></dt>
 <dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">object</span></code></p>
+<p>Initializes the Core object with the given geometry and sets up the
+necessary attributes for structural analysis.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><p><strong>geometry</strong> (<em>Geometry</em>) – An instance of the Geometry class that defines
+the structure’s nodes, elements, and degrees of freedom.</p>
+</dd>
+</dl>
+<dl class="py attribute">
+<dt class="sig sig-object py" id="ILHEB.Core.ILHEB.geometry">
+<span class="sig-name descname"><span class="pre">geometry</span></span><a class="headerlink" href="#ILHEB.Core.ILHEB.geometry" title="Link to this definition">¶</a></dt>
+<dd><p>The geometry object associated with the structure.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Type<span class="colon">:</span></dt>
+<dd class="field-odd"><p>Geometry</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="ILHEB.Core.ILHEB.ndof">
+<span class="sig-name descname"><span class="pre">ndof</span></span><a class="headerlink" href="#ILHEB.Core.ILHEB.ndof" title="Link to this definition">¶</a></dt>
+<dd><p>The total number of degrees of freedom in the structure.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Type<span class="colon">:</span></dt>
+<dd class="field-odd"><p>int</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="ILHEB.Core.ILHEB.elements">
+<span class="sig-name descname"><span class="pre">elements</span></span><a class="headerlink" href="#ILHEB.Core.ILHEB.elements" title="Link to this definition">¶</a></dt>
+<dd><p>A list of elements in the structure.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Type<span class="colon">:</span></dt>
+<dd class="field-odd"><p>list</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="ILHEB.Core.ILHEB.node_dofs">
+<span class="sig-name descname"><span class="pre">node_dofs</span></span><a class="headerlink" href="#ILHEB.Core.ILHEB.node_dofs" title="Link to this definition">¶</a></dt>
+<dd><p>A mapping of nodes to their corresponding degrees of freedom.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Type<span class="colon">:</span></dt>
+<dd class="field-odd"><p>dict</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="ILHEB.Core.ILHEB.node_loads">
+<span class="sig-name descname"><span class="pre">node_loads</span></span><a class="headerlink" href="#ILHEB.Core.ILHEB.node_loads" title="Link to this definition">¶</a></dt>
+<dd><p>A mapping of nodes to their applied loads.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Type<span class="colon">:</span></dt>
+<dd class="field-odd"><p>dict</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="ILHEB.Core.ILHEB.solver">
+<span class="sig-name descname"><span class="pre">solver</span></span><a class="headerlink" href="#ILHEB.Core.ILHEB.solver" title="Link to this definition">¶</a></dt>
+<dd><p>An instance of the LinearSolver class for solving the structural analysis problem.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Type<span class="colon">:</span></dt>
+<dd class="field-odd"><p><a class="reference internal" href="#ILHEB.Solver.LinearSolver" title="ILHEB.Solver.LinearSolver">LinearSolver</a></p>
+</dd>
+</dl>
+</dd></dl>
+
 <dl class="py method">
 <dt class="sig sig-object py" id="ILHEB.Core.ILHEB.assemble">
 <span class="sig-name descname"><span class="pre">assemble</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#ILHEB.Core.ILHEB.assemble" title="Link to this definition">¶</a></dt>
@@ -267,28 +341,6 @@ This method constructs the global stiffness matrix and force vector by
 iterating over the elements and node loads in the system. It uses sparse
 matrices for efficiency and handles contributions from both element-level
 stiffness/force and node-level loads.</p>
-<dl class="py attribute">
-<dt class="sig sig-object py" id="ILHEB.Core.ILHEB.self.K">
-<span class="sig-prename descclassname"><span class="pre">self.</span></span><span class="sig-name descname"><span class="pre">K</span></span><a class="headerlink" href="#ILHEB.Core.ILHEB.self.K" title="Link to this definition">¶</a></dt>
-<dd><p>The assembled global stiffness matrix.</p>
-<dl class="field-list simple">
-<dt class="field-odd">Type<span class="colon">:</span></dt>
-<dd class="field-odd"><p>scipy.sparse.lil_matrix</p>
-</dd>
-</dl>
-</dd></dl>
-
-<dl class="py attribute">
-<dt class="sig sig-object py" id="ILHEB.Core.ILHEB.self.F">
-<span class="sig-prename descclassname"><span class="pre">self.</span></span><span class="sig-name descname"><span class="pre">F</span></span><a class="headerlink" href="#ILHEB.Core.ILHEB.self.F" title="Link to this definition">¶</a></dt>
-<dd><p>The assembled global force vector.</p>
-<dl class="field-list simple">
-<dt class="field-odd">Type<span class="colon">:</span></dt>
-<dd class="field-odd"><p>numpy.ndarray</p>
-</dd>
-</dl>
-</dd></dl>
-
 <p>Process:</p>
 <blockquote>
 <div><ol class="arabic simple">
@@ -315,48 +367,18 @@ and the external sources vector (forces and boundary conditions) (S).
 The method adjusts the stiffness matrix and force vector to account for
 constraints specified in the <cite>ebc</cite> attribute of the geometry object.
 The <cite>ebc</cite> is expected to be an array where each row specifies a degree
-of freedom (DOF) and its corresponding constrained value.
-Steps performed:
-1. Initializes the boundary conditions vector.
-2. Modifies the stiffness matrix (K) to enforce constraints by zeroing out
+of freedom (DOF) and its corresponding constrained value.</p>
+<p>Process:</p>
+<blockquote>
+<div><ol class="arabic simple">
+<li><p>Initializes the boundary conditions vector.</p></li>
+<li><p>Modifies the stiffness matrix (K) to enforce constraints by zeroing out
 rows and columns corresponding to constrained DOFs and setting diagonal
-entries to 1.
-3. Adjusts the force vector (S) to account for the constraints.
-4. Updates the force vector with the constrained values for the specified DOFs.</p>
-<dl class="py attribute">
-<dt class="sig sig-object py" id="ILHEB.Core.ILHEB.self.S">
-<span class="sig-prename descclassname"><span class="pre">self.</span></span><span class="sig-name descname"><span class="pre">S</span></span><a class="headerlink" href="#ILHEB.Core.ILHEB.self.S" title="Link to this definition">¶</a></dt>
-<dd><p>The force vector, modified to include boundary conditions.</p>
-<dl class="field-list simple">
-<dt class="field-odd">Type<span class="colon">:</span></dt>
-<dd class="field-odd"><p>numpy.ndarray</p>
-</dd>
-</dl>
-</dd></dl>
-
-<dl class="py attribute">
-<dt class="sig sig-object py" id="id0">
-<span class="sig-prename descclassname"><span class="pre">self.</span></span><span class="sig-name descname"><span class="pre">K</span></span><a class="headerlink" href="#id0" title="Link to this definition">¶</a></dt>
-<dd><p>The stiffness matrix, modified to enforce boundary conditions.</p>
-<dl class="field-list simple">
-<dt class="field-odd">Type<span class="colon">:</span></dt>
-<dd class="field-odd"><p>numpy.ndarray</p>
-</dd>
-</dl>
-</dd></dl>
-
-<dl class="py attribute">
-<dt class="sig sig-object py" id="ILHEB.Core.ILHEB.self.ebc">
-<span class="sig-prename descclassname"><span class="pre">self.</span></span><span class="sig-name descname"><span class="pre">ebc</span></span><a class="headerlink" href="#ILHEB.Core.ILHEB.self.ebc" title="Link to this definition">¶</a></dt>
-<dd><p>Array of essential boundary conditions, where each row
-contains a DOF index and its constrained value.</p>
-<dl class="field-list simple">
-<dt class="field-odd">Type<span class="colon">:</span></dt>
-<dd class="field-odd"><p>numpy.ndarray</p>
-</dd>
-</dl>
-</dd></dl>
-
+entries to 1.</p></li>
+<li><p>Adjusts the force vector (S) to account for the constraints.</p></li>
+<li><p>Updates the force vector with the constrained values for the specified DOFs.</p></li>
+</ol>
+</div></blockquote>
 <dl class="field-list simple">
 <dt class="field-odd">Raises<span class="colon">:</span></dt>
 <dd class="field-odd"><p><strong>AttributeError</strong> – If <cite>self.geometry</cite> or <cite>self.geometry.ebc</cite> is not defined.</p>
@@ -376,7 +398,23 @@ diagram for each element.</p>
 <dl class="py method">
 <dt class="sig sig-object py" id="ILHEB.Core.ILHEB.generate_report">
 <span class="sig-name descname"><span class="pre">generate_report</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">filename</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#ILHEB.Core.ILHEB.generate_report" title="Link to this definition">¶</a></dt>
-<dd></dd></dl>
+<dd><p>Generates a PDF report containing all currently open matplotlib figures.
+:param filename: The path and name of the PDF file to save the report.
+:type filename: str</p>
+<dl class="field-list simple">
+<dt class="field-odd">Raises<span class="colon">:</span></dt>
+<dd class="field-odd"><p><strong>Exception</strong> – If an error occurs during the report generation, it will be caught
+    and printed to the console.</p>
+</dd>
+</dl>
+<p class="rubric">Notes</p>
+<ul class="simple">
+<li><p>This method uses <cite>matplotlib.backends.backend_pdf.PdfPages</cite> to create a multi-page
+PDF document.</p></li>
+<li><p>All figures currently open in matplotlib (retrieved using <cite>plt.get_fignums()</cite>)
+will be included in the PDF.</p></li>
+</ul>
+</dd></dl>
 
 <dl class="py method">
 <dt class="sig sig-object py" id="ILHEB.Core.ILHEB.plot_displacements">
@@ -401,27 +439,18 @@ of freedom <cite>self.valid_dof</cite>.</p>
 <span class="sig-name descname"><span class="pre">post_process</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#ILHEB.Core.ILHEB.post_process" title="Link to this definition">¶</a></dt>
 <dd><p>Perform post-processing operations for the structural analysis.
 This method calculates the reactions, updates element displacements,
-and computes interna forces for each element after the analysis.
-Steps:
-1. Assemble the global stiffness matrix and force vector.
-2. Compute the reaction forces using the global stiffness matrix,</p>
-<blockquote>
-<div><p>displacement vector, and external force vector.</p>
-</div></blockquote>
-<ol class="arabic simple" start="3">
-<li><p>Update the displacements for each element based on the global
-displacement vector.</p></li>
+and computes interna forces for each element after the analysis.</p>
+<dl>
+<dt>Process:</dt><dd><ol class="arabic simple">
+<li><p>Assemble the global stiffness matrix and force vector.</p></li>
 </ol>
-<p>4. Calculate the internal forces for each element.
-.. attribute:: self.R</p>
-<blockquote>
-<div><p>Reaction forces vector.</p>
-<dl class="field-list simple">
-<dt class="field-odd">type<span class="colon">:</span></dt>
-<dd class="field-odd"><p>numpy.ndarray</p>
+<p>2. Compute the reaction forces using the global stiffness matrix,
+displacement vector, and external force vector.
+3. Update the displacements for each element based on the global
+displacement vector.
+4. Calculate the internal forces for each element.</p>
 </dd>
 </dl>
-</div></blockquote>
 </dd></dl>
 
 <dl class="py method">
@@ -430,12 +459,13 @@ displacement vector.</p></li>
 <dd><p>Saves the results of the analysis to the specified folder.
 This method creates the specified folder if it does not already exist
 and saves the displacement vector, reaction forces, and element-specific
-results into separate files within the folder.
-:param folder: The path to the folder where the results will be saved.
-:type folder: str</p>
+results into separate files within the folder.</p>
 <dl class="field-list simple">
-<dt class="field-odd">Raises<span class="colon">:</span></dt>
-<dd class="field-odd"><p><strong>Exception</strong> – If an error occurs while creating the folder, it is caught
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><p><strong>folder</strong> (<em>str</em>) – The path to the folder where the results will be saved.</p>
+</dd>
+<dt class="field-even">Raises<span class="colon">:</span></dt>
+<dd class="field-even"><p><strong>Exception</strong> – If an error occurs while creating the folder, it is caught
     and ignored.</p>
 </dd>
 </dl>
@@ -445,20 +475,15 @@ results into separate files within the folder.
 <dt class="sig sig-object py" id="ILHEB.Core.ILHEB.solve">
 <span class="sig-name descname"><span class="pre">solve</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#ILHEB.Core.ILHEB.solve" title="Link to this definition">¶</a></dt>
 <dd><p>Solves the structural analysis problem by assembling the system,
-applying boundary conditions, and solving for displacements.
-This method performs the following steps:
-1. Assembles the global stiffness matrix and load vector.
-2. Applies the specified boundary conditions to the system.
-3. Solves the resulting system of equations to compute the displacement vector.
-.. attribute:: U</p>
-<blockquote>
-<div><p>The computed displacement vector after solving the system.</p>
-<dl class="field-list simple">
-<dt class="field-odd">type<span class="colon">:</span></dt>
-<dd class="field-odd"><p>numpy.ndarray</p>
+applying boundary conditions, and solving for displacements.</p>
+<dl class="simple">
+<dt>Process:</dt><dd><ol class="arabic simple">
+<li><p>Assembles the global stiffness matrix and load vector.</p></li>
+<li><p>Applies the specified boundary conditions to the system.</p></li>
+<li><p>Solves the resulting system of equations to compute the displacement vector.</p></li>
+</ol>
 </dd>
 </dl>
-</div></blockquote>
 </dd></dl>
 
 </dd></dl>
@@ -685,8 +710,8 @@ and stiffness matrix.</p>
 </dd></dl>
 
 <dl class="py method">
-<dt class="sig sig-object py" id="id1">
-<span class="sig-name descname"><span class="pre">add_load</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">load</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#id1" title="Link to this definition">¶</a></dt>
+<dt class="sig sig-object py" id="id0">
+<span class="sig-name descname"><span class="pre">add_load</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">load</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#id0" title="Link to this definition">¶</a></dt>
 <dd><p>Adds a load to the element and updates the element’s force vector.
 :param load: The load to be added. It must be an instance of the Load class or its subclasses.
 :type load: ElementLoad</p>
@@ -705,8 +730,8 @@ and stiffness matrix.</p>
 </dd></dl>
 
 <dl class="py method">
-<dt class="sig sig-object py" id="id2">
-<span class="sig-name descname"><span class="pre">calculate_fe</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#id2" title="Link to this definition">¶</a></dt>
+<dt class="sig sig-object py" id="id1">
+<span class="sig-name descname"><span class="pre">calculate_fe</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#id1" title="Link to this definition">¶</a></dt>
 <dd><p>Calculates and updates the element’s force vector (<cite>fe</cite>) based on the applied loads.
 This method iterates through all the loads applied to the element and accumulates
 their contributions to the force vector (<cite>fe</cite>) at the degrees of freedom (DOFs)
@@ -729,8 +754,8 @@ specified by <cite>true_dofs</cite>.
 </dd></dl>
 
 <dl class="py method">
-<dt class="sig sig-object py" id="id3">
-<span class="sig-name descname"><span class="pre">calculate_pe</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#id3" title="Link to this definition">¶</a></dt>
+<dt class="sig sig-object py" id="id2">
+<span class="sig-name descname"><span class="pre">calculate_pe</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#id2" title="Link to this definition">¶</a></dt>
 <dd><p>Calculates the internal force vector <cite>pe</cite> for the element.
 The calculation is performed using the formula:</p>
 <blockquote>
@@ -748,8 +773,8 @@ The calculation is performed using the formula:</p>
 </dd></dl>
 
 <dl class="py method">
-<dt class="sig sig-object py" id="id4">
-<span class="sig-name descname"><span class="pre">dhermit_shape_functions</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">z</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#id4" title="Link to this definition">¶</a></dt>
+<dt class="sig sig-object py" id="id3">
+<span class="sig-name descname"><span class="pre">dhermit_shape_functions</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">z</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#id3" title="Link to this definition">¶</a></dt>
 <dd><p>Computes the derivatives of Hermitian shape functions for a beam element.
 :param z: float</p>
 <blockquote>
@@ -778,8 +803,8 @@ in finite element analysis. (Euler bernoulli)</p>
 </dd></dl>
 
 <dl class="py method">
-<dt class="sig sig-object py" id="id5">
-<span class="sig-name descname"><span class="pre">hermit_shape_functions</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">z</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#id5" title="Link to this definition">¶</a></dt>
+<dt class="sig sig-object py" id="id4">
+<span class="sig-name descname"><span class="pre">hermit_shape_functions</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">z</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#id4" title="Link to this definition">¶</a></dt>
 <dd><p>Computes the Hermite shape functions for a given local coordinate <cite>z</cite>.
 Hermite shape functions are used in finite element analysis for beam and
 frame elements to interpolate displacements and rotations.
@@ -805,8 +830,8 @@ coordinate <cite>x</cite> using the transformation: x = (L/2) * z + (L/2).</p>
 </dd></dl>
 
 <dl class="py method">
-<dt class="sig sig-object py" id="id6">
-<span class="sig-name descname"><span class="pre">lagrange_shape_functions</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">z</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#id6" title="Link to this definition">¶</a></dt>
+<dt class="sig sig-object py" id="id5">
+<span class="sig-name descname"><span class="pre">lagrange_shape_functions</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">z</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#id5" title="Link to this definition">¶</a></dt>
 <dd><p>Computes the Lagrange shape functions for a given local coordinate.
 :param z: The local coordinate (typically ranging from -1 to 1).
 :type z: float or np.ndarray</p>
@@ -825,8 +850,8 @@ coordinate <cite>x</cite> using the transformation: x = (L/2) * z + (L/2).</p>
 </dd></dl>
 
 <dl class="py method">
-<dt class="sig sig-object py" id="id7">
-<span class="sig-name descname"><span class="pre">pre_init</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#id7" title="Link to this definition">¶</a></dt>
+<dt class="sig sig-object py" id="id6">
+<span class="sig-name descname"><span class="pre">pre_init</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#id6" title="Link to this definition">¶</a></dt>
 <dd><p>Initializes the element’s properties and attributes to their default values.
 This method sets up the initial state of the element by initializing various
 attributes such as loads, degrees of freedom (DOF), releases, and matrices
@@ -854,8 +879,8 @@ representing the transformation matrix for the element.</p></li>
 </dd></dl>
 
 <dl class="py method">
-<dt class="sig sig-object py" id="id8">
-<span class="sig-name descname"><span class="pre">save_results</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">base</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#id8" title="Link to this definition">¶</a></dt>
+<dt class="sig sig-object py" id="id7">
+<span class="sig-name descname"><span class="pre">save_results</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">base</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#id7" title="Link to this definition">¶</a></dt>
 <dd><p>Saves the results of the analysis to text files.
 Parameters:
 base (str): The base file path and name to which the results will be saved.</p>
@@ -872,8 +897,8 @@ Each file is saved in text format with elements formatted as strings.</p>
 </dd></dl>
 
 <dl class="py method">
-<dt class="sig sig-object py" id="id9">
-<span class="sig-name descname"><span class="pre">set_coords</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">coords</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#id9" title="Link to this definition">¶</a></dt>
+<dt class="sig sig-object py" id="id8">
+<span class="sig-name descname"><span class="pre">set_coords</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">coords</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#id8" title="Link to this definition">¶</a></dt>
 <dd><p>Sets the coordinates of the element and calculates its length,
 transformation matrix, and stiffness matrix.
 :param coords: A list or array containing the coordinates</p>
@@ -900,8 +925,8 @@ that must be implemented in the derived class.</p>
 </dd></dl>
 
 <dl class="py method">
-<dt class="sig sig-object py" id="id10">
-<span class="sig-name descname"><span class="pre">set_displacements</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">U</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#id10" title="Link to this definition">¶</a></dt>
+<dt class="sig sig-object py" id="id9">
+<span class="sig-name descname"><span class="pre">set_displacements</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">U</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#id9" title="Link to this definition">¶</a></dt>
 <dd><p>Sets the displacement vector for the element in the local coordinate system.
 :param U: The global displacement vector.
 :type U: numpy.ndarray</p>
@@ -915,8 +940,8 @@ that must be implemented in the derived class.</p>
 </dd></dl>
 
 <dl class="py method">
-<dt class="sig sig-object py" id="id11">
-<span class="sig-name descname"><span class="pre">set_dof</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">dof</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#id11" title="Link to this definition">¶</a></dt>
+<dt class="sig sig-object py" id="id10">
+<span class="sig-name descname"><span class="pre">set_dof</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">dof</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#id10" title="Link to this definition">¶</a></dt>
 <dd><p>Sets the degrees of freedom (DOF) for the element.
 :param dof: A list or array containing the degrees of freedom</p>
 <blockquote>
@@ -927,8 +952,8 @@ that must be implemented in the derived class.</p>
 </dd></dl>
 
 <dl class="py method">
-<dt class="sig sig-object py" id="id12">
-<span class="sig-name descname"><span class="pre">set_releases</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">releases</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#id12" title="Link to this definition">¶</a></dt>
+<dt class="sig sig-object py" id="id11">
+<span class="sig-name descname"><span class="pre">set_releases</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">releases</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#id11" title="Link to this definition">¶</a></dt>
 <dd><p>Sets the release conditions for the element.
 :param releases: A 2D list where each sublist corresponds to a node,</p>
 <blockquote>
@@ -1011,8 +1036,8 @@ Returns the interpolated coordinates, displacements, and derivatives.</p>
 </dd></dl>
 
 <dl class="py method">
-<dt class="sig sig-object py" id="id13">
-<span class="sig-name descname"><span class="pre">interpolate_displacements</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">n_points</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#id13" title="Link to this definition">¶</a></dt>
+<dt class="sig sig-object py" id="id12">
+<span class="sig-name descname"><span class="pre">interpolate_displacements</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">n_points</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#id12" title="Link to this definition">¶</a></dt>
 <dd><p>Interpolates the displacements of an element at specified points along its length.
 :param n_points: The number of points at which to interpolate the displacements.
 :type n_points: int</p>
@@ -1033,8 +1058,8 @@ Returns the interpolated coordinates, displacements, and derivatives.</p>
 </dd></dl>
 
 <dl class="py method">
-<dt class="sig sig-object py" id="id14">
-<span class="sig-name descname"><span class="pre">stiffness_matrix</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#id14" title="Link to this definition">¶</a></dt>
+<dt class="sig sig-object py" id="id13">
+<span class="sig-name descname"><span class="pre">stiffness_matrix</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#id13" title="Link to this definition">¶</a></dt>
 <dd><p>Computes and updates the stiffness matrix for the element.
 This method first calls the parent class’s <cite>stiffness_matrix</cite> method to
 perform any necessary base computations. It then extracts the submatrix
@@ -1050,8 +1075,8 @@ specified in <cite>true_dofs</cite>.
 </dl>
 </div></blockquote>
 <dl class="py attribute">
-<dt class="sig sig-object py" id="id15">
-<span class="sig-name descname"><span class="pre">true_dofs</span></span><a class="headerlink" href="#id15" title="Link to this definition">¶</a></dt>
+<dt class="sig sig-object py" id="id14">
+<span class="sig-name descname"><span class="pre">true_dofs</span></span><a class="headerlink" href="#id14" title="Link to this definition">¶</a></dt>
 <dd><p>Indices of the degrees of freedom
 to be retained in the stiffness matrix.</p>
 <dl class="field-list simple">
@@ -1069,8 +1094,8 @@ columns corresponding to <cite>true_dofs</cite>.</p>
 </dd></dl>
 
 <dl class="py method">
-<dt class="sig sig-object py" id="id16">
-<span class="sig-name descname"><span class="pre">transformation_matrix</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#id16" title="Link to this definition">¶</a></dt>
+<dt class="sig sig-object py" id="id15">
+<span class="sig-name descname"><span class="pre">transformation_matrix</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#id15" title="Link to this definition">¶</a></dt>
 <dd><p>Computes the transformation matrix for the element based on its orientation.
 This method calculates the transformation matrix <cite>T</cite> and the rotation matrix <cite>r</cite>
 for the element using the coordinates of its two endpoints. The transformation
@@ -1185,8 +1210,8 @@ Inherits from:</p>
 </dd>
 </dl>
 <dl class="py method">
-<dt class="sig sig-object py" id="id17">
-<span class="sig-name descname"><span class="pre">interpolate_displacements</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">n_points</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#id17" title="Link to this definition">¶</a></dt>
+<dt class="sig sig-object py" id="id16">
+<span class="sig-name descname"><span class="pre">interpolate_displacements</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">n_points</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#id16" title="Link to this definition">¶</a></dt>
 <dd><p>Interpolates the displacements and their derivatives for a structural element
 at specified points along its length using Hermite and Lagrange shape functions.
 :param n_points: The number of points along the element length where</p>
@@ -1223,8 +1248,8 @@ where:
 </dd></dl>
 
 <dl class="py method">
-<dt class="sig sig-object py" id="id18">
-<span class="sig-name descname"><span class="pre">stiffness_matrix</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#id18" title="Link to this definition">¶</a></dt>
+<dt class="sig sig-object py" id="id17">
+<span class="sig-name descname"><span class="pre">stiffness_matrix</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#id17" title="Link to this definition">¶</a></dt>
 <dd><p>Computes the stiffness matrix for a structural element.
 The stiffness matrix is a 12x12 matrix that represents the relationship
 between nodal displacements and forces for a 3D beam element. It is
@@ -1251,8 +1276,8 @@ and torsional stiffness of the element. It does not account for shear deformatio
 </dd></dl>
 
 <dl class="py method">
-<dt class="sig sig-object py" id="id19">
-<span class="sig-name descname"><span class="pre">transformation_matrix</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#id19" title="Link to this definition">¶</a></dt>
+<dt class="sig sig-object py" id="id18">
+<span class="sig-name descname"><span class="pre">transformation_matrix</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#id18" title="Link to this definition">¶</a></dt>
 <dd><p>Computes the transformation matrix for the element based on its geometry and orientation.
 This method calculates the local-to-global transformation matrix for a structural element.
 It uses the element’s length, coordinates, and section orientation to determine the
@@ -1519,8 +1544,8 @@ where:
 </dd></dl>
 
 <dl class="py method">
-<dt class="sig sig-object py" id="id20">
-<span class="sig-name descname"><span class="pre">force_diagram</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">element_id</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">plot</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">True</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#id20" title="Link to this definition">¶</a></dt>
+<dt class="sig sig-object py" id="id19">
+<span class="sig-name descname"><span class="pre">force_diagram</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">element_id</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">plot</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">True</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#id19" title="Link to this definition">¶</a></dt>
 <dd><p>Generates and optionally plots the force diagram for a specified structural element.
 :param element_id: int</p>
 <blockquote>
@@ -1563,8 +1588,8 @@ determine internal forces.
 </dd></dl>
 
 <dl class="py method">
-<dt class="sig sig-object py" id="id21">
-<span class="sig-name descname"><span class="pre">plot</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">plot_labels</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">True</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">filename</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#id21" title="Link to this definition">¶</a></dt>
+<dt class="sig sig-object py" id="id20">
+<span class="sig-name descname"><span class="pre">plot</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">plot_labels</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">True</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">filename</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#id20" title="Link to this definition">¶</a></dt>
 <dd><p>Plots the geometry of the structure, including nodes, elements, and boundary conditions.
 :param plot_labels: If True, labels for nodes and elements will be displayed.</p>
 <blockquote>
@@ -1586,8 +1611,8 @@ Defaults to None.</p>
 </dd></dl>
 
 <dl class="py method">
-<dt class="sig sig-object py" id="id22">
-<span class="sig-name descname"><span class="pre">plot_defo</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">mult</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">1</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">n_points</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">10</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">filename</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#id22" title="Link to this definition">¶</a></dt>
+<dt class="sig sig-object py" id="id21">
+<span class="sig-name descname"><span class="pre">plot_defo</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">mult</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">1</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">n_points</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">10</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">filename</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#id21" title="Link to this definition">¶</a></dt>
 <dd><p>Plots the deformed shape of a structure along with its original geometry.
 :param mult: A multiplier for the displacements to scale the deformation. Default is 1.
 :type mult: float, optional
@@ -1605,8 +1630,8 @@ Defaults to None.</p>
 </dd></dl>
 
 <dl class="py method">
-<dt class="sig sig-object py" id="id23">
-<span class="sig-name descname"><span class="pre">plot_displacements</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">U</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">valid_dofs</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#id23" title="Link to this definition">¶</a></dt>
+<dt class="sig sig-object py" id="id22">
+<span class="sig-name descname"><span class="pre">plot_displacements</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">U</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">valid_dofs</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#id22" title="Link to this definition">¶</a></dt>
 <dd><p>Plots the displacements of nodes in a structural model.
 This method visualizes the displacements of nodes based on the provided
 displacement vector <cite>U</cite> and the valid degrees of freedom <cite>valid_dofs</cite>.
@@ -1652,8 +1677,8 @@ freedom (e.g., “Ux”, “Uy”, etc.).</p></li>
 </dd></dl>
 
 <dl class="py method">
-<dt class="sig sig-object py" id="id24">
-<span class="sig-name descname"><span class="pre">plot_reactions</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">Rn</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">valid_dofs</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#id24" title="Link to this definition">¶</a></dt>
+<dt class="sig sig-object py" id="id23">
+<span class="sig-name descname"><span class="pre">plot_reactions</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">Rn</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">valid_dofs</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#id23" title="Link to this definition">¶</a></dt>
 <dd><p>Plots the reaction forces at constrained degrees of freedom (DOFs) on the structure.
 This method visualizes the reaction forces at nodes where constraints are applied.
 It annotates the plot with the reaction force values for each constrained DOF.
@@ -1873,8 +1898,8 @@ It annotates the plot with the reaction force values for each constrained DOF.
 </dd></dl>
 
 <dl class="py method">
-<dt class="sig sig-object py" id="id25">
-<span class="sig-name descname"><span class="pre">add_element</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">element</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#id25" title="Link to this definition">¶</a></dt>
+<dt class="sig sig-object py" id="id24">
+<span class="sig-name descname"><span class="pre">add_element</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">element</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#id24" title="Link to this definition">¶</a></dt>
 <dd><p>Adds an element to the list of elements in the current object.
 :param element: The element to be added. This can be any object that</p>
 <blockquote>
@@ -1883,8 +1908,8 @@ It annotates the plot with the reaction force values for each constrained DOF.
 </dd></dl>
 
 <dl class="py method">
-<dt class="sig sig-object py" id="id26">
-<span class="sig-name descname"><span class="pre">add_node</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">node_coords</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#id26" title="Link to this definition">¶</a></dt>
+<dt class="sig sig-object py" id="id25">
+<span class="sig-name descname"><span class="pre">add_node</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">node_coords</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#id25" title="Link to this definition">¶</a></dt>
 <dd><p>Adds a new node to the structure with the specified coordinates.
 :param node_coords: The coordinates of the node to be added,</p>
 <blockquote>
@@ -1895,8 +1920,8 @@ It annotates the plot with the reaction force values for each constrained DOF.
 </dd></dl>
 
 <dl class="py method">
-<dt class="sig sig-object py" id="id27">
-<span class="sig-name descname"><span class="pre">add_node_load</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">load</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#id27" title="Link to this definition">¶</a></dt>
+<dt class="sig sig-object py" id="id26">
+<span class="sig-name descname"><span class="pre">add_node_load</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">load</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#id26" title="Link to this definition">¶</a></dt>
 <dd><p>Adds a load to the list of node loads.
 :param load: The load to be added to the node. This could be an instance</p>
 <blockquote>
@@ -1907,8 +1932,8 @@ It annotates the plot with the reaction force values for each constrained DOF.
 </dd></dl>
 
 <dl class="py method">
-<dt class="sig sig-object py" id="id28">
-<span class="sig-name descname"><span class="pre">add_support</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">node</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">restrains</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">values</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#id28" title="Link to this definition">¶</a></dt>
+<dt class="sig sig-object py" id="id27">
+<span class="sig-name descname"><span class="pre">add_support</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">node</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">restrains</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">values</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#id27" title="Link to this definition">¶</a></dt>
 <dd><p>Adds support boundary conditions to a specified node in the structure.
 :param node: The node index where the support is to be applied.
 :type node: int
@@ -1935,8 +1960,8 @@ defaults to zero for all restrained DOFs.</p>
 </dd></dl>
 
 <dl class="py method">
-<dt class="sig sig-object py" id="id29">
-<span class="sig-name descname"><span class="pre">force_diagram</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">element_id</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">plot</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">True</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#id29" title="Link to this definition">¶</a></dt>
+<dt class="sig sig-object py" id="id28">
+<span class="sig-name descname"><span class="pre">force_diagram</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">element_id</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">plot</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">True</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#id28" title="Link to this definition">¶</a></dt>
 <dd><p>Generates and plots the force diagram for a specified structural element.
 This method calculates the bending moment (My) and shear force (Vz) diagrams
 for a given structural element using finite element analysis. The results
@@ -1970,8 +1995,8 @@ for constraints.</p>
 </dd></dl>
 
 <dl class="py method">
-<dt class="sig sig-object py" id="id30">
-<span class="sig-name descname"><span class="pre">generate_dofs</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#id30" title="Link to this definition">¶</a></dt>
+<dt class="sig sig-object py" id="id29">
+<span class="sig-name descname"><span class="pre">generate_dofs</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#id29" title="Link to this definition">¶</a></dt>
 <dd><p>Generates the degrees of freedom (DOFs) for the nodes in the geometry.
 This method calculates the total number of DOFs based on the number of
 coordinates and the number of DOFs per node. It also assigns a list of
@@ -2007,8 +2032,8 @@ of its corresponding DOFs.</p>
 </dd></dl>
 
 <dl class="py method">
-<dt class="sig sig-object py" id="id31">
-<span class="sig-name descname"><span class="pre">numbering</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#id31" title="Link to this definition">¶</a></dt>
+<dt class="sig sig-object py" id="id30">
+<span class="sig-name descname"><span class="pre">numbering</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#id30" title="Link to this definition">¶</a></dt>
 <dd><p>Assigns degrees of freedom (DOFs) to the nodes and elements of the structure,
 and categorizes them into free and constrained DOFs based on boundary conditions.
 This method performs the following steps:
@@ -2075,8 +2100,8 @@ each having <cite>nodes</cite>, <cite>releases</cite>, and methods <cite>set_coo
 </dd></dl>
 
 <dl class="py method">
-<dt class="sig sig-object py" id="id32">
-<span class="sig-name descname"><span class="pre">plot</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">plot_labels</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">True</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">filename</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#id32" title="Link to this definition">¶</a></dt>
+<dt class="sig sig-object py" id="id31">
+<span class="sig-name descname"><span class="pre">plot</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">plot_labels</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">True</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">filename</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#id31" title="Link to this definition">¶</a></dt>
 <dd><p>Plots the 3D geometry of the structure, including nodes, elements, and boundary conditions.
 Nodes are represented as points, with boundary condition nodes highlighted in red.
 Elements are represented as lines connecting nodes, with colors corresponding to their sections.</p>
@@ -2101,8 +2126,8 @@ The name of the file to save the plot. If not provided, the plot will not be sav
 </dd></dl>
 
 <dl class="py method">
-<dt class="sig sig-object py" id="id33">
-<span class="sig-name descname"><span class="pre">plot_defo</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">mult</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">1</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">n_points</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">10</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">filename</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#id33" title="Link to this definition">¶</a></dt>
+<dt class="sig sig-object py" id="id32">
+<span class="sig-name descname"><span class="pre">plot_defo</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">mult</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">1</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">n_points</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">10</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">filename</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#id32" title="Link to this definition">¶</a></dt>
 <dd><p>Plots the deformed shape of a structure in 3D.
 :param mult: A multiplier for scaling the deformation. Default is 1.
 :type mult: float, optional
@@ -2303,8 +2328,8 @@ parent <cite>ElementLoad</cite> class with these values.
 <p>element = SomeElementClass()
 load = DistributedLoad(element, WX=10, WY=5, WZ=0, axis=’global’)</p>
 <dl class="py method">
-<dt class="sig sig-object py" id="id34">
-<span class="sig-name descname"><span class="pre">distributed_load</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">w</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">L</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#id34" title="Link to this definition">¶</a></dt>
+<dt class="sig sig-object py" id="id33">
+<span class="sig-name descname"><span class="pre">distributed_load</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">w</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">L</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#id33" title="Link to this definition">¶</a></dt>
 <dd></dd></dl>
 
 </dd></dl>
@@ -2470,8 +2495,8 @@ including forces and moments at the ends of the element.</p></li>
 the load components.</p></li>
 </ul>
 <dl class="py method">
-<dt class="sig sig-object py" id="id35">
-<span class="sig-name descname"><span class="pre">point_load</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">f</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">L</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">x</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#id35" title="Link to this definition">¶</a></dt>
+<dt class="sig sig-object py" id="id34">
+<span class="sig-name descname"><span class="pre">point_load</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">f</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">L</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">x</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#id34" title="Link to this definition">¶</a></dt>
 <dd><p>Calculate the moment and shear forces at the ends of a beam subjected to a point load.
 :param f: The magnitude of the point load applied to the beam.
 :type f: float
@@ -2583,8 +2608,8 @@ applied at a specific position along the element.</p>
 </dd>
 </dl>
 <dl class="py method">
-<dt class="sig sig-object py" id="id36">
-<span class="sig-name descname"><span class="pre">point_load</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">M</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">L</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">x</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#id36" title="Link to this definition">¶</a></dt>
+<dt class="sig sig-object py" id="id35">
+<span class="sig-name descname"><span class="pre">point_load</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">M</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">L</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">x</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#id35" title="Link to this definition">¶</a></dt>
 <dd></dd></dl>
 
 </dd></dl>
@@ -3312,8 +3337,8 @@ solves the reduced system, and reconstructs the solution vector for all DOFs.</p
 </dd></dl>
 
 <dl class="py method">
-<dt class="sig sig-object py" id="id37">
-<span class="sig-name descname"><span class="pre">solve</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#id37" title="Link to this definition">¶</a></dt>
+<dt class="sig sig-object py" id="id36">
+<span class="sig-name descname"><span class="pre">solve</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#id36" title="Link to this definition">¶</a></dt>
 <dd><p>Solves the system of linear equations to compute the displacements of the structure.
 This method processes the global stiffness matrix and force vector to remove degrees of
 freedom associated with free nodes that do not have any connected elements. It then solves
@@ -3394,6 +3419,12 @@ and reconstructs the full displacement vector.
 <li><a class="reference internal" href="#submodules">Submodules</a></li>
 <li><a class="reference internal" href="#module-ILHEB.Core">ILHEB.Core module</a><ul>
 <li><a class="reference internal" href="#ILHEB.Core.ILHEB"><code class="docutils literal notranslate"><span class="pre">ILHEB</span></code></a><ul>
+<li><a class="reference internal" href="#ILHEB.Core.ILHEB.geometry"><code class="docutils literal notranslate"><span class="pre">ILHEB.geometry</span></code></a></li>
+<li><a class="reference internal" href="#ILHEB.Core.ILHEB.ndof"><code class="docutils literal notranslate"><span class="pre">ILHEB.ndof</span></code></a></li>
+<li><a class="reference internal" href="#ILHEB.Core.ILHEB.elements"><code class="docutils literal notranslate"><span class="pre">ILHEB.elements</span></code></a></li>
+<li><a class="reference internal" href="#ILHEB.Core.ILHEB.node_dofs"><code class="docutils literal notranslate"><span class="pre">ILHEB.node_dofs</span></code></a></li>
+<li><a class="reference internal" href="#ILHEB.Core.ILHEB.node_loads"><code class="docutils literal notranslate"><span class="pre">ILHEB.node_loads</span></code></a></li>
+<li><a class="reference internal" href="#ILHEB.Core.ILHEB.solver"><code class="docutils literal notranslate"><span class="pre">ILHEB.solver</span></code></a></li>
 <li><a class="reference internal" href="#ILHEB.Core.ILHEB.assemble"><code class="docutils literal notranslate"><span class="pre">ILHEB.assemble()</span></code></a></li>
 <li><a class="reference internal" href="#ILHEB.Core.ILHEB.boundary_conditions"><code class="docutils literal notranslate"><span class="pre">ILHEB.boundary_conditions()</span></code></a></li>
 <li><a class="reference internal" href="#ILHEB.Core.ILHEB.force_diagrams"><code class="docutils literal notranslate"><span class="pre">ILHEB.force_diagrams()</span></code></a></li>
@@ -3405,11 +3436,6 @@ and reconstructs the full displacement vector.
 <li><a class="reference internal" href="#ILHEB.Core.ILHEB.solve"><code class="docutils literal notranslate"><span class="pre">ILHEB.solve()</span></code></a></li>
 </ul>
 </li>
-<li><a class="reference internal" href="#ILHEB.Core.ILHEB.self.K"><code class="docutils literal notranslate"><span class="pre">ILHEB.self.K</span></code></a></li>
-<li><a class="reference internal" href="#ILHEB.Core.ILHEB.self.F"><code class="docutils literal notranslate"><span class="pre">ILHEB.self.F</span></code></a></li>
-<li><a class="reference internal" href="#ILHEB.Core.ILHEB.self.S"><code class="docutils literal notranslate"><span class="pre">ILHEB.self.S</span></code></a></li>
-<li><a class="reference internal" href="#id0"><code class="docutils literal notranslate"><span class="pre">ILHEB.self.K</span></code></a></li>
-<li><a class="reference internal" href="#ILHEB.Core.ILHEB.self.ebc"><code class="docutils literal notranslate"><span class="pre">ILHEB.self.ebc</span></code></a></li>
 </ul>
 </li>
 <li><a class="reference internal" href="#module-ILHEB.Elements">ILHEB.Elements module</a><ul>
@@ -3439,18 +3465,18 @@ and reconstructs the full displacement vector.
 <li><a class="reference internal" href="#ILHEB.Elements.Element.set_displacements"><code class="docutils literal notranslate"><span class="pre">Element.set_displacements()</span></code></a></li>
 <li><a class="reference internal" href="#ILHEB.Elements.Element.calculate_pe"><code class="docutils literal notranslate"><span class="pre">Element.calculate_pe()</span></code></a></li>
 <li><a class="reference internal" href="#ILHEB.Elements.Element.save_results"><code class="docutils literal notranslate"><span class="pre">Element.save_results()</span></code></a></li>
-<li><a class="reference internal" href="#id1"><code class="docutils literal notranslate"><span class="pre">Element.add_load()</span></code></a></li>
-<li><a class="reference internal" href="#id2"><code class="docutils literal notranslate"><span class="pre">Element.calculate_fe()</span></code></a></li>
-<li><a class="reference internal" href="#id3"><code class="docutils literal notranslate"><span class="pre">Element.calculate_pe()</span></code></a></li>
-<li><a class="reference internal" href="#id4"><code class="docutils literal notranslate"><span class="pre">Element.dhermit_shape_functions()</span></code></a></li>
-<li><a class="reference internal" href="#id5"><code class="docutils literal notranslate"><span class="pre">Element.hermit_shape_functions()</span></code></a></li>
-<li><a class="reference internal" href="#id6"><code class="docutils literal notranslate"><span class="pre">Element.lagrange_shape_functions()</span></code></a></li>
-<li><a class="reference internal" href="#id7"><code class="docutils literal notranslate"><span class="pre">Element.pre_init()</span></code></a></li>
-<li><a class="reference internal" href="#id8"><code class="docutils literal notranslate"><span class="pre">Element.save_results()</span></code></a></li>
-<li><a class="reference internal" href="#id9"><code class="docutils literal notranslate"><span class="pre">Element.set_coords()</span></code></a></li>
-<li><a class="reference internal" href="#id10"><code class="docutils literal notranslate"><span class="pre">Element.set_displacements()</span></code></a></li>
-<li><a class="reference internal" href="#id11"><code class="docutils literal notranslate"><span class="pre">Element.set_dof()</span></code></a></li>
-<li><a class="reference internal" href="#id12"><code class="docutils literal notranslate"><span class="pre">Element.set_releases()</span></code></a></li>
+<li><a class="reference internal" href="#id0"><code class="docutils literal notranslate"><span class="pre">Element.add_load()</span></code></a></li>
+<li><a class="reference internal" href="#id1"><code class="docutils literal notranslate"><span class="pre">Element.calculate_fe()</span></code></a></li>
+<li><a class="reference internal" href="#id2"><code class="docutils literal notranslate"><span class="pre">Element.calculate_pe()</span></code></a></li>
+<li><a class="reference internal" href="#id3"><code class="docutils literal notranslate"><span class="pre">Element.dhermit_shape_functions()</span></code></a></li>
+<li><a class="reference internal" href="#id4"><code class="docutils literal notranslate"><span class="pre">Element.hermit_shape_functions()</span></code></a></li>
+<li><a class="reference internal" href="#id5"><code class="docutils literal notranslate"><span class="pre">Element.lagrange_shape_functions()</span></code></a></li>
+<li><a class="reference internal" href="#id6"><code class="docutils literal notranslate"><span class="pre">Element.pre_init()</span></code></a></li>
+<li><a class="reference internal" href="#id7"><code class="docutils literal notranslate"><span class="pre">Element.save_results()</span></code></a></li>
+<li><a class="reference internal" href="#id8"><code class="docutils literal notranslate"><span class="pre">Element.set_coords()</span></code></a></li>
+<li><a class="reference internal" href="#id9"><code class="docutils literal notranslate"><span class="pre">Element.set_displacements()</span></code></a></li>
+<li><a class="reference internal" href="#id10"><code class="docutils literal notranslate"><span class="pre">Element.set_dof()</span></code></a></li>
+<li><a class="reference internal" href="#id11"><code class="docutils literal notranslate"><span class="pre">Element.set_releases()</span></code></a></li>
 </ul>
 </li>
 <li><a class="reference internal" href="#ILHEB.Elements.FrameElement2D"><code class="docutils literal notranslate"><span class="pre">FrameElement2D</span></code></a><ul>
@@ -3460,10 +3486,10 @@ and reconstructs the full displacement vector.
 <li><a class="reference internal" href="#ILHEB.Elements.FrameElement2D.transformation_matrix"><code class="docutils literal notranslate"><span class="pre">FrameElement2D.transformation_matrix()</span></code></a></li>
 <li><a class="reference internal" href="#ILHEB.Elements.FrameElement2D.stiffness_matrix"><code class="docutils literal notranslate"><span class="pre">FrameElement2D.stiffness_matrix()</span></code></a></li>
 <li><a class="reference internal" href="#ILHEB.Elements.FrameElement2D.interpolate_displacements"><code class="docutils literal notranslate"><span class="pre">FrameElement2D.interpolate_displacements()</span></code></a></li>
-<li><a class="reference internal" href="#id13"><code class="docutils literal notranslate"><span class="pre">FrameElement2D.interpolate_displacements()</span></code></a></li>
-<li><a class="reference internal" href="#id14"><code class="docutils literal notranslate"><span class="pre">FrameElement2D.stiffness_matrix()</span></code></a></li>
-<li><a class="reference internal" href="#id15"><code class="docutils literal notranslate"><span class="pre">FrameElement2D.true_dofs</span></code></a></li>
-<li><a class="reference internal" href="#id16"><code class="docutils literal notranslate"><span class="pre">FrameElement2D.transformation_matrix()</span></code></a></li>
+<li><a class="reference internal" href="#id12"><code class="docutils literal notranslate"><span class="pre">FrameElement2D.interpolate_displacements()</span></code></a></li>
+<li><a class="reference internal" href="#id13"><code class="docutils literal notranslate"><span class="pre">FrameElement2D.stiffness_matrix()</span></code></a></li>
+<li><a class="reference internal" href="#id14"><code class="docutils literal notranslate"><span class="pre">FrameElement2D.true_dofs</span></code></a></li>
+<li><a class="reference internal" href="#id15"><code class="docutils literal notranslate"><span class="pre">FrameElement2D.transformation_matrix()</span></code></a></li>
 </ul>
 </li>
 <li><a class="reference internal" href="#ILHEB.Elements.FrameElement3D"><code class="docutils literal notranslate"><span class="pre">FrameElement3D</span></code></a><ul>
@@ -3475,9 +3501,9 @@ and reconstructs the full displacement vector.
 <li><a class="reference internal" href="#ILHEB.Elements.FrameElement3D.transformation_matrix"><code class="docutils literal notranslate"><span class="pre">FrameElement3D.transformation_matrix()</span></code></a></li>
 <li><a class="reference internal" href="#ILHEB.Elements.FrameElement3D.stiffness_matrix"><code class="docutils literal notranslate"><span class="pre">FrameElement3D.stiffness_matrix()</span></code></a></li>
 <li><a class="reference internal" href="#ILHEB.Elements.FrameElement3D.interpolate_displacements"><code class="docutils literal notranslate"><span class="pre">FrameElement3D.interpolate_displacements()</span></code></a></li>
-<li><a class="reference internal" href="#id17"><code class="docutils literal notranslate"><span class="pre">FrameElement3D.interpolate_displacements()</span></code></a></li>
-<li><a class="reference internal" href="#id18"><code class="docutils literal notranslate"><span class="pre">FrameElement3D.stiffness_matrix()</span></code></a></li>
-<li><a class="reference internal" href="#id19"><code class="docutils literal notranslate"><span class="pre">FrameElement3D.transformation_matrix()</span></code></a></li>
+<li><a class="reference internal" href="#id16"><code class="docutils literal notranslate"><span class="pre">FrameElement3D.interpolate_displacements()</span></code></a></li>
+<li><a class="reference internal" href="#id17"><code class="docutils literal notranslate"><span class="pre">FrameElement3D.stiffness_matrix()</span></code></a></li>
+<li><a class="reference internal" href="#id18"><code class="docutils literal notranslate"><span class="pre">FrameElement3D.transformation_matrix()</span></code></a></li>
 </ul>
 </li>
 <li><a class="reference internal" href="#ILHEB.Elements.TrussElement2D"><code class="docutils literal notranslate"><span class="pre">TrussElement2D</span></code></a><ul>
@@ -3504,11 +3530,11 @@ and reconstructs the full displacement vector.
 <li><a class="reference internal" href="#ILHEB.Geometry.Geometry2D.force_diagram"><code class="docutils literal notranslate"><span class="pre">Geometry2D.force_diagram()</span></code></a></li>
 <li><a class="reference internal" href="#ILHEB.Geometry.Geometry2D.plot_reactions"><code class="docutils literal notranslate"><span class="pre">Geometry2D.plot_reactions()</span></code></a></li>
 <li><a class="reference internal" href="#ILHEB.Geometry.Geometry2D.plot_displacements"><code class="docutils literal notranslate"><span class="pre">Geometry2D.plot_displacements()</span></code></a></li>
-<li><a class="reference internal" href="#id20"><code class="docutils literal notranslate"><span class="pre">Geometry2D.force_diagram()</span></code></a></li>
-<li><a class="reference internal" href="#id21"><code class="docutils literal notranslate"><span class="pre">Geometry2D.plot()</span></code></a></li>
-<li><a class="reference internal" href="#id22"><code class="docutils literal notranslate"><span class="pre">Geometry2D.plot_defo()</span></code></a></li>
-<li><a class="reference internal" href="#id23"><code class="docutils literal notranslate"><span class="pre">Geometry2D.plot_displacements()</span></code></a></li>
-<li><a class="reference internal" href="#id24"><code class="docutils literal notranslate"><span class="pre">Geometry2D.plot_reactions()</span></code></a></li>
+<li><a class="reference internal" href="#id19"><code class="docutils literal notranslate"><span class="pre">Geometry2D.force_diagram()</span></code></a></li>
+<li><a class="reference internal" href="#id20"><code class="docutils literal notranslate"><span class="pre">Geometry2D.plot()</span></code></a></li>
+<li><a class="reference internal" href="#id21"><code class="docutils literal notranslate"><span class="pre">Geometry2D.plot_defo()</span></code></a></li>
+<li><a class="reference internal" href="#id22"><code class="docutils literal notranslate"><span class="pre">Geometry2D.plot_displacements()</span></code></a></li>
+<li><a class="reference internal" href="#id23"><code class="docutils literal notranslate"><span class="pre">Geometry2D.plot_reactions()</span></code></a></li>
 </ul>
 </li>
 <li><a class="reference internal" href="#ILHEB.Geometry.Geometry3D"><code class="docutils literal notranslate"><span class="pre">Geometry3D</span></code></a><ul>
@@ -3532,15 +3558,15 @@ and reconstructs the full displacement vector.
 <li><a class="reference internal" href="#ILHEB.Geometry.Geometry3D.plot"><code class="docutils literal notranslate"><span class="pre">Geometry3D.plot()</span></code></a></li>
 <li><a class="reference internal" href="#ILHEB.Geometry.Geometry3D.plot_defo"><code class="docutils literal notranslate"><span class="pre">Geometry3D.plot_defo()</span></code></a></li>
 <li><a class="reference internal" href="#ILHEB.Geometry.Geometry3D.force_diagram"><code class="docutils literal notranslate"><span class="pre">Geometry3D.force_diagram()</span></code></a></li>
-<li><a class="reference internal" href="#id25"><code class="docutils literal notranslate"><span class="pre">Geometry3D.add_element()</span></code></a></li>
-<li><a class="reference internal" href="#id26"><code class="docutils literal notranslate"><span class="pre">Geometry3D.add_node()</span></code></a></li>
-<li><a class="reference internal" href="#id27"><code class="docutils literal notranslate"><span class="pre">Geometry3D.add_node_load()</span></code></a></li>
-<li><a class="reference internal" href="#id28"><code class="docutils literal notranslate"><span class="pre">Geometry3D.add_support()</span></code></a></li>
-<li><a class="reference internal" href="#id29"><code class="docutils literal notranslate"><span class="pre">Geometry3D.force_diagram()</span></code></a></li>
-<li><a class="reference internal" href="#id30"><code class="docutils literal notranslate"><span class="pre">Geometry3D.generate_dofs()</span></code></a></li>
-<li><a class="reference internal" href="#id31"><code class="docutils literal notranslate"><span class="pre">Geometry3D.numbering()</span></code></a></li>
-<li><a class="reference internal" href="#id32"><code class="docutils literal notranslate"><span class="pre">Geometry3D.plot()</span></code></a></li>
-<li><a class="reference internal" href="#id33"><code class="docutils literal notranslate"><span class="pre">Geometry3D.plot_defo()</span></code></a></li>
+<li><a class="reference internal" href="#id24"><code class="docutils literal notranslate"><span class="pre">Geometry3D.add_element()</span></code></a></li>
+<li><a class="reference internal" href="#id25"><code class="docutils literal notranslate"><span class="pre">Geometry3D.add_node()</span></code></a></li>
+<li><a class="reference internal" href="#id26"><code class="docutils literal notranslate"><span class="pre">Geometry3D.add_node_load()</span></code></a></li>
+<li><a class="reference internal" href="#id27"><code class="docutils literal notranslate"><span class="pre">Geometry3D.add_support()</span></code></a></li>
+<li><a class="reference internal" href="#id28"><code class="docutils literal notranslate"><span class="pre">Geometry3D.force_diagram()</span></code></a></li>
+<li><a class="reference internal" href="#id29"><code class="docutils literal notranslate"><span class="pre">Geometry3D.generate_dofs()</span></code></a></li>
+<li><a class="reference internal" href="#id30"><code class="docutils literal notranslate"><span class="pre">Geometry3D.numbering()</span></code></a></li>
+<li><a class="reference internal" href="#id31"><code class="docutils literal notranslate"><span class="pre">Geometry3D.plot()</span></code></a></li>
+<li><a class="reference internal" href="#id32"><code class="docutils literal notranslate"><span class="pre">Geometry3D.plot_defo()</span></code></a></li>
 <li><a class="reference internal" href="#ILHEB.Geometry.Geometry3D.plot_displacements"><code class="docutils literal notranslate"><span class="pre">Geometry3D.plot_displacements()</span></code></a></li>
 <li><a class="reference internal" href="#ILHEB.Geometry.Geometry3D.plot_reactions"><code class="docutils literal notranslate"><span class="pre">Geometry3D.plot_reactions()</span></code></a></li>
 </ul>
@@ -3559,7 +3585,7 @@ and reconstructs the full displacement vector.
 <li><a class="reference internal" href="#ILHEB.Loads.DistributedLoad.axis"><code class="docutils literal notranslate"><span class="pre">DistributedLoad.axis</span></code></a></li>
 <li><a class="reference internal" href="#ILHEB.Loads.DistributedLoad.__call__"><code class="docutils literal notranslate"><span class="pre">DistributedLoad.__call__()</span></code></a></li>
 <li><a class="reference internal" href="#ILHEB.Loads.DistributedLoad.distributed_load"><code class="docutils literal notranslate"><span class="pre">DistributedLoad.distributed_load()</span></code></a></li>
-<li><a class="reference internal" href="#id34"><code class="docutils literal notranslate"><span class="pre">DistributedLoad.distributed_load()</span></code></a></li>
+<li><a class="reference internal" href="#id33"><code class="docutils literal notranslate"><span class="pre">DistributedLoad.distributed_load()</span></code></a></li>
 </ul>
 </li>
 <li><a class="reference internal" href="#ILHEB.Loads.ElementLoad"><code class="docutils literal notranslate"><span class="pre">ElementLoad</span></code></a><ul>
@@ -3577,7 +3603,7 @@ and reconstructs the full displacement vector.
 <li><a class="reference internal" href="#ILHEB.Loads.ForcePointLoad.__init__"><code class="docutils literal notranslate"><span class="pre">ForcePointLoad.__init__()</span></code></a></li>
 <li><a class="reference internal" href="#ILHEB.Loads.ForcePointLoad.point_load"><code class="docutils literal notranslate"><span class="pre">ForcePointLoad.point_load()</span></code></a></li>
 <li><a class="reference internal" href="#ILHEB.Loads.ForcePointLoad.__call__"><code class="docutils literal notranslate"><span class="pre">ForcePointLoad.__call__()</span></code></a></li>
-<li><a class="reference internal" href="#id35"><code class="docutils literal notranslate"><span class="pre">ForcePointLoad.point_load()</span></code></a></li>
+<li><a class="reference internal" href="#id34"><code class="docutils literal notranslate"><span class="pre">ForcePointLoad.point_load()</span></code></a></li>
 </ul>
 </li>
 <li><a class="reference internal" href="#ILHEB.Loads.MomentPointLoad"><code class="docutils literal notranslate"><span class="pre">MomentPointLoad</span></code></a><ul>
@@ -3588,7 +3614,7 @@ and reconstructs the full displacement vector.
 <li><a class="reference internal" href="#ILHEB.Loads.MomentPointLoad.function"><code class="docutils literal notranslate"><span class="pre">MomentPointLoad.function</span></code></a></li>
 <li><a class="reference internal" href="#ILHEB.Loads.MomentPointLoad.point_load"><code class="docutils literal notranslate"><span class="pre">MomentPointLoad.point_load()</span></code></a></li>
 <li><a class="reference internal" href="#ILHEB.Loads.MomentPointLoad.__call__"><code class="docutils literal notranslate"><span class="pre">MomentPointLoad.__call__()</span></code></a></li>
-<li><a class="reference internal" href="#id36"><code class="docutils literal notranslate"><span class="pre">MomentPointLoad.point_load()</span></code></a></li>
+<li><a class="reference internal" href="#id35"><code class="docutils literal notranslate"><span class="pre">MomentPointLoad.point_load()</span></code></a></li>
 </ul>
 </li>
 <li><a class="reference internal" href="#ILHEB.Loads.NodeLoad"><code class="docutils literal notranslate"><span class="pre">NodeLoad</span></code></a><ul>
@@ -3675,7 +3701,7 @@ and reconstructs the full displacement vector.
 <li><a class="reference internal" href="#module-ILHEB.Solver">ILHEB.Solver module</a><ul>
 <li><a class="reference internal" href="#ILHEB.Solver.LinearSolver"><code class="docutils literal notranslate"><span class="pre">LinearSolver</span></code></a><ul>
 <li><a class="reference internal" href="#ILHEB.Solver.LinearSolver.solve"><code class="docutils literal notranslate"><span class="pre">LinearSolver.solve()</span></code></a></li>
-<li><a class="reference internal" href="#id37"><code class="docutils literal notranslate"><span class="pre">LinearSolver.solve()</span></code></a></li>
+<li><a class="reference internal" href="#id36"><code class="docutils literal notranslate"><span class="pre">LinearSolver.solve()</span></code></a></li>
 </ul>
 </li>
 </ul>
