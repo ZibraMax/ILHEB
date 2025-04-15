@@ -1,0 +1,16 @@
+__pycache__/
+.venv/
+ipynb_checkpoints/
+dist/
+build/
+temp/
+*.pyc
+secrets.txt
+*.cpython-37.pyc
+*.csv
+*.log
+*.svg
+*.txt
+*.sublime*
+*.pdf
+*.zip
