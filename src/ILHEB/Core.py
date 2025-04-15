@@ -7,6 +7,24 @@ from scipy import sparse
 
 
 class ILHEB:
+    """
+    Initializes the Core object with the given geometry and sets up the
+    necessary attributes for structural analysis.
+
+    Args:
+        geometry (Geometry): An instance of the Geometry class that defines
+            the structure's nodes, elements, and degrees of freedom.
+
+    Attributes:
+
+        geometry (Geometry): The geometry object associated with the structure.
+        ndof (int): The total number of degrees of freedom in the structure.
+        elements (list): A list of elements in the structure.
+        node_dofs (dict): A mapping of nodes to their corresponding degrees of freedom.
+        node_loads (dict): A mapping of nodes to their applied loads.
+        solver (LinearSolver): An instance of the LinearSolver class for solving the structural analysis problem.
+    """
+
     def __init__(self, geometry):
         """
         Initializes the Core object with the given geometry and sets up the
@@ -15,14 +33,6 @@ class ILHEB:
         Args:
             geometry (Geometry): An instance of the Geometry class that defines
                 the structure's nodes, elements, and degrees of freedom.
-
-        Attributes:
-            geometry (Geometry): The geometry object associated with the structure.
-            ndof (int): The total number of degrees of freedom in the structure.
-            elements (list): A list of elements in the structure.
-            node_dofs (dict): A mapping of nodes to their corresponding degrees of freedom.
-            node_loads (dict): A mapping of nodes to their applied loads.
-            solver (LinearSolver): An instance of the LinearSolver class for solving the structural analysis problem.
         """
         geometry.numbering()
         self.geometry = geometry
@@ -39,11 +49,6 @@ class ILHEB:
         iterating over the elements and node loads in the system. It uses sparse
         matrices for efficiency and handles contributions from both element-level
         stiffness/force and node-level loads.
-
-        Attributes:
-
-            self.K (scipy.sparse.lil_matrix): The assembled global stiffness matrix.
-            self.F (numpy.ndarray): The assembled global force vector.
 
         Process:
 
@@ -84,20 +89,17 @@ class ILHEB:
         constraints specified in the `ebc` attribute of the geometry object.
         The `ebc` is expected to be an array where each row specifies a degree
         of freedom (DOF) and its corresponding constrained value.
-        Steps performed:
-        1. Initializes the boundary conditions vector.
-        2. Modifies the stiffness matrix (K) to enforce constraints by zeroing out
-        rows and columns corresponding to constrained DOFs and setting diagonal
-        entries to 1.
-        3. Adjusts the force vector (S) to account for the constraints.
-        4. Updates the force vector with the constrained values for the specified DOFs.
 
-        Attributes:
+        Process:
 
-            self.S (numpy.ndarray): The force vector, modified to include boundary conditions.
-            self.K (numpy.ndarray): The stiffness matrix, modified to enforce boundary conditions.
-            self.ebc (numpy.ndarray): Array of essential boundary conditions, where each row
-                                      contains a DOF index and its constrained value.
+            1. Initializes the boundary conditions vector.
+            2. Modifies the stiffness matrix (K) to enforce constraints by zeroing out
+               rows and columns corresponding to constrained DOFs and setting diagonal
+               entries to 1.
+            3. Adjusts the force vector (S) to account for the constraints.
+            4. Updates the force vector with the constrained values for the specified DOFs.
+
+
         Raises:
             AttributeError: If `self.geometry` or `self.geometry.ebc` is not defined.
         """
@@ -124,12 +126,11 @@ class ILHEB:
         """
         Solves the structural analysis problem by assembling the system,
         applying boundary conditions, and solving for displacements.
-        This method performs the following steps:
-        1. Assembles the global stiffness matrix and load vector.
-        2. Applies the specified boundary conditions to the system.
-        3. Solves the resulting system of equations to compute the displacement vector.
-        Attributes:
-            U (numpy.ndarray): The computed displacement vector after solving the system.
+
+        Process:
+            1. Assembles the global stiffness matrix and load vector.
+            2. Applies the specified boundary conditions to the system.
+            3. Solves the resulting system of equations to compute the displacement vector.
         """
 
         self.assemble()
@@ -141,15 +142,14 @@ class ILHEB:
         Perform post-processing operations for the structural analysis.
         This method calculates the reactions, updates element displacements,
         and computes interna forces for each element after the analysis.
-        Steps:
-        1. Assemble the global stiffness matrix and force vector.
-        2. Compute the reaction forces using the global stiffness matrix,
-           displacement vector, and external force vector.
-        3. Update the displacements for each element based on the global
-           displacement vector.
-        4. Calculate the internal forces for each element.
-        Attributes:
-            self.R (numpy.ndarray): Reaction forces vector.
+
+        Process:
+            1. Assemble the global stiffness matrix and force vector.
+            2. Compute the reaction forces using the global stiffness matrix,
+            displacement vector, and external force vector.
+            3. Update the displacements for each element based on the global
+            displacement vector.
+            4. Calculate the internal forces for each element.
         """
 
         # Reactions
@@ -165,8 +165,10 @@ class ILHEB:
         This method creates the specified folder if it does not already exist
         and saves the displacement vector, reaction forces, and element-specific
         results into separate files within the folder.
+
         Args:
             folder (str): The path to the folder where the results will be saved.
+
         Raises:
             Exception: If an error occurs while creating the folder, it is caught
                        and ignored.
@@ -214,6 +216,20 @@ class ILHEB:
             self.geometry.force_diagram(i, False)
 
     def generate_report(self, filename):
+        """
+        Generates a PDF report containing all currently open matplotlib figures.
+        Args:
+            filename (str): The path and name of the PDF file to save the report.
+        Raises:
+            Exception: If an error occurs during the report generation, it will be caught
+                       and printed to the console.
+        Notes:
+            - This method uses `matplotlib.backends.backend_pdf.PdfPages` to create a multi-page
+              PDF document.
+            - All figures currently open in matplotlib (retrieved using `plt.get_fignums()`) 
+              will be included in the PDF.
+        """
+
         try:
             import matplotlib.backends.backend_pdf
             pdf = matplotlib.backends.backend_pdf.PdfPages(filename)
