@@ -10,6 +10,10 @@ class ILHEB:
     """
     Initializes the Core object with the given geometry and sets up the
     necessary attributes for structural analysis.
+    Args:
+        geometry (Geometry): An instance of the Geometry class that defines
+                                the structural geometry, including nodes, elements,
+                                and degrees of freedom.
 
     Attributes:
 
@@ -20,10 +24,6 @@ class ILHEB:
         node_loads (dict): A mapping of nodes to their applied loads.
         solver (LinearSolver): An instance of the LinearSolver class for solving the structural analysis problem.
 
-    Args:
-        geometry (Geometry): An instance of the Geometry class that defines
-                                the structural geometry, including nodes, elements,
-                                and degrees of freedom.
     """
 
     def __init__(self, geometry):
