@@ -11,10 +11,6 @@ class ILHEB:
     Initializes the Core object with the given geometry and sets up the
     necessary attributes for structural analysis.
 
-    Args:
-        geometry (Geometry): An instance of the Geometry class that defines
-            the structure's nodes, elements, and degrees of freedom.
-
     Attributes:
 
         geometry (Geometry): The geometry object associated with the structure.
@@ -27,13 +23,13 @@ class ILHEB:
 
     def __init__(self, geometry):
         """
-        Initializes the Core object with the given geometry and sets up the
-        necessary attributes for structural analysis.
-
+        Initializes the Core object with the given geometry.
         Args:
             geometry (Geometry): An instance of the Geometry class that defines
-                the structure's nodes, elements, and degrees of freedom.
+                                 the structural geometry, including nodes, elements,
+                                 and degrees of freedom.
         """
+
         geometry.numbering()
         self.geometry = geometry
         self.ndof = self.geometry.ndofs
