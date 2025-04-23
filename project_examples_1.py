@@ -6,8 +6,8 @@ import matplotlib.pyplot as plt
 # Define the parameters of the problem
 geo = HEB.Geometry2D()
 
-L1 = 12.0
-L2 = 8.0
+L1 = 12.0*12
+L2 = 8.0*12
 settlement = -0.5
 
 
@@ -23,9 +23,9 @@ geo.add_node([3*L1, 0.0])
 geo.add_support(0, [True, True, True])
 geo.add_support(4, [False, True, True], [0, settlement, 0])
 
-material = HEB.LinearElasticBase(29000, 0.3)
-section_1 = HEB.General(A=3.5, v=np.array([0, 1.0, 0.0]))
-section_2 = HEB.General(A=2.5, v=np.array([0, 1.0, 0.0]))
+material = HEB.LinearElasticBase(29000000, 0.3)
+section_1 = HEB.General(A=2.5, v=np.array([0, 1.0, 0.0]))
+section_2 = HEB.General(A=3.5, v=np.array([0, 1.0, 0.0]))
 
 
 e = HEB.TrussElement2D([0, 1], section_1, material)
@@ -57,18 +57,18 @@ geo.add_element(e)
 e = HEB.TrussElement2D([7, 3], section_1, material)
 geo.add_element(e)
 
-load = HEB.NodeLoad2D(5, PY=-25)
+load = HEB.NodeLoad2D(5, PY=-25000)
 geo.add_node_load(load)
-load = HEB.NodeLoad2D(6, PY=-20)
+load = HEB.NodeLoad2D(6, PY=-20000)
 geo.add_node_load(load)
-load = HEB.NodeLoad2D(7, PY=-20)
+load = HEB.NodeLoad2D(7, PY=-20000)
 geo.add_node_load(load)
 
 O = HEB.ILHEB(geo)
 geo.plot()
 O.solve()
 O.post_process()
-geo.plot_defo(mult=1, n_points=2)
+geo.plot_defo(mult=30, n_points=2)
 O.plot_reactions()
 O.plot_displacements()
 O.force_diagrams()
